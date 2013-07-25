@@ -59,5 +59,4 @@ function init() {
     myMap.controls.add('zoomControl');
     myMap.controls.add('typeSelector');
     myMap.geoObjects.add(myPlacemark);
-
 }
