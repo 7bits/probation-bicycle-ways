@@ -1,0 +1,8 @@
+package likebyke
+
+class Point {
+	int latitude
+    int longitude
+	int count
+
+}
