@@ -8,7 +8,10 @@ class RouteController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST", get_route: "GET"]
 
     def get_route() {
-        def route = [testdata: 123]
+        def route = [ 
+            route_1: [0: [0: 54.974562, 1: 73.401431], 1: [0: 54.975935, 1: 73.404521], 2: [0: 54.976155, 1: 73.408362], 3: [0: 54.975436, 1: 73.407396]],
+            route_2: [0: [0: 54.974562, 1: 73.401431], 1: [0: 1, 1: 1], 2: [0: 54.976155, 1: 73.408362], 3: [0: 54.975436, 1: 73.407396]], 
+        ];
         render route as JSON
     }
 

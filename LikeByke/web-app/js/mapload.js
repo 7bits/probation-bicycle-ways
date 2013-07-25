@@ -10,20 +10,40 @@ function init() {
         balloonContent: 'Это наш город!!!'
     });
     
-    var myRoute = [
-        [54.974562, 73.401431],
-        [54.975935, 73.404521],
-        [54.976155, 73.408362],
-        [54.975436, 73.407396]
-    ];
-
     $.ajax({
       url: "route/get_route", 
       type: "get", 
       dataType: "json",
     
       success: function(data){
-        alert(data.testdata);
+        $.each(data, function(route, val_r) {
+          var myRoute = [];
+          $.each(val_r, function(point, val_p) {
+            var Point = [];
+            $.each(val_p, function(coord, val_c) {
+              Point.push(val_c);
+            })
+            alert(Point);
+            myRoute.push(Point);
+          })
+          var myGeoObject = new ymaps.GeoObject({
+            geometry: {  
+                type: "LineString",
+                coordinates: myRoute
+            },
+            properties:{
+                hintContent: "маршрут",
+                balloonContent: "тут кто-то проехал"
+            }
+          },{
+            draggable: false,
+            strokeColor: "#FF0000",
+            strokeWidth: 5,
+            strokeOpacity: 0.5
+          });
+
+    myMap.geoObjects.add(myGeoObject);  
+        });
           //document.getElementById('msgform').style.display = 'none';
           //var divpop = document.getElementById('form');
           //var p = document.createElement('msg');    
@@ -37,24 +57,6 @@ function init() {
           alert(data);
       }
     })
-     // Создаем ломаную, используя класс GeoObject.
-    var myGeoObject = new ymaps.GeoObject({
-            geometry: {  
-                type: "LineString",
-                coordinates: myRoute
-            },
-            properties:{
-                hintContent: "маршрут",
-                balloonContent: "тут кто-то проехал"
-            }
-        },{
-            draggable: false,
-            strokeColor: "#FFFF00",
-            strokeWidth: 5,
-            strokeOpacity: 0.5
-        });
-
-    myMap.geoObjects.add(myGeoObject);
 
     myMap.controls.add('zoomControl');
     myMap.controls.add('typeSelector');
