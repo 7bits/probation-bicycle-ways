@@ -7,7 +7,7 @@
 		<g:message code="point.latitude.label" default="Latitude" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="latitude" type="number" value="${pointInstance.latitude}" required=""/>
+	<g:field name="latitude" value="${fieldValue(bean: pointInstance, field: 'latitude')}" required=""/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: pointInstance, field: 'longitude', 'error')} required">
@@ -15,15 +15,15 @@
 		<g:message code="point.longitude.label" default="Longitude" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="longitude" type="number" value="${pointInstance.longitude}" required=""/>
+	<g:field name="longitude" value="${fieldValue(bean: pointInstance, field: 'longitude')}" required=""/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: pointInstance, field: 'routeId', 'error')} required">
-	<label for="routeId">
-		<g:message code="point.routeId.label" default="Route Id" />
+<div class="fieldcontain ${hasErrors(bean: pointInstance, field: 'route', 'error')} required">
+	<label for="route">
+		<g:message code="point.route.label" default="Route" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="routeId" name="routeId.id" from="${likebyke.Route.list()}" optionKey="id" required="" value="${pointInstance?.routeId?.id}" class="many-to-one"/>
+	<g:select id="route" name="route.id" from="${likebyke.Route.list()}" optionKey="id" required="" value="${pointInstance?.route?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: pointInstance, field: 'route_index', 'error')} required">

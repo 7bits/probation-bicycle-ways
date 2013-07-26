@@ -41,11 +41,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${pointInstance?.routeId}">
+				<g:if test="${pointInstance?.route}">
 				<li class="fieldcontain">
-					<span id="routeId-label" class="property-label"><g:message code="point.routeId.label" default="Route Id" /></span>
+					<span id="route-label" class="property-label"><g:message code="point.route.label" default="Route" /></span>
 					
-						<span class="property-value" aria-labelledby="routeId-label"><g:link controller="route" action="show" id="${pointInstance?.routeId?.id}">${pointInstance?.routeId?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="route-label"><g:link controller="route" action="show" id="${pointInstance?.route?.id}">${pointInstance?.route?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

@@ -28,7 +28,7 @@
 					
 						<g:sortableColumn property="longitude" title="${message(code: 'point.longitude.label', default: 'Longitude')}" />
 					
-						<th><g:message code="point.routeId.label" default="Route Id" /></th>
+						<th><g:message code="point.route.label" default="Route" /></th>
 					
 						<g:sortableColumn property="route_index" title="${message(code: 'point.route_index.label', default: 'Routeindex')}" />
 					
@@ -42,7 +42,7 @@
 					
 						<td>${fieldValue(bean: pointInstance, field: "longitude")}</td>
 					
-						<td>${fieldValue(bean: pointInstance, field: "routeId")}</td>
+						<td>${fieldValue(bean: pointInstance, field: "route")}</td>
 					
 						<td>${fieldValue(bean: pointInstance, field: "route_index")}</td>
 					

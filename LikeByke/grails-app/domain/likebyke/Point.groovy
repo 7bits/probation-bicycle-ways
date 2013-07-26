@@ -1,9 +1,9 @@
 package likebyke
 
 class Point {
-	int latitude
-    int longitude
+	double latitude
+    double longitude
 	int route_index
 
-	Route routeId
+	Route route
 }

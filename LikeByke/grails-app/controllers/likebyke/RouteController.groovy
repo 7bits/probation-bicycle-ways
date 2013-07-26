@@ -5,13 +5,21 @@ import grails.converters.*
 
 class RouteController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST", get_route: "GET"]
-
+    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    
     def get_route() {
-        def route = [ 
-            route_1: [0: [0: 54.974562, 1: 73.401431], 1: [0: 54.975935, 1: 73.404521], 2: [0: 54.976155, 1: 73.408362], 3: [0: 54.975436, 1: 73.407396]],
-            route_2: [0: [0: 54.974562, 1: 73.401431], 1: [0: 1, 1: 1], 2: [0: 54.976155, 1: 73.408362], 3: [0: 54.975436, 1: 73.407396]], 
-        ];
+        def routes = [ Route.list() ];
+        def route = [];
+        def i = 0;
+        Route.list().each{
+            //def routeName = it.name;
+            def Points = [];
+            it.point.each{
+                Points[it.route_index] = [it.latitude, it.longitude];
+            }
+            route[i] = Points;
+            i = i + 1;        
+        }
         render route as JSON
     }
 

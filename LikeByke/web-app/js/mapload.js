@@ -23,9 +23,9 @@ function init() {
             $.each(val_p, function(coord, val_c) {
               Point.push(val_c);
             })
-            alert(Point);
             myRoute.push(Point);
           })
+          alert(myRoute);
           var myGeoObject = new ymaps.GeoObject({
             geometry: {  
                 type: "LineString",
