@@ -1,3 +1,9 @@
+const  MIN_LAT = 54;
+const  MAX_LAT = 55;
+const  MIN_LONG = 74;
+const  MAX_LONG = 76;
+
+
 ymaps.ready(init);
 
 function init() {
@@ -9,7 +15,15 @@ function init() {
         content: 'Омск!',
         balloonContent: 'Это наш город!!!'
     });
-    
+    for (var i = 0; i < 100; i++) {
+      ymaps.route([
+        [Math.random() * (MAX_LAT - MIN_LAT) + MIN_LAT, Math.random() * (MAX_LONG - MIN_LONG) + MIN_LONG],
+        [Math.random() * (MAX_LAT - MIN_LAT) + MIN_LAT, Math.random() * (MAX_LONG - MIN_LONG) + MIN_LONG]
+      ]).then(function (route) {
+        myMap.geoObjects.add(route);
+      })
+    }
+
     $.ajax({
       url: "route/get_route", 
       type: "get", 
@@ -50,7 +64,6 @@ function init() {
           alert(data);
       }
     })
-
     myMap.controls.add('zoomControl');
     myMap.controls.add('typeSelector');
     //myMap.geoObjects.add(myPlacemark);
