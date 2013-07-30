@@ -1,7 +1,7 @@
 Создание БД
 
-CREATE DATABASE likeByke character set utf8 collate utf8_general_ci;
-GRANT All ON likeByke.* TO 'sbogdanov'@'localhost' IDENTIFIED BY 'mysql';
+CREATE DATABASE likeBike character set utf8 collate utf8_general_ci;
+GRANT All ON likeByke.* TO 'likebike'@'localhost' IDENTIFIED BY 'likebike';
 
 CREATE TABLE User(
 	`id` int(20) not null,
