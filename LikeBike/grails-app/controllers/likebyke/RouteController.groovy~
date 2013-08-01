@@ -1,10 +1,46 @@
 package likebyke
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.converters.*
 
 class RouteController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET"]
+    
+    def load_file() {
+        def f = new File ("data/ways/" + params.fileName)
+        def data = new XmlParser().parseText( f.text )
+        
+        Route route = new Route()
+        route.name = data.trk.name.text()
+        route.save()
+        for(int i = 0; data.trk.trkseg.trkpt[i] != null; i++) {
+          Point point = new Point() 
+          point.latitude = data.trk.trkseg.trkpt[i].attributes().lat.toDouble() 
+          point.longitude = data.trk.trkseg.trkpt[i].attributes().lon.toDouble() 
+          point.route_index = i
+          point.route = route
+          point.save(flush: true)
+        }
+       
+        def out = ["route is imported"]
+        render out as JSON
+    }
+    def get_route() {
+        def routes = [ Route.list() ];
+        def route = [];
+        def i = 0;
+        Route.list().each {
+            //def routeName = it.name;
+            def Points = [];
+            it.point.each{
+                Points[it.route_index] = [it.latitude, it.longitude];
+            }
+            route[i] = Points;
+            i = i + 1;        
+        }
+        render route as JSON
+    }
 
     def index() {
         redirect(action: "list", params: params)
