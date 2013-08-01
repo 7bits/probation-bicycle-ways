@@ -26,7 +26,7 @@ function init() {
 
     $.ajax({
       url: "route/get_route", 
-      type: "get", 
+      type: "post", 
       dataType: "json",
     
       success: function(data){
@@ -64,6 +64,20 @@ function init() {
           alert(data);
       }
     })
+  //  $.ajax({
+  //    url: "route/load_file", 
+  //    type: "get", 
+  //    dataType: "json",
+  //  
+  //    success: function(data){
+  //      alert("OK");
+  //    },
+  //  
+  //    error: function(jqXHR){
+  //        data = jQuery.parseJSON( jqXHR.responseText );
+  //        alert(data);
+  //    }
+  //  })
     myMap.controls.add('zoomControl');
     myMap.controls.add('typeSelector');
     //myMap.geoObjects.add(myPlacemark);
