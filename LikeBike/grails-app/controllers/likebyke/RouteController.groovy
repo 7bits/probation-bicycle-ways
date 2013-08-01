@@ -8,7 +8,7 @@ class RouteController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET"]
     
     def load_file() {
-        def f = new File ("data/ways/1.gpx")
+        def f = new File ("data/ways/" + params.fileName)
         def data = new XmlParser().parseText( f.text )
         
         Route route = new Route()
@@ -23,7 +23,7 @@ class RouteController {
           point.save(flush: true)
         }
        
-        def out = ["some", "anything"]
+        def out = ["route is imported"]
         render out as JSON
     }
     def get_route() {
