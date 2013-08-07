@@ -8,6 +8,11 @@
     <g:javascript src="mapload.js" />
     <g:javascript src="heatMap/heatmap.js" />
     <style type="text/css">
+
+    @font-face {
+      font-family: "Tahoma";
+      src: local("Tahoma"), url('${resource(dir: "images", file: "Tahoma.ttf")}');
+    }
     #heatmapArea {
       position:relative;
       float:left;
@@ -70,7 +75,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1cb32', end
       padding:0; 
       float: left;  
     }
+    #stat {
+      margin-top: -6px;
+      margin-left: 47px;
+    }
+    #statistics {
+      margin-right: 10px;
+    }
     .nav_button a { 
+      font: 14px "Tahoma";
       text-decoration: none; 
       color: #000000; 
     }
@@ -83,7 +96,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1cb32', end
     footer {
       width: 1300px;
       height: 78px;
-      margin:0; 
+      margin:0;
       padding:0; 
       background: rgb(74,71,70); /* Old browsers */
       background: -moz-linear-gradient(left, rgba(74,71,70,1) 0%, rgba(80,77,74,1) 21%, rgba(82,79,74,1) 49%, rgba(78,75,68,1) 74%, rgba(69,67,59,1) 100%); /* FF3.6+ */
@@ -103,11 +116,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a4746', end
     }   
     li.footer_button { 
       list-style:none;  
-      margin:0;  
+      margin:0;
+      margin-top: 14px;
+      margin-right: 80px;  
       padding:0; 
       float: left;  
     }
+    #miniLogo {
+      float: right;
+      position: relative;
+      top: 0px;
+      left: -225px;
+    }
+    #vk {
+      float: right;
+      position: relative;
+      top: 24px;
+      left: -220px;
+    }
     .footer_button a { 
+      font: 14px "Tahoma";
       text-decoration: none; 
       color: #ffffff; 
     }
@@ -126,7 +154,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a4746', end
   <nav id="menu">
       <ul id="nav_menu"> 
         <li class="nav_button"><a href="#">О ПРОЕКТЕ</a></li>  
-        <li class="nav_button"><a href="#">СТАТИСТИКА</a></li>           
+
+        <li class="nav_button" id="stat"><a href="#"><g:img id="statistics" dir="images" file="statistics.png"/>СТАТИСТИКА</a></li>           
       </ul>
   </nav>
 	<div id="map"></div>
@@ -135,6 +164,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a4746', end
       <li class="footer_button"><a href="#">О НАС</a></li>  
       <li class="footer_button"><a href="#">ПРИЛОЖЕНИЕ</a></li>           
     </ul>
+    <g:img id="vk" dir="images" file="vk_logo.png"/>
+    <g:img id="miniLogo" dir="images" file="mini_logo.png"/>
 	</footer>
   </body>
 </html>
