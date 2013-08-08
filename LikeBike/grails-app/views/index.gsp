@@ -12,18 +12,6 @@
       font-family: "Tahoma";
       src: local("Tahoma"), url('${resource(dir: "images", file: "Tahoma.ttf")}');
     }
-    #heatmapArea {
-      position:relative;
-      float:left;
-      width:600px;
-      height:400px;
-      background-image:url(http://www.patrick-wied.at/static/heatmapjs/demo/realtime_heatmap/graphic.png);
-      border:1px dashed black;
-    }
-    #canvasMap {
-      width: 800px;
-      height: 600px;
-    }
     body {
       background-color: #ffffff;
       background-image:url('${resource(dir: "images", file: "BG.png")}');  
@@ -36,14 +24,7 @@
       height: 179px;
       margin:0; 
       padding:0;
-      background: rgb(139,138,138); /* Old browsers */
-      background: -moz-linear-gradient(left, rgba(139,138,138,1) 0%, rgba(139,138,138,1) 100%); /* FF3.6+ */
-      background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(139,138,138,1)), color-stop(100%,rgba(139,138,138,1))); /* Chrome,Safari4+ */
-      background: -webkit-linear-gradient(left, rgba(139,138,138,1) 0%,rgba(139,138,138,1) 100%); /* Chrome10+,Safari5.1+ */
-      background: -o-linear-gradient(left, rgba(139,138,138,1) 0%,rgba(139,138,138,1) 100%); /* Opera 11.10+ */
-      background: -ms-linear-gradient(left, rgba(139,138,138,1) 0%,rgba(139,138,138,1) 100%); /* IE10+ */
-      background: linear-gradient(to right, rgba(139,138,138,1) 0%,rgba(139,138,138,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b8a8a', endColorstr='#8b8a8a',GradientType=1 ); /* IE6-9 */  
+      background: #42383a;
     }
     #logo {
       margin-left: 230px; 
@@ -53,13 +34,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b8a8a', end
       height: 55px;
       margin:0; 
       padding:0;
-      background: -moz-linear-gradient(left, rgba(241,203,50,1) 0%, rgba(241,203,50,1) 100%); /* FF3.6+ */
-      background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(241,203,50,1)), color-stop(100%,rgba(241,203,50,1))); /* Chrome,Safari4+ */
-      background: -webkit-linear-gradient(left, rgba(241,203,50,1) 0%,rgba(241,203,50,1) 100%); /* Chrome10+,Safari5.1+ */
-      background: -o-linear-gradient(left, rgba(241,203,50,1) 0%,rgba(241,203,50,1) 100%); /* Opera 11.10+ */
-      background: -ms-linear-gradient(left, rgba(241,203,50,1) 0%,rgba(241,203,50,1) 100%); /* IE10+ */
-      background: linear-gradient(to right, rgba(241,203,50,1) 0%,rgba(241,203,50,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1cb32', endColorstr='#f1cb32',GradientType=1 ); /* IE6-9 */
+      background: #ede332;
     }
     #nav_menu {  
       margin: 0px auto;  
@@ -78,7 +53,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1cb32', end
       margin-top: -6px;
       margin-left: 47px;
     }
-    #statistics {
+    #statistics_img {
       margin-right: 10px;
     }
     .nav_button a { 
@@ -86,10 +61,85 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1cb32', end
       text-decoration: none; 
       color: #000000; 
     }
+    #cartoon {
+      width: 869px;
+      height: 400px;
+      margin: 0px auto;
+    }
+    .cartoon {
+      background: #43393b;
+      margin: 16px; 
+    }
+    #people {
+      width: 185px;
+      height: 180px;
+      float: left; 
+    }
+    #info{
+      width: 620px;
+      height: 180px;
+      float: left; 
+    }
+    #velo_mobile{
+      width: 185px;
+      height: 180px;
+      float: left;
+      clear:left; 
+    }
+    #mobile{
+      width: 185px;
+      height: 180px;
+      float: left; 
+    }
+    #statistics{
+      width: 185px;
+      height: 180px;
+      float: left; 
+    }
+    #velo{
+      width: 185px;
+      height: 180px;
+      float: left; 
+    }
+    #people_img {
+      margin-top: 22px;
+      margin-left: 22px;
+    }
+    #velo_mobile_img{
+      margin-top: 18px;
+      margin-left: 5px;
+      width: 174px;
+      height: 84px;
+    }
+    #mobile_img{
+      margin-top: -25px;
+      margin-left: 84px;
+    }
+    #stat_img{
+      width: 170px;
+      height: 83px;
+      margin-left: 13px;
+      margin-top: 7px;
+    }
+    #velo_img{
+      width: 99px;
+      height: 61px;
+      margin-left: 16px;
+      margin-top: 39px;
+    }
+    .cartoon_text {
+      font: 12px "Tahoma";
+      text-decoration: none; 
+      color: #ffffff; 
+      margin-left: 16px;
+      margin-top: 7px;
+    }
+
     #map-canvas {
       width:800px; 
       height:600px;
       margin: 20px auto;
+      clear: left;
     }
 
     footer {
@@ -97,14 +147,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1cb32', end
       height: 78px;
       margin:0;
       padding:0; 
-      background: rgb(74,71,70); /* Old browsers */
-      background: -moz-linear-gradient(left, rgba(74,71,70,1) 0%, rgba(80,77,74,1) 21%, rgba(82,79,74,1) 49%, rgba(78,75,68,1) 74%, rgba(69,67,59,1) 100%); /* FF3.6+ */
-      background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(74,71,70,1)), color-stop(21%,rgba(80,77,74,1)), color-stop(49%,rgba(82,79,74,1)), color-stop(74%,rgba(78,75,68,1)), color-stop(100%,rgba(69,67,59,1))); /* Chrome,Safari4+ */
-      background: -webkit-linear-gradient(left, rgba(74,71,70,1) 0%,rgba(80,77,74,1) 21%,rgba(82,79,74,1) 49%,rgba(78,75,68,1) 74%,rgba(69,67,59,1) 100%); /* Chrome10+,Safari5.1+ */
-      background: -o-linear-gradient(left, rgba(74,71,70,1) 0%,rgba(80,77,74,1) 21%,rgba(82,79,74,1) 49%,rgba(78,75,68,1) 74%,rgba(69,67,59,1) 100%); /* Opera 11.10+ */
-      background: -ms-linear-gradient(left, rgba(74,71,70,1) 0%,rgba(80,77,74,1) 21%,rgba(82,79,74,1) 49%,rgba(78,75,68,1) 74%,rgba(69,67,59,1) 100%); /* IE10+ */
-      background: linear-gradient(to right, rgba(74,71,70,1) 0%,rgba(80,77,74,1) 21%,rgba(82,79,74,1) 49%,rgba(78,75,68,1) 74%,rgba(69,67,59,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a4746', endColorstr='#45433b',GradientType=1 ); /* IE6-9 */
+      background: #43393b;
     }
     #footer_menu {  
       margin: 0px auto;  
@@ -151,9 +194,43 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a4746', end
       <ul id="nav_menu"> 
         <li class="nav_button"><a href="#">О ПРОЕКТЕ</a></li>  
 
-        <li class="nav_button" id="stat"><a href="#"><g:img id="statistics" dir="images" file="statistics.png"/>СТАТИСТИКА</a></li>           
+        <li class="nav_button" id="stat"><a href="#"><g:img id="statistics_img" dir="images" file="statistics.png"/>СТАТИСТИКА</a></li>           
       </ul>
   </nav>
+  <div id="cartoon">
+    <div id="people" class="cartoon">
+      <p class="cartoon_text">Установи приложение <br />в смартфон и запусти его.</p>
+      <g:img id="people_img" dir="images" file="people.png"/>
+    </div>
+    <div id="info" class="cartoon">
+      <p class="cartoon_text">Вызывалась тем, что положение источника радиоизлучения не обнаруживалось странное положение
+источника. Радиоизлучения, не обнаруживалось никакие приметных оптических и других характеристик 
+плоскости галактики. Галактического экватора и других характеристик группа, более или менее 
+равномерно. Этой полосы и остатками газовой материи после вспышек новых и в этом. 
+Внегалактических объектов нет, а слабых объектов были бы тогда гипотетические.
+Показывает сильную концентрацию к галактическому экватору связи с низкой точностью новых.
+Нельзя решить, какой именно из пылевой материи после. Никак не об наруживают галактической 
+концентрации. Себя в первые годы после вспышек новых и распределенных по небу. Разрабатывались
+методы определения их расстояний и других характеристик нужно. Труппы, как мы указывали выше, 
+динамическими соображениями расстояния которых регистрировалось радиоизлучение.</p>
+    </div>
+    <div id="velo_mobile" class="cartoon">
+      <p class="cartoon_text">Двигайся по маршрту, <br />приложение запишет его <br />и отобразит на карте.</p>
+      <g:img id="velo_mobile_img" dir="images" file="velo_mobile.png"/>
+    </div>
+    <div id="mobile" class="cartoon">
+      <p class="cartoon_text">Записывая свои маршруты, <br />на карте фиксируются <br />наиболее «активные» <br />участки.</p>
+      <g:img id="mobile_img" dir="images" file="mobile.png"/>
+    </div>
+    <div id="statistics" class="cartoon">
+      <p class="cartoon_text">С помощью приложения, мы сформируем статистические данные, где в нашем городе необходимы вело дорожки.</p>
+      <g:img id="stat_img" dir="images" file="stat.png"/>
+    </div>
+    <div id="velo" class="cartoon">
+      <p class="cartoon_text">Не стой в стороне! <br />Присоединяйся! <br />Омск за вело движение!</p>
+      <g:img id="velo_img" dir="images" file="velo.png"/>
+    </div>
+  </div>
   <div id="map-canvas" style="width:800px; height:600px;: #FF0000"></div>
   <footer>
     <ul id="footer_menu"> 
