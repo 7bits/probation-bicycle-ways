@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Примеры. Построение маршрута</title>
+    <title>Velo-Sity</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
     <script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
@@ -62,71 +62,153 @@
       color: #000000; 
     }
     #cartoon {
-      width: 869px;
+      width: 892px;
       height: 400px;
       margin: 0px auto;
     }
     .cartoon {
       background: #43393b;
-      margin: 16px; 
+      margin: 10px; 
     }
-    #people {
-      width: 185px;
-      height: 180px;
-      float: left; 
-    }
+   
     #info{
-      width: 620px;
+      width: 872px;
+      height: 125px;
+      margin-bottom: 10px;
+    }
+    #instal_app {
+      width: 203px;
       height: 180px;
       float: left; 
     }
-    #velo_mobile{
-      width: 185px;
+    #velo_phone{
+      width: 203px;
       height: 180px;
-      float: left;
-      clear:left; 
+      float: left; 
     }
-    #mobile{
-      width: 185px;
+    #phone{
+      width: 203px;
       height: 180px;
       float: left; 
     }
     #statistics{
-      width: 185px;
+      width: 203px;
       height: 180px;
       float: left; 
     }
-    #velo{
-      width: 185px;
+    #pocket_route{
+      width: 203px;
+      height: 180px;
+      float: left;
+      clear:left; 
+    }
+    #freand_route{
+      width: 203px;
       height: 180px;
       float: left; 
+    }
+    #tell_us{
+      width: 203px;
+      height: 180px;
+      float: left; 
+    }
+    #build{
+      width: 203px;
+      height: 180px;
+      float: left; 
+    }
+    #man_img {
+      height: 110px;
+      width: 75px;
+      position: relative;
+      top: -4px;
+      left: 9px;
+    }
+    #empty_phone_img {
+      height: 118px;
+      width: 77px;
+      position: relative;
+      top: 0px;
+      left: 22px;
+    }
+    #logo_phone_img {
+      width: 48px;
+      height: 58px;
+      position: relative;
+      top: -92px;
+      left: 118px;
+    }
+    #velo_phone_img {
+      width: 192px;
+      height: 91px;
+      position: relative;
+      top: 6px;
+      left: 3px;
+    }
+    #phone_img {
+      width: 75px;
+      height: 116px;
+      position: relative;
+      top: -14px;
+      left: 68px;
+    }
+    #stat_img {
+      width: 187px;
+      height: 96px;
+      position: relative;
+      top: 17px;
+      left: 7px;
+    }
+    #velo2_img {
+      width: 120px;
+      height: 53px;
+      position: relative;
+      top: -39px;
+      left: 4px;
+    }
+    #man_phone_img {
+      width: 73px;
+      height: 132px;
+      position: relative;
+      top: -36px;
+      left: 0px;
     }
     #people_img {
-      margin-top: 22px;
-      margin-left: 22px;
+      width: 148px;
+      height: 139px;
+      position: relative;
+      top: -19px;
+      left: 51px;
     }
-    #velo_mobile_img{
-      margin-top: 18px;
-      margin-left: 5px;
-      width: 174px;
-      height: 84px;
+    #velo1_img {
+      width: 98px;
+      height: 62px;
+      position: relative;
+      top: 66px;
+      left: 11px;
     }
-    #mobile_img{
-      margin-top: -25px;
-      margin-left: 84px;
+    #man_vk_img {
+      width: 110px;
+      height: 159px;
+      position: relative;
+      top: -92px;
+      left: 85px;
     }
-    #stat_img{
-      width: 170px;
-      height: 83px;
-      margin-left: 13px;
-      margin-top: 7px;
+    #velo3_img {
+      width: 105px;
+      height: 46px;
+      position: relative;
+      top: -12px;
+      left: 5px;
     }
-    #velo_img{
-      width: 99px;
-      height: 61px;
-      margin-left: 16px;
-      margin-top: 39px;
+    #svetofor_img {
+      width: 78px;
+      height: 120px;
+      position: relative;
+      top: -10px;
+      left: 2px;
     }
+    
     .cartoon_text {
       font: 12px "Tahoma";
       text-decoration: none; 
@@ -193,42 +275,54 @@
   <nav id="menu">
       <ul id="nav_menu"> 
         <li class="nav_button"><a href="#">О ПРОЕКТЕ</a></li>  
-
         <li class="nav_button" id="stat"><a href="#"><g:img id="statistics_img" dir="images" file="statistics.png"/>СТАТИСТИКА</a></li>           
       </ul>
   </nav>
   <div id="cartoon">
-    <div id="people" class="cartoon">
-      <p class="cartoon_text">Установи приложение <br />в смартфон и запусти его.</p>
-      <g:img id="people_img" dir="images" file="people.png"/>
-    </div>
     <div id="info" class="cartoon">
-      <p class="cartoon_text">Вызывалась тем, что положение источника радиоизлучения не обнаруживалось странное положение
-источника. Радиоизлучения, не обнаруживалось никакие приметных оптических и других характеристик 
-плоскости галактики. Галактического экватора и других характеристик группа, более или менее 
-равномерно. Этой полосы и остатками газовой материи после вспышек новых и в этом. 
-Внегалактических объектов нет, а слабых объектов были бы тогда гипотетические.
-Показывает сильную концентрацию к галактическому экватору связи с низкой точностью новых.
-Нельзя решить, какой именно из пылевой материи после. Никак не об наруживают галактической 
-концентрации. Себя в первые годы после вспышек новых и распределенных по небу. Разрабатывались
-методы определения их расстояний и других характеристик нужно. Труппы, как мы указывали выше, 
-динамическими соображениями расстояния которых регистрировалось радиоизлучение.</p>
+      <p class="cartoon_text">Основной нашей задачей является донести информацию до Департамента транспорта и развития транспортной инфраструктуры города Омска,
+о необходимости начать кампанию по развитию велосипедной инфраструктуры, и самого образа велосипеда как одного из альтернативных
+способов передвижения по городу. Городу нужны велодорожки. <br /><br />
+На сегодняшний день велосипедисты могут воспользоваться услугами нашего сайта, который объединяет единомышленников-любителей 
+велосипеда. На нем можно найти различные вело маршруты, которые модераторы и активисты сообществ предлагают пользователям.
+Используйте наше приложение, для того чтобы загрузить свой маршрут. Поддержите нашу идею – построим велодорожки в Омске вместе!</p>
     </div>
-    <div id="velo_mobile" class="cartoon">
+    <div id="instal_app" class="cartoon">
+      <p class="cartoon_text">Установи приложение <br />в смартфон и запусти его.</p>
+      <g:img id="man_img" dir="images" file="man.png"/>
+      <g:img id="empty_phone_img" dir="images" file="empty_phone.png"/>
+      <g:img id="logo_phone_img" dir="images" file="mini_logo.png"/>
+    </div>
+    <div id="velo_phone" class="cartoon">
       <p class="cartoon_text">Двигайся по маршрту, <br />приложение запишет его <br />и отобразит на карте.</p>
-      <g:img id="velo_mobile_img" dir="images" file="velo_mobile.png"/>
+      <g:img id="velo_phone_img" dir="images" file="velo_phone.png"/>
     </div>
-    <div id="mobile" class="cartoon">
-      <p class="cartoon_text">Записывая свои маршруты, <br />на карте фиксируются <br />наиболее «активные» <br />участки.</p>
-      <g:img id="mobile_img" dir="images" file="mobile.png"/>
+    <div id="phone" class="cartoon">
+      <p class="cartoon_text">На карте фиксируются <br />наиболее «активные» участки дороги.</p>
+      <g:img id="phone_img" dir="images" file="phone.png"/>
     </div>
     <div id="statistics" class="cartoon">
-      <p class="cartoon_text">С помощью приложения, мы сформируем статистические данные, где в нашем городе необходимы вело дорожки.</p>
+      <p class="cartoon_text">Получаем статистические <br />данные вело движения.</p>
       <g:img id="stat_img" dir="images" file="stat.png"/>
     </div>
-    <div id="velo" class="cartoon">
-      <p class="cartoon_text">Не стой в стороне! <br />Присоединяйся! <br />Омск за вело движение!</p>
-      <g:img id="velo_img" dir="images" file="velo.png"/>
+    <div id="pocket_route" class="cartoon">
+      <p class="cartoon_text">Приложение Velo City - это <br />все вело маршруты <br />у тебя в кармане.</p>
+      <g:img id="velo2_img" dir="images" file="velo2.png"/>
+      <g:img id="man_phone_img" dir="images" file="man_phone.png"/>
+    </div>
+    <div id="freand_route" class="cartoon">
+      <p class="cartoon_text">Просматривай маршруты <br />друзей.</p>
+      <g:img id="people_img" dir="images" file="people.png"/>
+    </div>
+    <div id="tell_us" class="cartoon">
+      <p class="cartoon_text">Расскажи о нас!</p>
+      <g:img id="velo1_img" dir="images" file="velo1.png"/>
+      <g:img id="man_vk_img" dir="images" file="man_vk.png"/>
+    </div>
+    <div id="build" class="cartoon">
+      <p class="cartoon_text">Построй вело дорожки вместе <br />с нами!</p>
+      <g:img id="velo3_img" dir="images" file="velo3.png"/>
+      <g:img id="svetofor_img" dir="images" file="svetofor.png"/>
     </div>
   </div>
   <div id="map-canvas" style="width:800px; height:600px;: #FF0000"></div>

@@ -1,3 +1,8 @@
+const MIN_LAT = 54.8
+const MAX_LAT = 55.1
+const MIN_LONG = 73.15
+const MAX_LONG = 73.6
+
 var map, pointarray, heatmap;
 
 var taxiData = [];
@@ -6,12 +11,74 @@ function initialize() {
   var mapOptions = {
     zoom: 12,
     center: new google.maps.LatLng(54.988744, 73.369271),
-    mapTypeId: google.maps.MapTypeId.SATELLITE
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
   };
 
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
-  console.log("start adding points");
+  /*map.set('styles', [
+  {
+    featureType: 'road',
+    elementType: 'geometry',
+    stylers: [
+      { color: '#aaaaaa' },
+      { weight: 0.8 }
+    ]
+  }, {
+    featureType: 'road',
+    elementType: 'labels',
+    stylers: [
+      { saturation: -100 },
+      { invert_lightness: true }
+    ]
+  }
+  ]);*/
+
+  //generate routes
+    
+  for (var i = 0; i < 0; i++) {
+    var directionsService = new google.maps.DirectionsService();
+
+    start  = new google.maps.LatLng(
+      Math.random() * (MAX_LAT - MIN_LAT) + MIN_LAT,
+      Math.random() * (MAX_LONG - MIN_LONG) + MIN_LONG
+    );
+    end = new google.maps.LatLng(
+      Math.random() * (MAX_LAT - MIN_LAT) + MIN_LAT,
+      Math.random() * (MAX_LONG - MIN_LONG) + MIN_LONG
+    );
+    var request = {
+        origin: start,
+        destination: end,
+        optimizeWaypoints: true,
+        travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+    directionsService.route(request, function(response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            var genRoute = [];
+            var route = response.routes[0];
+            console.log("route is geting");
+            $.each(route.legs[0].steps, function(step, val_s) {
+              console.log("start Lat: " + val_s.start_location.lat() + " Long: " + val_s.start_location.lng());
+              console.log("stop  Lat: " + val_s.end_location.lat() + " Long: " + val_s.end_location.lng());
+              genRoute.push(new google.maps.LatLng(val_s.start_location.lat(), val_s.start_location.lng()));
+              //genRoute.push(new google.maps.LatLng(val_s.end_location.lat(), val_s.end_location.lng()));  
+              var flightPath = new google.maps.Polyline({
+                path: genRoute,
+                strokeColor: "#FF0000",
+                strokeOpacity: 0.5,
+                strokeWeight: 5,
+              });
+              flightPath.setMap(map);           
+            });
+
+        } else{
+            alert("route not geting");
+        }
+    });
+
+    //console.log("Lat: " + Latitude + "Long: " + Longitude);
+  }
   $.ajax({
       url: "route/get_route", 
       type: "get", 
@@ -26,28 +93,35 @@ function initialize() {
               Point.push(val_c);
             })
             taxiData.push(new google.maps.LatLng(Point[0], Point[1]));
-            //console.log(Point[0] + " " + Point[1]);
+            myRoute.push(new google.maps.LatLng(Point[0], Point[1]));
           })
+          var flightPath = new google.maps.Polyline({
+            path: myRoute,
+            strokeColor: "#FF0000",
+            strokeOpacity: 0.5,
+            strokeWeight: 5,
+          });
+          flightPath.setMap(map);
         });
         var pointArray = new google.maps.MVCArray(taxiData);
 
         heatmap = new google.maps.visualization.HeatmapLayer({
-          data: pointArray, radius: 8, opacity: 0.5/*, gradient: [
-    'rgba(0, 255, 255, 0)',
-    'rgba(255, 0, 51, 1)',
-    'rgba(0, 204, 255, 1)',
-    /*'rgba(0, 204, 255, 1)',
-    'rgba(0, 204, 255, 1)',
-    'rgba(0, 204, 255, 1)',
-    'rgba(0, 204, 255, 1)',
-    'rgba(0, 204, 255, 1)',
-    'rgba(0, 204, 255, 1)',
-    'rgba(0, 0, 127, 1)',
-    'rgba(63, 0, 91, 1)',
-    'rgba(127, 0, 63, 1)',
-    'rgba(191, 0, 31, 1)',
-    'rgba(255, 102, 0, 1)'
-  ]*/
+          data: pointArray, radius: 8, opacity: 1.5/*, gradient: [
+            'rgba(0, 255, 255, 0)',
+            'rgba(255, 0, 51, 1)',
+            'rgba(0, 204, 255, 1)',
+            'rgba(0, 204, 255, 1)',
+            'rgba(0, 204, 255, 1)',
+            'rgba(0, 204, 255, 1)',
+            'rgba(0, 204, 255, 1)',
+            'rgba(0, 204, 255, 1)',
+            'rgba(0, 204, 255, 1)',
+            'rgba(0, 0, 127, 1)',
+            'rgba(63, 0, 91, 1)',
+            'rgba(127, 0, 63, 1)',
+            'rgba(191, 0, 31, 1)',
+            'rgba(255, 102, 0, 1)'
+          ]*/
         });
         heatmap.setMap(map);
       },
@@ -57,9 +131,7 @@ function initialize() {
           alert(data);
       }
   })//end ajax
-
-  console.log("end adding points");
-}
+}//end init
 
 function toggleHeatmap() {
   heatmap.setMap(heatmap.getMap() ? null : map);
