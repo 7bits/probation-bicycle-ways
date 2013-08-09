@@ -2,9 +2,9 @@ const MIN_LAT = 54.8
 const MAX_LAT = 55.1
 const MIN_LONG = 73.15
 const MAX_LONG = 73.6
+const MAX_DIST = 10
 
 var map, pointarray, heatmap;
-
 var taxiData = [];
 
 function initialize() {
@@ -16,12 +16,12 @@ function initialize() {
 
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
-  /*map.set('styles', [
+  map.set('styles', [
   {
     featureType: 'road',
     elementType: 'geometry',
     stylers: [
-      { color: '#aaaaaa' },
+      { color: '#AAAAAA' },
       { weight: 0.8 }
     ]
   }, {
@@ -32,11 +32,11 @@ function initialize() {
       { invert_lightness: true }
     ]
   }
-  ]);*/
+  ]);
 
   //generate routes
     
-  for (var i = 0; i < 0; i++) {
+  for (var i = 0; i < 100; i++) {  
     var directionsService = new google.maps.DirectionsService();
 
     start  = new google.maps.LatLng(
@@ -57,23 +57,41 @@ function initialize() {
         if (status == google.maps.DirectionsStatus.OK) {
             var genRoute = [];
             var route = response.routes[0];
-            console.log("route is geting");
+            console.log("route is get");
             $.each(route.legs[0].steps, function(step, val_s) {
               console.log("start Lat: " + val_s.start_location.lat() + " Long: " + val_s.start_location.lng());
               console.log("stop  Lat: " + val_s.end_location.lat() + " Long: " + val_s.end_location.lng());
-              genRoute.push(new google.maps.LatLng(val_s.start_location.lat(), val_s.start_location.lng()));
-              //genRoute.push(new google.maps.LatLng(val_s.end_location.lat(), val_s.end_location.lng()));  
-              var flightPath = new google.maps.Polyline({
-                path: genRoute,
-                strokeColor: "#FF0000",
-                strokeOpacity: 0.5,
-                strokeWeight: 5,
-              });
-              flightPath.setMap(map);           
+              var point_start = new google.maps.LatLng(val_s.start_location.lat(), val_s.start_location.lng());
+              var point_end = new google.maps.LatLng(val_s.end_location.lat(), val_s.end_location.lng());
+              
+              var distance = google.maps.geometry.spherical.computeDistanceBetween(
+                point_start,
+                point_end
+              );
+              if (distance > MAX_DIST) {
+                var numStep =  Math.ceil(distance/MAX_DIST);
+                var latStep = (point_end.lat() - point_start.lat())/numStep; 
+                var lngStep = (point_end.lng() - point_start.lng())/numStep;
+                for(var j = 0; j < numStep; j++) {
+                  genRoute.push(new google.maps.LatLng(point_start.lat() + latStep * j, point_start.lng() + lngStep * j ));
+                  taxiData.push(new google.maps.LatLng(point_start.lat() + latStep * j, point_start.lng() + lngStep * j ));
+                }
+              } else {
+                genRoute.push(point_start);
+                taxiData.push(point_start);  
+              } 
+              //var flightPath = new google.maps.Polyline({
+              //  path: genRoute,
+              //  strokeColor: "#FF0000",
+              //  strokeOpacity: 0.5,
+              //  strokeWeight: 5,
+              //});
+              //flightPath.setMap(map);  
+              //send route to DB         
             });
 
         } else{
-            alert("route not geting");
+            console.log("route not geting");
         }
     });
 
@@ -95,18 +113,18 @@ function initialize() {
             taxiData.push(new google.maps.LatLng(Point[0], Point[1]));
             myRoute.push(new google.maps.LatLng(Point[0], Point[1]));
           })
-          var flightPath = new google.maps.Polyline({
-            path: myRoute,
-            strokeColor: "#FF0000",
-            strokeOpacity: 0.5,
-            strokeWeight: 5,
-          });
-          flightPath.setMap(map);
+          //var flightPath = new google.maps.Polyline({
+          //  path: myRoute,
+          //  strokeColor: "#FF0000",
+          //  strokeOpacity: 0.5,
+          //  strokeWeight: 5,
+          //});
+          //flightPath.setMap(map);
         });
         var pointArray = new google.maps.MVCArray(taxiData);
 
         heatmap = new google.maps.visualization.HeatmapLayer({
-          data: pointArray, radius: 8, opacity: 1.5/*, gradient: [
+          data: pointArray, radius: 8, opacity: 0.5, gradient: [
             'rgba(0, 255, 255, 0)',
             'rgba(255, 0, 51, 1)',
             'rgba(0, 204, 255, 1)',
@@ -121,7 +139,7 @@ function initialize() {
             'rgba(127, 0, 63, 1)',
             'rgba(191, 0, 31, 1)',
             'rgba(255, 102, 0, 1)'
-          ]*/
+          ]
         });
         heatmap.setMap(map);
       },
