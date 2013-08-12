@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-
     <title>Velo-Sity</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
     <script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
     <g:javascript src="mapload.js" />
     <link rel="stylesheet" href="${resource(dir:'css', file: 'likebike.css')}" />
-    
   </head>
-
   <body onload="initialize()">
-
-    
   <header>
-     <g:img id="logo" dir="images" file="logo.png"/>
+    <g:img id="logo" dir="images" file="logo.png"/>
   </header>
   <nav id="menu">
-      <ul id="nav_menu"> 
-        <li class="nav_button"><a href="#">О ПРОЕКТЕ</a></li>  
-        <li class="nav_button" id="stat"><a href="#"><g:img id="statistics_img" dir="images" file="statistics.png"/>СТАТИСТИКА</a></li>           
-      </ul>
+    <ul id="nav_menu"> 
+      <li class="nav_button"><a href="#">О ПРОЕКТЕ</a></li>  
+      <li class="nav_button" id="stat"><a href="#"><g:img id="statistics_img" dir="images" file="statistics.png"/>СТАТИСТИКА</a></li>           
+    </ul>
   </nav>
   <div id="cartoon">
     <div id="info" class="cartoon">
