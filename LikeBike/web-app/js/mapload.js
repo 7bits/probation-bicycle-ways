@@ -1,4 +1,4 @@
-var map, pointarray, heatmap;
+var map;
 var taxiData = [];
 
 function initialize() {
@@ -26,7 +26,7 @@ function initialize() {
   }
   ]);
   $.ajax({
-    url: "route/get_route", 
+    url: "route/getRoute", 
     type: "get", 
     dataType: "json",
     success: function(data){
@@ -36,11 +36,11 @@ function initialize() {
           var Point = [];
           $.each(val_p, function(coord, val_c) {
             Point.push(val_c);
-          })
+          });
           var googleMapPoint = new google.maps.LatLng(Point[0], Point[1]); 
           taxiData.push(googleMapPoint);
           myRoute.push(googleMapPoint);
-        })
+        });
         //var flightPath = new google.maps.Polyline({
         //  path: myRoute,
         //  strokeColor: "#FF0000",
@@ -72,9 +72,9 @@ function initialize() {
     },  
     error: function(jqXHR){
       data = jQuery.parseJSON( jqXHR.responseText );
-      //alert(data);
+      alert(data);
     }
-  })//end ajax
+  });//end ajax
 }//end init
 
 function toggleHeatmap() {
@@ -97,7 +97,7 @@ function changeGradient() {
     'rgba(127, 0, 63, 1)',
     'rgba(191, 0, 31, 1)',
     'rgba(255, 102, 0, 1)'
-  ]
+  ];
   heatmap.setOptions({
     gradient: heatmap.get('gradient') ? null : gradient
   });
