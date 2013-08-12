@@ -7,7 +7,7 @@ class RouteController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET"]
     
-    def load_file() {
+    def loadFile() {
         def f = new File ("data/ways/" + params.fileName)
         def data = new XmlParser().parseText( f.text )
         
@@ -26,7 +26,7 @@ class RouteController {
         def out = ["route is imported"]
         render out as JSON
     }
-    def get_route() {
+    def getRoute() {
         def routes = [ Route.list() ];
         def route = [];
         def i = 0;
