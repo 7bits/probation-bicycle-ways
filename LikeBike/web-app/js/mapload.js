@@ -57,10 +57,10 @@ function initialize() {
         if (status == google.maps.DirectionsStatus.OK) {
             var genRoute = [];
             var route = response.routes[0];
-            console.log("route is get");
+            //console.log("route is get");
             $.each(route.legs[0].steps, function(step, val_s) {
-              console.log("start Lat: " + val_s.start_location.lat() + " Long: " + val_s.start_location.lng());
-              console.log("stop  Lat: " + val_s.end_location.lat() + " Long: " + val_s.end_location.lng());
+             // console.log("start Lat: " + val_s.start_location.lat() + " Long: " + val_s.start_location.lng());
+              //console.log("stop  Lat: " + val_s.end_location.lat() + " Long: " + val_s.end_location.lng());
               var point_start = new google.maps.LatLng(val_s.start_location.lat(), val_s.start_location.lng());
               var point_end = new google.maps.LatLng(val_s.end_location.lat(), val_s.end_location.lng());
               
@@ -91,7 +91,7 @@ function initialize() {
             });
 
         } else{
-            console.log("route not geting");
+            //console.log("route not geting");
         }
     });
 
@@ -124,21 +124,22 @@ function initialize() {
         var pointArray = new google.maps.MVCArray(taxiData);
 
         heatmap = new google.maps.visualization.HeatmapLayer({
-          data: pointArray, radius: 8, opacity: 0.5, gradient: [
+          data: pointArray, opacity: 1.0, gradient: [
             'rgba(0, 255, 255, 0)',
-            'rgba(255, 0, 51, 1)',
-            'rgba(0, 204, 255, 1)',
-            'rgba(0, 204, 255, 1)',
-            'rgba(0, 204, 255, 1)',
-            'rgba(0, 204, 255, 1)',
-            'rgba(0, 204, 255, 1)',
-            'rgba(0, 204, 255, 1)',
-            'rgba(0, 204, 255, 1)',
-            'rgba(0, 0, 127, 1)',
-            'rgba(63, 0, 91, 1)',
-            'rgba(127, 0, 63, 1)',
-            'rgba(191, 0, 31, 1)',
-            'rgba(255, 102, 0, 1)'
+    'rgba(0, 255, 255, 1)',
+    'rgba(0, 191, 255, 1)',
+    'rgba(0, 127, 255, 1)',
+    'rgba(0, 63, 255, 1)',
+    'rgba(0, 0, 255, 1)',
+    'rgba(0, 0, 223, 1)',
+    'rgba(0, 0, 191, 1)',
+    'rgba(0, 0, 159, 1)',
+    'rgba(0, 0, 127, 1)',
+    'rgba(63, 0, 91, 1)',
+    'rgba(127, 0, 63, 1)',
+    'rgba(191, 0, 31, 1)',
+    'rgba(255, 0, 0, 1)'
+            
           ]
         });
         heatmap.setMap(map);
@@ -146,7 +147,7 @@ function initialize() {
     
       error: function(jqXHR){
           data = jQuery.parseJSON( jqXHR.responseText );
-          alert(data);
+          //alert(data);
       }
   })//end ajax
 }//end init
