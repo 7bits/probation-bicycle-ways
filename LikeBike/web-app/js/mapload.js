@@ -27,7 +27,7 @@ function initialize() {
   ]);
   $.ajax({
     url: "route/getRoute", 
-    type: "get", 
+    type: "post", 
     dataType: "json",
     success: function(data){
       $.each(data, function(route, val_r) {
