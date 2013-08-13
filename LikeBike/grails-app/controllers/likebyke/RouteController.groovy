@@ -8,12 +8,12 @@ class RouteController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET"]
     
     def saveJSON() {
-            
+
     } 
     def loadFile() {
-        def f = new File ("data/ways/" + params.fileName)
-        def data = new XmlParser().parseText( f.text )
-        
+        String xml = new String( params.userFile.bytes )
+        def data = new XmlParser().parseText( xml )
+
         Route route = new Route()
         route.name = data.trk.name.text()
         route.save()
@@ -25,8 +25,8 @@ class RouteController {
           point.route = route
           point.save(flush: true)
         }
-       
-        def out = ["route is imported"]
+        
+        def out = [ "OK" ]
         render out as JSON
     }
     def getRoute() {
