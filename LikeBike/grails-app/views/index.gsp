@@ -75,7 +75,7 @@
       <g:img id="miniLogo" dir="images" file="mini_logo.png"/>
     </footer>
   
-    <form action="route/loadFile" method="post" target="hiddenframe" enctype="multipart/form-data" onsubmit="hideBtn();">
+    <form action="route/loadFile" method="post" target="hiddenframe" enctype="multipart/form-data">
       <input type="file" id="userfile" name="userFile" />
       <input type="submit" name="upload" id="upload" value="Импортировать" />
     </form>

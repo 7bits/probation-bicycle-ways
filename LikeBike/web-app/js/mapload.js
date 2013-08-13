@@ -30,24 +30,24 @@ function initialize() {
     type: "post", 
     dataType: "json",
     success: function(data){
-      $.each(data, function(route, val_r) {
+      $.each(data, function(route, valR) {
         var myRoute = [];
-        $.each(val_r, function(point, val_p) {
+        $.each(valR, function(point, valP) {
           var Point = [];
-          $.each(val_p, function(coord, val_c) {
-            Point.push(val_c);
+          $.each(valP, function(coord, valC) {
+            Point.push(valC);
           });
           var googleMapPoint = new google.maps.LatLng(Point[0], Point[1]); 
           taxiData.push(googleMapPoint);
           myRoute.push(googleMapPoint);
         });
-        //var flightPath = new google.maps.Polyline({
-        //  path: myRoute,
-        //  strokeColor: "#FF0000",
-        //  strokeOpacity: 0.5,
-        //  strokeWeight: 5,
-        //});
-        //flightPath.setMap(map);
+        var flightPath = new google.maps.Polyline({
+          path: myRoute,
+          strokeColor: "#FF0000",
+          strokeOpacity: 0.5,
+          strokeWeight: 1,
+        });
+        flightPath.setMap(map);
       });
       var pointArray = new google.maps.MVCArray(taxiData);
       heatmap = new google.maps.visualization.HeatmapLayer({
@@ -68,7 +68,7 @@ function initialize() {
           'rgba(255, 0, 0, 1)'  
         ]
       });
-      heatmap.setMap(map);
+      //heatmap.setMap(map);
     },  
     error: function(jqXHR){
       data = jQuery.parseJSON( jqXHR.responseText );

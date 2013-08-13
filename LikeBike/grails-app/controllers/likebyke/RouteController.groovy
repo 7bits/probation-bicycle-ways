@@ -21,7 +21,7 @@ class RouteController {
           Point point = new Point() 
           point.latitude = data.trk.trkseg.trkpt[i].attributes().lat.toDouble() 
           point.longitude = data.trk.trkseg.trkpt[i].attributes().lon.toDouble() 
-          point.route_index = i
+          point.routeIndex = i
           point.route = route
           point.save(flush: true)
         }
