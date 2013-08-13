@@ -7,6 +7,9 @@ class RouteController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET"]
     
+    def saveJSON() {
+            
+    } 
     def loadFile() {
         def f = new File ("data/ways/" + params.fileName)
         def data = new XmlParser().parseText( f.text )
