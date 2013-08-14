@@ -68,7 +68,7 @@ function initialize() {
           'rgba(255, 0, 0, 1)'  
         ]
       });
-      //heatmap.setMap(map);
+      heatmap.setMap(map);
     },  
     error: function(jqXHR){
       data = jQuery.parseJSON( jqXHR.responseText );

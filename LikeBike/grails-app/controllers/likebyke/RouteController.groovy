@@ -8,27 +8,21 @@ class RouteController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET"]
     
     def genRoute() {
-        //log.error(params)
-        //for (int i = 0; i < params.points[0] * 2; i++) {
         List<Double> searchFields = request.getParameterValues('array[]')
-        //log.error(searchFields.get(0))
-        
+
         Route route = new Route()
         route.name = "generationRoute"
         route.save()
         
         log.error(searchFields.size())
         for (int i = 0; i < searchFields.size(); i += 2) { 
-            //log.error(i)
-            //log.error(searchFields.get(i))
             Point point = new Point() 
             point.latitude = searchFields.get(i).toDouble()
             point.longitude = searchFields.get(i + 1).toDouble()
-            point.route_index = i / 2
+            point.routeIndex = i / 2
             point.route = route
             point.save(flush: true)
         }
-        //}
         def out = ["route is imported"]
         render params as JSON
     }
@@ -55,14 +49,12 @@ class RouteController {
         render out as JSON
     }
     def getRoute() {
-        def routes = [ Route.list() ];
         def route = [];
         def i = 0;
         Route.list().each {
-            //def routeName = it.name;
             def Points = [];
             it.point.each{
-                Points[it.route_index] = [it.latitude, it.longitude];
+                Points[it.routeIndex] = [it.latitude, it.longitude];
             }
             route[i] = Points;
             i = i + 1;        
