@@ -26,18 +26,11 @@ function initialize() {
   }
   ]);
 
-  /**************************************************************
-  Создание индикатора загрузки
-  **************************************************************/
+  
   var loader = document.createElement("div");
-  loader.style.width = "126px";
-  loader.style.height = "22px";
-  //loader.style.position = "absolute";
+  loader.style.width = "100px";
+  loader.style.height = "100px";
   loader.style.backgroundImage = "url(images/loader.gif)";
-  //document.getElementById("map-canvas").appendChild(loader);
-  //document.body.appendChild(loader);
-  /*var myControl = new google.maps.MyControl(loader);
-  controlDiv.index = 1;*/
   map.controls[google.maps.ControlPosition.CENTER].push(loader);
 
   $.ajax({
@@ -84,10 +77,7 @@ function initialize() {
         ]
       });
       heatmap.setMap(map);
-<<<<<<< HEAD
       map.controls[google.maps.ControlPosition.CENTER].clear(loader);
-=======
->>>>>>> 9de8e978ad5cbe4cd6ec3a55f436be721e92bec6
     },  
     error: function(jqXHR){
       data = jQuery.parseJSON( jqXHR.responseText );
