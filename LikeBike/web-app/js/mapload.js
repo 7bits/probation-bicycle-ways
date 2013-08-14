@@ -84,7 +84,10 @@ function initialize() {
         ]
       });
       heatmap.setMap(map);
+<<<<<<< HEAD
       map.controls[google.maps.ControlPosition.CENTER].clear(loader);
+=======
+>>>>>>> 9de8e978ad5cbe4cd6ec3a55f436be721e92bec6
     },  
     error: function(jqXHR){
       data = jQuery.parseJSON( jqXHR.responseText );
