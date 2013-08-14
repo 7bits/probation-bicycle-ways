@@ -3,7 +3,7 @@ var taxiData = [];
 
 function initialize() {
   var mapOptions = {
-    zoom: 12,
+    zoom: 10,
     center: new google.maps.LatLng(54.988744, 73.369271),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
   };
@@ -25,6 +25,21 @@ function initialize() {
     ]
   }
   ]);
+
+  /**************************************************************
+  Создание индикатора загрузки
+  **************************************************************/
+  var loader = document.createElement("div");
+  loader.style.width = "126px";
+  loader.style.height = "22px";
+  //loader.style.position = "absolute";
+  loader.style.backgroundImage = "url(images/loader.gif)";
+  //document.getElementById("map-canvas").appendChild(loader);
+  //document.body.appendChild(loader);
+  /*var myControl = new google.maps.MyControl(loader);
+  controlDiv.index = 1;*/
+  map.controls[google.maps.ControlPosition.CENTER].push(loader);
+
   $.ajax({
     url: "route/getRoute", 
     type: "post", 
@@ -41,17 +56,17 @@ function initialize() {
           taxiData.push(googleMapPoint);
           myRoute.push(googleMapPoint);
         });
-        var flightPath = new google.maps.Polyline({
+        /*var flightPath = new google.maps.Polyline({
           path: myRoute,
           strokeColor: "#FF0000",
           strokeOpacity: 0.5,
           strokeWeight: 1,
         });
-        flightPath.setMap(map);
+        flightPath.setMap(map);*/
       });
       var pointArray = new google.maps.MVCArray(taxiData);
       heatmap = new google.maps.visualization.HeatmapLayer({
-        data: pointArray, opacity: 1.0, gradient: [
+        data: pointArray, opacity: 1.0, radius: 7, gradient: [
           'rgba(0, 255, 255, 0)',
           'rgba(0, 255, 255, 1)',
           'rgba(0, 191, 255, 1)',
@@ -68,11 +83,11 @@ function initialize() {
           'rgba(255, 0, 0, 1)'  
         ]
       });
-      //heatmap.setMap(map);
+      heatmap.setMap(map);
+      map.controls[google.maps.ControlPosition.CENTER].clear(loader);
     },  
     error: function(jqXHR){
       data = jQuery.parseJSON( jqXHR.responseText );
-      alert(data);
     }
   });//end ajax
 }//end init
