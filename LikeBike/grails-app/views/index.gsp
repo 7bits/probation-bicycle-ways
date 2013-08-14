@@ -13,10 +13,14 @@
       <g:img id="logo" dir="images" file="logo.png"/>
     </header>
     <nav id="menu">
-      <ul id="nav_menu"> 
+      <form id="load_file" action="route/loadFile" method="post" target="hiddenframe" enctype="multipart/form-data">
+        <input type="file" id="userfile" name="userFile" />
+        <input type="submit" name="upload" id="upload" value="Импортировать" />
+      </form> 
+        <!--<ul id="nav_menu">
         <li class="nav_button"><a href="#">О ПРОЕКТЕ</a></li>  
         <li class="nav_button" id="stat"><a href="#"><g:img id="statistics_img" dir="images" file="statistics.png"/>СТАТИСТИКА</a></li>           
-      </ul>
+      </ul>-->
     </nav>
     <div id="cartoon">
       <div id="info" class="cartoon">
@@ -74,10 +78,5 @@
       <g:img id="vk" dir="images" file="vk_logo.png"/>
       <g:img id="miniLogo" dir="images" file="mini_logo.png"/>
     </footer>
-  
-    <form action="route/loadFile" method="post" target="hiddenframe" enctype="multipart/form-data">
-      <input type="file" id="userfile" name="userFile" />
-      <input type="submit" name="upload" id="upload" value="Импортировать" />
-    </form>
   </body>
 </html>

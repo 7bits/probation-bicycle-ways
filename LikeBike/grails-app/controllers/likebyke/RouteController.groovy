@@ -24,8 +24,7 @@ class RouteController {
           point.routeIndex = i
           point.route = route
           point.save(flush: true)
-        }
-        
+        }   
         def out = [ "OK" ]
         render out as JSON
     }
