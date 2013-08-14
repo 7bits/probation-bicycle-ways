@@ -7,10 +7,13 @@ class RouteController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET"]
     
-    def load_file() {
-        def f = new File ("data/ways/" + params.fileName)
-        def data = new XmlParser().parseText( f.text )
-        
+    def saveJSON() {
+
+    } 
+    def loadFile() {
+        String xml = new String( params.userFile.bytes )
+        def data = new XmlParser().parseText( xml )
+
         Route route = new Route()
         route.name = data.trk.name.text()
         route.save()
@@ -18,15 +21,14 @@ class RouteController {
           Point point = new Point() 
           point.latitude = data.trk.trkseg.trkpt[i].attributes().lat.toDouble() 
           point.longitude = data.trk.trkseg.trkpt[i].attributes().lon.toDouble() 
-          point.route_index = i
+          point.routeIndex = i
           point.route = route
           point.save(flush: true)
-        }
-       
-        def out = ["route is imported"]
+        }   
+        def out = [ "OK" ]
         render out as JSON
     }
-    def get_route() {
+    def getRoute() {
         def routes = [ Route.list() ];
         def route = [];
         def i = 0;
