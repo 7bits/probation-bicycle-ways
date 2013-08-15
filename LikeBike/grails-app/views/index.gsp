@@ -55,6 +55,21 @@
 В этом может помочь любой велосипедист. Нужно установить на телефон приложение, которое ежедневно будет отслеживать веломаршруты и наносить их на карту, или загрузить свой маршрут на сайт. Постепенно станет понятно, где омичи любят кататься больше всего.<br /><br /> 
 В итоге мы предложим готовый проект специалистам из Департамента, и велодорожки появятся в самых нужных и удобных местах Омска. Поддержите нашу идею – построим велодорожки вместе!
       </p>
+      <div id="watch" class="infoDiv">
+        <g:img id="watchImg" class="infoImg" dir="images" file="watch_img.png"/>
+        <hr class="line"> 
+        <p class="doText">Просматривайте маршруты друзей!</p>
+      </div>
+      <div id="share" class="infoDiv">
+        <g:img id="shareImg" class="infoImg" dir="images" file="share_img.png"/>
+        <hr class="line"> 
+        <p class="doText">Делитесь своими планами.</p>
+      </div>
+      <div id="getIn" class="infoDiv">
+        <g:img id="getInImg" class="infoImg" dir="images" file="getIn_img.png"/>
+        <hr class="line"> 
+        <p class="doText">Участвуйте в будущем города.</p>
+      </div>
     </div>
     <footer>
       <ul id="footer_menu"> 

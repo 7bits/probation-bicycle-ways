@@ -28,10 +28,10 @@ function initialize() {
 
   
   var loader = document.createElement("div");
-  loader.style.width = "100px";
-  loader.style.height = "100px";
+  loader.style.width = "126px";
+  loader.style.height = "22px";
   loader.style.backgroundImage = "url(images/loader.gif)";
-  map.controls[google.maps.ControlPosition.CENTER].push(loader);
+  map.controls[google.maps.ControlPosition.TOP].push(loader);
 
   $.ajax({
     url: "route/getRoute", 
