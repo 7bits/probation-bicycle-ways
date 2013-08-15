@@ -23,7 +23,7 @@
             <p class="menuText">О ПРОЕКТЕ</p>
         </li>
         <li class="menuListItem">
-            <p class="menuText">КАРТА МАРШРУТОВ</p>
+            <p class="menuText"><a class="menuA" href="map">КАРТА МАРШРУТОВ</a></p>
         </li>
       </ul>
       <div id="signIn">
@@ -44,7 +44,7 @@
         </li>
         <li class="cartoon_li">
           <g:img id="cartoon_third_img" class="cartoon_img" dir="images" file="cartoon3.png"/>
-          <p class="cartoon_p">3. Статистику маршрутов увидит <br />администрация и построит <br /> велодорожки в нужных местах.</p>
+          <p id="cartoonThirdP" class="cartoon_p">3. Статистику маршрутов увидит <br />администрация и построит <br /> велодорожки в нужных местах.</p>
         </li>           
       </ul> 
     </div>

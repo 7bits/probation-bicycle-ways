@@ -1,6 +1,12 @@
 var map;
 var taxiData = [];
 
+$("document").ready(function(){ 
+  $("#userfile").change(function() {
+    document.getElementById("importP").innerHTML = document.getElementById('userfile').value;;
+  });   
+});
+
 function initialize() {
   var mapOptions = {
     zoom: 10,
@@ -50,12 +56,12 @@ function initialize() {
           myRoute.push(googleMapPoint);
         });
         /*var flightPath = new google.maps.Polyline({
-          path: myRoute,
+          *path: myRoute,
           strokeColor: "#FF0000",
           strokeOpacity: 0.5,
           strokeWeight: 1,
         });
-        flightPath.setMap(map);*/
+        //flightPath.setMap(map);*/
       });
       var pointArray = new google.maps.MVCArray(taxiData);
       heatmap = new google.maps.visualization.HeatmapLayer({
@@ -77,7 +83,7 @@ function initialize() {
         ]
       });
       heatmap.setMap(map);
-      map.controls[google.maps.ControlPosition.CENTER].clear(loader);
+      map.controls[google.maps.ControlPosition.TOP].clear(loader);
     },  
     error: function(jqXHR){
       data = jQuery.parseJSON( jqXHR.responseText );

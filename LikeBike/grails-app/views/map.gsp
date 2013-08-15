@@ -20,7 +20,7 @@
     <menu>
       <ul id="menuList">
         <li class="menuListItem">
-            <p class="menuText">О ПРОЕКТЕ</p>
+          <p class="menuText"><a class="menuA" href="/LikeBike/">О ПРОЕКТЕ</a></p>
         </li>
         <li class="menuListItem">
             <p class="menuText">КАРТА МАРШРУТОВ</p>
@@ -44,11 +44,25 @@
         </li>
         <li class="cartoon_li">
           <g:img id="cartoon_third_img" class="cartoon_img" dir="images" file="cartoon3.png"/>
-          <p class="cartoon_p">3. Статистику маршрутов увидит <br />администрация и построит <br /> велодорожки в нужных местах.</p>
+          <p id="cartoonThirdP" class="cartoon_p">3. Статистику маршрутов увидит <br />администрация и построит <br /> велодорожки в нужных местах.</p>
         </li>           
       </ul> 
     </div>
-    <div id="info">
+    <div id="routes">
+      <h1 id="loadRouteH">ЗАГРУЗИТЬ СВОЙ МАРШРУТ</h1>
+      <form id="load_file" action="route/loadFile" method="post" enctype="multipart/form-data">
+        <div id="formCopy">
+            <div class="importBtn">
+                <p class="btnP">Выберете файл</p>
+                <input type="file" id="userfile" class="userfile" name="userFile"/>
+            </div>
+            <p id="importP">файл не выбран</p>
+            <div class="importBtn">
+              <p class="btnP">Импортировать</p>
+              <input type="submit" name="upload" id="upload" value="Импортировать" />
+            </div>
+        </div>  
+      </form> 
       <div id="map-canvas"></div>
     </div>
     <footer>
