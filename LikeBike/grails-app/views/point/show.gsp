@@ -1,5 +1,5 @@
 
-<%@ page import="likebyke.Point" %>
+<%@ page import="likebike.Point" %>
 <!DOCTYPE html>
 <html>
 	<head>

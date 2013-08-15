@@ -1,4 +1,4 @@
-<%@ page import="likebyke.Point" %>
+<%@ page import="likebike.Point" %>
 
 
 
@@ -23,7 +23,7 @@
 		<g:message code="point.route.label" default="Route" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="route" name="route.id" from="${likebyke.Route.list()}" optionKey="id" required="" value="${pointInstance?.route?.id}" class="many-to-one"/>
+	<g:select id="route" name="route.id" from="${likebike.Route.list()}" optionKey="id" required="" value="${pointInstance?.route?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: pointInstance, field: 'route_index', 'error')} required">

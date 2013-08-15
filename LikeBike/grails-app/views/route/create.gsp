@@ -1,4 +1,4 @@
-<%@ page import="likebyke.Route" %>
+<%@ page import="likebike.Route" %>
 <!DOCTYPE html>
 <html>
 	<head>
