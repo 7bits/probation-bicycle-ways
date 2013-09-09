@@ -13,7 +13,7 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "updata" // one of 'create', 'create-drop','update'
+            dbCreate = "create" // one of 'create', 'create-drop','update'
             url = "jdbc:mysql://localhost:3306/likeBike?useUnicode=yes&characterEncoding=UTF-8"
             username = "likebike"
             password = "likebike"
@@ -24,7 +24,7 @@ environments {
     }
     test {
         dataSource {
-            dbCreate = "updata" // one of 'create', 'create-drop','update'
+            dbCreate = "create" // one of 'create', 'create-drop','update'
             url = "jdbc:mysql://localhost:3306/likeBike?useUnicode=yes&characterEncoding=UTF-8"
             username = "likebike"
             password = "likebike"
@@ -32,7 +32,7 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "updata"
+            dbCreate = "create"
             url = "jdbc:mysql://localhost:3306/likeBike?useUnicode=yes&characterEncoding=UTF-8"
             username = "likebike"
             password = "likebike"

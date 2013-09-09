@@ -23,11 +23,11 @@
 			</g:if>
 			<ol class="property-list user">
 			
-				<g:if test="${userInstance?.login}">
+				<g:if test="${userInstance?.username}">
 				<li class="fieldcontain">
-					<span id="login-label" class="property-label"><g:message code="user.login.label" default="Login" /></span>
+					<span id="username-label" class="property-label"><g:message code="user.username.label" default="Username" /></span>
 					
-						<span class="property-value" aria-labelledby="login-label"><g:fieldValue bean="${userInstance}" field="login"/></span>
+						<span class="property-value" aria-labelledby="username-label"><g:fieldValue bean="${userInstance}" field="username"/></span>
 					
 				</li>
 				</g:if>
@@ -41,13 +41,38 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${userInstance?.route}">
+				<g:if test="${userInstance?.accountExpired}">
 				<li class="fieldcontain">
-					<span id="route-label" class="property-label"><g:message code="user.route.label" default="Route" /></span>
+					<span id="accountExpired-label" class="property-label"><g:message code="user.accountExpired.label" default="Account Expired" /></span>
 					
-						<g:each in="${userInstance.route}" var="r">
-						<span class="property-value" aria-labelledby="route-label"><g:link controller="route" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
-						</g:each>
+						<span class="property-value" aria-labelledby="accountExpired-label"><g:formatBoolean boolean="${userInstance?.accountExpired}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.accountLocked}">
+				<li class="fieldcontain">
+					<span id="accountLocked-label" class="property-label"><g:message code="user.accountLocked.label" default="Account Locked" /></span>
+					
+						<span class="property-value" aria-labelledby="accountLocked-label"><g:formatBoolean boolean="${userInstance?.accountLocked}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.enabled}">
+				<li class="fieldcontain">
+					<span id="enabled-label" class="property-label"><g:message code="user.enabled.label" default="Enabled" /></span>
+					
+						<span class="property-value" aria-labelledby="enabled-label"><g:formatBoolean boolean="${userInstance?.enabled}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.passwordExpired}">
+				<li class="fieldcontain">
+					<span id="passwordExpired-label" class="property-label"><g:message code="user.passwordExpired.label" default="Password Expired" /></span>
+					
+						<span class="property-value" aria-labelledby="passwordExpired-label"><g:formatBoolean boolean="${userInstance?.passwordExpired}" /></span>
 					
 				</li>
 				</g:if>

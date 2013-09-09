@@ -8,14 +8,14 @@
   </head>
 
   <body>
-    <div id="regForm">
-      <h1 id="forTest">Regisrtation</h1>
-      <form method="post" id="regForm" action="">
-        <input type="text" id="login" placeholder="login" class="text">
-        <input type="text" id="password" placeholder="password" class="text">
-        <input type="text" id="conPassword" placeholder="confirm password" class="text">
-        <input type="submit" value="OK" id="send">
-    </form>
-  </div>  
+    <g:if test="${flash.authenticationFailure}">
+      Login failed: ${message(code:"authentication.failure."+flash.authenticationFailure.result).encodeAsHTML()}
+    </g:if>
+    <auth:form authAction="signup" success="[controller:'portal', action:'newUser']" error="[controller:'portal', action:'signup']">
+      User: <g:textField name="login"/><br/>
+      Password: <input type="password" name="password"/><br/>
+      Confirm Password: <input type="password" name="passwordConfirm"/><br/>
+      <input type="submit" value="Create account"/>
+    </auth:form>  
   </body>
 </html>

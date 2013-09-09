@@ -1,19 +1,11 @@
 package likebike
 
 import org.springframework.dao.DataIntegrityViolationException
-import grails.converters.*
 
 class UserController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-    def saveUser() {
-        User user = new User()
-        user.login = params.login
-        user.password = params.password
-        user.save()
-        render user as JSON
-    }
     def index() {
         redirect(action: "list", params: params)
     }
