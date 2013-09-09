@@ -41,20 +41,20 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${pointInstance?.routeIndex}">
+				<li class="fieldcontain">
+					<span id="routeIndex-label" class="property-label"><g:message code="point.routeIndex.label" default="Route Index" /></span>
+					
+						<span class="property-value" aria-labelledby="routeIndex-label"><g:fieldValue bean="${pointInstance}" field="routeIndex"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${pointInstance?.route}">
 				<li class="fieldcontain">
 					<span id="route-label" class="property-label"><g:message code="point.route.label" default="Route" /></span>
 					
 						<span class="property-value" aria-labelledby="route-label"><g:link controller="route" action="show" id="${pointInstance?.route?.id}">${pointInstance?.route?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${pointInstance?.route_index}">
-				<li class="fieldcontain">
-					<span id="route_index-label" class="property-label"><g:message code="point.route_index.label" default="Routeindex" /></span>
-					
-						<span class="property-value" aria-labelledby="route_index-label"><g:fieldValue bean="${pointInstance}" field="route_index"/></span>
 					
 				</li>
 				</g:if>

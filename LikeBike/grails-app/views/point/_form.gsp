@@ -18,19 +18,19 @@
 	<g:field name="longitude" value="${fieldValue(bean: pointInstance, field: 'longitude')}" required=""/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: pointInstance, field: 'routeIndex', 'error')} required">
+	<label for="routeIndex">
+		<g:message code="point.routeIndex.label" default="Route Index" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="routeIndex" type="number" value="${pointInstance.routeIndex}" required=""/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: pointInstance, field: 'route', 'error')} required">
 	<label for="route">
 		<g:message code="point.route.label" default="Route" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="route" name="route.id" from="${likebike.Route.list()}" optionKey="id" required="" value="${pointInstance?.route?.id}" class="many-to-one"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: pointInstance, field: 'route_index', 'error')} required">
-	<label for="route_index">
-		<g:message code="point.route_index.label" default="Routeindex" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="route_index" type="number" value="${pointInstance.route_index}" required=""/>
 </div>
 

@@ -26,6 +26,8 @@
 					
 						<g:sortableColumn property="name" title="${message(code: 'route.name.label', default: 'Name')}" />
 					
+						<th><g:message code="route.user.label" default="User" /></th>
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -33,6 +35,8 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${routeInstance.id}">${fieldValue(bean: routeInstance, field: "name")}</g:link></td>
+					
+						<td>${fieldValue(bean: routeInstance, field: "user")}</td>
 					
 					</tr>
 				</g:each>

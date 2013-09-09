@@ -28,9 +28,9 @@
 					
 						<g:sortableColumn property="longitude" title="${message(code: 'point.longitude.label', default: 'Longitude')}" />
 					
-						<th><g:message code="point.route.label" default="Route" /></th>
+						<g:sortableColumn property="routeIndex" title="${message(code: 'point.routeIndex.label', default: 'Route Index')}" />
 					
-						<g:sortableColumn property="route_index" title="${message(code: 'point.route_index.label', default: 'Routeindex')}" />
+						<th><g:message code="point.route.label" default="Route" /></th>
 					
 					</tr>
 				</thead>
@@ -42,9 +42,9 @@
 					
 						<td>${fieldValue(bean: pointInstance, field: "longitude")}</td>
 					
-						<td>${fieldValue(bean: pointInstance, field: "route")}</td>
+						<td>${fieldValue(bean: pointInstance, field: "routeIndex")}</td>
 					
-						<td>${fieldValue(bean: pointInstance, field: "route_index")}</td>
+						<td>${fieldValue(bean: pointInstance, field: "route")}</td>
 					
 					</tr>
 				</g:each>

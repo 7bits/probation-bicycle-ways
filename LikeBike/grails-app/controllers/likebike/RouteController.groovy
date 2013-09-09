@@ -2,6 +2,7 @@ package likebike
 
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.*
+import org.apache.commons.io.FileUtils
 
 class RouteController {
 
@@ -24,10 +25,14 @@ class RouteController {
     }
 
     def loadFile() {
-        String xml = new String( params.userFile.bytes )
-        routeService.loadFromFile(xml)
 
-        def out = [ "OK" ]
+        String xmlData = new String( params.userFile.bytes )
+        //def xmlFile = new File( params.userFile.name )
+        //xmlFile.createNewFile();
+        //FileUtils.writeStringToFile(xmlFile, xmlData)
+
+        routeService.loadFromFile(xmlData)
+        def out = [ params.userFile.name ]
         render out as JSON
     }
     def getRoute() {

@@ -6,7 +6,7 @@ var line = [];
 var heatmap = 0;
 $("document").ready(function(){ 
   $("#userfile").change(function() {
-    document.getElementById("importP").innerHTML = document.getElementById('userfile').value;;
+    document.getElementById("importP").innerHTML = document.getElementById('userfile').value;
   });   
 });
 

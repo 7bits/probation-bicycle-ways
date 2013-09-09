@@ -2,7 +2,7 @@ package likebike
 
 class Point {
 	double latitude
-    	double longitude
+    double longitude
 	int routeIndex
 
 	Route route

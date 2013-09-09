@@ -20,7 +20,7 @@
     <menu>
       <ul id="menuList">
         <li class="menuListItem">
-          <p class="menuText"><a class="menuA" href="/LikeBike/">О ПРОЕКТЕ</a></p>
+          <p class="menuText"><a class="menuA" href="/">О ПРОЕКТЕ</a></p>
         </li>
         <li class="menuListItem">
             <p class="menuText">КАРТА МАРШРУТОВ</p>
@@ -53,7 +53,7 @@
       <form id="load_file" action="route/loadFile" method="post" enctype="multipart/form-data">
         <div id="formCopy">
             <div class="importBtn">
-                <p class="btnP">Выберете файл</p>
+                <p class="btnP">Выберите файл</p>
                 <input type="file" id="userfile" class="userfile" name="userFile"/>
             </div>
             <p id="importP">файл не выбран</p>
