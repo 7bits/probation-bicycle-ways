@@ -41,7 +41,7 @@ function initialize() {
   loader.style.height = "22px";
   loader.style.backgroundImage = "url(images/loader.gif)";
   map.controls[google.maps.ControlPosition.TOP].push(loader);
-
+  
   var mode = document.createElement("input");
   mode.style.width = "50px";
   mode.style.height = "22px";
@@ -56,7 +56,8 @@ function initialize() {
       routeMode = 0;
     }
     displayRoute();
-  };
+  }
+  
   map.controls[google.maps.ControlPosition.RIGHT_TOP].push(mode);
 
   $.ajax({

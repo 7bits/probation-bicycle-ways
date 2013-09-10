@@ -3,6 +3,8 @@ package likebike
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.*
 import org.apache.commons.io.FileUtils
+import grails.plugins.springsecurity.Secured
+
 
 class RouteController {
 
@@ -24,6 +26,7 @@ class RouteController {
     def generateRoute() {
     }
 
+    //@Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def loadFile() {
 
         String xmlData = new String( params.userFile.bytes )

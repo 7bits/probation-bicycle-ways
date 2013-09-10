@@ -10,6 +10,12 @@
   </head>
 
   <body onload="initialize()">
+    <sec:ifLoggedIn>
+        <p class = "text">Logged in as <sec:username/> (<g:link controller='logout'>  Logout</g:link>) </p> 
+    </sec:ifLoggedIn> 
+    <sec:ifNotLoggedIn>
+        <p class = "text">You don't logged. You can login to: (<g:link controller='login'>  Logout</g:link>) </p>
+    </sec:ifNotLoggedIn>
     <header>
       <g:img id="razmetka" dir="images" file="razmetka.png"/>
       <g:img id="logo" dir="images" file="logo.png"/>
@@ -48,22 +54,27 @@
         </li>           
       </ul> 
     </div>
-    <div id="routes">
-      <h1 id="loadRouteH">ЗАГРУЗИТЬ СВОЙ МАРШРУТ</h1>
-      <form id="load_file" action="route/loadFile" method="post" enctype="multipart/form-data">
-        <div id="formCopy">
-            <div class="importBtn">
-                <p class="btnP">Выберите файл</p>
-                <input type="file" id="userfile" class="userfile" name="userFile"/>
-            </div>
-            <p id="importP">файл не выбран</p>
-            <div class="importBtn">
-              <p class="btnP">Импортировать</p>
-              <input type="submit" name="upload" id="upload" value="Импортировать" />
-            </div>
-        </div>  
-      </form> 
-      <div id="map-canvas"></div>
+    <sec:ifNotLoggedIn>
+      <p class="text">Login to add your route (<g:link controller='login'>Login</g:link>) </p>
+    </sec:ifNotLoggedIn>
+    <div id="routes"> 
+      <sec:ifLoggedIn>
+        <h1 id="loadRouteH">ЗАГРУЗИТЬ СВОЙ МАРШРУТ</h1> 
+        <form id="load_file" action="route/loadFile" method="post" enctype="multipart/form-data">
+          <div id="formCopy">
+              <div class="importBtn">
+                  <p class="btnP">Выберите файл</p>
+                  <input type="file" id="userfile" class="userfile" name="userFile"/>
+              </div>
+              <p id="importP">файл не выбран</p>
+              <div class="importBtn">
+                <p class="btnP">Импортировать</p>
+                <input type="submit" name="upload" id="upload" value="Импортировать" />
+              </div>
+          </div>  
+        </form> 
+      </sec:ifLoggedIn>
+      <div id="map-canvas"></div>  
     </div>
     <footer>
       <ul id="footer_menu"> 

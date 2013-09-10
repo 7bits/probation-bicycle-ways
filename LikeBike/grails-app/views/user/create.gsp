@@ -1,39 +1,73 @@
-<%@ page import="likebike.User" %>
-<!DOCTYPE html>
 <html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
-	</head>
-	<body>
-		<a href="#create-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-			</ul>
+
+<head>
+	<meta name='layout' content='springSecurityUI'/>
+	<g:set var="entityName" value="${message(code: 'user.label', default: 'User')}"/>
+	<title><g:message code="default.create.label" args="[entityName]"/></title>
+</head>
+
+<body>
+
+<h3><g:message code="default.create.label" args="[entityName]"/></h3>
+
+<g:form action="save" name='userCreateForm'>
+
+<%
+def tabData = []
+tabData << [name: 'userinfo', icon: 'icon_user', messageCode: 'spring.security.ui.user.info']
+tabData << [name: 'roles',    icon: 'icon_role', messageCode: 'spring.security.ui.user.roles']
+%>
+
+<s2ui:tabs elementId='tabs' height='375' data="${tabData}">
+
+	<s2ui:tab name='userinfo' height='280'>
+		<table>
+		<tbody>
+
+			<s2ui:textFieldRow name='username' labelCode='user.username.label' bean="${user}"
+                            labelCodeDefault='Username' value="${user?.username}"/>
+
+			<s2ui:passwordFieldRow name='password' labelCode='user.password.label' bean="${user}"
+                                labelCodeDefault='Password' value="${user?.password}"/>
+
+			<s2ui:checkboxRow name='enabled' labelCode='user.enabled.label' bean="${user}"
+                           labelCodeDefault='Enabled' value="${user?.enabled}"/>
+
+			<s2ui:checkboxRow name='accountExpired' labelCode='user.accountExpired.label' bean="${user}"
+                           labelCodeDefault='Account Expired' value="${user?.accountExpired}"/>
+
+			<s2ui:checkboxRow name='accountLocked' labelCode='user.accountLocked.label' bean="${user}"
+                           labelCodeDefault='Account Locked' value="${user?.accountLocked}"/>
+
+			<s2ui:checkboxRow name='passwordExpired' labelCode='user.passwordExpired.label' bean="${user}"
+                           labelCodeDefault='Password Expired' value="${user?.passwordExpired}"/>
+		</tbody>
+		</table>
+	</s2ui:tab>
+
+	<s2ui:tab name='roles' height='280'>
+		<g:each var="auth" in="${authorityList}">
+		<div>
+			<g:checkBox name="${auth.authority}" />
+			<g:link controller='role' action='edit' id='${auth.id}'>${auth.authority.encodeAsHTML()}</g:link>
 		</div>
-		<div id="create-user" class="content scaffold-create" role="main">
-			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<g:hasErrors bean="${userInstance}">
-			<ul class="errors" role="alert">
-				<g:eachError bean="${userInstance}" var="error">
-				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
-				</g:eachError>
-			</ul>
-			</g:hasErrors>
-			<g:form action="save" >
-				<fieldset class="form">
-					<g:render template="form"/>
-				</fieldset>
-				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-				</fieldset>
-			</g:form>
-		</div>
-	</body>
+		</g:each>
+	</s2ui:tab>
+
+</s2ui:tabs>
+
+<div style='float:left; margin-top: 10px; '>
+<s2ui:submitButton elementId='create' form='userCreateForm' messageCode='default.button.create.label'/>
+</div>
+
+</g:form>
+
+<script>
+$(document).ready(function() {
+	$('#username').focus();
+	<s2ui:initCheckboxes/>
+});
+</script>
+
+</body>
 </html>
