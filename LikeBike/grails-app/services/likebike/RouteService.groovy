@@ -5,7 +5,7 @@ class RouteService {
 
     void loadFromFile(String xml) {
     	def data = new XmlParser().parseText( xml )
-
+        
         Route route = new Route()
         route.name = data.trk.name.text()
         route.save()

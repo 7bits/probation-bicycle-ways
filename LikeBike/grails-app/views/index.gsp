@@ -14,7 +14,7 @@
         <p class = "text">Logged in as <sec:username/> (<g:link controller='logout'>  Logout</g:link>) </p> 
     </sec:ifLoggedIn> 
      <sec:ifNotLoggedIn> 
-        <p class = "text">You don't logged. You can login to: (<g:link controller='login'>  Logout</g:link>) </p>
+        <p class = "text">You don't logged. You can login to: (<g:link controller='login'>  Login</g:link>) </p>
     </sec:ifNotLoggedIn>
     <header>
       <g:img id="razmetka" dir="images" file="razmetka.png"/>
