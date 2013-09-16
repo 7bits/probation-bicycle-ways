@@ -38,22 +38,6 @@
         <g:img id="vkHeader" dir="images" file="vk.png"/>
       </div>
     </menu>
-    <div id="cartoon">
-      <ul id="cartoon_ul"> 
-        <li class="cartoon_li">
-          <g:img id="cartoon_one_img" class="cartoon_img" dir="images" file="cartoon1.png"/>
-          <p class="cartoon_p">1. Запусти приложение <br />и прокатись!</p>    
-        </li>  
-        <li class="cartoon_li">
-          <g:img id="cartoon_second_img" class="cartoon_img" dir="images" file="cartoon2.png"/>
-          <p class="cartoon_p">2. Приложение отметит <br />твой маршрут на карте.</p>
-        </li>
-        <li class="cartoon_li">
-          <g:img id="cartoon_third_img" class="cartoon_img" dir="images" file="cartoon3.png"/>
-          <p id="cartoonThirdP" class="cartoon_p">3. Статистику маршрутов увидит <br />администрация и построит <br /> велодорожки в нужных местах.</p>
-        </li>           
-      </ul> 
-    </div>
     <sec:ifNotLoggedIn>
       <p class="text">Login to add your route (<g:link controller='login'>Login</g:link>) </p>
     </sec:ifNotLoggedIn>

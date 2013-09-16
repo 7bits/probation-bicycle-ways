@@ -3,7 +3,7 @@ package likebike
 class User {
 
 	transient springSecurityService
-	//static hasMany = [route:Route]
+	static hasMany = [route:Route]
 
 	String username
 	String password

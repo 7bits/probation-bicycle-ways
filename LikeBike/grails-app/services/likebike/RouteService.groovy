@@ -1,12 +1,18 @@
 package likebike
 
+import grails.plugins.springsecurity.SpringSecurityService
 
 class RouteService {
+    
+    def springSecurityService
 
     void loadFromFile(String xml) {
+        User currentUser = springSecurityService.getCurrentUser()
+        
     	def data = new XmlParser().parseText( xml )
         
         Route route = new Route()
+        route.user = currentUser
         route.name = data.trk.name.text()
         route.save()
         for(int i = 0; data.trk.trkseg.trkpt[i] != null; i++) {

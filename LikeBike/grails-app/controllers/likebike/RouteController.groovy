@@ -5,14 +5,17 @@ import grails.converters.*
 import org.apache.commons.io.FileUtils
 import grails.plugins.springsecurity.Secured
 
-
 class RouteController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET"]
     
 
     def routeService
-    
+
+    def getAllRoute () {
+        def routes = Route.list() 
+        render routes as JSON    
+    }
     def genRoute() {
 
         ArrayList<Double> searchFields = request.getParameterValues('array[]')
@@ -28,7 +31,6 @@ class RouteController {
 
     //@Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def loadFile() {
-
         String xmlData = new String( params.userFile.bytes )
         //def xmlFile = new File( params.userFile.name )
         //xmlFile.createNewFile();
