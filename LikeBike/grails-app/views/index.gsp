@@ -11,15 +11,31 @@
 
   <body onload="initialize()">
     
-    <div id="parent_reg"   style="display: none">
+    <div id="parent_reg"   style="display: block">
       <div id="reg">
-
-        <g:form name="myForm" url="[action:'register',controller:'register']">
-          <g:textField name="myField" value="${myValue}" />
-          <g:submitButton name="update" value="Register"/>
-        </g:form>
-
-        <p id="close_reg">Close</p>
+          <g:form url="[action:'myRegister',controller:'register']" name='registerForm'>
+            <g:if test='${emailSent}'>
+              <br/>
+              <g:message code='spring.security.ui.register.sent'/>
+            </g:if>
+            <g:else>
+              <br/>
+                <table>
+                  <tbody>
+                    <s2ui:textFieldRow name='username' labelCode='user.username.label' bean="${command}"
+                                             size='40' labelCodeDefault='Username' value=""/>
+                    <s2ui:textFieldRow name='email' bean="${command}" value=""
+                                             size='40' labelCode='user.email.label' labelCodeDefault='E-mail'/>
+                    <s2ui:passwordFieldRow name='password' labelCode='user.password.label' bean="${command}"
+                                                 size='40' labelCodeDefault='Password' value=""/>
+                    <s2ui:passwordFieldRow name='password2' labelCode='user.password2.label' bean="${command}"
+                                                 size='40' labelCodeDefault='Password (again)' value=""/>
+                  </tbody>
+                </table>
+                <g:submitButton name="update" value="Register"/>
+            </g:else>
+          </g:form>
+          <p id="close_reg">Close</p>
       </div>
     </div>
     <header>
