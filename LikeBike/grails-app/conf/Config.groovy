@@ -109,3 +109,4 @@ grails.plugins.springsecurity.authority.className = 'likebike.Role'
 
 grails.plugins.springsecurity.ui.register.defaultRoleNames = ['ROLE_USER']
 grails.plugins.springsecurity.ui.encodePassword = false
+grails.plugins.springsecurity.ui.register.postRegisterUrl = '/'

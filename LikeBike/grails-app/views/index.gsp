@@ -10,6 +10,18 @@
   </head>
 
   <body onload="initialize()">
+    
+    <div id="parent_reg"   style="display: none">
+      <div id="reg">
+
+        <g:form name="myForm" url="[action:'register',controller:'register']">
+          <g:textField name="myField" value="${myValue}" />
+          <g:submitButton name="update" value="Register"/>
+        </g:form>
+
+        <p id="close_reg">Close</p>
+      </div>
+    </div>
     <header>
       <g:img id="razmetka" dir="images" file="razmetka.png"/>
       <g:img id="logo" dir="images" file="logo.png"/>
@@ -25,15 +37,19 @@
         <li class="menuListItem">
             <p class="menuText"><a class="menuA" href="map">КАРТА МАРШРУТОВ</a></p>
         </li>
+        <li class="menuListItem">
+            <p style="cursor: pointer;" id="p_reg">Регистрация</p>
+        </li>
       </ul>
       <div id="signIn">
         <span id="signInUnderLineText" class="signInText">
           <sec:ifLoggedIn>
-            Вы зашли как <sec:username/> (<g:link controller='logout'>  Выйти</g:link>) 
-        </sec:ifLoggedIn> 
+            Вы зашли как <sec:username/> (<g:link controller='logout'>  Выйти</g:link>)
+          </sec:ifLoggedIn> 
           <sec:ifNotLoggedIn> 
             (<g:link controller='login'>Войти</g:link>)
           </sec:ifNotLoggedIn>
+        </span>
       </div>
     </menu>
     <div id="cartoon">

@@ -10,12 +10,6 @@
   </head>
 
   <body onload="initialize()">
-    <sec:ifLoggedIn>
-        <p class = "text">Logged in as <sec:username/> (<g:link controller='logout'>  Logout</g:link>) </p> 
-    </sec:ifLoggedIn> 
-    <sec:ifNotLoggedIn>
-        <p class = "text">You don't logged. You can login to: (<g:link controller='login'>  Login</g:link>) </p>
-    </sec:ifNotLoggedIn>
     <header>
       <g:img id="razmetka" dir="images" file="razmetka.png"/>
       <g:img id="logo" dir="images" file="logo.png"/>
@@ -33,9 +27,14 @@
         </li>
       </ul>
       <div id="signIn">
-        <a href="#"><span id="signInUnderLineText" class="signInText">Войти</span></a>
-        <span class="signInText">с помощью</span>
-        <g:img id="vkHeader" dir="images" file="vk.png"/>
+        <span id="signInUnderLineText" class="signInText">
+          <sec:ifLoggedIn>
+            Вы зашли как <sec:username/> (<g:link controller='logout'>  Выйти</g:link>) 
+          </sec:ifLoggedIn> 
+          <sec:ifNotLoggedIn> 
+            (<g:link controller='login'>Войти</g:link>)
+          </sec:ifNotLoggedIn>
+        </span>
       </div>
     </menu>
     <sec:ifNotLoggedIn>

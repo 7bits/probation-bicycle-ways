@@ -9,8 +9,14 @@ $("document").ready(function(){
     document.getElementById("importP").innerHTML = document.getElementById('userfile').value;
   });   
 });
-
+ 
 function initialize() {
+  document.getElementById('close_reg').onclick = function(){
+    document.getElementById('parent_reg').style.display='none';
+  }
+   document.getElementById('p_reg').onclick = function(){
+    document.getElementById('parent_reg').style.display='block';
+  }
   var mapOptions = {
     zoom: 10,
     center: new google.maps.LatLng(54.988744, 73.369271),
