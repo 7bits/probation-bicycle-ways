@@ -1,3 +1,5 @@
+import likebike.RegisterCommand
+
 class UrlMappings {
 
 	static mappings = {
@@ -6,7 +8,7 @@ class UrlMappings {
 				// apply constraints here
 			}
 		}
-		"/"(view:"/index")
+		"/"(controller: "home", action: "index")
 		"/map"(view:"/map")
 		"500"(view:'/error')
 	}
