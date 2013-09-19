@@ -8,9 +8,7 @@ $("document").ready(function () {
     $("#userfile").change(function () {
         document.getElementById("importP").innerHTML = document.getElementById('userfile').value;
     });
-});
 
-function initialize() {
     var mapOptions = {
         zoom: 10,
         center: new google.maps.LatLng(54.988744, 73.369271),
@@ -87,7 +85,9 @@ function initialize() {
             data = jQuery.parseJSON(jqXHR.responseText);
         }
     });//end ajax
-}//end init
+
+});
+
 
 function toggleHeatmap() {
     heatmap.setMap(heatmap.getMap() ? null : map);

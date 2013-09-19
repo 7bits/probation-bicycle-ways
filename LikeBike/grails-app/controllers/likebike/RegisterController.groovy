@@ -8,10 +8,11 @@ import grails.converters.*
 
 class RegisterController extends grails.plugins.springsecurity.ui.RegisterController {
 
-    def register = { RegisterCommand command ->
+    def register = {
 
         def out = [sdasd: "asdfdfsd"]
-        render out as JSON
+        render params.command as JSON
+
         if (command.hasErrors()) {
             redirect(controller: "home", action: "index", model: [command: command])
             return

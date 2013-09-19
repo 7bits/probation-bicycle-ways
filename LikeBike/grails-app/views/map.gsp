@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'likebike.css')}"/>
 </head>
 
-<body onload="initialize()">
+<body>
 <header>
     <g:img id="razmetka" dir="images" file="razmetka.png"/>
     <g:img id="logo" dir="images" file="logo.png"/>

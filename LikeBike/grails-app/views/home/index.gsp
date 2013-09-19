@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'likebike.css')}"/>
 </head>
 
-<body onload="initialize()">
+<body>
 <div id="parent_reg" style="display: none">
     <div id="reg">
         <g:form url="[action: 'register', controller: 'register']" name='registerForm'>
