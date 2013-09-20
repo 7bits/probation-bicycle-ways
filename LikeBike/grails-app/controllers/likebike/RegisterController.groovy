@@ -9,13 +9,17 @@ import grails.converters.*
 class RegisterController extends grails.plugins.springsecurity.ui.RegisterController {
 
     def register = {
+        def command = new RegisterCommand()
+        command.username = params['username']
+        command.email = params['email']
+        command.password = params['password']
+        command.password2 = params['password2']
 
-        def out = [sdasd: "asdfdfsd"]
-        render params.command as JSON
+        render command.hasErrors() as JSON
 
         if (command.hasErrors()) {
-            redirect(controller: "home", action: "index", model: [command: command])
-            return
+            //redirect(controller: "home", action: "index", model: [command: command])
+            render command as JSON
         }
 
         String salt = saltSource instanceof NullSaltSource ? null : command.username
