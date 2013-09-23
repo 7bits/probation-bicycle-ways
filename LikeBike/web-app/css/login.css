@@ -1,0 +1,12 @@
+
+#log {
+    background-color: #8aacb7;
+    margin: 200px auto;
+    color: #000;
+    width: 400px;
+    height: 300px;
+}
+
+#close_log {
+    cursor: pointer;
+}

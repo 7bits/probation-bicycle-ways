@@ -25,7 +25,14 @@ $('document').ready(function () {
             data : command,
             success: function(data){
                 alert("OK");
-                alert(data);
+                if(data.hasError) {
+                    document.getElementById('username_error').value = data.username;
+                    document.getElementById('email_error').value = data.email;
+                    document.getElementById('password_error').style.value = data.password;
+                    document.getElementById('password2_error').style.value = data.password2;
+
+                }
+
             },
             error: function(jqXHR){
                 data = jQuery.parseJSON( jqXHR.responseText );

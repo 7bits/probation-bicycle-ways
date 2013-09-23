@@ -10,6 +10,42 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
 
     def register = {
 
+        def outErrors = [
+            hasError: false,
+            username: 'right',
+            email: 'right',
+            password: 'right',
+            password2: 'right'
+        ]
+
+        if(params['username'] =='') {
+            outErrors.username = 'empty'
+        }
+        else {
+            if(lookupUserClass().findByUsername(params['username'])) {
+                outErrors.username = 'userNameHold'
+            }
+        }
+        if(params['email'] =='') {
+            outErrors.email = 'empty'
+        }
+        if(params['password'] =='') {
+            outErrors.password = 'empty'
+        }
+        if(params['password2'] =='') {
+            outErrors.password2 = 'empty'
+        }
+
+        if(params['password2'] != params['password']) {
+            outErrors.password2 = 'passwordNotMatch'
+        }
+
+        if(( outErrors.username != 'right')||(outErrors.email != 'right')||(outErrors.password != 'right')||(outErrors.password2 != 'right') ) {
+            outErrors.hasError = true
+            render outErrors as JSON
+            return
+        }
+
         def command = new RegisterCommand()
         command.setUsername(params['username'])
         command.setEmail(params['email'])

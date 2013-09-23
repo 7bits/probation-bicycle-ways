@@ -1,0 +1,104 @@
+@font-face {
+    font-family: "Tahoma";
+    src: local("Tahoma"), url(../fonts/Tahoma.ttf);
+}
+
+#routes {
+    margin: 0 auto;
+    width: 800px;
+    height: 700px;
+}
+
+.text {
+    font: 15px "Tahoma";
+    color: #ffffff;
+}
+
+header {
+    width: 1300px;
+    height: 179px;
+    margin: 0 auto;
+    background: rgb(49, 54, 53); /* Old browsers */
+    background: -moz-linear-gradient(top, rgb(49, 54, 53) 1%, rgb(83, 78, 80) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, rgb(49, 54, 53)), color-stop(100%, rgb(83, 78, 80))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgb(49, 54, 53) 1%, rgb(83, 78, 80) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgb(49, 54, 53) 1%, rgb(83, 78, 80) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgb(49, 54, 53) 1%, rgb(83, 78, 80) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgb(49, 54, 53) 1%, rgb(83, 78, 80) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#313635', endColorstr='#534e50', GradientType=0); /* IE6-9 */
+}
+
+menu {
+    width: 1300px;
+    height: 77px;
+    margin: 0 auto;
+    padding: 0;
+    background: url('../images/menu.png');
+}
+
+#razmetka {
+    position: relative;
+    right: 1px;
+    bottom: 9px;
+}
+
+#logo {
+    position: relative;
+    left: 276px;
+    bottom: 134px;
+}
+
+#button_android_link {
+    position: relative;
+    left: 765px;
+    bottom: 250px;
+}
+
+#button_app_store_link {
+    position: relative;
+    left: 775px;
+    bottom: 250px;
+}
+
+#label_download_app {
+    position: relative;
+    left: 0;
+    bottom: 254px;
+    color: white;
+    height: 10px;
+    font: 18px "Tahoma";
+    width: 200px;
+    margin-left: 764px;
+}
+
+#menu_list {
+    list-style: none;
+    display: compact;
+    margin: 0 auto;
+    width: auto;
+}
+
+#menu_list_item {
+    display: inline;
+}
+
+.menu_list_item {
+    float: left;
+    display: block;
+    margin-right: 100px;
+    position: relative;
+    left: 327px;
+    bottom: 9px;
+    padding: 0px 0px 0px 0px;
+}
+
+.menu_text {
+    font: 16px "Tahoma";
+
+}
+
+.menu_a {
+    font: 16px "Tahoma";
+    text-decoration: none;
+    color: #000000;
+}

@@ -1,0 +1,72 @@
+@font-face {
+    font-family: "Tahoma";
+    src: local("Tahoma"), url(../fonts/Tahoma.ttf);
+}
+
+footer {
+    position: relative;
+    width: 1300px;
+    height: 72px;
+    margin: 0 auto;
+    padding: 0;
+    background: #313435; /* Old browsers */
+    background: -moz-linear-gradient(top, #313435 0%, #554e50 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #313435), color-stop(100%, #554e50)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #313435 0%, #554e50 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #313435 0%, #554e50 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #313435 0%, #554e50 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #313435 0%, #554e50 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#313435', endColorstr='#554e50', GradientType=0); /* IE6-9 */
+}
+
+#footer_menu {
+    margin: 0px auto;
+    padding: 0;
+    position: relative;
+    top: 5px;
+    padding-left: 382px;
+}
+
+li.footer_button {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    margin-top: 14px;
+    margin-right: 80px;
+    padding: 0;
+    float: left;
+}
+
+#mini_logo {
+    float: right;
+    position: relative;
+    top: 4px;
+    left: -216px;
+}
+
+#vk {
+    float: right;
+    position: relative;
+    top: 14px;
+    left: -213px;
+}
+
+#android_logo {
+    float: right;
+    position: relative;
+    top: 10px;
+    left: -543px;
+}
+
+#apple_logo {
+    float: right;
+    position: relative;
+    top: 7px;
+    left: -462px;
+}
+
+.footer_button a {
+    font: 14px "Tahoma";
+    text-decoration: none;
+    color: #000000;
+}

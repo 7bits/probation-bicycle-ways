@@ -13,6 +13,7 @@ $("document").ready(function () {
         zoom: 10,
         center: new google.maps.LatLng(54.988744, 73.369271),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
+        scrollwheel: false
     };
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     map.set('styles', [
