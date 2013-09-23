@@ -63,11 +63,11 @@
         <form id='loginForm' method="POST" action = "j_spring_security_check" >
             <p>
                 <label for='username'><g:message code="springSecurity.login.username.label"/>:</label>
-                <input name='j_username' id='username'/>
+                <input name='j_username' id='j_username'/>
             </p>
             <p>
                 <label for='password'><g:message code="springSecurity.login.password.label"/>:</label>
-                <input type='password' class='text_' name='j_password' id='password'/>
+                <input type='password' class='text_' name='j_password' id='j_password'/>
             </p>
             <p id="remember_me_holder">
                 <input type='checkbox' class='chk' name='${rememberMeParameter}' id='remember_me'

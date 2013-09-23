@@ -9,21 +9,21 @@ import grails.converters.*
 class RegisterController extends grails.plugins.springsecurity.ui.RegisterController {
 
     def register = {
+
         def command = new RegisterCommand()
-        command.username = params['username']
-        command.email = params['email']
-        command.password = params['password']
-        command.password2 = params['password2']
+        command.setUsername(params['username'])
+        command.setEmail(params['email'])
+        command.setPassword(params['password'])
+        command.setPassword2(params['password2'])
 
-        render command.hasErrors() as JSON
-
-        if (command.hasErrors()) {
-            //redirect(controller: "home", action: "index", model: [command: command])
-            render command as JSON
-        }
+        //if (command.hasErrors()) {
+        //    //redirect(controller: "home", action: "index", model: [command: command])
+        //    render command as JSON
+        //}
 
         String salt = saltSource instanceof NullSaltSource ? null : command.username
-        String password = springSecurityService.encodePassword(command.password, salt)
+        //not encode password
+        String password = command.password //springSecurityService.encodePassword(command.password)
         def user = lookupUserClass().newInstance(
                 email: command.email,
                 username: command.username,
@@ -50,9 +50,10 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
             html body.toString()
         }
 
+        render command as JSON
         redirect(controller: "home", action: "index", model: [command: command])
     }
-
+    /*
     def verifyRegistration = {
 
         String token = params.t;
@@ -67,6 +68,7 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
             }
         }
     }
+    */
 
     def forgotPassword = {
 
