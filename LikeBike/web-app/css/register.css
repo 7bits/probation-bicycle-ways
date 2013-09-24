@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Tahoma";
+    src: local("Tahoma"), url(../fonts/Tahoma.ttf);
+}
+
 #parent_reg {
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.65)), color-stop(100%, rgba(0, 0, 0, 0))); /* Chrome,Safari4+ */
@@ -17,18 +22,53 @@
     left: 0;
 }
 
+#reg_header {
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
 #reg {
-    background-color: #8aacb7;
-    margin: 200px auto;
+    border-radius: 4px;
+    background-color: #D5D7D8;
+    margin: 100px auto;
     color: #000;
-    width: 400px;
-    height: 300px;
+    width: 680px;
+    height: 660px;
 }
-
+.reg_text_title {
+    margin-top: 35px;
+    margin-left: 63px;
+    font: 16px "Tahoma";
+    color: #000;
+}
+.reg_text_info {
+    margin-left: 63px;
+    font: 13px "Tahoma";
+    color: rgba(151, 138, 138, 1);
+}
+.reg_input {
+    margin-left: 63px;
+    width: 550px;
+    height: 30px;
+}
 #close_reg {
-    cursor: pointer;
+    position: relative;
+    top: -6px;
+    left: 648px;
+    border-radius: 44px;
+    height: 36px;
+    background-color: #f00;
+    width: 36px;
 }
-
+#reg_submit {
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: inset -2px 2px 5px rgba(255, 255, 255, 0.2), inset 2px -2px 5px rgba(0, 0, 0, 0.5);
+    background-color: #5899B6;
+    width: 90px;
+    height: 37px;
+    margin-right: 63px;
+    float: right;
+}
 #parent_log {
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.65)), color-stop(100%, rgba(0, 0, 0, 0))); /* Chrome,Safari4+ */

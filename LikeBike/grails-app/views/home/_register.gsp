@@ -10,14 +10,13 @@
 <body>
 <div id="parent_reg" style="display: none">
     <div id="reg">
+        <button id="close_reg">x</button>
         <g:form url="[action: 'register', controller: 'register']" name='registerForm'>
-            <g:if test='${emailSent}'>
-                <br/>
-                <g:message code='spring.security.ui.register.sent'/>
-            </g:if>
-            <g:else>
-                <label>username:</label>
+
+            <p class="reg_text_title" id="reg_header">ЗАРЕГИСТРИРУЙТЕСЬ</p>
+                <p class="reg_text_title"><b>Логин</b>(Имя пользователя):</p>
                 <input
+                        class="reg_input"
                         id='username'
                         name='username'
                         labelCode='user.username.label'
@@ -25,10 +24,11 @@
                         labelCodeDefault='Username'
                         value=""/>
                 <br/>
-                <p id="usermame_error">123123123</p>
+                <span id="username_error" class="reg_text_info"></span>
                 <br/>
-                <label>email:</label>
+                <p class="reg_text_title"><b>Адрес электронной почты:</b></p>
                 <input
+                        class="reg_input"
                         id='email'
                         name='email'
                         value=""
@@ -36,10 +36,11 @@
                         labelCode='user.email.label'
                         labelCodeDefault='E-mail'/>
                 <br/>
-                <p id="email_error"></p>
+                <span id="email_error" class="reg_text_info"></span>
                 <br/>
-                <label>password:</label>
+                <p class="reg_text_title"><b>Пароль:</b></p>
                 <input
+                        class="reg_input"
                         id='password'
                         name='password'
                         labelCode='user.password.label'
@@ -47,10 +48,11 @@
                         labelCodeDefault='Password'
                         value=""/>
                 <br/>
-                <p id="password_error"></p>
+                <span id="password_error" class="reg_text_info"></span>
                 <br/>
-                <label>password2:</label>
+                <p class="reg_text_title"><b>Еще раз пароль:</b></p>
                 <input
+                        class="reg_input"
                         id='password2'
                         name='password2'
                         labelCode='user.password2.label'
@@ -58,12 +60,10 @@
                         labelCodeDefault='Password (again)'
                         value=""/>
                 <br/>
-                <p id="password2_error"></p>
+                <span id="password2_error" class="reg_text_info"></span>
                 <br/>
-                <g:submitButton name="update" value="Register"/>
-            </g:else>
+                <g:submitButton id="reg_submit"name="update" value="ПОЕХАЛИ!"/>
         </g:form>
-        <button id="close_reg">Close</button>
     </div>
 </div>
 </body>

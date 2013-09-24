@@ -13,9 +13,6 @@
 <g:render template="/home/header"/>
 <g:render template="/home/register"/>
 <g:render template="/home/login"/>
-<sec:ifNotLoggedIn>
-    <p class="text">Login to add your route (<g:link controller='login'>Login</g:link>)</p>
-</sec:ifNotLoggedIn>
 <div id="routes">
     <sec:ifLoggedIn>
         <h1 id="loadRouteH">ЗАГРУЗИТЬ СВОЙ МАРШРУТ</h1>

@@ -25,7 +25,7 @@
             <p class="menu_text"><a class="menu_a" href="map">КАРТА МАРШРУТОВ</a></p>
         </li>
         <li class="menu_list_item">
-            <p style="cursor: pointer;" id="p_reg">РЕГИСТРАЦИЯ</p>
+            <p style="cursor: pointer;" id="p_reg" class="menu_text">РЕГИСТРАЦИЯ</p>
         </li>
 
         <li class="menu_list_item">

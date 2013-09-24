@@ -24,13 +24,11 @@ $('document').ready(function () {
             datatype: JSON,
             data : command,
             success: function(data){
-                alert("OK");
                 if(data.hasError) {
-                    document.getElementById('username_error').value = data.username;
-                    document.getElementById('email_error').value = data.email;
-                    document.getElementById('password_error').style.value = data.password;
-                    document.getElementById('password2_error').style.value = data.password2;
-
+                    document.getElementById('username_error').innerText = data.username;
+                    document.getElementById('email_error').innerText = data.email;
+                    document.getElementById('password_error').innerText = data.password;
+                    document.getElementById('password2_error').innerText = data.password2;
                 }
 
             },
