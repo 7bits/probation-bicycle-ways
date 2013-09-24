@@ -1,6 +1,10 @@
 $('document').ready(function () {
-
+    document.getElementById('p_ok').style.display = 'none'
+    document.getElementById('p_ok').style.display = 'block'
     document.getElementById('close_reg').onclick = function () {
+        document.getElementById('registerForm').style.display = 'block';
+        document.getElementById('p_ok').style.display = 'none';
+        document.getElementById('reg').style.hight = '660px';
         document.getElementById('parent_reg').style.display = 'none';
     }
     document.getElementById('p_reg').onclick = function () {
@@ -29,6 +33,12 @@ $('document').ready(function () {
                     document.getElementById('email_error').innerText = data.email;
                     document.getElementById('password_error').innerText = data.password;
                     document.getElementById('password2_error').innerText = data.password2;
+                }
+                if(!data.hasError) {
+                    document.getElementById('registerForm').style.display = 'none';
+                    document.getElementById('p_ok').style.display = 'block';
+                    document.getElementById('reg').style.hight = '100px';
+
                 }
 
             },

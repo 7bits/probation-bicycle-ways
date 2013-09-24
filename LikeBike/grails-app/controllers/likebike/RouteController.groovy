@@ -38,7 +38,7 @@ class RouteController {
 
         routeService.loadFromFile(xmlData)
         def out = [ params.userFile.name ]
-        render out as JSON
+        redirect(uri: "/map")
     }
     def getRoute() {
         def route = routeService.getRoute()

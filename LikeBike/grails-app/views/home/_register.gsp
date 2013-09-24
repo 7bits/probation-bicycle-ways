@@ -11,8 +11,8 @@
 <div id="parent_reg" style="display: none">
     <div id="reg">
         <button id="close_reg">x</button>
-        <g:form url="[action: 'register', controller: 'register']" name='registerForm'>
-
+        <g:form url="[action: 'register', controller: 'register']" name='registerForm' id='registerForm'>
+            <p id="p_ok">Вы Вы зарегистрированы. Проверьте свой email.</p>
             <p class="reg_text_title" id="reg_header">ЗАРЕГИСТРИРУЙТЕСЬ</p>
                 <p class="reg_text_title"><b>Логин</b>(Имя пользователя):</p>
                 <input

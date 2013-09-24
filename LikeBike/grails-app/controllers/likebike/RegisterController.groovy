@@ -1,5 +1,6 @@
 package likebike
 
+import org.apache.commons.validator.EmailValidator
 import org.codehaus.groovy.grails.plugins.springsecurity.NullSaltSource
 import org.codehaus.groovy.grails.plugins.springsecurity.ui.RegistrationCode
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
@@ -38,6 +39,10 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
 
         if(params['password2'] != params['password']) {
             outErrors.password2 = 'passwordNotMatch'
+        }
+
+        if(!EmailValidator.getInstance().isValid(params['email'])) {
+            outErrors.email = 'emailNotValide'
         }
 
         if(( outErrors.username != 'right')||(outErrors.email != 'right')||(outErrors.password != 'right')||(outErrors.password2 != 'right') ) {
@@ -87,7 +92,6 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
         }
 
         render command as JSON
-        redirect(controller: "home", action: "index", model: [command: command])
     }
     /*
     def verifyRegistration = {

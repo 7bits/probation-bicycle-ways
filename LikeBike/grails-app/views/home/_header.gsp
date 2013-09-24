@@ -19,7 +19,7 @@
 <menu>
     <ul id="menu_list">
         <li class="menu_list_item">
-            <p class="menu_text">О ПРОЕКТЕ</p>
+            <p class="menu_text"><a class="menu_a" href="${createLinkTo(control: "home", action: "index")}">О ПРОЕКТЕ</a></p>
         </li>
         <li class="menu_list_item">
             <p class="menu_text"><a class="menu_a" href="map">КАРТА МАРШРУТОВ</a></p>
@@ -30,7 +30,7 @@
 
         <li class="menu_list_item">
             <sec:ifLoggedIn>
-                Вы зашли как <sec:username/> (<g:link controller='logout'>Выйти</g:link>)
+                <p style="cursor: pointer;" id="p_log" class="menu_text">Вы зашли как <sec:username/> (<g:link controller='logout'>Выйти</g:link>)</p>
             </sec:ifLoggedIn>
             <sec:ifNotLoggedIn>
                 <p style="cursor: pointer;" id="p_log" class="menu_text">ВХОД</p>

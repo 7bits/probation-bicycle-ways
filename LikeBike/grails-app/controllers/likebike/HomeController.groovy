@@ -3,8 +3,10 @@ package likebike
 class HomeController {
 
     def index = {
-        def command = new RegisterCommand()
-        render view: 'index', model: [command: command]
+        render view: 'index'
+    }
+    def map = {
+        render view: 'map'
     }
 
 }
