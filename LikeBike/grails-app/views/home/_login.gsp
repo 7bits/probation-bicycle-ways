@@ -15,7 +15,7 @@
         <form id='loginForm' method="POST" action="j_spring_security_check">
             <p class="reg_text_title" id="log_header">ВХОД</p>
 
-            <p class="reg_text_title">Имя пользователя:</p>
+            <p class="reg_text_title"><b>Логин:</b></p>
             <input
                     class='log_input'
                     name='j_username'
@@ -23,7 +23,7 @@
             <br/>
 
 
-            <p class="reg_text_title">Пароль:</p>
+            <p class="reg_text_title"><b>Пароль:</b></p>
             <input
                    type='password'
                    class='text_ log_input'

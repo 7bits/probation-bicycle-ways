@@ -6,13 +6,6 @@ $('document').ready(function () {
         document.getElementById('parent_log').style.display = 'block';
     }
 
-    document.getElementById('close_reg').onclick = function () {
-        document.getElementById('parent_reg').style.display = 'none';
-    }
-    document.getElementById('p_reg').onclick = function () {
-        document.getElementById('parent_reg').style.display = 'block';
-    }
-
     $('#loginForm').submit(function (e) {
         /*
         e.preventDefault();

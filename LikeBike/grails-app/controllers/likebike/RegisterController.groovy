@@ -44,6 +44,15 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
         if(!EmailValidator.getInstance().isValid(params['email'])) {
             outErrors.email = 'emailNotValide'
         }
+        String passwordVal = params['password'];
+        if ( !(
+                        passwordVal
+                        && passwordVal.length() >= 8
+                        && passwordVal.length() <= 64
+        ) ) {
+            outErrors.password = 'passwordNotValid'
+        }
+
 
         if(( outErrors.username != 'right')||(outErrors.email != 'right')||(outErrors.password != 'right')||(outErrors.password2 != 'right') ) {
             outErrors.hasError = true
@@ -93,22 +102,6 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
 
         render command as JSON
     }
-    /*
-    def verifyRegistration = {
-
-        String token = params.t;
-        def registrationCode = token ? RegistrationCode.findByToken(token) : null;
-
-        super.verifyRegistration();
-
-        if (registrationCode) {
-            def user = lookupUserClass().findByUsername(registrationCode.username);
-            if (user) {
-                user.afterRegisteration();
-            }
-        }
-    }
-    */
 
     def forgotPassword = {
 

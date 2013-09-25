@@ -26,41 +26,43 @@
     background-color: #D5D7D8;
     margin: 100px auto;
     color: #000;
-    width: 680px;
-    height: 430px;
+    width: 440px; /*680px;*/
+    height: 230px; /*430px;*/
 }
 
 #close_log {
     position: relative;
-    top: -6px;
-    left: 648px;
+    top: -3px;
+    left: 425px;
     border-radius: 44px;
-    height: 36px;
+    height: 20px;
     background-color: #f00;
-    width: 36px;
+    width: 20px;
 }
 
 #log_header {
-    margin-top: 10px;
-    margin-bottom: 35px;
+    /*margin-top: 10px;*/
+    margin-bottom: 20px;/*35px;*/
 }
 
 .log_text_title {
-    margin-top: 35px;
-    margin-left: 63px;
-    font: 16px "Tahoma";
+    margin-bottom: 0px;
+    margin-top: 0px;
+    /*margin-top: 35px;*/
+    margin-left: 40px;/*60px;*/
+    font: 14px "Tahoma"; /*16px "Tahoma";*/
     color: #000;
 }
 .log_text_info {
-    margin-left: 63px;
+    margin-left: 40px;/*60px;*/
     font: 13px "Tahoma";
     color: rgba(151, 138, 138, 1);
 }
 
 .log_input {
-    margin-left: 63px;
-    width: 550px;
-    height: 30px;
+    margin-left: 40px;/*60px;*/
+    width: 350px; /*550px;*/
+    height: 15px; /*30px;*/
 }
 
 #submit {
@@ -68,9 +70,9 @@
     border-radius: 5px;
     box-shadow: inset -2px 2px 5px rgba(255, 255, 255, 0.2), inset 2px -2px 5px rgba(0, 0, 0, 0.5);
     background-color: #5899B6;
-    width: 90px;
-    height: 37px;
-    margin-top: 15px;
-    margin-left: 62px;
+    width: 82px;/*90px;*/
+    height: 28px;/*37px;*/
+    margin-right: 45px;/*60px;*/
+    float: right;
 
 }
