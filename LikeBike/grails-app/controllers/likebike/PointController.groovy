@@ -63,8 +63,8 @@ class PointController {
         if (version != null) {
             if (pointInstance.version > version) {
                 pointInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'point.label', default: 'Point')] as Object[],
-                          "Another user has updated this Point while you were editing")
+                        [message(code: 'point.label', default: 'Point')] as Object[],
+                        "Another user has updated this Point while you were editing")
                 render(view: "edit", model: [pointInstance: pointInstance])
                 return
             }

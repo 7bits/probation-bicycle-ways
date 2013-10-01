@@ -12,7 +12,7 @@
     <div id="log">
         <button id="close_log">X</button>
 
-        <form id='loginForm' method="POST" action="j_spring_security_check">
+        <form id='login_form' method="POST" action="j_spring_security_check">
             <p class="reg_text_title" id="log_header">ВХОД</p>
 
             <p class="reg_text_title"><b>Логин:</b></p>
@@ -25,10 +25,10 @@
 
             <p class="reg_text_title"><b>Пароль:</b></p>
             <input
-                   type='password'
-                   class='text_ log_input'
-                   name='j_password'
-                   id='j_password'/>
+                    type='password'
+                    class='text_ log_input'
+                    name='j_password'
+                    id='j_password'/>
 
             <!--
             <p id="remember_me_holder">

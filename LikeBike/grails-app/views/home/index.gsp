@@ -23,7 +23,7 @@
         </li>
         <li class="cartoon_li">
             <g:img id="cartoon_third_img" class="cartoon_img" dir="images" file="cartoon3.png"/>
-            <p id="cartoonThirdP"
+            <p id="cartoon_third_p"
                class="cartoon_p">3. Статистику маршрутов увидит <br/>администрация и построит <br/> велодорожки в нужных местах.
             </p>
         </li>
@@ -31,33 +31,33 @@
 </div>
 
 <div id="info">
-    <h1 id="hText">Омску нужны велодорожки.</h1>
+    <h1 id="h_text">Омску нужны велодорожки.</h1>
 
-    <p id="mainText">
+    <p id="main_text">
         Построить их может Департамент транспорта и развития транспортной инфраструктуры. Для этого нужно знать, где проходят основные веломаршруты.<br/><br/>
         В этом может помочь любой велосипедист. Нужно установить на телефон приложение, которое ежедневно будет отслеживать веломаршруты и наносить их на карту, или загрузить свой маршрут на сайт. Постепенно станет понятно, где омичи любят кататься больше всего.<br/><br/>
         В итоге мы предложим готовый проект специалистам из Департамента, и велодорожки появятся в самых нужных и удобных местах Омска. Поддержите нашу идею – построим велодорожки вместе!
     </p>
 
-    <div id="watch" class="infoDiv">
-        <g:img id="watchImg" class="infoImg" dir="images" file="watch_img.png"/>
+    <div id="watch" class="info_div">
+        <g:img id="watch_img" class="info_img" dir="images" file="watch_img.png"/>
         <hr class="line">
 
-        <p class="doText">Просматривайте маршруты друзей!</p>
+        <p class="do_text">Просматривайте маршруты друзей!</p>
     </div>
 
-    <div id="share" class="infoDiv">
-        <g:img id="shareImg" class="infoImg" dir="images" file="share_img.png"/>
+    <div id="share" class="info_div">
+        <g:img id="share_img" class="info_img" dir="images" file="share_img.png"/>
         <hr class="line">
 
-        <p class="doText">Делитесь своими планами.</p>
+        <p class="do_text">Делитесь своими планами.</p>
     </div>
 
-    <div id="getIn" class="infoDiv">
-        <g:img id="getInImg" class="infoImg" dir="images" file="getIn_img.png"/>
+    <div id="get_in" class="info_div">
+        <g:img id="get_in_img" class="info_img" dir="images" file="get_in_img.png"/>
         <hr class="line">
 
-        <p class="doText">Участвуйте в будущем города.</p>
+        <p class="do_text">Участвуйте в будущем города.</p>
     </div>
 </div>
 <g:render template="/home/footer"/>

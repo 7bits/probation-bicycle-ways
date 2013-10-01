@@ -63,8 +63,8 @@ class RoleController {
         if (version != null) {
             if (roleInstance.version > version) {
                 roleInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'role.label', default: 'Role')] as Object[],
-                          "Another user has updated this Role while you were editing")
+                        [message(code: 'role.label', default: 'Role')] as Object[],
+                        "Another user has updated this Role while you were editing")
                 render(view: "edit", model: [roleInstance: roleInstance])
                 return
             }

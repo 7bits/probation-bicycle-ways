@@ -3,12 +3,6 @@
     src: local("Tahoma"), url(../fonts/Tahoma.ttf);
 }
 
-#routes {
-    margin: 0 auto;
-    width: 800px;
-    height: 700px;
-}
-
 .text {
     font: 15px "Tahoma";
     color: #ffffff;

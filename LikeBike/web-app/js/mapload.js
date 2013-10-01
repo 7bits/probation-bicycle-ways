@@ -1,13 +1,103 @@
-var map;
+var map;//google карта
 var taxiData = [];
 var routeArray = [];
 var routeMode = 0;
-var line = [];
-var heatmap = 0;
+var line = [];//список линий на карте
+var heatmap = 0;//список точек
+
 $("document").ready(function () {
+
     $("#userfile").change(function () {
-        document.getElementById("importP").innerHTML = document.getElementById('userfile').value;
+        document.getElementById("import_p").innerHTML = document.getElementById('userfile').value;
     });
+    if (document.getElementById('get_users_routes') != null) {
+        document.getElementById('get_users_routes').onclick = function () {
+            var loader = document.createElement("div");
+            loader.style.width = "126px";
+            loader.style.height = "22px";
+            loader.style.backgroundImage = "url(images/loader.gif)";
+            map.controls[google.maps.ControlPosition.TOP].push(loader);
+
+            heatmap.setMap(null);
+            for (i = 0; i < line.length; i++) {
+                line[i].setMap(null);
+            }
+            line = [];
+            heatmap = 0;
+            routeArray = [];
+            taxiData = [];
+            $.ajax({
+                url: "route/getUsersRoute",
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    $.each(data, function (route, valR) {
+                        var myRoute = [];
+                        $.each(valR, function (point, valP) {
+                            var Point = [];
+                            $.each(valP, function (coord, valC) {
+                                Point.push(valC);
+                            });
+                            var googleMapPoint = new google.maps.LatLng(Point[0], Point[1]);
+                            taxiData.push(googleMapPoint);
+                            myRoute.push(googleMapPoint);
+                        });
+                        routeArray.push(myRoute);
+                    });
+                    createRoute();
+                    displayRoute();
+                    map.controls[google.maps.ControlPosition.TOP].clear(loader);
+                },
+                error: function (jqXHR) {
+                    data = jQuery.parseJSON(jqXHR.responseText);
+                }
+            });//end ajax
+        }
+    }
+    if (document.getElementById('get_all_routes') != null) {
+        document.getElementById('get_all_routes').onclick = function () {
+            var loader = document.createElement("div");
+            loader.style.width = "126px";
+            loader.style.height = "22px";
+            loader.style.backgroundImage = "url(images/loader.gif)";
+            map.controls[google.maps.ControlPosition.TOP].push(loader);
+
+            heatmap.setMap(null);
+            for (i = 0; i < line.length; i++) {
+                line[i].setMap(null);
+            }
+            line = [];
+            heatmap = 0;
+            routeArray = [];
+            taxiData = [];
+            $.ajax({
+                url: "route/getRoute",
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    $.each(data, function (route, valR) {
+                        var myRoute = [];
+                        $.each(valR, function (point, valP) {
+                            var Point = [];
+                            $.each(valP, function (coord, valC) {
+                                Point.push(valC);
+                            });
+                            var googleMapPoint = new google.maps.LatLng(Point[0], Point[1]);
+                            taxiData.push(googleMapPoint);
+                            myRoute.push(googleMapPoint);
+                        });
+                        routeArray.push(myRoute);
+                    });
+                    createRoute();
+                    displayRoute();
+                    map.controls[google.maps.ControlPosition.TOP].clear(loader);
+                },
+                error: function (jqXHR) {
+                    data = jQuery.parseJSON(jqXHR.responseText);
+                }
+            });//end ajax
+        }
+    }
 
     var mapOptions = {
         zoom: 10,
@@ -35,7 +125,6 @@ $("document").ready(function () {
         }
     ]);
 
-
     var loader = document.createElement("div");
     loader.style.width = "126px";
     loader.style.height = "22px";
@@ -57,7 +146,6 @@ $("document").ready(function () {
         }
         displayRoute();
     }
-
     map.controls[google.maps.ControlPosition.RIGHT_TOP].push(mode);
 
     $.ajax({

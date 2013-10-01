@@ -4,23 +4,26 @@ import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.*
 import org.apache.commons.io.FileUtils
 import grails.plugins.springsecurity.Secured
+import grails.plugins.springsecurity.*
 
 class RouteController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET"]
-    
+    static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET", getUsersRoute: "POST"]
+
 
     def routeService
+    def SpringSecurityService
 
-    def getAllRoute () {
-        def routes = Route.list() 
-        render routes as JSON    
+    def getUsersRoute() {
+        def route = routeService.getUsersRoute(SpringSecurityService.getCurrentUser())
+        render route as JSON
     }
+
     def genRoute() {
 
         ArrayList<Double> searchFields = request.getParameterValues('array[]')
         routeService.genRoute(searchFields)
-        
+
         def out = ["route is imported"]
 
         render out as JSON
@@ -29,20 +32,15 @@ class RouteController {
     def generateRoute() {
     }
 
-    //@Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def loadFile() {
-        String xmlData = new String( params.userFile.bytes )
-        //def xmlFile = new File( params.userFile.name )
-        //xmlFile.createNewFile();
-        //FileUtils.writeStringToFile(xmlFile, xmlData)
-
-        routeService.loadFromFile(xmlData)
-        def out = [ params.userFile.name ]
-        redirect(uri: "/map")
+        String xmlData = new String(params.userFile.bytes)
+        routeService.loadFromFile(xmlData, SpringSecurityService.getCurrentUser())
+        def out = [params.userFile.name]
+        redirect(uri: "map")
     }
+
     def getRoute() {
         def route = routeService.getRoute()
-
         render route as JSON
     }
 
@@ -103,8 +101,8 @@ class RouteController {
         if (version != null) {
             if (routeInstance.version > version) {
                 routeInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'route.label', default: 'Route')] as Object[],
-                          "Another user has updated this Route while you were editing")
+                        [message(code: 'route.label', default: 'Route')] as Object[],
+                        "Another user has updated this Route while you were editing")
                 render(view: "edit", model: [routeInstance: routeInstance])
                 return
             }

@@ -12,49 +12,50 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
     def register = {
 
         def outErrors = [
-            hasError: false,
-            username: 'right',
-            email: 'right',
-            password: 'right',
-            password2: 'right'
+                hasError: false,
+                username: 'right',
+                email: 'right',
+                password: 'right',
+                password2: 'right'
         ]
 
-        if(params['username'] =='') {
+        if (params['username'] == '') {
             outErrors.username = 'empty'
-        }
-        else {
-            if(lookupUserClass().findByUsername(params['username'])) {
+        } else {
+            if (lookupUserClass().findByUsername(params['username'])) {
                 outErrors.username = 'userNameHold'
             }
         }
-        if(params['email'] =='') {
+
+        if (!EmailValidator.getInstance().isValid(params['email'])) {
+            outErrors.email = 'emailNotValide'
+        }
+        if (params['email'] == '') {
             outErrors.email = 'empty'
         }
-        if(params['password'] =='') {
+        if (params['password'] == '') {
             outErrors.password = 'empty'
         }
-        if(params['password2'] =='') {
+        if (params['password2'] == '') {
             outErrors.password2 = 'empty'
         }
 
-        if(params['password2'] != params['password']) {
+        if (params['password2'] != params['password']) {
             outErrors.password2 = 'passwordNotMatch'
         }
 
-        if(!EmailValidator.getInstance().isValid(params['email'])) {
-            outErrors.email = 'emailNotValide'
-        }
         String passwordVal = params['password'];
-        if ( !(
-                        passwordVal
-                        && passwordVal.length() >= 8
-                        && passwordVal.length() <= 64
-        ) ) {
+        if (!(
+        passwordVal
+                && passwordVal.length() >= 8
+                && passwordVal.length() <= 64
+        )) {
             outErrors.password = 'passwordNotValid'
         }
 
 
-        if(( outErrors.username != 'right')||(outErrors.email != 'right')||(outErrors.password != 'right')||(outErrors.password2 != 'right') ) {
+
+        if ((outErrors.username != 'right') || (outErrors.email != 'right') || (outErrors.password != 'right') || (outErrors.password2 != 'right')) {
             outErrors.hasError = true
             render outErrors as JSON
             return
@@ -101,6 +102,12 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
         }
 
         render command as JSON
+    }
+
+    protected String generateLink(String action, linkParams) {
+        createLink(base: "like-bike.7bits.it$request.contextPath",
+                controller: 'register', action: action,
+                params: linkParams)
     }
 
     def forgotPassword = {

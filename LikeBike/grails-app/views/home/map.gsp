@@ -15,19 +15,23 @@
 <g:render template="/home/login"/>
 <div id="routes">
     <sec:ifLoggedIn>
-        <h1 id="loadRouteH">ЗАГРУЗИТЬ СВОЙ МАРШРУТ</h1>
+        <button id="get_all_routes">Все маршруты</button>
+        <button id="get_users_routes">Мои маршруты</button>
+
+        <h1 id="load_route_h">ЗАГРУЗИТЬ СВОЙ МАРШРУТ</h1>
+
 
         <form id="load_file" action="route/loadFile" method="post" enctype="multipart/form-data">
-            <div id="formCopy">
-                <div class="importBtn">
-                    <p class="btnP">Выберите файл</p>
+            <div id="form_copy">
+                <div class="import_btn">
+                    <p class="btn_p">Выберите файл</p>
                     <input type="file" id="userfile" class="userfile" name="userFile"/>
                 </div>
 
-                <p id="importP">файл не выбран</p>
+                <p id="import_p">файл не выбран</p>
 
-                <div class="importBtn">
-                    <p class="btnP">Импортировать</p>
+                <div class="import_btn">
+                    <p class="btn_p">Импортировать</p>
                     <input type="submit" name="upload" id="upload" value="Импортировать"/>
                 </div>
             </div>

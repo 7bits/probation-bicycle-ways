@@ -7,31 +7,6 @@ $('document').ready(function () {
     }
 
     $('#loginForm').submit(function (e) {
-        /*
-        e.preventDefault();
-        var command = {
-            username: $('#username').val(),
-            email: $('#email').val(),
-            password: $('#password').val(),
-            password2: $('#password2').val()
-        }
-        data = {
-            command: command
-        }
-        $.ajax({
-            type: 'POST',
-            url: 'register/register',
-            datatype: JSON,
-            data: command,
-            success: function (data) {
-                alert("OK");
-                alert(data);
-            },
-            error: function (jqXHR) {
-                data = jQuery.parseJSON(jqXHR.responseText);
-                alert("ERROR");
-            }
-        });
-        */
+
     });
 });
