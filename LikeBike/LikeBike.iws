@@ -31,7 +31,7 @@
     <file path="/registration.js" changelist="7b434b5d-a6e0-4dc9-a57a-4559436a5b83" time="1380774654675" ignored="false" />
     <file path="/_header.gsp" changelist="7b434b5d-a6e0-4dc9-a57a-4559436a5b83" time="1380788250382" ignored="false" />
     <file path="/map.gsp" changelist="7b434b5d-a6e0-4dc9-a57a-4559436a5b83" time="1379920640522" ignored="false" />
-    <file path="/_footer.gsp" changelist="7b434b5d-a6e0-4dc9-a57a-4559436a5b83" time="1379921400109" ignored="false" />
+    <file path="/_footer.gsp" changelist="7b434b5d-a6e0-4dc9-a57a-4559436a5b83" time="1380791670417" ignored="false" />
     <file path="/_register.gsp" changelist="7b434b5d-a6e0-4dc9-a57a-4559436a5b83" time="1380604124812" ignored="false" />
     <file path="/_login.gsp" changelist="7b434b5d-a6e0-4dc9-a57a-4559436a5b83" time="1380081077858" ignored="false" />
     <file path="/header.css" changelist="7b434b5d-a6e0-4dc9-a57a-4559436a5b83" time="1380788869062" ignored="false" />
@@ -43,6 +43,7 @@
     <file path="/structureDB" changelist="7b434b5d-a6e0-4dc9-a57a-4559436a5b83" time="1380092208029" ignored="false" />
     <file path="/migration_script" changelist="7b434b5d-a6e0-4dc9-a57a-4559436a5b83" time="1380092386965" ignored="false" />
     <file path="/RouteService.groovy" changelist="7b434b5d-a6e0-4dc9-a57a-4559436a5b83" time="1380603630663" ignored="false" />
+    <file path="/footer.css" changelist="7b434b5d-a6e0-4dc9-a57a-4559436a5b83" time="1380791778737" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,19 +105,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_header.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/home/_header.gsp">
+      <file leaf-file-name="footer.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web-app/css/footer.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="6" selection-start="1704" selection-end="1704" vertical-scroll-proportion="-6.75">
+            <state line="23" column="18" selection-start="999" selection-end="999" vertical-scroll-proportion="0.54761904">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_footer.gsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/home/_footer.gsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="22" selection-start="250" selection-end="259" vertical-scroll-proportion="-3.125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/css/header.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="21" selection-start="2380" selection-end="2380" vertical-scroll-proportion="0.8442907">
+            <state line="39" column="23" selection-start="1378" selection-end="1421" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_header.gsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/home/_header.gsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="6" selection-start="1704" selection-end="1704" vertical-scroll-proportion="-14.0625">
               <folding />
             </state>
           </provider>
@@ -132,8 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/web-app/js/login.js" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/likebike/RegisterController.groovy" />
         <option value="$PROJECT_DIR$/application.properties" />
         <option value="$PROJECT_DIR$/version_migration/version_1.0.1/structureDB" />
         <option value="$PROJECT_DIR$/version_migration/version_1.0.2/structureDB" />
@@ -147,7 +164,9 @@
         <option value="$PROJECT_DIR$/grails-app/views/home/_register.gsp" />
         <option value="$PROJECT_DIR$/web-app/js/registration.js" />
         <option value="$PROJECT_DIR$/grails-app/views/home/_header.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/home/_footer.gsp" />
         <option value="$PROJECT_DIR$/web-app/css/header.css" />
+        <option value="$PROJECT_DIR$/web-app/css/footer.css" />
       </list>
     </option>
   </component>
@@ -232,42 +251,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LikeBike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LikeBike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LikeBike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LikeBike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -566,21 +549,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/likebike/RouteService.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="56" selection-start="1432" selection-end="1432" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/likebike/RouteController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="113" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -656,16 +624,35 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/images/markings.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/home/_header.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="6" selection-start="1704" selection-end="1704" vertical-scroll-proportion="-6.75">
+        <state line="45" column="6" selection-start="1704" selection-end="1704" vertical-scroll-proportion="-14.0625">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/css/header.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="21" selection-start="2380" selection-end="2380" vertical-scroll-proportion="0.8442907">
+        <state line="39" column="23" selection-start="1378" selection-end="1421" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/home/_footer.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="22" selection-start="250" selection-end="259" vertical-scroll-proportion="-3.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/css/footer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="18" selection-start="999" selection-end="999" vertical-scroll-proportion="0.54761904">
           <folding />
         </state>
       </provider>
