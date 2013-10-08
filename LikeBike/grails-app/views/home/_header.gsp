@@ -23,7 +23,7 @@
     <ul id="menu_list">
         <li class="menu_list_item">
             <p class="menu_text"><a class="menu_a"
-                                    href="${createLinkTo(control: "home", action: "index")}">О ПРОЕКТЕ</a></p>
+                                    href="/">О ПРОЕКТЕ</a></p>
         </li>
         <li class="menu_list_item">
             <p class="menu_text"><a class="menu_a" href="map">КАРТА МАРШРУТОВ</a></p>

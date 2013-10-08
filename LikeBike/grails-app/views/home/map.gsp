@@ -14,6 +14,7 @@
 <g:render template="/home/register"/>
 <g:render template="/home/login"/>
 <div id="routes">
+    <div id="map-canvas"></div>
     <sec:ifLoggedIn>
         <button id="get_all_routes">Все маршруты</button>
         <button id="get_users_routes">Мои маршруты</button>
@@ -37,7 +38,6 @@
             </div>
         </form>
     </sec:ifLoggedIn>
-    <div id="map-canvas"></div>
 </div>
 <g:render template="/home/footer"/>
 </body>

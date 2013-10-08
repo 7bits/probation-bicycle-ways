@@ -8,5 +8,8 @@ class HomeController {
     def map = {
         render view: 'map'
     }
+    def header = {
+        render view: 'header'
+    }
 
 }

@@ -16,7 +16,7 @@ $("document").ready(function () {
             loader.style.width = "126px";
             loader.style.height = "22px";
             loader.style.backgroundImage = "url(images/loader.gif)";
-            map.controls[google.maps.ControlPosition.TOP].push(loader);
+            map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
 
             heatmap.setMap(null);
             for (i = 0; i < line.length; i++) {
@@ -46,7 +46,7 @@ $("document").ready(function () {
                     });
                     createRoute();
                     displayRoute();
-                    map.controls[google.maps.ControlPosition.TOP].clear(loader);
+                    map.controls[google.maps.ControlPosition.BOTTOM].clear(loader);
                 },
                 error: function (jqXHR) {
                     data = jQuery.parseJSON(jqXHR.responseText);
@@ -60,7 +60,7 @@ $("document").ready(function () {
             loader.style.width = "126px";
             loader.style.height = "22px";
             loader.style.backgroundImage = "url(images/loader.gif)";
-            map.controls[google.maps.ControlPosition.TOP].push(loader);
+            map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
 
             heatmap.setMap(null);
             for (i = 0; i < line.length; i++) {
@@ -90,7 +90,7 @@ $("document").ready(function () {
                     });
                     createRoute();
                     displayRoute();
-                    map.controls[google.maps.ControlPosition.TOP].clear(loader);
+                    map.controls[google.maps.ControlPosition.BOTTOM].clear(loader);
                 },
                 error: function (jqXHR) {
                     data = jQuery.parseJSON(jqXHR.responseText);
@@ -129,7 +129,7 @@ $("document").ready(function () {
     loader.style.width = "126px";
     loader.style.height = "22px";
     loader.style.backgroundImage = "url(images/loader.gif)";
-    map.controls[google.maps.ControlPosition.TOP].push(loader);
+    map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
 
     var mode = document.createElement("input");
     mode.style.width = "50px";
@@ -146,7 +146,7 @@ $("document").ready(function () {
         }
         displayRoute();
     }
-    map.controls[google.maps.ControlPosition.RIGHT_TOP].push(mode);
+    map.controls[google.maps.ControlPosition.LEFT].push(mode);
 
     $.ajax({
         url: "route/getRoute",
@@ -168,7 +168,7 @@ $("document").ready(function () {
             });
             createRoute();
             displayRoute();
-            map.controls[google.maps.ControlPosition.TOP].clear(loader);
+            map.controls[google.maps.ControlPosition.BOTTOM].clear(loader);
         },
         error: function (jqXHR) {
             data = jQuery.parseJSON(jqXHR.responseText);
