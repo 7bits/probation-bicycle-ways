@@ -188,9 +188,6 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
     }
 }
 
-
-
-
 class RegisterCommand {
 
     String username

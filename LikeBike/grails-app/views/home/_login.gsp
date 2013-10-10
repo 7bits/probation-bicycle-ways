@@ -10,12 +10,12 @@
 <body>
 <div id="parent_log" style="display: none">
     <div id="log">
-        <button id="close_log">X</button>
+        <div id="close_log">x</div>
 
         <form id='login_form' method="POST" action="j_spring_security_check">
-            <p class="reg_text_title" id="log_header">ВХОД</p>
-
-            <p class="reg_text_title"><b>Логин:</b></p>
+            <p class="log_text_title" id="log_header">ВХОД</p>
+            <p id="p_error" class='log_text_info'>Неверное имя или пароль.</p>
+            <p class="log_text_title"><b>Логин:</b></p>
             <input
                     class='log_input'
                     name='j_username'
@@ -23,7 +23,7 @@
             <br/>
 
 
-            <p class="reg_text_title"><b>Пароль:</b></p>
+            <p class="log_text_title"><b>Пароль:</b></p>
             <input
                     type='password'
                     class='text_ log_input'

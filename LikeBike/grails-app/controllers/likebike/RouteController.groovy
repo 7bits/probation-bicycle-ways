@@ -14,11 +14,13 @@ class RouteController {
     def routeService
     def SpringSecurityService
 
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def getUsersRoute() {
         def route = routeService.getUsersRoute(SpringSecurityService.getCurrentUser())
         render route as JSON
     }
 
+    @Secured(['ROLE_ADMIN'])
     def genRoute() {
 
         ArrayList<Double> searchFields = request.getParameterValues('array[]')
@@ -29,6 +31,7 @@ class RouteController {
         render out as JSON
     }
 
+    @Secured(['ROLE_ADMIN'])
     def generateRoute() {
     }
 
@@ -38,25 +41,29 @@ class RouteController {
         def out = [params.userFile.name]
         redirect(uri: "map")
     }
-
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def getRoute() {
         def route = routeService.getRoute()
         render route as JSON
     }
 
+    @Secured(['ROLE_ADMIN'])
     def index() {
         redirect(action: "list", params: params)
     }
 
+    @Secured(['ROLE_ADMIN'])
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         [routeInstanceList: Route.list(params), routeInstanceTotal: Route.count()]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def create() {
         [routeInstance: new Route(params)]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def save() {
         def routeInstance = new Route(params)
         if (!routeInstance.save(flush: true)) {
@@ -68,6 +75,7 @@ class RouteController {
         redirect(action: "show", id: routeInstance.id)
     }
 
+    @Secured(['ROLE_ADMIN'])
     def show(Long id) {
         def routeInstance = Route.get(id)
         if (!routeInstance) {
@@ -79,6 +87,7 @@ class RouteController {
         [routeInstance: routeInstance]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def edit(Long id) {
         def routeInstance = Route.get(id)
         if (!routeInstance) {
@@ -90,6 +99,7 @@ class RouteController {
         [routeInstance: routeInstance]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def update(Long id, Long version) {
         def routeInstance = Route.get(id)
         if (!routeInstance) {
@@ -119,6 +129,7 @@ class RouteController {
         redirect(action: "show", id: routeInstance.id)
     }
 
+    @Secured(['ROLE_ADMIN'])
     def delete(Long id) {
         def routeInstance = Route.get(id)
         if (!routeInstance) {

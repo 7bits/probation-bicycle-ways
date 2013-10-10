@@ -57,20 +57,21 @@
 }
 #close_reg {
     position: relative;
-    top: -7px;
-    left: 450px;
-    border-radius: 44px;
-    height: 25px;
-    background-color: #f00;
-    width: 25px;
+    text-align: center;
+    left: 420px;
+    border-radius: 4px;
+    height: 20px;
+    background-color: #D5D7D8;
+    width: 20px;
+    cursor: pointer;
+}
 
-    position: relative;
-    top: -7px;
-    left: 420px;/*648px;*/
-    border-radius: 44px;
-    height: 25px;/*36px;*/
-    background-color: #f00;
-    width: 25px;/*36px;*/
+#close_reg:hover {
+    background-color: #9B9AA0;
+}
+
+#close_reg:active {
+    background-color: #D5D7D8;
 }
 #reg_submit {
     border: 0px;

@@ -10,7 +10,7 @@
 <body>
 <div id="parent_reg" style="display: none">
     <div id="reg">
-        <button id="close_reg">x</button>
+        <div id="close_reg">x</div>
 
         <p id="p_ok">Вы зарегистрированы. Проверьте свой email.</p>
         <g:form url="[action: 'register', controller: 'register']" name='register_form' id='register_form'>

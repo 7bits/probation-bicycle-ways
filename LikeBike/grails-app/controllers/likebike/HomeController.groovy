@@ -11,5 +11,8 @@ class HomeController {
     def header = {
         render view: 'header'
     }
+    def footer = {
+        render view: 'footer'
+    }
 
 }

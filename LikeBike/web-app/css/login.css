@@ -30,14 +30,28 @@
     height: 230px; /*430px;*/
 }
 
+#p_error {
+    color: #f00;
+}
+
 #close_log {
     position: relative;
-    top: -3px;
-    left: 425px;
-    border-radius: 44px;
+    text-align: center;
+    left: 420px;
+    border: 0;
+    border-radius: 4px;
     height: 20px;
-    background-color: #f00;
+    background-color: #D5D7D8;
     width: 20px;
+    cursor: pointer;
+}
+
+#close_log:hover {
+    background-color: #9B9AA0;
+}
+
+#close_log:active {
+    background-color: #D5D7D8;
 }
 
 #log_header {
