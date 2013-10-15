@@ -1,10 +1,8 @@
 $('document').ready(function () {
     document.getElementById('p_error').style.display = 'none';
-    function getParam(name){
-        if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
-            return decodeURIComponent(name[1]);
-    }
-    if( getParam('login_error') == 1 ){
+    document.getElementById('p_error').style.display = 'none';
+
+    if( getParameterByName('login_error') == 1 ){
         document.getElementById('parent_log').style.display = 'block';
         document.getElementById('p_error').style.display = 'block';
     }
@@ -20,3 +18,10 @@ $('document').ready(function () {
 
     });
 });
+function getParameterByName(name) {
+
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}

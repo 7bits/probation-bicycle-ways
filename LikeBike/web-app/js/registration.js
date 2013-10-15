@@ -7,6 +7,17 @@ $('document').ready(function () {
     }
     if (document.getElementById('p_reg') != null) {
         document.getElementById('p_reg').onclick = function () {
+            /*var spinner = new Spinner({
+                lines: 7, // количество линий для отрисовки
+                length: 6, // длина каждой линии
+                width: 3, // толщина линий
+                radius: 4, // радиус внутреннего круга
+                color: '#000', // #rbg или #rrggbb
+                speed: 1, // кругов в секунду
+                trail: 100, // процент послесвечения
+                shadow: true // отрисовка тени
+            }).spin(document.getElementById("reg_submit")); // Положить в нод DOM "ajaxContentHolder"
+            */
             document.getElementById('p_ok').style.display = 'none';
             document.getElementById('parent_reg').style.display = 'block';
             document.getElementById('register_form').style.display = 'block';

@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'register.css')}"/>
     <g:javascript src="registration.js"/>
+    <g:javascript src="spin.js"/>
 </head>
 
 <body>
@@ -70,6 +71,7 @@
             <span id="password2_error" class="reg_text_info"></span>
             <br/>
             <g:submitButton id="reg_submit" name="update" value="ПОЕХАЛИ!"/>
+            <span id="spiner"></span>
         </g:form>
     </div>
 </div>

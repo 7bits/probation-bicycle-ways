@@ -6,7 +6,7 @@ class HomeController {
         render view: 'index'
     }
     def map = {
-        render view: 'map'
+        render view: '/home/map'
     }
     def header = {
         render view: 'header'
@@ -14,5 +14,4 @@ class HomeController {
     def footer = {
         render view: 'footer'
     }
-
 }

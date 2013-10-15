@@ -13,6 +13,7 @@
 <g:render template="/home/header"/>
 <g:render template="/home/register"/>
 <g:render template="/home/login"/>
+<g:render template="/home/info"/>
 <div id="routes">
     <div id="map-canvas"></div>
     <sec:ifLoggedIn>

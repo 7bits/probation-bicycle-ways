@@ -36,12 +36,23 @@ class RouteController {
     }
 
     def loadFile() {
+        if ( !params.userFile ) {
+            redirect(uri: "/map?file_error=1")
+            return
+        }
         String xmlData = new String(params.userFile.bytes)
+
+        if (xmlData == ''){
+            redirect(uri: "/map?file_error=2")
+            return
+        }
+
         routeService.loadFromFile(xmlData, SpringSecurityService.getCurrentUser())
         def out = [params.userFile.name]
-        redirect(uri: "map")
+        redirect(uri: "/map")
+        return
     }
-    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
+
     def getRoute() {
         def route = routeService.getRoute()
         render route as JSON
