@@ -52,8 +52,10 @@ li.footer_button {
     position: absolute;
     float: right;
     margin-top: 16px;
-    margin-left: 420px;
-    width: 30px;
+    /*margin-left: 420px;
+    width: 30px;*/
+    margin-left: 1080px;
+    width: 140px;
 }
 
 #android_logo {
