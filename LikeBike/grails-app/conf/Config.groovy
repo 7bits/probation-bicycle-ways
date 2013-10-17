@@ -14,18 +14,18 @@ grails.project.groupId = appName // change this to alter the default package nam
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
 grails.mime.types = [
-    all:           '*/*',
-    atom:          'application/atom+xml',
-    css:           'text/css',
-    csv:           'text/csv',
-    form:          'application/x-www-form-urlencoded',
-    html:          ['text/html','application/xhtml+xml'],
-    js:            'text/javascript',
-    json:          ['application/json', 'text/json'],
-    multipartForm: 'multipart/form-data',
-    rss:           'application/rss+xml',
-    text:          'text/plain',
-    xml:           ['text/xml', 'application/xml']
+        all: '*/*',
+        atom: 'application/atom+xml',
+        css: 'text/css',
+        csv: 'text/csv',
+        form: 'application/x-www-form-urlencoded',
+        html: ['text/html', 'application/xhtml+xml'],
+        js: 'text/javascript',
+        json: ['application/json', 'text/json'],
+        multipartForm: 'multipart/form-data',
+        rss: 'application/rss+xml',
+        text: 'text/plain',
+        xml: ['text/xml', 'application/xml']
 ]
 
 // URL Mapping Cache Max Size, defaults to 5000
@@ -50,7 +50,7 @@ grails.enable.native2ascii = true
 // packages to include in Spring bean scanning
 grails.spring.bean.packages = []
 // whether to disable processing of multi part requests
-grails.web.disable.multipart=false
+grails.web.disable.multipart = false
 
 // request parameters to mask when logging exceptions
 grails.exceptionresolver.params.exclude = ['password']
@@ -76,37 +76,37 @@ log4j = {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
 
-    error  'org.codehaus.groovy.grails.web.servlet',        // controllers
-           'org.codehaus.groovy.grails.web.pages',          // GSP
-           'org.codehaus.groovy.grails.web.sitemesh',       // layouts
-           'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
-           'org.codehaus.groovy.grails.web.mapping',        // URL mapping
-           'org.codehaus.groovy.grails.commons',            // core / classloading
-           'org.codehaus.groovy.grails.plugins',            // plugins
-           'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
-           'org.springframework',
-           'org.hibernate',
-           'net.sf.ehcache.hibernate'
+    error 'org.codehaus.groovy.grails.web.servlet',        // controllers
+            'org.codehaus.groovy.grails.web.pages',          // GSP
+            'org.codehaus.groovy.grails.web.sitemesh',       // layouts
+            'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
+            'org.codehaus.groovy.grails.web.mapping',        // URL mapping
+            'org.codehaus.groovy.grails.commons',            // core / classloading
+            'org.codehaus.groovy.grails.plugins',            // plugins
+            'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
+            'org.springframework',
+            'org.hibernate',
+            'net.sf.ehcache.hibernate'
 }
 
 grails {
-   mail {
-     host = "smtp.gmail.com"
-     port = 465
-     username = "velo.sity.omsk@gmail.com"
-     password = "likebike"
-     props = ["mail.smtp.auth":"true",             
-              "mail.smtp.socketFactory.port":"465",
-              "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
-              "mail.smtp.socketFactory.fallback":"false"]
-   }
+    mail {
+        host = "smtp.gmail.com"
+        port = 465
+        username = "velo.sity.omsk@gmail.com"
+        password = "likebike"
+        props = ["mail.smtp.auth": "true",
+                "mail.smtp.socketFactory.port": "465",
+                "mail.smtp.socketFactory.class": "javax.net.ssl.SSLSocketFactory",
+                "mail.smtp.socketFactory.fallback": "false"]
+    }
 }
 
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'likebike.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'likebike.UserRole'
 grails.plugins.springsecurity.authority.className = 'likebike.Role'
-grails.plugins.springsecurity.successHandler.defaultTargetUrl ='/'
+grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/'
 grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/?login_error=1'
 
 grails.plugins.springsecurity.ui.register.defaultRoleNames = ['ROLE_USER']

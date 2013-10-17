@@ -11,6 +11,7 @@
 <header>
     <div id="on_header">
         <div id="logo"><g:img dir="images" file="logo.png"/></div>
+
         <div id="download_app">
             <p id="label_download_app">Скачать приложение:</p>
             <a href="#"><g:img id="button_android_link" dir="images" file="android.png"/></a>
@@ -22,15 +23,14 @@
 <menu>
     <ul id="menu_list">
         <li class="menu_list_item">
-            <p class="menu_text"><a class="menu_a"
-                                    href="/">О ПРОЕКТЕ</a></p>
+            <p class="menu_text"><a class="menu_a" href="/">О ПРОЕКТЕ</a></p>
         </li>
         <li class="menu_list_item">
             <p class="menu_text"><a class="menu_a" href="map">КАРТА МАРШРУТОВ</a></p>
         </li>
         <sec:ifLoggedIn>
             <li class="menu_list_item">
-                <p style="cursor: pointer;" id="p_log" class="menu_text">Вы зашли как <sec:username/> (<g:link
+                <p style="cursor: pointer;" class="menu_text">Вы зашли как <sec:username/> (<g:link
                         controller='logout'>Выйти</g:link>)</p>
             </li>
         </sec:ifLoggedIn>

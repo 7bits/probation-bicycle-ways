@@ -15,6 +15,7 @@
             <li class="footer_button"><a href="#">О НАС</a></li>
             <li class="footer_button"><a href="#">ПРИЛОЖЕНИЕ</a></li>
         </ul>
+
         <div id="vk"></div>
         <!--<g:img id="vk" dir="images" file="vk.png"/>-->
         <g:img id="mini_logo" dir="images" file="mini_logo.png"/>

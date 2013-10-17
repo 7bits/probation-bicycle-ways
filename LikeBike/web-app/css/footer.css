@@ -5,7 +5,7 @@
 
 footer {
     position: absolute;
-    width: 100%;
+    width: 1300px;
     height: 72px;
     margin: 0 auto;
     padding: 0;
@@ -76,4 +76,12 @@ li.footer_button {
     font: 14px "Tahoma";
     text-decoration: underline;
     color: #FFF;
+}
+
+@media (min-width: 1300px) {
+
+    footer {
+        width: 100%;
+    }
+
 }

@@ -7,6 +7,13 @@ var heatmap = 0;//список точек
 
 $("document").ready(function () {
 
+
+    document.getElementById('screen').onclick = function () {
+        var routeCount = 2;
+        var urlImg = routeToStaticMapURL(routeArray[routeCount]);
+        document.getElementById('route_img').src = urlImg;
+
+    }
     $("#userfile").change(function () {
         document.getElementById("import_p").innerHTML = document.getElementById('userfile').value;
     });
@@ -217,7 +224,7 @@ function createRoute() {
             path: valR,
             strokeColor: "#FF0000",
             strokeOpacity: 0.5,
-            strokeWeight: 1,
+            strokeWeight: 1
         });
         line.push(flightPath);
     });
@@ -254,4 +261,58 @@ function displayRoute() {
         }
         heatmap.setMap(map);
     }
+}
+
+function routeToStaticMapURL(route) {
+
+    var centerLat = 54.988744;
+    var centerLng = 73.369271;
+    var maxLat = (route[0]).lat();
+    var minLat = (route[0]).lat();
+    var maxLng = (route[0]).lng();
+    var minLng = (route[0]).lng();
+    centerLat = 0;
+    centerLng = 0;
+    for(i = 0; i < (route).length; i++) {
+        centerLat += (route[i]).lat();
+        centerLng += (route[i]).lng();
+        if((route[i]).lat() > maxLat) {
+            maxLat = (route[i]).lat();
+        }
+        if((route[i]).lat() < minLat) {
+            minLat = (route[i]).lat();
+        }
+        if((route[i]).lng() > maxLng) {
+            maxLng = (route[i]).lng();
+        }
+        if((route[i]).lng() < minLng) {
+            minLng = (route[i]).lng();
+        }
+    }
+    centerLat /= route.length;
+    centerLng /= route.length;
+
+    var mapWidth = 300;
+    var mapHeight = 300;
+    var worldCoordinateLength = (maxLat - minLat)*(maxLat - minLat) + (maxLng - minLng)*(maxLng - minLng);
+    var pixselCoordinateLength = mapWidth*mapWidth + mapHeight*mapHeight;
+    var zoom = Math.log(pixselCoordinateLength/worldCoordinateLength) / (2*Math.log(2));
+    zoom -= zoom%1;
+
+    var mapType = "roadmap";
+    var mapSensor = "false";
+    var urlImg = "http://maps.googleapis.com/maps/api/staticmap";
+    urlImg += "?center=" + centerLat + "," + centerLng;
+    urlImg += "&zoom=" + zoom;
+    urlImg += "&size=" + mapWidth + "x" + mapHeight;
+    urlImg += "&maptype=" + mapType;
+    urlImg += "&sensor=" + mapSensor;
+
+    urlImg += "&path=color:0x0000ff|weight:5"
+    for(i = 0; i < route.length; ) {
+        var step = Math.floor( route.length/10 );
+        urlImg += "|" + (route[i]).lat() + "," + (route[i]).lng();
+        i += step;
+    }
+    return urlImg;
 }

@@ -14,7 +14,9 @@
 
         <form id='login_form' method="POST" action="j_spring_security_check">
             <p class="log_text_title" id="log_header">ВХОД</p>
+
             <p id="p_error" class='log_text_info'>Неверное имя или пароль.</p>
+
             <p class="log_text_title"><b>Логин:</b></p>
             <input
                     class='log_input'

@@ -6,6 +6,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
     <script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
     <g:javascript src="mapload.js"/>
+    <g:javascript src="info.js"/>
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'likebike.css')}"/>
 </head>
 
@@ -41,5 +42,13 @@
     </sec:ifLoggedIn>
 </div>
 <g:render template="/home/footer"/>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<button id="screen">screen</button>
+<img id="route_img">
 </body>
 </html>

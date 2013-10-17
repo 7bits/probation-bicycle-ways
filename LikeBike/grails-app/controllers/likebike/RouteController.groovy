@@ -36,13 +36,13 @@ class RouteController {
     }
 
     def loadFile() {
-        if ( !params.userFile ) {
+        if (!params.userFile) {
             redirect(uri: "/map?file_error=1")
             return
         }
         String xmlData = new String(params.userFile.bytes)
 
-        if (xmlData == ''){
+        if (xmlData == '') {
             redirect(uri: "/map?file_error=2")
             return
         }

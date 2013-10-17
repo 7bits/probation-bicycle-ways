@@ -23,7 +23,6 @@
                     id='username'
                     name='username'
                     labelCode='user.username.label'
-                    size='30'
                     labelCodeDefault='Username'
                     value=""/>
             <br/>
@@ -36,7 +35,6 @@
                     id='email'
                     name='email'
                     value=""
-                    size='30'
                     labelCode='user.email.label'
                     labelCodeDefault='E-mail'/>
             <br/>
@@ -50,7 +48,6 @@
                     id='password'
                     name='password'
                     labelCode='user.password.label'
-                    size='30'
                     labelCodeDefault='Password'
                     value=""/>
             <br/>
@@ -64,7 +61,6 @@
                     id='password2'
                     name='password2'
                     labelCode='user.password2.label'
-                    size='30'
                     labelCodeDefault='Password (again)'
                     value=""/>
             <br/>

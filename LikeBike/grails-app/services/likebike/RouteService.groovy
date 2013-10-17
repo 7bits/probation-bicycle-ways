@@ -2,7 +2,7 @@ package likebike
 
 class RouteService {
 
-    void loadFromFile(String xml,  def currentUser) {
+    void loadFromFile(String xml, def currentUser) {
         def data = new XmlParser().parseText(xml)
 
         Route route = new Route()
