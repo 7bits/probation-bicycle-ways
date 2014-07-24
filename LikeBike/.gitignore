@@ -15,6 +15,3 @@ stacktrace.log
 /web-app/WEB-INF/classes
 /.link_to_grails_plugins/
 /target-eclipse/
-*.ipr
-*.iws
-prodDb.h2.db
