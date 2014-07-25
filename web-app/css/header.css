@@ -126,3 +126,26 @@ menu {
     }
 
 }
+
+#vk_auth {
+    position: absolute;
+    float: right;
+    margin-top: 16px;
+    height: 100px;
+    margin-left: 1080px;
+    width: 140px;
+}
+
+#hi {
+    float:left;
+    padding: 100px 0 0 0;
+    color:#ffffff;
+    text-emphasis: #ffffff;
+}
+
+#logout {
+    width: 50px;
+    height: 50px;
+    background: #f3f3ff;
+    margin: 80px;
+}

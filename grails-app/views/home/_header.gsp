@@ -4,12 +4,22 @@
     <title>Velo-Sity</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'header.css')}"/>
+
+    <script type="text/javascript" src="js/vk_logout.js"></script>
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?115"></script>
+    <script type="text/javascript"> VK.init({apiId: 1, onlyWidgets: true});</script>
+    <g:javascript src="vk_auth.js"/>
+    %{--<g:javascript src="vk_like.js"/>--}%
+    <script type="text/javascript">  VK.init({apiId: 1}); </script>
+
 </head>
 
 <body>
+
 <div id="before_menu"></div>
 <header>
     <div id="on_header">
+        <p id="hi"></p>
         <div id="logo"><g:img dir="images" file="logo.png"/></div>
 
         <div id="download_app">
@@ -17,7 +27,22 @@
             <a href="#"><g:img id="button_android_link" dir="images" file="android.png"/></a>
             <a href="#"><g:img id="button_app_store_link" dir="images" file="appStore.png"/></a>
         </div>
+
+
+        <div id="vk_auth"></div>
+
+        <input id="logout" type="button" value="logout" onclick="myfunc()">
+        %{--<div id="vk_like"></div>--}%
+
     </div>
+
+
+    %{--<div id="vk_like"></div>--}%
+    %{--<script type="text/javascript">--}%
+    %{--VK.Widgets.Like("vk_like", {type: "button"});--}%
+    %{--</script>--}%
+
+
 </header>
 
 <menu>
@@ -45,4 +70,7 @@
     </ul>
 </menu>
 <span id="after"></span>
+
+
+
 </body>
