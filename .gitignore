@@ -20,3 +20,4 @@ stacktrace.log
 *.ipr
 prodDb.h2.db
 projectFilesBackup/
+/.idea/
