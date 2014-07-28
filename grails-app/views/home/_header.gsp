@@ -30,8 +30,6 @@
 
 
         <div id="vk_auth"></div>
-
-        <input id="logout" type="button" value="logout" onclick="myfunc()">
         %{--<div id="vk_like"></div>--}%
 
     </div>
