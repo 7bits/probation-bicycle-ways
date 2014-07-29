@@ -5,6 +5,7 @@ import grails.converters.*
 import org.apache.commons.io.FileUtils
 import grails.plugins.springsecurity.Secured
 import grails.plugins.springsecurity.*
+import org.xml.sax.SAXParseException
 
 class RouteController {
 
@@ -36,18 +37,19 @@ class RouteController {
     }
 
     def loadFile() {
-        if (!params.userFile) {
-            redirect(uri: "/map?file_error=1")
-            return
-        }
         String xmlData = new String(params.userFile.bytes)
 
-        if (xmlData == '') {
+        if(xmlData.value.length == 0){
             redirect(uri: "/map?file_error=2")
             return
         }
-
-        routeService.loadFromFile(xmlData, SpringSecurityService.getCurrentUser())
+        try {
+            routeService.loadFromFile(xmlData, SpringSecurityService.getCurrentUser())
+        }
+        catch(SAXParseException ex){
+            redirect(uri: "/map?file_error=1")
+            return
+        }
         def out = [params.userFile.name]
         redirect(uri: "/map")
         return
