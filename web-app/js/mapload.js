@@ -1,21 +1,41 @@
+const ALL_TRACKS = 1;
+const USERS_TRACKS = 0;
 var map;//google карта
 var taxiData = [];
 var routeArray = [];
 var routeMode = 0;
+var viewMode = ALL_TRACKS;
 var line = [];//список линий на карте
 var heatmap = 0;//список точек
 
-$("document").ready(function () {
+function prepareViewMode(viewModeVar, mapVar) {
+    var view = document.createElement("div");
+    view.style.width = "200px";
+    view.style.height = "50px";
+    view.style.marginTop = "75px";
+    view.style.marginRight = "auto";
+    view.style.marginLeft = "auto";
+    view.style.fontSize = "20px"
 
-
-    document.getElementById('screen').onclick = function () {
-        var routeCount = 2;
-        var urlImg = routeToStaticMapURL(routeArray[routeCount]);
-        document.getElementById('route_img').src = urlImg;
-
+    mapVar.controls[google.maps.ControlPosition.TOP].clear();
+    if (viewModeVar == USERS_TRACKS) {
+        view.innerHTML = "Ваши треки"
+    } else {
+        view.innerHTML = "Все треки"
     }
+    mapVar.controls[google.maps.ControlPosition.TOP].push(view);
+}
+    
+$("document").ready(function () {
+    document.getElementById('screen').onclick = function () {
+        if(routeArray.length){
+            var urlImg = routeToStaticMapURL(routeArray[routeArray.length - 1]);
+            document.getElementById('route_img').src = urlImg;
+        }
+    }
+    
     $("#userfile").change(function () {
-        document.getElementById("import_p").innerHTML = document.getElementById('userfile').value;
+        document.getElementById("import_p").innerHTML = document.getElementById('userfile').value.replace(/^.*[\\\/]/, '');
     });
     if (document.getElementById('get_users_routes') != null) {
         document.getElementById('get_users_routes').onclick = function () {
@@ -53,13 +73,17 @@ $("document").ready(function () {
                     });
                     createRoute();
                     displayRoute();
-                    map.controls[google.maps.ControlPosition.BOTTOM].clear(loader);
+                    
                 },
                 error: function (jqXHR) {
                     data = jQuery.parseJSON(jqXHR.responseText);
                 }
             });//end ajax
+            map.controls[google.maps.ControlPosition.BOTTOM].clear();
+            viewMode = USERS_TRACKS;
+            prepareViewMode(viewMode, map);
         }
+        
     }
     if (document.getElementById('get_all_routes') != null) {
         document.getElementById('get_all_routes').onclick = function () {
@@ -97,12 +121,15 @@ $("document").ready(function () {
                     });
                     createRoute();
                     displayRoute();
-                    map.controls[google.maps.ControlPosition.BOTTOM].clear(loader);
+                    
                 },
                 error: function (jqXHR) {
                     data = jQuery.parseJSON(jqXHR.responseText);
                 }
             });//end ajax
+            map.controls[google.maps.ControlPosition.BOTTOM].clear();
+            viewMode = ALL_TRACKS;
+            prepareViewMode(viewMode, map);
         }
     }
 
@@ -137,11 +164,15 @@ $("document").ready(function () {
     loader.style.height = "22px";
     loader.style.backgroundImage = "url(images/loader.gif)";
     map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
-
+    
+    prepareViewMode(viewMode, map);
+    
     var mode = document.createElement("input");
     mode.style.width = "50px";
     mode.style.height = "22px";
+
     mode.style.marginRight = "5px";
+    mode.style.backgroundImage = "#000000";
     mode.type = "button";
     mode.value = "hm\\fp";
     mode.style.backgroundImage = "#000000";
@@ -222,9 +253,9 @@ function createRoute() {
     $.each(routeArray, function (route, valR) {
         var flightPath = new google.maps.Polyline({
             path: valR,
-            strokeColor: "#FF0000",
+            strokeColor: "#0000FF",
             strokeOpacity: 0.5,
-            strokeWeight: 1
+            strokeWeight: 7
         });
         line.push(flightPath);
     });
@@ -250,17 +281,16 @@ function createRoute() {
     });
 }
 function displayRoute() {
-    if (routeMode) {
-        heatmap.setMap(null);
-        for (i = 0; i < line.length; i++) {
-            line[i].setMap(map);
+        var mode = null;
+        if(routeMode){
+            heatmap.setMap(null);
+            mode = map;
         }
-    } else {
         for (i = 0; i < line.length; i++) {
-            line[i].setMap(null);
+            line[i].setMap(mode);
         }
-        heatmap.setMap(map);
-    }
+        if (!routeMode)
+            heatmap.setMap(map);
 }
 
 function routeToStaticMapURL(route) {

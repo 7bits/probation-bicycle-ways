@@ -42,6 +42,7 @@
     <p class="text">Login to add your route (<g:link controller='login'>Login</g:link>)</p>
 </sec:ifNotLoggedIn>
 <div id="routes">
+    SOME MESSAGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     <sec:ifLoggedIn>
         <h1 id="loadRouteH">ЗАГРУЗИТЬ СВОЙ МАРШРУТ</h1>
 
@@ -49,10 +50,10 @@
             <div id="formCopy">
                 <div class="importBtn">
                     <p class="btnP">Выберите файл</p>
-                    <input type="file" id="userfile" class="userfile" name="userFile"/>
+                    <input type="file" type="submit" id="userfile" class="userfile" name="userFile"/>
                 </div>
 
-                <p id="importP">файл не выбран</p>
+                <p id="import_p">файл не выбран</p>
 
                 <div class="importBtn">
                     <p class="btnP">Импортировать</p>
