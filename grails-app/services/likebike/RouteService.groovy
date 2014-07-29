@@ -1,8 +1,10 @@
 package likebike
 
+import org.xml.sax.SAXParseException
+
 class RouteService {
 
-    void loadFromFile(String xml, def currentUser) {
+    void loadFromFile(String xml, def currentUser) throws SAXParseException {
         def data = new XmlParser().parseText(xml)
 
         Route route = new Route()
