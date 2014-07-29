@@ -5,7 +5,6 @@ import likebike.UserRole
 class BootStrap {
 
     def init = { servletContext ->
-        /*
         def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
           def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
 
@@ -17,7 +16,6 @@ class BootStrap {
           assert User.count() == 1
           assert Role.count() == 2
           assert UserRole.count() == 1
-          */
     }
     def destroy = {
     }
