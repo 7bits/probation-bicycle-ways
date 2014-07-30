@@ -9,13 +9,12 @@ import org.xml.sax.SAXParseException
 
 class RouteController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET", getUsersRoute: "POST"]
+    static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET"]
 
 
     def routeService
     def SpringSecurityService
 
-    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def getUsersRoute() {
         def route = routeService.getUsersRoute(SpringSecurityService.getCurrentUser())
         render route as JSON
