@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <changeSet author="roman (generated)" id="1406530122734-1">
+        <createTable tableName="POINT">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="CONSTRAINT_4"/>
+            </column>
+            <column name="VERSION" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LATITUDE" type="float">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LONGITUDE" type="float">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROUTE_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROUTE_INDEX" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="roman (generated)" id="1406530122734-2">
+        <createTable tableName="REGISTRATION_CODE">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="CONSTRAINT_A"/>
+            </column>
+            <column name="DATE_CREATED" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TOKEN" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USERNAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="roman (generated)" id="1406530122734-3">
+        <createTable tableName="ROLE">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="CONSTRAINT_2"/>
+            </column>
+            <column name="VERSION" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AUTHORITY" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="roman (generated)" id="1406530122734-4">
+        <createTable tableName="ROUTE">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="CONSTRAINT_4A"/>
+            </column>
+            <column name="VERSION" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="roman (generated)" id="1406530122734-5">
+        <createTable tableName="USER">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="CONSTRAINT_27"/>
+            </column>
+            <column name="VERSION" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USERNAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="roman (generated)" id="1406530122734-6">
+        <createTable tableName="USER_ROLE">
+            <column name="ROLE_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="roman (generated)" id="1406530122734-7">
+        <addPrimaryKey columnNames="ROLE_ID, USER_ID" constraintName="CONSTRAINT_B" tableName="USER_ROLE"/>
+    </changeSet>
+    <changeSet author="roman (generated)" id="1406530122734-12">
+        <createIndex indexName="CONSTRAINT_INDEX_2" tableName="ROLE" unique="true">
+            <column name="AUTHORITY"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="roman (generated)" id="1406530122734-8">
+        <addForeignKeyConstraint baseColumnNames="ROUTE_ID" baseTableName="POINT" baseTableSchemaName="PUBLIC" constraintName="FK65E5590474B384" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="ROUTE" referencedTableSchemaName="PUBLIC" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="roman (generated)" id="1406530122734-9">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="ROUTE" baseTableSchemaName="PUBLIC" constraintName="FK67AB24983C19230" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="USER" referencedTableSchemaName="PUBLIC" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="roman (generated)" id="1406530122734-10">
+        <addForeignKeyConstraint baseColumnNames="ROLE_ID" baseTableName="USER_ROLE" baseTableSchemaName="PUBLIC" constraintName="FK143BF46ADE96CE50" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="ROLE" referencedTableSchemaName="PUBLIC" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="roman (generated)" id="1406530122734-11">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="USER_ROLE" baseTableSchemaName="PUBLIC" constraintName="FK143BF46A83C19230" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="USER" referencedTableSchemaName="PUBLIC" referencesUniqueColumn="false"/>
+    </changeSet>
+</databaseChangeLog>
