@@ -44,7 +44,6 @@ $("document").ready(function () {
             loader.style.height = "22px";
             loader.style.backgroundImage = "url(images/loader.gif)";
             map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
-
             heatmap.setMap(null);
             for (i = 0; i < line.length; i++) {
                 line[i].setMap(null);
@@ -73,17 +72,18 @@ $("document").ready(function () {
                     });
                     createRoute();
                     displayRoute();
-                    
                 },
                 error: function (jqXHR) {
                     data = jQuery.parseJSON(jqXHR.responseText);
+                },
+                complete:function () {
+                    map.controls[google.maps.ControlPosition.BOTTOM].clear();
                 }
             });//end ajax
-            map.controls[google.maps.ControlPosition.BOTTOM].clear();
             viewMode = USERS_TRACKS;
             prepareViewMode(viewMode, map);
         }
-        
+
     }
     if (document.getElementById('get_all_routes') != null) {
         document.getElementById('get_all_routes').onclick = function () {
@@ -121,13 +121,15 @@ $("document").ready(function () {
                     });
                     createRoute();
                     displayRoute();
-                    
                 },
                 error: function (jqXHR) {
                     data = jQuery.parseJSON(jqXHR.responseText);
+                    
+                },
+                complete:function () {
+                    map.controls[google.maps.ControlPosition.BOTTOM].clear();
                 }
             });//end ajax
-            map.controls[google.maps.ControlPosition.BOTTOM].clear();
             viewMode = ALL_TRACKS;
             prepareViewMode(viewMode, map);
         }
