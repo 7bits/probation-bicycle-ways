@@ -2,7 +2,7 @@
 
 url: route/getRoute.  
 Тип запроса: post.  
-Тип данных: json 
+Тип данных: jsonp
 
 Возвращает двумерный массив маршрутов.
 Каждый маршрут есть массив точек.
@@ -37,9 +37,24 @@ url: route/getRoute.
 
 ####Загрузить маршрут
 
-url: "route/loadFile"
-type: "post"
-dataType: "json"
+url: route/loadFile
+type: post
+dataType: jsonp
 В data лежит userFile, содержащий файл пользователя
 
+####Войти
+
+url: j_spring_security_check
+type: post
+dataType: json
+j_username: имя пользователя
+j_password: пароль
+Возвращает всегда 200 (пока)
+
+####Выйти
+
+url: logout
+type: post
+dataType: json
+Возвращает всегда 200 (пока)
 
