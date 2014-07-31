@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'footer.css')}"/>
     <script type="text/javascript" src="http://vk.com/js/api/share.js?86" charset="windows-1251"></script>
     <g:javascript src="vk.js"/>
+    <g:javascript src="vk_like.js"/>
 </head>
 
 <body>
@@ -17,6 +18,7 @@
         </ul>
 
         <div id="vk"></div>
+        <div id="vk_like"></div>
         <!--<g:img id="vk" dir="images" file="vk.png"/>-->
         <g:img id="mini_logo" dir="images" file="mini_logo.png"/>
         <g:img id="android_logo" dir="images" file="android_logo.png"/>
