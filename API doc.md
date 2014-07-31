@@ -1,14 +1,14 @@
 ####Получить все маршруты
 
-url: route/getRoute.  
-Тип запроса: post.  
-Тип данных: jsonp
+url: route/getRoute  
+Тип запроса: post  
+Тип данных: jsonp  
 
-Возвращает двумерный массив маршрутов.
-Каждый маршрут есть массив точек.
-Каждая точка есть пара double широта и долгота соответственно.
+Возвращает двумерный массив маршрутов.  
+Каждый маршрут есть массив точек.  
+Каждая точка есть пара double широта и долгота соответственно.  
 
-Пример преобразования результата в массив маршрутов, состоящих из точек гугл карт (LatLng).
+Пример преобразования результата в массив маршрутов, состоящих из точек гугл карт (LatLng).  
 
     $.ajax({
     url: "route/getRoute",
@@ -37,24 +37,24 @@ url: route/getRoute.
 
 ####Загрузить маршрут
 
-url: route/loadFile
-type: post
-dataType: jsonp
-В data лежит userFile, содержащий файл пользователя
+url: route/loadFile  
+type: post  
+dataType: jsonp  
+В data лежит userFile, содержащий файл пользователя  
 
 ####Войти
 
-url: j_spring_security_check
-type: post
-dataType: json
-j_username: имя пользователя
-j_password: пароль
-Возвращает всегда 200 (пока)
+url: j_spring_security_check  
+type: post  
+dataType: json  
+j_username: имя пользователя  
+j_password: пароль  
+Возвращает всегда 200 (пока)  
 
 ####Выйти
 
-url: logout
-type: post
-dataType: json
-Возвращает всегда 200 (пока)
+url: logout  
+type: post  
+dataType: json  
+Возвращает всегда 200 (пока)  
 
