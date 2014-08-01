@@ -7,10 +7,8 @@
 
     <script type="text/javascript" src="js/vk_logout.js"></script>
     <script type="text/javascript" src="//vk.com/js/api/openapi.js?115"></script>
-    <script type="text/javascript"> VK.init({apiId: 1, onlyWidgets: true});</script>
+    <script type="text/javascript"> VK.init({apiId: 4479951, onlyWidgets: true});</script>
     <g:javascript src="vk_auth.js"/>
-    %{--<g:javascript src="vk_like.js"/>--}%
-    <script type="text/javascript">  VK.init({apiId: 1}); </script>
 
 </head>
 
@@ -30,16 +28,8 @@
 
 
         <div id="vk_auth"></div>
-        %{--<div id="vk_like"></div>--}%
 
     </div>
-
-
-    %{--<div id="vk_like"></div>--}%
-    %{--<script type="text/javascript">--}%
-    %{--VK.Widgets.Like("vk_like", {type: "button"});--}%
-    %{--</script>--}%
-
 
 </header>
 

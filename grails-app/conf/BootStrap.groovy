@@ -21,9 +21,6 @@ class BootStrap {
                 testUser.save(flush: true)
 
                 UserRole.create testUser, adminRole, true
-
-                assert Role.count() == 2
-                assert UserRole.count() == 1
                 // do custom init for dev here
             }
 

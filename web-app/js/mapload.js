@@ -8,6 +8,54 @@ var viewMode = ALL_TRACKS;
 var line = [];//список линий на карте
 var heatmap = 0;//список точек
 
+function drawRoutes() {
+    if(viewMode == ALL_TRACKS) {
+        path = "route/getRoute";
+    }
+    else{
+        path = "route/getUsersRoute";
+    }
+    $.ajax({
+        url: path,
+        type: "post",
+        dataType: "json",
+        success: function (data) {
+            $.each(data, function (route, valR) {
+                var myRoute = [];
+                $.each(valR, function (point, valP) {
+                    var Point = [];
+                    $.each(valP, function (coord, valC) {
+                        Point.push(valC);
+                    });
+                    var googleMapPoint = new google.maps.LatLng(Point[0], Point[1]);
+                    taxiData.push(googleMapPoint);
+                    myRoute.push(googleMapPoint);
+                });
+                routeArray.push(myRoute);
+            });
+            createRoute();
+            displayRoute();
+        },
+        error: function (jqXHR) {
+            data = jQuery.parseJSON(jqXHR.responseText);
+        },
+        complete:function () {
+            map.controls[google.maps.ControlPosition.BOTTOM].clear();
+        }
+    });
+    prepareViewMode(viewMode, map);
+}
+
+const ALL_TRACKS = 1;
+const USERS_TRACKS = 0;
+var map;//google карта
+var taxiData = [];
+var routeArray = [];
+var routeMode = 0;
+var viewMode = ALL_TRACKS;
+var line = [];//список линий на карте
+var heatmap = 0;//список точек
+
 function prepareViewMode(viewModeVar, mapVar) {
     var view = document.createElement("div");
     view.style.width = "200px";
@@ -25,7 +73,7 @@ function prepareViewMode(viewModeVar, mapVar) {
     }
     mapVar.controls[google.maps.ControlPosition.TOP].push(view);
 }
-    
+
 $("document").ready(function () {
     document.getElementById('screen').onclick = function () {
         if(routeArray.length){
@@ -33,7 +81,7 @@ $("document").ready(function () {
             document.getElementById('route_img').src = urlImg;
         }
     }
-    
+
     $("#userfile").change(function () {
         document.getElementById("import_p").innerHTML = document.getElementById('userfile').value.replace(/^.*[\\\/]/, '');
     });
@@ -44,7 +92,6 @@ $("document").ready(function () {
             loader.style.height = "22px";
             loader.style.backgroundImage = "url(images/loader.gif)";
             map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
-
             heatmap.setMap(null);
             for (i = 0; i < line.length; i++) {
                 line[i].setMap(null);
@@ -53,37 +100,10 @@ $("document").ready(function () {
             heatmap = 0;
             routeArray = [];
             taxiData = [];
-            $.ajax({
-                url: "route/getUsersRoute",
-                type: "post",
-                dataType: "json",
-                success: function (data) {
-                    $.each(data, function (route, valR) {
-                        var myRoute = [];
-                        $.each(valR, function (point, valP) {
-                            var Point = [];
-                            $.each(valP, function (coord, valC) {
-                                Point.push(valC);
-                            });
-                            var googleMapPoint = new google.maps.LatLng(Point[0], Point[1]);
-                            taxiData.push(googleMapPoint);
-                            myRoute.push(googleMapPoint);
-                        });
-                        routeArray.push(myRoute);
-                    });
-                    createRoute();
-                    displayRoute();
-                    
-                },
-                error: function (jqXHR) {
-                    data = jQuery.parseJSON(jqXHR.responseText);
-                }
-            });//end ajax
-            map.controls[google.maps.ControlPosition.BOTTOM].clear();
             viewMode = USERS_TRACKS;
-            prepareViewMode(viewMode, map);
+            drawRoutes();
         }
-        
+
     }
     if (document.getElementById('get_all_routes') != null) {
         document.getElementById('get_all_routes').onclick = function () {
@@ -101,35 +121,18 @@ $("document").ready(function () {
             heatmap = 0;
             routeArray = [];
             taxiData = [];
-            $.ajax({
-                url: "route/getRoute",
-                type: "post",
-                dataType: "json",
-                success: function (data) {
-                    $.each(data, function (route, valR) {
-                        var myRoute = [];
-                        $.each(valR, function (point, valP) {
-                            var Point = [];
-                            $.each(valP, function (coord, valC) {
-                                Point.push(valC);
-                            });
-                            var googleMapPoint = new google.maps.LatLng(Point[0], Point[1]);
-                            taxiData.push(googleMapPoint);
-                            myRoute.push(googleMapPoint);
-                        });
-                        routeArray.push(myRoute);
-                    });
-                    createRoute();
-                    displayRoute();
-                    
-                },
-                error: function (jqXHR) {
-                    data = jQuery.parseJSON(jqXHR.responseText);
-                }
-            });//end ajax
-            map.controls[google.maps.ControlPosition.BOTTOM].clear();
             viewMode = ALL_TRACKS;
-            prepareViewMode(viewMode, map);
+            drawRoutes();
+        }
+    }
+
+    if (document.getElementById('upload') != null) {
+        document.getElementById('upload').onclick = function () {
+            var loader = document.createElement("div");
+            loader.style.width = "126px";
+            loader.style.height = "22px";
+            loader.style.backgroundImage = "url(images/loader.gif)";
+            map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
         }
     }
 
@@ -164,9 +167,9 @@ $("document").ready(function () {
     loader.style.height = "22px";
     loader.style.backgroundImage = "url(images/loader.gif)";
     map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
-    
+
     prepareViewMode(viewMode, map);
-    
+
     var mode = document.createElement("input");
     mode.style.width = "50px";
     mode.style.height = "22px";
@@ -186,32 +189,7 @@ $("document").ready(function () {
     }
     map.controls[google.maps.ControlPosition.LEFT].push(mode);
 
-    $.ajax({
-        url: "route/getRoute",
-        type: "post",
-        dataType: "json",
-        success: function (data) {
-            $.each(data, function (route, valR) {
-                var myRoute = [];
-                $.each(valR, function (point, valP) {
-                    var Point = [];
-                    $.each(valP, function (coord, valC) {
-                        Point.push(valC);
-                    });
-                    var googleMapPoint = new google.maps.LatLng(Point[0], Point[1]);
-                    taxiData.push(googleMapPoint);
-                    myRoute.push(googleMapPoint);
-                });
-                routeArray.push(myRoute);
-            });
-            createRoute();
-            displayRoute();
-            map.controls[google.maps.ControlPosition.BOTTOM].clear(loader);
-        },
-        error: function (jqXHR) {
-            data = jQuery.parseJSON(jqXHR.responseText);
-        }
-    });//end ajax
+    drawRoutes();
 
 });
 
@@ -281,16 +259,16 @@ function createRoute() {
     });
 }
 function displayRoute() {
-        var mode = null;
-        if(routeMode){
-            heatmap.setMap(null);
-            mode = map;
-        }
-        for (i = 0; i < line.length; i++) {
-            line[i].setMap(mode);
-        }
-        if (!routeMode)
-            heatmap.setMap(map);
+    var mode = null;
+    if(routeMode){
+        heatmap.setMap(null);
+        mode = map;
+    }
+    for (i = 0; i < line.length; i++) {
+        line[i].setMap(mode);
+    }
+    if (!routeMode)
+        heatmap.setMap(map);
 }
 
 function routeToStaticMapURL(route) {
