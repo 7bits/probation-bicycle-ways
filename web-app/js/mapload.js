@@ -126,6 +126,14 @@ $("document").ready(function () {
         }
     }
 
+    document.getElementById('upload').onclick = function () {
+        var loader = document.createElement("div");
+        loader.style.width = "126px";
+        loader.style.height = "22px";
+        loader.style.backgroundImage = "url(images/loader.gif)";
+        map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
+    }
+
     var mapOptions = {
         zoom: 10,
         center: new google.maps.LatLng(54.988744, 73.369271),
