@@ -126,12 +126,14 @@ $("document").ready(function () {
         }
     }
 
-    document.getElementById('upload').onclick = function () {
-        var loader = document.createElement("div");
-        loader.style.width = "126px";
-        loader.style.height = "22px";
-        loader.style.backgroundImage = "url(images/loader.gif)";
-        map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
+    if (document.getElementById('upload') != null) {
+        document.getElementById('upload').onclick = function () {
+            var loader = document.createElement("div");
+            loader.style.width = "126px";
+            loader.style.height = "22px";
+            loader.style.backgroundImage = "url(images/loader.gif)";
+            map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
+        }
     }
 
     var mapOptions = {
