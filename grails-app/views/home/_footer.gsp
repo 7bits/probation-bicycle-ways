@@ -5,8 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'footer.css')}"/>
     <script type="text/javascript" src="http://vk.com/js/api/share.js?86" charset="windows-1251"></script>
-    <g:javascript src="vk.js"/>
-    <g:javascript src="vk_like.js"/>
 </head>
 
 <body>
