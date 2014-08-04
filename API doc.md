@@ -13,21 +13,5 @@ url: route/getRoute
 
 url: route/loadFile  
 type: post  
-В data лежит userFile, содержащий файл пользователя  
-
-####Войти
-
-url: j_spring_security_check  
-type: post  
-dataType: json  
-j_username: имя пользователя  
-j_password: пароль  
-Возвращает всегда 200 (пока)  
-
-####Выйти
-
-url: logout  
-type: post  
-dataType: json  
-Возвращает всегда 200 (пока)  
+userFile, содержащий файл пользователя
 
