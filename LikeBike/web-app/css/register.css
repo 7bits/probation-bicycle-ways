@@ -1,0 +1,103 @@
+@font-face {
+    font-family: "Tahoma";
+    src: local("Tahoma"), url(../fonts/Tahoma.ttf);
+}
+
+#parent_reg {
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.65)), color-stop(100%, rgba(0, 0, 0, 0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=0); /* IE6-9 */
+
+    display: none;
+    height: 100%;
+    opacity: 1;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    left: 0;
+}
+#p_ok {
+    margin: 75px;
+    font: 14px "Tahoma";
+}
+#reg_header {
+    margin-top: 0px;/*10px;*/
+    margin-bottom: 20px;/*35px;*/
+}
+#reg {
+    border-radius: 4px;
+    background-color: #D5D7D8;
+    margin: 100px auto;
+    color: #000;
+    width: 440px; /*680px;*/
+    height: 350px; /*660px;*/
+}
+.reg_text_title {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    /*margin-top: 35px;*/
+    margin-left: 40px;/*60px;*/
+    font: 14px "Tahoma"; /*16px "Tahoma";*/
+    color: #000;
+}
+.reg_text_info {
+    margin-left: 40px;/*60px;*/
+    font: 13px "Tahoma";
+    color: rgba(151, 138, 138, 1);
+}
+.reg_input {
+    margin-left: 40px;/*60px;*/
+    width: 350px; /*550px;*/
+    height: 15px; /*30px;*/
+}
+#close_reg {
+    position: relative;
+    text-align: center;
+    left: 420px;
+    border-radius: 4px;
+    height: 20px;
+    background-color: #D5D7D8;
+    width: 20px;
+    cursor: pointer;
+}
+
+#close_reg:hover {
+    background-color: #9B9AA0;
+}
+
+#close_reg:active {
+    background-color: #D5D7D8;
+}
+#reg_submit {
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: inset -2px 2px 5px rgba(255, 255, 255, 0.2), inset 2px -2px 5px rgba(0, 0, 0, 0.5);
+    background-color: #5899B6;
+    width: 82px;/*90px;*/
+    height: 28px;/*37px;*/
+    margin-right: 45px;/*60px;*/
+    float: right;
+}
+#parent_log {
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.65)), color-stop(100%, rgba(0, 0, 0, 0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=0); /* IE6-9 */
+
+    display: none;
+    height: 100%;
+    opacity: 1;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    left: 0;
+}
