@@ -3,7 +3,7 @@ package likebike
 import groovy.sql.Sql
 import org.xml.sax.SAXParseException
 
-class File_processingJob {
+class FileProcessingJob {
     static triggers = {
         simple repeatInterval: 3000l // execute job once in 5 seconds
     }
