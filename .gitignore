@@ -21,3 +21,4 @@ stacktrace.log
 prodDb.h2.db
 projectFilesBackup/
 /.idea/
+*.userfile
