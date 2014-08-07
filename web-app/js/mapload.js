@@ -112,8 +112,6 @@ $("document").ready(function () {
             loader.style.height = "22px";
             loader.style.backgroundImage = "url(images/loader.gif)";
             map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
-
-            heatmap.setMap(null);
             for (i = 0; i < line.length; i++) {
                 line[i].setMap(null);
             }
