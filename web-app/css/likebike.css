@@ -4,10 +4,9 @@
     /*color: #000000;*/
 }
 
-#myCarousel {
+.carousel {
     width: 1020px;
-    height: auto;
-    margin: 0;
+    height: 288px;
     padding: 0;
 }
 
