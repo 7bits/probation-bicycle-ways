@@ -8,8 +8,9 @@ var viewMode = ALL_TRACKS;
 var line = [];//список линий на карте
 var heatmap = 0;//список точек
 
-function pullProcessed(id) {
+function pullProcessed() {
     path = "route/getProcessed";
+    var id = document.getElementById('user_id').value
     $.ajax({
         url: path,
         type: "post",
@@ -82,9 +83,11 @@ function prepareViewMode(viewModeVar, mapVar) {
     mapVar.controls[google.maps.ControlPosition.TOP].push(view);
 }
 
+
+
 $("document").ready(function () {
-    var id = document.getElementById('user_id').value
-    setInterval(pullProcessed(id), 1000);
+    
+    window.setInterval(pullProcessed, 5000);
     document.getElementById('screen').onclick = function () {
         if(routeArray.length){
             var urlImg = routeToStaticMapURL(routeArray[routeArray.length - 1]);
