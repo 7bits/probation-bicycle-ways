@@ -3,8 +3,8 @@
 <head>
     <title>Velo-Sity</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'login.css')}"/>
-    <g:javascript src="login.js"/>
+    %{--<link rel="stylesheet" href="${resource(dir: 'css', file: 'login.css')}"/>--}%
+    %{--<g:javascript src="login.js"/>--}%
 </head>
 
 <body>

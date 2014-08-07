@@ -31,7 +31,8 @@
             <p class="menu_text"><a class="menu_a" href="map">КАРТА МАРШРУТОВ</a></p>
         </li>
         <li class="menu_list_item">
-            <p class="menu_text"><a class="menu_a" href="loginPage">ВОЙТИ</a></p>
+            %{--<p class="menu_text"><a class="menu_a" href="loginPage">ВОЙТИ</a></p>--}%
+            <p class="menu_text"><a class="menu_a" href="login">ВОЙТИ</a></p>
         </li>
         <sec:ifLoggedIn>
             <li class="menu_list_item">
