@@ -64,24 +64,39 @@
 
 <div id="cartoon">
     <p id="this_work"><br>КАК ЭТО РАБОТАЕТ</p><br>
-    <ul id="cartoon_ul">
-        <li class="cartoon_li">
+    <ul id="cartoon_ul_image">
+        <li class="cartoon_li_image1">
             <g:img id="cartoon_one_img" class="cartoon_img" dir="images" file="mobile.png"/>
+        </li>
+        <li class="cartoon_li_image2">
+            <g:img id="cartoon_second_img" class="cartoon_img" dir="images" file="bike.png"/>
+        </li>
+        <li class="cartoon_li_image3">
+            <g:img id="cartoon_third_img" class="cartoon_img" dir="images" file="notebook.png"/>
+        </li>
+        <li class="cartoon_li_image4">
+            <g:img id="cartoon_fourth_img" class="cartoon_img" dir="images" file="building.png"/>
+        </li>
+
+    </ul>
+    <g:img id="line" class="line_img" dir="images" file="line.png"/>
+
+    <ul id="cartoon_ul_text">
+        <li class="cartoon_li_text1">
             <p class="cartoon_p">Запусти приложение</p>
         </li>
-        <li class="cartoon_li">
-            <g:img id="cartoon_second_img" class="cartoon_img" dir="images" file="bike.png"/>
+        <li class="cartoon_li_text2">
             <p class="cartoon_p">Прокатись<br> на велосипеде</p>
         </li>
-        <li class="cartoon_li">
-            <g:img id="cartoon_third_img" class="cartoon_img" dir="images" file="notebook.png"/>
+        <li class="cartoon_li_text3">
             <p class="cartoon_p">Загрузи<br> свои треки на карту</p>
         </li>
-        <li class="cartoon_li">
-            <g:img id="cartoon_fourth_img" class="cartoon_img" dir="images" file="building.png"/>
+        <li class="cartoon_li_text4">
             <p id="cartoon_fourth_p" class="cartoon_p">Поддержи наш проект</p>
         </li>
+
     </ul>
+
 </div>
 
 <g:render template="/home/footer"/>

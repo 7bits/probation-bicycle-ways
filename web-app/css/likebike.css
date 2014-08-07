@@ -137,12 +137,12 @@ body {
 }
 
 #cartoon {
-    margin: 0px auto;
+    /*margin: 0px auto;*/
     width: 1020px;
     height: 415px;
 }
 
-#cartoon_ul {
+#cartoon_ul_image {
     position: relative;
     width: auto;
     height: auto;
@@ -153,10 +153,86 @@ body {
     top: 25px;
 }
 
-li.cartoon_li {
+#cartoon_ul_text {
     position: relative;
-    list-style: circle;
+    width: 1020px;
+    height: auto;
+    /*margin: 0px auto;*/
+    padding: 0;
+    float: left;
+    left: 40px;
+    top: 25px;
+}
+
+
+li.cartoon_li_image1 {
+    position: relative;
+    list-style: none;
+    margin-right: 0px;
+    padding: 0;
+    float: left;
+    width: 200px;
+    height: 108px;
+}
+
+li.cartoon_li_image2 {
+    position: relative;
+    list-style: none;
     margin-right: 50px;
+    padding: 0;
+    float: left;
+    width: 200px;
+    height: 108px;
+}
+
+li.cartoon_li_image3 {
+    position: relative;
+    list-style: none;
+    margin-right: 50px;
+    padding: 0;
+    float: left;
+    width: 200px;
+    height: 108px;
+}
+
+li.cartoon_li_image4 {
+    position: relative;
+    list-style: none;
+    margin-right: 0px;
+    padding: 0;
+    float: left;
+    width: 200px;
+    height: 108px;
+}
+
+li.cartoon_li_text1 {
+    position: relative;
+    list-style: none;
+    margin-right: 98px;
+    padding: 0;
+    float: left;
+}
+
+li.cartoon_li_text2 {
+    position: relative;
+    list-style: none;
+    margin-right: 118px;
+    padding: 0;
+    float: left;
+}
+
+li.cartoon_li_text3 {
+    position: relative;
+    list-style: none;
+    margin-right: 98px;
+    padding: 0;
+    float: left;
+}
+
+li.cartoon_li_text4 {
+    position: relative;
+    list-style: none;
+    margin-right: 98px;
     padding: 0;
     float: left;
 }
@@ -175,6 +251,10 @@ li.cartoon_li {
 
 #cartoon_third_p {
     /*margin-left: -22px;*/
+}
+
+#line {
+    margin:42px 0 0 100px
 }
 
 #this_work {

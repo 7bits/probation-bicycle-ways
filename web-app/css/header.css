@@ -31,7 +31,8 @@ menu {
     overflow: auto;
     list-style: none;
     display: compact;
-    margin: 0 auto;
+    margin: 35px 40px 0 0;
+    float: right;
     /*width: auto;*/
 }
 
@@ -42,6 +43,14 @@ menu {
     /*position: relative;*/
     left: 327px;
     padding: 0px 0px 0px 0px;
+}
+
+.menu_list_item:hover {
+    border-bottom-color:#f15a24;
+}
+
+.menu_a:hover {
+    color: #000000;
 }
 
 .menu_a {
@@ -77,19 +86,19 @@ menu {
 
 #logo_text {
     font: 20px "casper";
-    text: 20px "casper";
     float: left;
     height: auto;
     width: auto;
-    padding-left: 50px;
+    margin: 30px 8px 0 40px;
 }
 
 #logo {
     float: left;
+    margin: 22px 0 0 0;
 }
 
-#mobile {
-    height: 108px;
-    width: 115px;
-    background: #f15a24;
-}
+/*#mobile {*/
+    /*height: 108px;*/
+    /*width: 115px;*/
+    /*background: #f15a24;*/
+/*}*/
