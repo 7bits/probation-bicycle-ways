@@ -21,15 +21,16 @@ footer {
     background: #ff6633;
 }
 
-#menu_footer {
-    position: relative;
-    width: 1020px;
-    height: 72px;
-    margin: 0 auto;
-    padding: 0;
-    text-align: center;
-    background: #ff6633;
-}
+/*#menu_footer {*/
+    /*position: relative;*/
+    /*width: 1020px;*/
+    /*height: 72px;*/
+    /*margin: 0 auto;*/
+    /*padding: 0;*/
+    /*text-align: center;*/
+    /*background: #ff6633;*/
+    /*margin: 18px 0 0 0;*/
+/*}*/
 
 .menu_list_item_footer {
     float: left;
@@ -43,32 +44,34 @@ footer {
 #menu_list_footer {
     list-style: none;
     display: compact;
-    margin: 0 auto;
     width: auto;
+    padding: 0;
+    margin: 23px 0 0 25px;
+    float: left;
 }
 
-.menu_text_footer {
-    text-decoration: none;
-    color: #ffffff;
-}
+/*.menu_text_footer {*/
+    /*text-decoration: none;*/
+    /*color: #ffffff;*/
+/*}*/
 
 .menu_a_footer {
-    font: 16px "OpenSans";
+    font: 18px "OpenSans";
     text-decoration: none;
     color: #ffffff;
 }
 
-/*#vk_like {*/
-    /*position: absolute;*/
-    /*float: right;*/
-    /*margin-top: 16px;*/
-    /*margin-left: 420px;*/
-    /*width: 30px;*/
-    /*margin-left: 1080px;*/
-    /*width: 140px;*/
-/*}*/
+#vk_like {
+    float: right;
+    padding: 0;
+    width: 140px;
+}
 
 #logo_footer {
     float: left;
     margin: 15px 0 0 25px;
+}
+
+#on_footer {
+    overflow: hidden;
 }

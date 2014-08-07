@@ -21,8 +21,8 @@
 
 <div id="before_menu">
 <menu>
-    <p id="logo_text">ВЕЛОГОРОД</p>
-    <g:img id="logo" dir="images" file="logo.png"/>
+    <p id="logo_text">Велогород</p>
+    <g:img id="logo" dir="images" file="logo_header.png"/>
     <ul id="menu_list">
         <li class="menu_list_item">
             <p class="menu_text"><a class="menu_a" href="/">О ПРОЕКТЕ</a></p>
@@ -45,7 +45,7 @@
             %{--</li>--}%
         %{--</sec:ifNotLoggedIn>--}%
         <li class="menu_list_item">
-            <div class="mobile">
+            <div id="mobile">
                 <p class="menu_text"><a class="mobile_a" href="/">МОБИЛЬНОЕ<br>ПРИЛОЖЕНИЕ</a></p>
             </div>
         </li>
