@@ -33,18 +33,25 @@ class RouteController {
     }
 
     def getProcessed(){
-        def rows = fileService.getProcessed(User.get(params.userId))
-        List resultList = []
-        rows.each() { resultList << it['file_name'] }
-        render resultList as JSON
+        if(params.id) {
+            def rows = fileService.getProcessed(params.id)
+            List resultList = []
+            rows.each() {
+                resultList << it['file_name']
+                fileService.setAlert(it['id'])
+            }
+            render resultList as JSON
+        }
+        def error = ['error':'no user']
+        render error as JSON
     }
 
     def loadFile() {
         if (params.userFile) {
-
             File file = new likebike.File()
             file.user = SpringSecurityService.getCurrentUser()
             file.processed = false
+            file.user_alert = false
             def params = params
             file.file_name = params.userFile.fileItem.name
             file.save()

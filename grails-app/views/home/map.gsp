@@ -20,6 +20,7 @@
 <g:render template="/home/register"/>
 <g:render template="/home/login"/>
 <g:render template="/home/info"/>
+<g:hiddenField id="user_id" name="user_id" value="${sec.loggedInUserInfo(field:'id')}" />
 <div id="routes" class="routes">
     %{--<sec:ifLoggedIn>--}%
     <div class="controls">

@@ -8,5 +8,6 @@ import groovy.sql.Sql
 class File {
     User user
     String file_name
+    boolean user_alert
     boolean processed
 }

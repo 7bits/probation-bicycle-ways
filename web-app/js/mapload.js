@@ -8,6 +8,24 @@ var viewMode = ALL_TRACKS;
 var line = [];//список линий на карте
 var heatmap = 0;//список точек
 
+function pullProcessed(id) {
+    path = "route/getProcessed";
+    $.ajax({
+        url: path,
+        type: "post",
+        dataType: "json",
+        data: {id:id},
+        success: function (data) {
+            console.log(data);
+        },
+        error: function (jqXHR) {
+            data = jQuery.parseJSON(jqXHR.responseText);
+        },
+        complete:function () {
+        }
+    });
+}
+
 function drawRoutes() {
     if(viewMode == ALL_TRACKS) {
         path = "route/getRoute";
@@ -65,16 +83,14 @@ function prepareViewMode(viewModeVar, mapVar) {
 }
 
 $("document").ready(function () {
+    var id = document.getElementById('user_id').value
+    setInterval(pullProcessed(id), 1000);
     document.getElementById('screen').onclick = function () {
         if(routeArray.length){
             var urlImg = routeToStaticMapURL(routeArray[routeArray.length - 1]);
             document.getElementById('route_img').src = urlImg;
         }
     }
-
-    $("#userfile").change(function () {
-        document.getElementById("import_p").innerHTML = document.getElementById('userfile').value.replace(/^.*[\\\/]/, '');
-    });
     if (document.getElementById('get_users_routes') != null) {
         document.getElementById('get_users_routes').onclick = function () {
             var loader = document.createElement("div");
