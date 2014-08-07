@@ -8,12 +8,25 @@ var viewMode = ALL_TRACKS;
 var line = [];//список линий на карте
 var heatmap = 0;//список точек
 
+function getLoader(){
+    var loader = document.createElement("div");
+    loader.style.width = "126px";
+    loader.style.height = "22px";
+    loader.style.backgroundImage = "url(images/loader.gif)";
+    loader.id = "loader";
+    return loader;
+}
+
 function drawRoutes() {
     if(viewMode == ALL_TRACKS) {
         path = "route/getRoute";
     }
     else{
         path = "route/getUsersRoute";
+    }
+    loader = document.getElementById("loader")
+    if(loader == null){
+        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(getLoader());
     }
     $.ajax({
         url: path,
@@ -65,7 +78,6 @@ function prepareViewMode(viewModeVar, mapVar) {
     view.style.marginLeft = "auto";
     view.style.fontSize = "20px"
 
-    mapVar.controls[google.maps.ControlPosition.TOP].clear();
     if (viewModeVar == USERS_TRACKS) {
         view.innerHTML = "Ваши треки"
     } else {
@@ -73,6 +85,8 @@ function prepareViewMode(viewModeVar, mapVar) {
     }
     mapVar.controls[google.maps.ControlPosition.TOP].push(view);
 }
+
+
 
 $("document").ready(function () {
     document.getElementById('screen').onclick = function () {
@@ -87,12 +101,6 @@ $("document").ready(function () {
     });
     if (document.getElementById('get_users_routes') != null) {
         document.getElementById('get_users_routes').onclick = function () {
-            var loader = document.createElement("div");
-            loader.style.width = "126px";
-            loader.style.height = "22px";
-            loader.style.backgroundImage = "url(images/loader.gif)";
-            map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
-            heatmap.setMap(null);
             for (i = 0; i < line.length; i++) {
                 line[i].setMap(null);
             }
@@ -107,11 +115,15 @@ $("document").ready(function () {
     }
     if (document.getElementById('get_all_routes') != null) {
         document.getElementById('get_all_routes').onclick = function () {
+<<<<<<< HEAD
             var loader = document.createElement("div");
             loader.style.width = "126px";
             loader.style.height = "22px";
             loader.style.backgroundImage = "url(images/loader.gif)";
             map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
+=======
+            
+>>>>>>> d7bf5adf333778011c6c044a5f3a58958d68392c
             for (i = 0; i < line.length; i++) {
                 line[i].setMap(null);
             }
@@ -159,12 +171,6 @@ $("document").ready(function () {
             ]
         }
     ]);
-
-    var loader = document.createElement("div");
-    loader.style.width = "126px";
-    loader.style.height = "22px";
-    loader.style.backgroundImage = "url(images/loader.gif)";
-    map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
 
     prepareViewMode(viewMode, map);
 

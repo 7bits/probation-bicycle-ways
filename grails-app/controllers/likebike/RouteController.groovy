@@ -2,16 +2,14 @@ package likebike
 
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.*
-import org.apache.commons.io.FileUtils
 import grails.plugins.springsecurity.Secured
-import grails.plugins.springsecurity.*
-import org.xml.sax.SAXParseException
+import org.springframework.web.multipart.MultipartHttpServletRequest
 
 class RouteController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET"]
 
-
+    def fileService
     def routeService
     def SpringSecurityService
 
@@ -31,25 +29,28 @@ class RouteController {
         render out as JSON
     }
 
-    @Secured(['ROLE_ADMIN'])
     def generateRoute() {
     }
 
-    def loadFile() {
-        String xmlData = new String(params.userFile.bytes)
+    def getProcessed(){
+        def rows = fileService.getProcessed(User.get(params.userId))
+        List resultList = []
+        rows.each() { resultList << it['file_name'] }
+        render resultList as JSON
+    }
 
-        if(xmlData.value.length == 0){
-            redirect(uri: "/map?file_error=2")
-            return
+    def loadFile() {
+        if (params.userFile) {
+
+            File file = new likebike.File()
+            file.user = SpringSecurityService.getCurrentUser()
+            file.processed = false
+            def params = params
+            file.file_name = params.userFile.fileItem.name
+            file.save()
+            String xmlData = new String(params.userFile.bytes)
+            new java.io.File(file.id + ".userfile").write(xmlData)
         }
-        try {
-            routeService.loadFromFile(xmlData, SpringSecurityService.getCurrentUser())
-        }
-        catch(SAXParseException ex){
-            redirect(uri: "/map?file_error=1")
-            return
-        }
-        def out = [params.userFile.name]
         redirect(uri: "/map")
         return
     }
