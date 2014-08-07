@@ -31,7 +31,7 @@
                     <g:form>
                         <ul>
                             <li><input type="radio" name="myGroup" checked="checked" value="All" id="get_all_routes"><label for="get_all_routes"><div class = "radio_text">Все маршруты</div></label></li>
-                            <li><input type="radio" name="myGroup" checked="checked" value="Mine" id="get_users_routes"><label for="get_users_routes"><div class = "radio_text">Мои маршруты</div></label></li>
+                            <li><input type="radio" name="myGroup" value="Mine" id="get_users_routes"><label for="get_users_routes"><div class = "radio_text">Мои маршруты</div></label></li>
                         </ul>
                     </g:form>
                 </ul>
