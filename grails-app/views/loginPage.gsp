@@ -4,8 +4,6 @@
   Date: 06/08/14
   Time: 21:08
 --%>
-
-<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Velo-Sity</title>
@@ -15,8 +13,14 @@
     <g:javascript src="login.js"/>
 </head>
 
+<g:render template="/home/header"/>
+<g:render template="/home/register"/>
+<g:render template="/home/login"/>
+
+<div id="div"></div>
+
 <body>
-<div id="parent_log" style="display: none">
+<div id="parent_log">
     <div id="log">
         <div id="close_log">x</div>
 
@@ -33,14 +37,12 @@
                     id='j_username'/>
             <br/>
 
-
             <p class="log_text_title"><b>Пароль:</b></p>
             <input
                     type='password'
                     class='text_ log_input'
                     name='j_password'
                     id='j_password'/>
-
             <p>
                 <input type='submit' id="submit" value='ВОЙТИ'/>
             </p>
