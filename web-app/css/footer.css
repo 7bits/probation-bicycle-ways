@@ -63,8 +63,10 @@ footer {
 
 #vk_like {
     float: right;
-    padding: 0;
-    width: 140px;
+    /*padding: 0 0 50px 0;*/
+    /*margin: 0 0 40px 0;*/
+    clear: none !important;
+    margin-top: 18px;
 }
 
 #logo_footer {
@@ -74,4 +76,5 @@ footer {
 
 #on_footer {
     overflow: hidden;
+    height: 72px;
 }
