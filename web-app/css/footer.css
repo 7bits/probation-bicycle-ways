@@ -5,83 +5,70 @@
 
 footer {
     position: absolute;
-    width: 1300px;
+    width: 1020px;
     height: 72px;
     margin: 0 auto;
     padding: 0;
-    background: #313435; /* Old browsers */
-    background: -moz-linear-gradient(top, #313435 0%, #554e50 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #313435), color-stop(100%, #554e50)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #313435 0%, #554e50 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #313435 0%, #554e50 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #313435 0%, #554e50 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #313435 0%, #554e50 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#313435', endColorstr='#554e50', GradientType=0); /* IE6-9 */
-    text-align: center;
+    /*background: #313435; *//* Old browsers */
+    /*background: -moz-linear-gradient(top, #313435 0%, #554e50 100%); *//* FF3.6+ */
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #313435), color-stop(100%, #554e50)); *//* Chrome,Safari4+ */
+    /*background: -webkit-linear-gradient(top, #313435 0%, #554e50 100%); *//* Chrome10+,Safari5.1+ */
+    /*background: -o-linear-gradient(top, #313435 0%, #554e50 100%); *//* Opera 11.10+ */
+    /*background: -ms-linear-gradient(top, #313435 0%, #554e50 100%); *//* IE10+ */
+    /*background: linear-gradient(to bottom, #313435 0%, #554e50 100%); *//* W3C */
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#313435', endColorstr='#554e50', GradientType=0); *//* IE6-9 */
+    /*text-align: center;*/
+    background: #ff6633;
 }
 
-#on_footer {
-    width: 1300px;
+#menu_footer {
+    position: relative;
+    width: 1020px;
+    height: 72px;
     margin: 0 auto;
-}
-#footer_menu {
-    position: absolute;
-    margin: 0px auto;
     padding: 0;
-    top: 5px;
-    padding-left: 382px;
+    text-align: center;
+    background: #ff6633;
 }
 
-li.footer_button {
-    list-style: none;
-    margin: 0;
-    margin-top: 14px;
-    margin-right: 80px;
-    padding: 0;
+.menu_list_item_footer {
     float: left;
+    display: block;
+    margin-right: 30px;
+    /*position: relative;*/
+    left: 327px;
+    padding: 0px 0px 0px 0px;
 }
 
-#mini_logo {
-    position: absolute;
-    float: right;
-    margin-top: 4px;
-    margin-left: 351px;
+#menu_list_footer {
+    list-style: none;
+    display: compact;
+    margin: 0 auto;
+    width: auto;
 }
 
-#vk {
-    position: absolute;
-    float: right;
-    margin-top: 16px;
-    /*margin-left: 420px;
-    width: 30px;*/
-    margin-left: 1080px;
-    width: 140px;
+.menu_text_footer {
+    text-decoration: none;
+    color: #ffffff;
 }
 
-#android_logo {
-    position: absolute;
-    float: right;
-    margin-top: 9px;
-    margin-left: -7px;
+.menu_a_footer {
+    font: 16px "OpenSans";
+    text-decoration: none;
+    color: #ffffff;
 }
 
-#apple_logo {
-    position: absolute;
-    float: right;
-    margin-top: 7px;
-    margin-left: 39px;
-}
+/*#vk_like {*/
+    /*position: absolute;*/
+    /*float: right;*/
+    /*margin-top: 16px;*/
+    /*margin-left: 420px;*/
+    /*width: 30px;*/
+    /*margin-left: 1080px;*/
+    /*width: 140px;*/
+/*}*/
 
-.footer_button a {
-    font: 14px "Tahoma";
-    text-decoration: underline;
-    color: #FFF;
-}
-
-@media (min-width: 1300px) {
-
-    footer {
-        width: 100%;
-    }
-
+#logo_footer {
+    float: left;
+    margin: 15px 0 0 25px;
 }

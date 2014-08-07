@@ -10,17 +10,20 @@
 <body>
 <footer>
     <div id="on_footer">
-        <ul id="footer_menu">
-            <li class="footer_button"><a href="#">О НАС</a></li>
-            <li class="footer_button"><a href="#">ПРИЛОЖЕНИЕ</a></li>
-        </ul>
+        <g:img id="logo_footer" dir="images" file="icon.png"/>
+        <menu_footer>
+            <ul id="menu_list_footer">
+                <li class="menu_list_item_footer">
+                    <p class="menu_text_footer"><a class="menu_a_footer" href="/">О ПРОЕКТЕ</a></p>
+                </li>
+                <li class="menu_list_item"_footer>
+                    <p class="menu_text_footer"><a class="menu_a_footer" href="map">КАРТА МАРШРУТОВ</a></p>
+                </li>
+            </ul>
+        </menu_footer>
 
-        <div id="vk"></div>
+        %{--<div id="vk"></div>--}%
         <div id="vk_like"></div>
-        <!--<g:img id="vk" dir="images" file="vk.png"/>-->
-        <g:img id="mini_logo" dir="images" file="mini_logo.png"/>
-        <g:img id="android_logo" dir="images" file="android_logo.png"/>
-        <g:img id="apple_logo" dir="images" file="apple_logo.png"/>
     </div>
 </footer>
 </body>

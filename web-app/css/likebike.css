@@ -1,14 +1,46 @@
 @font-face {
     font-family: "Tahoma";
     src: local("Tahoma"), url(../fonts/Tahoma.ttf);
+    /*color: #000000;*/
+}
+
+#myCarousel {
+    width: 1020px;
+    height: auto;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     position: relative;
-    background-image: url(../images/BG.png);
-    margin: 0 auto;
+    background: #FFE4E1;
+    margin: 0;
     height: auto;
-    z-index: -2;
+    width: 1020px;
+    /*z-index: -2;*/
+}
+
+#info {
+    /*width: 1020px;*/
+    background-color: #f9e8f9;
+}
+
+#h_text {
+    /*margin-left: 115px;*/
+    text-align: center;
+    font: 28px "Tahoma";
+}
+
+#main_text {
+    margin-left: 115px;
+    font: 18px "Tahoma";
+
+}
+
+#idea {
+    margin-left: 115px;
+    font: 18px "Tahoma";
+    color: #f15a24;
 }
 
 #routes {
@@ -106,96 +138,46 @@ body {
 
 #cartoon {
     margin: 0px auto;
-    width: 1300px;
-    height: 400px;
+    width: 1020px;
+    height: 415px;
 }
 
 #cartoon_ul {
     position: relative;
     width: auto;
     height: auto;
-    list-style: none;
     margin: 0px auto;
     padding: 0;
     float: left;
-    left: 301px;
+    left: 60px;
     top: 25px;
 }
 
 li.cartoon_li {
     position: relative;
-    list-style: none;
-    margin: 0;
-    margin-right: 83px;
+    list-style: circle;
+    margin-right: 50px;
     padding: 0;
     float: left;
 }
 
 .cartoon_img {
     position: relative;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
 }
 
 .cartoon_p {
     position: relative;
     font: 16px "Tahoma";
-    color: #ffffff;
+    color: #000000;
     text-align: center;
 }
 
 #cartoon_third_p {
-    margin-left: -22px;
+    /*margin-left: -22px;*/
 }
 
-#info {
-    width: 808px;
-    padding: 0 246px;
-    margin: 0 auto;
-}
-
-#h_text {
-    margin-left: 115px;
+#this_work {
+    text-align: center;
     font: 28px "Tahoma";
-    color: #ffffff;
-}
-
-#main_text {
-    margin-left: 115px;
-    font: 18px "Tahoma";
-    color: #ffffff;
-}
-
-.info_div {
-    height: 125px;
-}
-
-.do_text {
-    font: 18px "Tahoma";
-    color: #ffffff;
-    margin-left: 115px;
-}
-
-.line {
-    width: 690px;
-    float: right;
-    margin-bottom: 35px;
-    color: #8aacb7;
-}
-
-.info_img {
-    float: left;
-}
-
-#get_in_img {
-    margin-left: 22px;
-}
-
-@media (min-width: 1300px) {
-
-    #map-canvas {
-        width: 100%;
-    }
-    #routes {
-        width: 100%;
-    }
 }
