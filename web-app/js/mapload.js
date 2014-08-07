@@ -8,6 +8,15 @@ var viewMode = ALL_TRACKS;
 var line = [];//список линий на карте
 var heatmap = 0;//список точек
 
+function getLoader(){
+    var loader = document.createElement("div");
+    loader.style.width = "126px";
+    loader.style.height = "22px";
+    loader.style.backgroundImage = "url(images/loader.gif)";
+    loader.id = "loader";
+    return loader;
+}
+
 function pullProcessed() {
     path = "route/getProcessed";
     var id = document.getElementById('user_id').value
@@ -34,7 +43,10 @@ function drawRoutes() {
     else{
         path = "route/getUsersRoute";
     }
-    map.controls[google.maps.ControlPosition.BOTTOM].clear();
+    loader = document.getElementById("loader")
+    if(loader == null){
+        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(getLoader());
+    }
     $.ajax({
         url: path,
         type: "post",
@@ -87,7 +99,7 @@ function prepareViewMode(viewModeVar, mapVar) {
 
 
 $("document").ready(function () {
-    
+
     window.setInterval(pullProcessed, 5000);
     document.getElementById('screen').onclick = function () {
         if(routeArray.length){
@@ -97,12 +109,6 @@ $("document").ready(function () {
     }
     if (document.getElementById('get_users_routes') != null) {
         document.getElementById('get_users_routes').onclick = function () {
-            var loader = document.createElement("div");
-            loader.style.width = "126px";
-            loader.style.height = "22px";
-            loader.style.backgroundImage = "url(images/loader.gif)";
-            map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
-            heatmap.setMap(null);
             for (i = 0; i < line.length; i++) {
                 line[i].setMap(null);
             }
@@ -117,11 +123,6 @@ $("document").ready(function () {
     }
     if (document.getElementById('get_all_routes') != null) {
         document.getElementById('get_all_routes').onclick = function () {
-            var loader = documentmapVar.controls[google.maps.ControlPosition.TOP].clear();.createElement("div");
-            loader.style.width = "126px";
-            loader.style.height = "22px";
-            loader.style.backgroundImage = "url(images/loader.gif)";
-            map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
             for (i = 0; i < line.length; i++) {
                 line[i].setMap(null);
             }
@@ -136,11 +137,6 @@ $("document").ready(function () {
 
     if (document.getElementById('upload') != null) {
         document.getElementById('upload').onclick = function () {
-            var loader = document.createElement("div");
-            loader.style.width = "126px";
-            loader.style.height = "22px";
-            loader.style.backgroundImage = "url(images/loader.gif)";
-            map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
         }
     }
 
@@ -171,10 +167,6 @@ $("document").ready(function () {
     ]);
 
     var loader = document.createElement("div");
-    loader.style.width = "126px";
-    loader.style.height = "22px";
-    loader.style.backgroundImage = "url(images/loader.gif)";
-    map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
 
     prepareViewMode(viewMode, map);
 
