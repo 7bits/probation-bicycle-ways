@@ -169,6 +169,7 @@ li.cartoon_li {
     display: block;
     font-weight: 700;
     float: right;
+    margin-top: 78px;
 }
 
 .controls a:link {
