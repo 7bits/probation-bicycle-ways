@@ -20,33 +20,35 @@
 <g:render template="/home/register"/>
 <g:render template="/home/login"/>
 <g:render template="/home/info"/>
-<div id="routes">
+<div id="routes" class="routes">
     %{--<sec:ifLoggedIn>--}%
-    <ul class="controls nav navbar-nav">
-        <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="img/icon1.png" class="icon" alt="Показать на карте" height="19" width="19"><p class="button_text">Показать на карте</p></a>
-            <ul class="dropdown-menu">
-                <li>Показывать на карте</li>
-                <g:form>
-                    <g:radioGroup name="myGroup" labels="['Все маршруты','Мои маршруты']" values="['All','Mine']" value="All" >
-                        <p>${it.radio} <g:message code="${it.label}" /></p>
-                    </g:radioGroup>
-                </g:form>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="img/icon2.png" class="icon" alt="Добавить маршрут" height="16" width="16"><p class="button_text">Добавить маршрут</p></a>
-            <ul class="dropdown-menu pull-right">
-                <li>Загрузить GPS-трек</li>
-                <div id="formCopy">
-                    <g:uploadForm id="load_file" action="route/loadFile" method="post" enctype="multipart/form-data" class="file_load">
-                        <input type="file" type="submit" id="userfile" class="userfile" name="userFile"/>
-                        <div class="load_input"><img src="img/Waypoint.png" class="icon" alt="Добавить маршрут" height="24" width="17"><input type="submit" name="upload" id="upload" class="upload" value="Загрузить маршрут"/></div>
-                    </g:uploadForm>
-                </div>
-            </ul>
-        </li>
-    </ul>
+    <div class="controls">
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="img/icon1.png" class="icon" alt="Показать на карте" height="19" width="19"><p class="button_text">Показать на карте</p></a>
+                <ul class="dropdown-menu">
+                    <li>Показывать на карте</li>
+                    <g:form>
+                        <g:radioGroup name="myGroup" labels="['Все маршруты','Мои маршруты']" values="['All','Mine']" value="All" >
+                            <p>${it.radio} <g:message code="${it.label}" /></p>
+                        </g:radioGroup>
+                    </g:form>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="img/icon2.png" class="icon" alt="Добавить маршрут" height="16" width="16"><p class="button_text">Добавить маршрут</p></a>
+                <ul class="dropdown-menu pull-right">
+                    <li>Загрузить GPS-трек</li>
+                    <div id="formCopy">
+                        <g:uploadForm id="load_file" controller="route" action="loadFile" method="post" enctype="multipart/form-data" class="file_load">
+                            <input type="file" type="submit" id="userfile" class="userfile" name="userFile"/>
+                            <div class="load_input"><img src="img/Waypoint.png" class="icon" alt="Добавить маршрут" height="24" width="17"><input type="submit" name="upload" id="upload" class="upload" value="Загрузить маршрут"/></div>
+                        </g:uploadForm>
+                    </div>
+                </ul>
+            </li>
+        </ul>
+    </div>
     %{--</sec:ifLoggedIn>--}%
     <div id="map-canvas" class="map"></div>
 </div>
