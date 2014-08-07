@@ -34,6 +34,7 @@ function drawRoutes() {
     else{
         path = "route/getUsersRoute";
     }
+    map.controls[google.maps.ControlPosition.BOTTOM].clear();
     $.ajax({
         url: path,
         type: "post",
@@ -116,7 +117,7 @@ $("document").ready(function () {
     }
     if (document.getElementById('get_all_routes') != null) {
         document.getElementById('get_all_routes').onclick = function () {
-            var loader = document.createElement("div");
+            var loader = documentmapVar.controls[google.maps.ControlPosition.TOP].clear();.createElement("div");
             loader.style.width = "126px";
             loader.style.height = "22px";
             loader.style.backgroundImage = "url(images/loader.gif)";
