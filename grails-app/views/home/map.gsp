@@ -8,6 +8,11 @@
     <g:javascript src="mapload.js"/>
     <g:javascript src="info.js"/>
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'likebike.css')}"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:40,500,600,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -16,30 +21,34 @@
 <g:render template="/home/login"/>
 <g:render template="/home/info"/>
 <div id="routes">
-    <div id="map-canvas"></div>
-    <sec:ifLoggedIn>
-        <button id="get_all_routes">Все маршруты</button>
-        <button id="get_users_routes">Мои маршруты</button>
-
-        <h1 id="load_route_h">ЗАГРУЗИТЬ СВОЙ МАРШРУТ</h1>
-
-
-        <form id="load_file" action="route/loadFile" method="post" enctype="multipart/form-data">
-            <div id="form_copy">
-                <div class="import_btn">
-                    <p class="btn_p">Выберите файл</p>
-                    <input type="file" id="userfile" class="userfile" name="userFile"/>
+    %{--<sec:ifLoggedIn>--}%
+    <ul class="controls nav navbar-nav">
+        <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="img/icon1.png" class="icon" alt="Показать на карте" height="19" width="19"><p class="button_text">Показать на карте</p></a>
+            <ul class="dropdown-menu">
+                <li>Показывать на карте</li>
+                <g:form>
+                    <g:radioGroup name="myGroup" labels="['Все маршруты','Мои маршруты']" values="['All','Mine']" value="All" >
+                        <p>${it.radio} <g:message code="${it.label}" /></p>
+                    </g:radioGroup>
+                </g:form>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="img/icon2.png" class="icon" alt="Добавить маршрут" height="16" width="16"><p class="button_text">Добавить маршрут</p></a>
+            <ul class="dropdown-menu pull-right">
+                <li>Загрузить GPS-трек</li>
+                <div id="formCopy">
+                    <g:uploadForm id="load_file" action="route/loadFile" method="post" enctype="multipart/form-data" class="file_load">
+                        <input type="file" type="submit" id="userfile" class="userfile" name="userFile"/>
+                        <div class="load_input"><img src="img/Waypoint.png" class="icon" alt="Добавить маршрут" height="24" width="17"><input type="submit" name="upload" id="upload" class="upload" value="Загрузить маршрут"/></div>
+                    </g:uploadForm>
                 </div>
-
-                <p id="import_p">файл не выбран</p>
-
-                <div class="import_btn">
-                    <p class="btn_p">Импортировать</p>
-                    <input type="submit" name="upload" id="upload" value="Импортировать"/>
-                </div>
-            </div>
-        </form>
-    </sec:ifLoggedIn>
+            </ul>
+        </li>
+    </ul>
+    %{--</sec:ifLoggedIn>--}%
+    <div id="map-canvas" class="map"></div>
 </div>
 <g:render template="/home/footer"/>
 </br>

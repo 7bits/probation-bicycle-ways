@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example of Twitter Bootstrap 3 Dropdowns within a Navbar</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:40,500,600,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/map.css">
+</head>
+<body>
+<ul class="controls nav navbar-nav">
+    <li class="dropdown">
+        <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="img/icon1.png" class="icon" alt="Показать на карте" height="19" width="19"><p class="button_text">Показать на карте</p></a>
+        <ul class="dropdown-menu">
+            <li>Показывать на карте</li>
+            <form>
+                <li><input type="radio" class="radio" name="view" value="All">Все маршруты</li>
+                <li><input type="radio" class="radio" name="view" value="Mine">Мои маршруты</li>
+            </form>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="img/icon2.png" class="icon" alt="Добавить маршрут" height="16" width="16"><p class="button_text">Добавить маршрут</p></a>
+        <ul class="dropdown-menu pull-right">
+            <li>Загрузить GPS-трек</li>
+            <div id="formCopy">
+            <form class="file_load">
+                <input type="file" type="submit" id="userfile" class="userfile" name="userFile"/>
+                <div class="load_input"><img src="img/Waypoint.png" class="icon" alt="Добавить маршрут" height="24" width="17"><input type="submit" name="upload" id="upload" class="upload" value="Загрузить маршрут"/></div>
+            </form>
+            </div>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>                                		
