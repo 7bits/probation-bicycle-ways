@@ -8,13 +8,6 @@
     src: local("OpenSans"), url(../fonts/opensans-bold.ttf);
 }
 
-#before_menu {
-    width: 1020px;
-    height: 90px;
-    margin-top: 79px;
-    float: left;
-}
-
 body {
     margin: 0 auto;
 }

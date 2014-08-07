@@ -19,7 +19,7 @@
         %{--<div id="vk_auth"></div>--}%
 </header>
 
-<div id="before_menu">
+<div class="before_menu">
 <menu>
     <p id="logo_text">Велогород</p>
     <g:img id="logo" dir="images" file="logo_header.png"/>
