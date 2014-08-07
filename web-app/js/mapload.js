@@ -115,15 +115,7 @@ $("document").ready(function () {
     }
     if (document.getElementById('get_all_routes') != null) {
         document.getElementById('get_all_routes').onclick = function () {
-<<<<<<< HEAD
-            var loader = document.createElement("div");
-            loader.style.width = "126px";
-            loader.style.height = "22px";
-            loader.style.backgroundImage = "url(images/loader.gif)";
-            map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
-=======
-            
->>>>>>> d7bf5adf333778011c6c044a5f3a58958d68392c
+
             for (i = 0; i < line.length; i++) {
                 line[i].setMap(null);
             }
