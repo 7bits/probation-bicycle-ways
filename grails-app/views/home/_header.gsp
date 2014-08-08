@@ -25,10 +25,10 @@
     <g:img id="logo" dir="images" file="logo_header.png"/>
     <ul id="menu_list">
         <li class="menu_list_item">
-            <p class="menu_text"><a class="menu_a" href="/">О ПРОЕКТЕ</a></p>
+            <p class="menu_text"><a class="menu_a" href="/">О проекте</a></p>
         </li>
         <li class="menu_list_item">
-            <p class="menu_text"><a class="menu_a" href="map">КАРТА МАРШРУТОВ</a></p>
+            <p class="menu_text"><a class="menu_a" href="map">Карта маршрутов</a></p>
         </li>
         %{--<li class="menu_list_item">--}%
             %{--<p class="menu_text"><a class="menu_a" href="loginPage">ВОЙТИ</a></p>--}%
@@ -36,7 +36,7 @@
         %{--</li>--}%
         <sec:ifNotLoggedIn>
             <li class="menu_list_item">
-                <p style="cursor: pointer;" id="p_log" class="menu_text">ВОЙТИ</p>
+                <p style="cursor: pointer;" id="p_log" class="menu_text">Войти</p>
             </li>
         </sec:ifNotLoggedIn>
         <sec:ifLoggedIn>
