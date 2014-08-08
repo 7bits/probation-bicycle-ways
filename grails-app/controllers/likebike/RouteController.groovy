@@ -56,7 +56,7 @@ class RouteController {
             file.file_name = params.userFile.fileItem.name
             file.save()
             String xmlData = new String(params.userFile.bytes)
-            new java.io.File(file.id + ".userfile").write(xmlData)
+            new java.io.File("userfiles/" + file.id + ".userfile").write(xmlData)
         }
         redirect(uri: "/map")
         return

@@ -15,7 +15,7 @@
 
 /*@font-face {*/
     /*font-family: "OpenSans";*/
-    /*src: local("OpenSansBold"), url(../fonts/opensans-bold.ttf);*/
+    /*src: local("OpenSansBold"), url(resource:/fonts/opensans-bold.ttf);*/
 /*}*/
 
 @font-face {
@@ -92,7 +92,7 @@ menu {
     color: #000000;
     float: left;
     margin: 0;
-    padding-bottom: 32px;
+    padding-bottom: 30px;
 }
 
 .menu_text:hover {

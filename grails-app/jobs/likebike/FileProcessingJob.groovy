@@ -15,7 +15,7 @@ class FileProcessingJob {
     def execute() {
         def row = fileService.getNext()
         if(row != null) {
-             String xmlData = new java.io.File(row['id']+".userfile").text
+             String xmlData = new java.io.File("userfiles/" + row['id']+".userfile").text
             try {
                 routeService.loadFromFile(xmlData, User.get(row['user_id']))
                 fileService.markProcessed()

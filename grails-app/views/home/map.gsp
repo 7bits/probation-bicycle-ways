@@ -31,7 +31,6 @@
             <li class="dropdown">
                 <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="img/icon1.png" class="icon" alt="Показать на карте" height="19" width="19"><p class="button_text">Показать на карте</p></a>
                 <ul class="dropdown-menu">
-                    <li>Показывать на карте</li>
                     <g:form>
                         <ul>
                             <li><input type="radio" name="myGroup" checked="checked" value="All" id="get_all_routes"><label for="get_all_routes"><div class = "radio_text">Все маршруты</div></label></li>
