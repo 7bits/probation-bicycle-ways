@@ -45,7 +45,7 @@
                 <ul class="dropdown-menu pull-right">
                     <li>Загрузить GPS-трек</li>
                     <div id="formCopy">
-                        <g:uploadForm id="load_file" controller="route" action="loadFile" method="post" enctype="multipart/form-data" class="file_load">
+                        <g:uploadForm id="load_file" url="[action:'loadFile',controller:'route']" method="post" enctype="multipart/form-data" class="file_load">
                             <input type="file" type="submit" id="userfile" class="userfile" name="userFile"/>
                             <div class="load_input"><img src="img/Waypoint.png" class="icon" alt="Добавить маршрут" height="24" width="17"><input type="submit" name="upload" id="upload" class="upload" value="Загрузить маршрут"/></div>
                         </g:uploadForm>
