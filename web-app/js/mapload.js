@@ -26,7 +26,10 @@ function pullProcessed() {
         dataType: "json",
         data: {id:id},
         success: function (data) {
-            console.log(data);
+            if(data.length > 0){
+                console.log(data);
+                $.notify("Обработаны файлы: " + data, "success");
+            }
         },
         error: function (jqXHR) {
             data = jQuery.parseJSON(jqXHR.responseText);
