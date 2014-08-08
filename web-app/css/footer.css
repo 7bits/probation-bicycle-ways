@@ -1,6 +1,6 @@
 @font-face {
-    font-family: "Tahoma";
-    src: local("Tahoma"), url(../fonts/Tahoma.ttf);
+    font-family: "OpenSans";
+    src: local("OpenSansLight"), url(../fonts/opensans-light.ttf);
 }
 
 footer {
@@ -56,9 +56,14 @@ footer {
 /*}*/
 
 .menu_a_footer {
-    font: 18px "OpenSans";
+    font: 18px "Open Sans Semibold";
     text-decoration: none;
     color: #ffffff;
+}
+
+.menu_a_footer:hover {
+    color: #000000;
+    text-decoration: none;
 }
 
 #vk_like {

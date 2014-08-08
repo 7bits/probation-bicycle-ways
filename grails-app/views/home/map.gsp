@@ -58,12 +58,12 @@
     <div id="map-canvas" class="map"></div>
 </div>
 <g:render template="/home/footer"/>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+%{--</br>--}%
+%{--</br>--}%
+%{--</br>--}%
+%{--</br>--}%
+%{--</br>--}%
+%{--</br>--}%
 <button id="screen">screen</button>
 <img id="route_img">
 </body>
