@@ -18,14 +18,14 @@
     /*src: local("OpenSansBold"), url(../fonts/opensans-bold.ttf);*/
 /*}*/
 
-/*@font-face {*/
-    /*font-family: 'Open Sans';*/
-    /*font-style:normal;*/
-    /*font-weight: 400;*/
-    /*src: local('Open Sans Regular'), local('Open-Sans-Regular'),*/
-    /*url(../fonts/opensans-regular.woff) format('woff'),*/
-    /*url(../fonts/opensans-regular.ttf) format('truetype');*/
-/*}*/
+@font-face {
+    font-family: 'Open Sans';
+    font-style:normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('Open-Sans-Regular'),
+    url(../fonts/opensans-regular.woff) format('woff'),
+    url(../fonts/opensans-regular.ttf) format('truetype');
+}
 
 @font-face {
     font-family: 'Open Sans Semibold';
@@ -81,21 +81,18 @@ menu {
 }
 
 .menu_a {
-    font: 16px "Open Sans Semibold";
-    /*font-family: "Open Sans";*/
-    /*font-size: 16px;*/
+    font: 16px "Open Sans";
     color: #000000;
     padding-bottom: 25px;
 }
 
 .menu_text {
-    font: 16px "Open Sans Semibold";
-    /*font-style: italic;*/
+    font: 16px "Open Sans";
     text-decoration: none;
     color: #000000;
     float: left;
     margin: 0;
-    padding-bottom: 31px;
+    padding-bottom: 32px;
 }
 
 .menu_text:hover {

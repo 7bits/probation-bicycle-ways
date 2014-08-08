@@ -66,11 +66,11 @@ function prepareViewMode(viewModeVar, mapVar) {
     view.style.fontSize = "20px"
 
     mapVar.controls[google.maps.ControlPosition.TOP].clear();
-    if (viewModeVar == USERS_TRACKS) {
-        view.innerHTML = "Ваши треки"
-    } else {
-        view.innerHTML = "Все треки"
-    }
+//    if (viewModeVar == USERS_TRACKS) {
+//        view.innerHTML = "Ваши треки"
+//    } else {
+//        view.innerHTML = "Все треки"
+//    }
     mapVar.controls[google.maps.ControlPosition.TOP].push(view);
 }
 
