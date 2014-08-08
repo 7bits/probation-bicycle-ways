@@ -50,11 +50,12 @@
                 %{--<p style="cursor: pointer;" id="p_log" class="menu_text">ВОЙТИ</p>--}%
             %{--</li>--}%
         %{--</sec:ifNotLoggedIn>--}%
-        <li class="menu_list_item">
-            <div id="mobile">
-                <p class="menu_text"><a class="mobile_a" href="/">МОБИЛЬНОЕ<br>ПРИЛОЖЕНИЕ</a></p>
-            </div>
-        </li>
+
+        %{--<li class="menu_list_item">--}%
+            %{--<div id="mobile">--}%
+                %{--<p class="menu_text"><a class="mobile_a" href="/">МОБИЛЬНОЕ<br>ПРИЛОЖЕНИЕ</a></p>--}%
+            %{--</div>--}%
+        %{--</li>--}%
     </ul>
 </menu>
 </div>

@@ -46,18 +46,29 @@ menu {
 
 .menu_a:hover {
     color: #000000;
+    text-decoration: none;
+    /*border-bottom-style: solid;*/
+    border-bottom-color: #f15a24;
 }
 
 .menu_a {
     font: 16px "OpenSans";
-    text-decoration: none;
     color: #000000;
+    padding-bottom: 25px;
 }
 
 .menu_text {
     font: 16px "OpenSans";
     text-decoration: none;
     color: #000000;
+    float: left;
+    margin: 0;
+    padding-bottom: 34px;
+}
+
+.menu_text:hover {
+    border-bottom-style: solid;
+    border-bottom-color: #f15a24;
 }
 
 /*@media (min-width: 1300px) {*/

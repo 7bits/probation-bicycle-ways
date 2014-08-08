@@ -61,6 +61,11 @@ footer {
     color: #ffffff;
 }
 
+.menu_a_footer:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
 #vk_like {
     float: right;
     /*padding: 0 0 50px 0;*/
