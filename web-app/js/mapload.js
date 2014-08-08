@@ -112,9 +112,10 @@ $("document").ready(function () {
     }
     if (document.getElementById('get_users_routes') != null) {
         document.getElementById('get_users_routes').onclick = function () {
+            heatmap.setMap(null);
             for (i = 0; i < line.length; i++) {
                 line[i].setMap(null);
-            }
+            }   
             line = [];
             heatmap = 0;
             routeArray = [];
@@ -126,9 +127,10 @@ $("document").ready(function () {
     }
     if (document.getElementById('get_all_routes') != null) {
         document.getElementById('get_all_routes').onclick = function () {
+            heatmap.setMap(null);
             for (i = 0; i < line.length; i++) {
                 line[i].setMap(null);
-            }
+            }   
             line = [];
             heatmap = 0;
             routeArray = [];
