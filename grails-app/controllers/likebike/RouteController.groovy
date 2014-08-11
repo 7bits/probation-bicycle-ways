@@ -60,12 +60,12 @@ class RouteController {
                 file.user_alert = true
             }
             file.processed = false
-
             def params = params
             file.file_name = params.userFile.fileItem.name
             file.save()
             String xmlData = new String(params.userFile.bytes)
-            new java.io.File("userfiles/" + file.id + ".userfile").write(xmlData)
+            java.io.File fileToProcess = new java.io.File("userfiles/" + file.id + ".userfile")
+            fileToProcess.write(xmlData)
         }
         redirect(uri: '/map?loaded=')
     }
