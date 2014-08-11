@@ -15,16 +15,15 @@ class FileProcessingJob {
     def execute() {
         def row = fileService.getNext()
         if(row != null) {
-             String xmlData = new java.io.File("userfiles/" + row['id']+".userfile").text
             try {
+                String xmlData = new java.io.File("userfiles/" + row['id']+".userfile").text
                 routeService.loadFromFile(xmlData, User.get(row['user_id']))
-                fileService.markProcessed()
             }
             catch(SAXParseException ex){
-                fileService.markProcessed()
             }
             catch(Exception ex){
-                String error = ex.message
+            }
+            finally{
                 fileService.markProcessed()
             }
         }
