@@ -14,7 +14,11 @@ class RouteController {
     def SpringSecurityService
 
     def getUsersRoute() {
-        def route = routeService.getUsersRoute(SpringSecurityService.getCurrentUser())
+        def user = SpringSecurityService.getCurrentUser()
+        if(user == null){
+            user = User.find { username == "anonymous" }
+        }
+        def route = routeService.getUsersRoute(user)
         render route as JSON
     }
 
@@ -50,16 +54,20 @@ class RouteController {
         if (params.userFile) {
             File file = new likebike.File()
             file.user = SpringSecurityService.getCurrentUser()
-            file.processed = false
             file.user_alert = false
+            if(file.user == null){
+                file.user = User.find { username == "anonymous" }
+                file.user_alert = true
+            }
+            file.processed = false
+
             def params = params
             file.file_name = params.userFile.fileItem.name
             file.save()
             String xmlData = new String(params.userFile.bytes)
             new java.io.File("userfiles/" + file.id + ".userfile").write(xmlData)
         }
-        redirect(uri: "/map")
-        return
+        redirect(uri: '/map?loaded=')
     }
 
     def getRoute() {

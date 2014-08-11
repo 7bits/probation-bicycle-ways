@@ -17,26 +17,37 @@ function getLoader(){
     return loader;
 }
 
+urlParam = function(name){
+    var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+    if(results)
+        return results[1] || 0;
+    else{
+        return null;
+    }
+}
+
 function pullProcessed() {
     path = "route/getProcessed";
     var id = document.getElementById('user_id').value
-    $.ajax({
-        url: path,
-        type: "post",
-        dataType: "json",
-        data: {id:id},
-        success: function (data) {
-            if(data.length > 0){
-                console.log(data);
-                $.notify("Обработаны файлы: " + data, "success");
+    if(id){
+        $.ajax({
+            url: path,
+            type: "post",
+            dataType: "json",
+            data: {id:id},
+            success: function (data) {
+                if(data.length > 0){
+                    console.log(data);
+                    $.notify("Обработаны файлы: " + data, "success");
+                }
+            },
+            error: function (jqXHR) {
+                data = jQuery.parseJSON(jqXHR.responseText);
+            },
+            complete:function () {
             }
-        },
-        error: function (jqXHR) {
-            data = jQuery.parseJSON(jqXHR.responseText);
-        },
-        complete:function () {
-        }
-    });
+        });
+    }
 }
 
 function drawRoutes() {
@@ -99,10 +110,12 @@ function prepareViewMode(viewModeVar, mapVar) {
     mapVar.controls[google.maps.ControlPosition.TOP].push(view);
 }
 
-
-
 $("document").ready(function () {
-
+    if(urlParam('loaded')!=null){
+        $.notify("Your file was uploaded", "success");
+        window.location.href.replace(/\?loaded=/i, "");
+        window.history.pushState("object or string", "Title", window.location.href.replace(/\?loaded=/i, ""));
+    }
     window.setInterval(pullProcessed, 5000);
     document.getElementById('screen').onclick = function () {
         if(routeArray.length){
