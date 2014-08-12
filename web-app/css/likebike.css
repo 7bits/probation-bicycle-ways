@@ -244,8 +244,9 @@ li.cartoon_li_text4 {
 }
 
 .controls{
-    display: block;
+    font: 14px "Open Sans";
     font-weight: 700;
+    display: block;
     float: right;
     margin-top: 78px;
 }

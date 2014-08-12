@@ -1,8 +1,3 @@
-@font-face {
-    font-family: "OpenSans";
-    src: local("OpenSansLight"), url(../fonts/opensans-light.ttf);
-}
-
 footer {
     position: absolute;
     width: 1020px;
@@ -36,12 +31,13 @@ footer {
     float: left;
     display: block;
     margin-right: 30px;
-    /*position: relative;*/
     left: 327px;
     padding: 0px 0px 0px 0px;
 }
 
 #menu_list_footer {
+    font:16px "Open Sans";
+    font-weight: 300;
     list-style: none;
     display: compact;
     width: auto;
@@ -56,8 +52,6 @@ footer {
 /*}*/
 
 .menu_a_footer {
-    font: 18px "Open Sans";
-    text-decoration: none;
     color: #ffffff;
 }
 
