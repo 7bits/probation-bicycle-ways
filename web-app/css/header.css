@@ -9,8 +9,8 @@
 }
 
 /*@font-face {*/
-    /*font-family: "OpenSans";*/
-    /*src: local("OpenSansBold"), url(resource:resource:/fonts/opensans-bold.ttf);*/
+/*font-family: "OpenSans";*/
+/*src: local("OpenSansBold"), url(resource:/fonts/opensans-bold.ttf);*/
 /*}*/
 
 body {
@@ -26,14 +26,13 @@ menu {
     padding: 0;
     text-align: center;
     background: #f9e8f9;
-    float: left;
 }
 
 #menu_list {
     overflow: auto;
     list-style: none;
     display: compact;
-    margin: 35px 0 0;
+    margin: 35px 130px 0 0;
     float: right;
     /*width: auto;*/
 }
@@ -45,6 +44,7 @@ menu {
     /*position: relative;*/
     left: 327px;
     padding: 0px 0px 0px 0px;
+    /*overflow: auto;*/
 }
 
 .menu_list_item:hover {
@@ -80,15 +80,20 @@ menu {
 
 /*@media (min-width: 1300px) {*/
 
-    /*#before_menu {*/
-        /*width: 100%;*/
-    /*}*/
+/*#before_menu {*/
+/*width: 100%;*/
+/*}*/
 
-    /*header {*/
-        /*width: 100%;*/
-    /*}*/
+/*header {*/
+/*width: 100%;*/
+/*}*/
 
 /*}*/
+
+#if_login {
+    height: 36px;
+    width: 100%;
+}
 
 #logout {
     width: 50px;
@@ -110,8 +115,65 @@ menu {
     margin: 22px 0 0 0;
 }
 
-/*#mobile {*/
-    /*height: 108px;*/
-    /*width: 115px;*/
-    /*background: #f15a24;*/
-/*}*/
+#mobile {
+    height: 108px;
+    width: 115px;
+    background: #f15a24;
+    float: left;
+    /*padding-top: 35px;*/
+    position: absolute;
+    z-index: 500;
+    margin: -35px 0 0 0;
+    padding-top: 35px;
+}
+
+.mobile_menu_text {
+    /*font: 16px "Open Sans";*/
+    /*text-decoration: none;*/
+    /*color: #ffffff;*/
+}
+
+.mobile_a {
+    font: 16px "Open Sans";
+    color: #ffffff;
+    padding-bottom: 25px;
+}
+
+.if_login {
+    height: 36px;
+    width: auto;
+}
+
+.login_text {
+    /*float: left;*/
+    height: 36px;
+    width: auto;
+    position: relative;
+    float: right;
+    margin-right: 185px;
+}
+
+.name {
+    font: 16px "Open Sans";
+    color: #f15a24;
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+
+.logout {
+    font: 16px "Open Sans";
+    color: #000000;
+}
+
+.logout:hover {
+    color: #000000;
+}
+
+.login_menu_text {
+    font: 16px "Open Sans";
+    text-decoration: none;
+    color: #000000;
+    float: left;
+    margin: 0;
+}
