@@ -398,7 +398,7 @@ input[type='radio'] + label{
     /* Make look clickable because they are */
     cursor: pointer;
 
-    background: url("../img/Radio inactive.png") left center no-repeat;
+    background: url("../img/radio_inactive.png") left center no-repeat;
 }
 
 /*
