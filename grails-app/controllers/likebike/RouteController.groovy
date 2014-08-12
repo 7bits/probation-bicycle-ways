@@ -51,7 +51,7 @@ class RouteController {
     }
 
     def loadFile() {
-        if (params.userFile.size) {
+        if (params.userFile && params.userFile.size) {
             File file = new likebike.File()
             file.user = SpringSecurityService.getCurrentUser()
             file.user_alert = false
