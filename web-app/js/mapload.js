@@ -122,10 +122,16 @@ $("document").ready(function () {
          }
      );
     }
-    if(urlParam('loaded')!=null){
-        $.notify("Your file was uploaded", "success");
-        window.location.href.replace(/\?loaded=/i, "");
-        window.history.pushState("object or string", "Title", window.location.href.replace(/\?loaded=/i, ""));
+
+    var loaded = urlParam('loaded');
+    if(loaded !=null){
+        if(loaded == "true"){
+            $.notify("Your file was uploaded", "success");
+        }
+        else{
+            $.notify("Your file wasn`t uploaded");
+        }
+        window.history.pushState("object or string", "Title", window.location.href.replace(/\?loaded=.*/i, ""));
     }
     window.setInterval(pullProcessed, 5000);
     document.getElementById('screen').onclick = function () {

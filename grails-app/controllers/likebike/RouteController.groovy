@@ -51,7 +51,7 @@ class RouteController {
     }
 
     def loadFile() {
-        if (params.userFile) {
+        if (params.userFile.size) {
             File file = new likebike.File()
             file.user = SpringSecurityService.getCurrentUser()
             file.user_alert = false
@@ -66,8 +66,11 @@ class RouteController {
             String xmlData = new String(params.userFile.bytes)
             java.io.File fileToProcess = new java.io.File("userfiles/" + file.id + ".userfile")
             fileToProcess.write(xmlData)
+            redirect(uri: '/map?loaded=true')
+            return
         }
-        redirect(uri: '/map?loaded=')
+        redirect(uri: '/map?loaded=false')
+        return
     }
 
     def getRoute() {
