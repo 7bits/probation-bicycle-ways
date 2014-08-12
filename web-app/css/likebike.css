@@ -1,6 +1,6 @@
 /*@font-face {*/
     /*font-family: "Tahoma";*/
-    /*src: local("Tahoma"), url(../fonts/Tahoma.ttf);*/
+    /*src: local("Tahoma"), url(resource:resource:/fonts/Tahoma.ttf);*/
     /*color: #000000;*/
 /*}*/
 
@@ -367,7 +367,12 @@ li.cartoon_li_text4 {
 }
 
 .load_input:hover {
-    background-color: #EFEFEF;
+    background-color: #F15A24;
+    color: #FFFFFF !important;
+}
+
+.load_input:active {
+    background-color: #D03700;
 }
 
 .upload {
@@ -375,7 +380,6 @@ li.cartoon_li_text4 {
     padding-top: 2px;
     margin: 0px;
     border: 0px;
-    color: #F15A24;
     outline: none;
     background-color: inherit;
     font-size: 15px;

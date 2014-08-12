@@ -6,12 +6,9 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
     <script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'likebike.css')}"/>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:40,500,600,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="http://getbootstrap.com/2.3.2/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
     <g:javascript src="notify.js"/>
     <g:javascript src="mapload.js"/>
@@ -26,6 +23,7 @@
 <g:render template="/home/info"/>
 <g:hiddenField id="user_id" name="user_id" value="${sec.loggedInUserInfo(field:'id')}" />
 <div id="routes" class="routes">
+<sec:ifLoggedIn>
     <div class="controls">
         <sec:ifLoggedIn>
         <ul class="nav navbar-nav">
@@ -47,7 +45,10 @@
                     <div id="formCopy">
                         <g:uploadForm id="load_file" url="[action:'loadFile',controller:'route']" method="post" enctype="multipart/form-data" class="file_load">
                             <input type="file" type="submit" id="userfile" class="userfile" name="userFile"/>
-                            <div class="load_input"><img src="img/Waypoint.png" class="icon" alt="Добавить маршрут" height="24" width="17"><input type="submit" name="upload" id="upload" class="upload" value="Загрузить маршрут"/></div>
+                            <div id="load_input" class="load_input">
+                                <img id="upload_icon" src="img/Waypoint.png" class="icon" alt="Добавить маршрут" height="24" width="17">
+                                <input type="submit" name="upload" id="upload" class="upload" value="Загрузить маршрут"/>
+                            </div>
                         </g:uploadForm>
                     </div>
                 </ul>
@@ -55,7 +56,7 @@
         </ul>
         </sec:ifLoggedIn>
     </div>
-    %{--</sec:ifLoggedIn>--}%
+    </sec:ifLoggedIn>
     <div id="map-canvas" class="map"></div>
 </div>
 <g:render template="/home/footer"/>

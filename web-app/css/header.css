@@ -9,13 +9,13 @@
 }
 
 /*@font-face {*/
-    /*font-family: "OpenSans";*/
-    /*src: local("OpenSansBold"), url(resource:/fonts/opensans-bold.ttf);*/
+/*font-family: "OpenSans";*/
+/*src: local("OpenSansBold"), url(resource:resource:/fonts/opensans-bold.ttf);*/
 /*}*/
 
 body {
     width: 1020px;
-    margin: 0 auto;
+    margin: 0 auto !important;
     /*font-family: 'Open Sans', sans-serif;*/
 }
 
@@ -177,4 +177,3 @@ menu {
     float: left;
     margin: 0;
 }
-
