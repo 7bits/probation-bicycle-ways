@@ -1,6 +1,6 @@
 /*@font-face {*/
     /*font-family: "Tahoma";*/
-    /*src: local("Tahoma"), url(../fonts/Tahoma.ttf);*/
+    /*src: local("Tahoma"), url(resource:resource:/fonts/Tahoma.ttf);*/
     /*color: #000000;*/
 /*}*/
 
@@ -361,7 +361,8 @@ li.cartoon_li_text4 {
     color: #FFFFFF !important;
 }
 
-.load_input:hover > .icon {
+.load_input:active {
+    background-color: #D03700;
 }
 
 .upload {
