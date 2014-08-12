@@ -3,6 +3,7 @@
 <head>
     <title>Velo-Sity</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'header.css')}"/>
 
     <script type="text/javascript" src="js/vk_logout.js"></script>
