@@ -8,12 +8,58 @@ var viewMode = ALL_TRACKS;
 var line = [];//список линий на карте
 var heatmap = 0;//список точек
 
+function getLoader(){
+    var loader = document.createElement("div");
+    loader.style.width = "126px";
+    loader.style.height = "22px";
+    loader.style.backgroundImage = "url(images/loader.gif)";
+    loader.id = "loader";
+    return loader;
+}
+
+urlParam = function(name){
+    var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+    if(results)
+        return results[1] || 0;
+    else{
+        return null;
+    }
+}
+
+function pullProcessed() {
+    path = "route/getProcessed";
+    var id = document.getElementById('user_id').value
+    if(id){
+        $.ajax({
+            url: path,
+            type: "post",
+            dataType: "json",
+            data: {id:id},
+            success: function (data) {
+                if(data.length > 0){
+                    console.log(data);
+                    $.notify("Обработаны файлы: " + data, "success");
+                }
+            },
+            error: function (jqXHR) {
+                data = jQuery.parseJSON(jqXHR.responseText);
+            },
+            complete:function () {
+            }
+        });
+    }
+}
+
 function drawRoutes() {
     if(viewMode == ALL_TRACKS) {
         path = "route/getRoute";
     }
     else{
         path = "route/getUsersRoute";
+    }
+    loader = document.getElementById("loader")
+    if(loader == null){
+        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(getLoader());
     }
     $.ajax({
         url: path,
@@ -46,16 +92,6 @@ function drawRoutes() {
     prepareViewMode(viewMode, map);
 }
 
-const ALL_TRACKS = 1;
-const USERS_TRACKS = 0;
-var map;//google карта
-var taxiData = [];
-var routeArray = [];
-var routeMode = 0;
-var viewMode = ALL_TRACKS;
-var line = [];//список линий на карте
-var heatmap = 0;//список точек
-
 function prepareViewMode(viewModeVar, mapVar) {
     var view = document.createElement("div");
     view.style.width = "200px";
@@ -75,27 +111,24 @@ function prepareViewMode(viewModeVar, mapVar) {
 }
 
 $("document").ready(function () {
+    if(urlParam('loaded')!=null){
+        $.notify("Your file was uploaded", "success");
+        window.location.href.replace(/\?loaded=/i, "");
+        window.history.pushState("object or string", "Title", window.location.href.replace(/\?loaded=/i, ""));
+    }
+    window.setInterval(pullProcessed, 5000);
     document.getElementById('screen').onclick = function () {
         if(routeArray.length){
             var urlImg = routeToStaticMapURL(routeArray[routeArray.length - 1]);
             document.getElementById('route_img').src = urlImg;
         }
     }
-
-    $("#userfile").change(function () {
-        document.getElementById("import_p").innerHTML = document.getElementById('userfile').value.replace(/^.*[\\\/]/, '');
-    });
     if (document.getElementById('get_users_routes') != null) {
         document.getElementById('get_users_routes').onclick = function () {
-            var loader = document.createElement("div");
-            loader.style.width = "126px";
-            loader.style.height = "22px";
-            loader.style.backgroundImage = "url(images/loader.gif)";
-            map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
             heatmap.setMap(null);
             for (i = 0; i < line.length; i++) {
                 line[i].setMap(null);
-            }
+            }   
             line = [];
             heatmap = 0;
             routeArray = [];
@@ -107,14 +140,10 @@ $("document").ready(function () {
     }
     if (document.getElementById('get_all_routes') != null) {
         document.getElementById('get_all_routes').onclick = function () {
-            var loader = document.createElement("div");
-            loader.style.width = "126px";
-            loader.style.height = "22px";
-            loader.style.backgroundImage = "url(images/loader.gif)";
-            map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
+            heatmap.setMap(null);
             for (i = 0; i < line.length; i++) {
                 line[i].setMap(null);
-            }
+            }   
             line = [];
             heatmap = 0;
             routeArray = [];
@@ -126,11 +155,6 @@ $("document").ready(function () {
 
     if (document.getElementById('upload') != null) {
         document.getElementById('upload').onclick = function () {
-            var loader = document.createElement("div");
-            loader.style.width = "126px";
-            loader.style.height = "22px";
-            loader.style.backgroundImage = "url(images/loader.gif)";
-            map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
         }
     }
 
@@ -161,10 +185,6 @@ $("document").ready(function () {
     ]);
 
     var loader = document.createElement("div");
-    loader.style.width = "126px";
-    loader.style.height = "22px";
-    loader.style.backgroundImage = "url(images/loader.gif)";
-    map.controls[google.maps.ControlPosition.BOTTOM].push(loader);
 
     prepareViewMode(viewMode, map);
 
