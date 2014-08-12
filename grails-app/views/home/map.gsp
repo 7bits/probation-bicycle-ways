@@ -46,7 +46,10 @@
                     <div id="formCopy">
                         <g:uploadForm id="load_file" url="[action:'loadFile',controller:'route']" method="post" enctype="multipart/form-data" class="file_load">
                             <input type="file" type="submit" id="userfile" class="userfile" name="userFile"/>
-                            <div class="load_input"><img src="img/Waypoint.png" class="icon" alt="Добавить маршрут" height="24" width="17"><input type="submit" name="upload" id="upload" class="upload" value="Загрузить маршрут"/></div>
+                            <div id="load_input" class="load_input">
+                                <img id="upload_icon" src="img/Waypoint.png" class="icon" alt="Добавить маршрут" height="24" width="17">
+                                <input type="submit" name="upload" id="upload" class="upload" value="Загрузить маршрут"/>
+                            </div>
                         </g:uploadForm>
                     </div>
                 </ul>

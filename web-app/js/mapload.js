@@ -111,6 +111,17 @@ function prepareViewMode(viewModeVar, mapVar) {
 }
 
 $("document").ready(function () {
+    if($("#load_input") !=null){
+        var load = $("#load_input");
+        load.hover(
+         function () {
+             $("#upload_icon")[0].src = "http://localhost:8080/LikeBike/img/icon_active.png";
+         }, 
+         function () {
+             $("#upload_icon")[0].src = "http://localhost:8080/LikeBike/img/Waypoint.png";
+         }
+     );
+    }
     if(urlParam('loaded')!=null){
         $.notify("Your file was uploaded", "success");
         window.location.href.replace(/\?loaded=/i, "");
