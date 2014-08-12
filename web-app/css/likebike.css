@@ -375,4 +375,34 @@ li.cartoon_li_text4 {
     visibility: hidden;
 }
 
+input[type='radio']{
+    /* Hide the input, but have it still be clickable */
+    width: 0;
+    height: 0;
+    opacity: 0;
+    float: left;
+    cursor: pointer;
+}
+
+input[type='radio'] + label{
+    margin: 0;
+    clear: none;
+
+    /* Left padding makes room for image */
+    padding: 2px 0 4px 19px;
+
+    /* Make look clickable because they are */
+    cursor: pointer;
+
+    background: url("../img/Radio inactive.png") left center no-repeat;
+}
+
+/*
+    Change from unchecked to checked graphic
+*/
+
+input[type='radio']:checked + label{
+    background-image: url("../img/radio_active.png");
+}
+
 
