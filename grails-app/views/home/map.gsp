@@ -23,6 +23,7 @@
 <g:render template="/home/info"/>
 <g:hiddenField id="user_id" name="user_id" value="${sec.loggedInUserInfo(field:'id')}" />
 <div id="routes" class="routes">
+<sec:ifLoggedIn>
     <div class="controls">
         <ul class="nav navbar-nav">
             <li class="dropdown">
@@ -53,7 +54,7 @@
             </li>
         </ul>
     </div>
-    %{--</sec:ifLoggedIn>--}%
+    </sec:ifLoggedIn>
     <div id="map-canvas" class="map"></div>
 </div>
 <g:render template="/home/footer"/>
