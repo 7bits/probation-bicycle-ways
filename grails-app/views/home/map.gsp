@@ -27,6 +27,7 @@
 <g:hiddenField id="user_id" name="user_id" value="${sec.loggedInUserInfo(field:'id')}" />
 <div id="routes" class="routes">
     <div class="controls">
+        <sec:ifLoggedIn>
         <ul class="nav navbar-nav">
             <li class="dropdown">
                 <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="img/icon1.png" class="icon" alt="Показать на карте" height="19" width="19"><p class="button_text">Показать на карте</p></a>
@@ -52,6 +53,7 @@
                 </ul>
             </li>
         </ul>
+        </sec:ifLoggedIn>
     </div>
     %{--</sec:ifLoggedIn>--}%
     <div id="map-canvas" class="map"></div>

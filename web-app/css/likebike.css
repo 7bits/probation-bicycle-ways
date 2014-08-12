@@ -8,6 +8,16 @@
     width: 1020px;
     height: 288px;
     padding: 0;
+    z-index: 1;
+    position: relative;
+}
+
+.title {
+    z-index: 2;
+    margin-bottom: -250px;
+    position: relative;
+    /*margin: 0 auto;*/
+    margin-left: 40px;
 }
 
 body {
