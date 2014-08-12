@@ -267,6 +267,11 @@ li.cartoon_li_text4 {
     color: #000000;
 }
 
+.radio_text{
+    font: 14px "Open Sans";
+    font-weight: 600;
+}
+
 .dropdown{
     float: left;
 }
