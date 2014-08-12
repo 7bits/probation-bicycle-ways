@@ -111,10 +111,26 @@ function prepareViewMode(viewModeVar, mapVar) {
 }
 
 $("document").ready(function () {
-    if(urlParam('loaded')!=null){
-        $.notify("Your file was uploaded", "success");
-        window.location.href.replace(/\?loaded=/i, "");
-        window.history.pushState("object or string", "Title", window.location.href.replace(/\?loaded=/i, ""));
+    if($("#load_input") !=null){
+        var load = $("#load_input");
+        load.hover(
+         function () {
+             $("#upload_icon")[0].src = "http://localhost:8080/LikeBike/img/icon_active.png";
+         }, 
+         function () {
+             $("#upload_icon")[0].src = "http://localhost:8080/LikeBike/img/Waypoint.png";
+         }
+     );
+    }
+    var loaded = urlParam('loaded');
+    if(loaded !=null){
+        if(loaded == "true"){
+            $.notify("Your file was uploaded", "success");
+        }
+        else{
+            $.notify("Your file wasn`t uploaded");
+        }
+        window.history.pushState("object or string", "Title", window.location.href.replace(/\?loaded=.*/i, ""));
     }
     window.setInterval(pullProcessed, 5000);
     document.getElementById('screen').onclick = function () {
