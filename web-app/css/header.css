@@ -8,10 +8,9 @@
     font-style: normal;
 }
 
-body {
-    width: 1020px;
-    margin: 0 auto !important;
-    /*font-family: 'Open Sans', sans-serif;*/
+header {
+    width: 100%;
+    background-color: #f9e8f9;
 }
 
 menu {

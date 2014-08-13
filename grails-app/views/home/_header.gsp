@@ -2,7 +2,7 @@
 
         %{--<div id="vk_auth"></div>--}%
 
-
+<header>
 <div class="before_menu">
     <menu>
         <p id="logo_text">Велогород</p>
@@ -35,3 +35,4 @@
             </div>
         </div>
     </sec:ifLoggedIn>
+</header>
