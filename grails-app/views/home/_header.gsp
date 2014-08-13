@@ -26,12 +26,13 @@
     </menu>
 
 %{--<span id="after"></span>--}%
-
     <sec:ifLoggedIn>
         <div class="if_login">
-            <div class="login_text">
-                <p class="login_menu_text">Вы вошли как&nbsp;</p>
-                <p class="name"> <sec:username/> &nbsp;&nbsp;&nbsp;<g:link class="logout" controller='logout'>Выйти</g:link></p>
+            <div class="if_login_body">
+                <div class="login_text">
+                    <p class="login_menu_text">Вы вошли как&nbsp;</p>
+                    <p class="name"> <sec:username/> &nbsp;&nbsp;&nbsp;<g:link class="logout" controller='logout'>Выйти</g:link></p>
+                </div>
             </div>
         </div>
     </sec:ifLoggedIn>

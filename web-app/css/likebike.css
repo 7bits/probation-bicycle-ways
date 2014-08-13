@@ -111,6 +111,7 @@ body {
 
 .map {
     width: 1020px;
+    /*width: auto;*/
     height: 776px;
 }
 

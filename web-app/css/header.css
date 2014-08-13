@@ -142,6 +142,7 @@ menu {
 .if_login {
     height: 36px;
     width: auto;
+    background-color: #ffffff;
 }
 
 .login_text {
@@ -149,7 +150,13 @@ menu {
     width: auto;
     position: relative;
     float: right;
-    margin-right: 185px;
+    right: 185px;
+    margin: 0 auto;
+}
+
+.if_login_body {
+    width: 1020px;
+    margin: 0 auto;
 }
 
 .name {
