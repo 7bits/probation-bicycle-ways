@@ -232,8 +232,8 @@ function createRoute(routeArray, routeMode) {
             var flightPath = new google.maps.Polyline({
                 path: valR,
                 strokeColor: "#0000FF",
-                strokeOpacity: 0.5,
-                strokeWeight: 20
+                strokeOpacity: 0.3,
+                strokeWeight: 7
             });
             routes.push(flightPath);
         });
