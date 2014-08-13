@@ -120,7 +120,7 @@ function prepareViewMode(mapVar) {
         view.innerText = "Ваши треки"
     }
     else{
-        view.innerText = "Все треки"
+       view.innerText = "Все треки"
     }
 }
 
@@ -219,8 +219,8 @@ function routes_to_points(routes){
     var points = [];
     for (i = 0; i < routes.length; i++) {
         for (j = 0; j < routes[i].length; j++) {
-            points.push(routes[i][j]);
-        }
+        points.push(routes[i][j]);
+    }
     }
     return points;
 }
@@ -240,21 +240,21 @@ function createRoute(routeArray, routeMode) {
     else {
         var pointArray = new google.maps.MVCArray(routes_to_points(routeArray));
         routes = new google.maps.visualization.HeatmapLayer({
-            data: pointArray, opacity: 1.0, radius: 7, gradient: [
+            data: pointArray, opacity: 1, radius: 5, gradient: [
                 'rgba(0, 255, 255, 0)',
-                'rgba(0, 255, 255, 1)',
-                'rgba(0, 191, 255, 1)',
-                'rgba(0, 127, 255, 1)',
-                'rgba(0, 63, 255, 1)',
-                'rgba(0, 0, 255, 1)',
-                'rgba(0, 0, 223, 1)',
-                'rgba(0, 0, 191, 1)',
-                'rgba(0, 0, 159, 1)',
-                'rgba(0, 0, 127, 1)',
-                'rgba(63, 0, 91, 1)',
-                'rgba(127, 0, 63, 1)',
-                'rgba(191, 0, 31, 1)',
-                'rgba(255, 0, 0, 1)'
+                'rgba(0, 255, 255, 0.4)',
+                'rgba(0, 191, 255, 0.4)',
+                'rgba(0, 127, 255, 0.4)',
+                'rgba(0, 63, 255, 0.4)',
+                'rgba(0, 0, 255, 0.42)',
+                'rgba(0, 0, 223, 0.47)',
+                'rgba(0, 0, 191, 0.52)',
+                'rgba(0, 0, 159, 0.57)',
+                'rgba(0, 0, 127, 0.62)',
+                'rgba(63, 0, 91, 0.67)',
+                'rgba(127, 0, 63, 0.72)',
+                'rgba(191, 0, 31, 0.77)',
+                'rgba(255, 0, 0, 0.8)'
             ]
         });
     }
