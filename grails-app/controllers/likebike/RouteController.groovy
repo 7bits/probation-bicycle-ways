@@ -66,10 +66,10 @@ class RouteController {
             String xmlData = new String(params.userFile.bytes)
             java.io.File fileToProcess = new java.io.File("userfiles/" + file.id + ".userfile")
             fileToProcess.write(xmlData)
-            redirect(uri: '/map?loaded=true')
+            redirect(uri: '/home/map?loaded=true')
             return
         }
-        redirect(uri: '/map?loaded=false')
+        redirect(uri: '/home/map?loaded=false')
         return
     }
 
