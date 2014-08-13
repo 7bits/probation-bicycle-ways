@@ -1,12 +1,11 @@
 const ALL_TRACKS = 1;
 const USERS_TRACKS = 0;
+const HEAT_MAP = 0;
+const LINES = 1;
 var map;//google карта
-var taxiData = [];
-var routeArray = [];
-var routeMode = 0;
+var routeMode = HEAT_MAP;
 var viewMode = ALL_TRACKS;
-var line = [];//список линий на карте
-var heatmap = 0;//список точек
+var lines = [];
 
 function getLoader(){
     var loader = document.createElement("div");
@@ -50,7 +49,7 @@ function pullProcessed() {
     }
 }
 
-function drawRoutes() {
+function drawRoutes(viewMode) {
     if(viewMode == ALL_TRACKS) {
         path = "route/getRoute";
     }
@@ -61,11 +60,13 @@ function drawRoutes() {
     if(loader == null){
         map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(getLoader());
     }
+    prepareViewMode(map);
     $.ajax({
         url: path,
         type: "post",
         dataType: "json",
         success: function (data) {
+            var routeArray = [];
             $.each(data, function (route, valR) {
                 var myRoute = [];
                 $.each(valR, function (point, valP) {
@@ -74,12 +75,13 @@ function drawRoutes() {
                         Point.push(valC);
                     });
                     var googleMapPoint = new google.maps.LatLng(Point[0], Point[1]);
-                    taxiData.push(googleMapPoint);
                     myRoute.push(googleMapPoint);
                 });
                 routeArray.push(myRoute);
             });
-            createRoute();
+            setAll(null);
+            lines = [];
+            lines = createRoute(routeArray, routeMode);
             displayRoute();
         },
         error: function (jqXHR) {
@@ -89,47 +91,59 @@ function drawRoutes() {
             map.controls[google.maps.ControlPosition.BOTTOM].clear();
         }
     });
-    prepareViewMode(viewMode, map);
 }
 
-function prepareViewMode(viewModeVar, mapVar) {
-    var view = document.createElement("div");
-    view.style.width = "200px";
-    view.style.height = "50px";
-    view.style.marginTop = "75px";
-    view.style.marginRight = "auto";
-    view.style.marginLeft = "auto";
-    view.style.fontSize = "20px"
+function setAll(mode){
+    if(lines.data != null){
+        lines.setMap(mode);
+    }
+    else{
+        for(i = 0 ; i < lines.length; i++)
+            lines[i].setMap(mode);
+    }
+}
 
-    mapVar.controls[google.maps.ControlPosition.TOP].clear();
-//    if (viewModeVar == USERS_TRACKS) {
-//        view.innerHTML = "Ваши треки"
-//    } else {
-//        view.innerHTML = "Все треки"
-//    }
-    mapVar.controls[google.maps.ControlPosition.TOP].push(view);
+function prepareViewMode(mapVar) {
+    var view = $("#viewMode")[0];
+    if(view == null){
+        view = document.createElement("div");
+        view.style.width = "200px";
+        view.style.height = "50px";
+        view.style.marginTop = "75px";
+        view.style.marginRight = "auto";
+        view.style.marginLeft = "auto";
+        view.style.fontSize = "20px"
+        view.id = "viewMode"
+        mapVar.controls[google.maps.ControlPosition.TOP].push(view);
+    }
+    if(viewMode == USERS_TRACKS){
+        view.innerText = "Ваши треки"
+    }
+    else{
+        view.innerText = "Все треки"
+    }
 }
 
 $("document").ready(function () {
     if($("#load_input") !=null){
         var load = $("#load_input");
         load.hover(
-         function () {
-             $("#upload_icon")[0].src = "http://localhost:8080/LikeBike/img/icon_active.png";
-         }, 
-         function () {
-             $("#upload_icon")[0].src = "http://localhost:8080/LikeBike/img/Waypoint.png";
-         }
-     );
+            function () {
+                $("#upload_icon")[0].src = "http://localhost:8080/LikeBike/img/icon_active.png";
+            },
+            function () {
+                $("#upload_icon")[0].src = "http://localhost:8080/LikeBike/img/Waypoint.png";
+            }
+        );
     }
 
     var loaded = urlParam('loaded');
     if(loaded !=null){
         if(loaded == "true"){
-            $.notify("Your file was uploaded", "success");
+            $.notify("Ваш файл был загружен", "success");
         }
         else{
-            $.notify("Your file wasn`t uploaded");
+            $.notify("Ваш файл не был загружен");
         }
         window.history.pushState("object or string", "Title", window.location.href.replace(/\?loaded=.*/i, ""));
     }
@@ -142,36 +156,15 @@ $("document").ready(function () {
     }
     if (document.getElementById('get_users_routes') != null) {
         document.getElementById('get_users_routes').onclick = function () {
-            heatmap.setMap(null);
-            for (i = 0; i < line.length; i++) {
-                line[i].setMap(null);
-            }   
-            line = [];
-            heatmap = 0;
-            routeArray = [];
-            taxiData = [];
             viewMode = USERS_TRACKS;
-            drawRoutes();
+            drawRoutes(viewMode);
         }
 
     }
     if (document.getElementById('get_all_routes') != null) {
         document.getElementById('get_all_routes').onclick = function () {
-            heatmap.setMap(null);
-            for (i = 0; i < line.length; i++) {
-                line[i].setMap(null);
-            }   
-            line = [];
-            heatmap = 0;
-            routeArray = [];
-            taxiData = [];
             viewMode = ALL_TRACKS;
-            drawRoutes();
-        }
-    }
-
-    if (document.getElementById('upload') != null) {
-        document.getElementById('upload').onclick = function () {
+            drawRoutes(viewMode);
         }
     }
 
@@ -200,15 +193,9 @@ $("document").ready(function () {
             ]
         }
     ]);
-
-    var loader = document.createElement("div");
-
-    prepareViewMode(viewMode, map);
-
     var mode = document.createElement("input");
     mode.style.width = "50px";
     mode.style.height = "22px";
-
     mode.style.marginRight = "5px";
     mode.style.backgroundImage = "#000000";
     mode.type = "button";
@@ -216,94 +203,66 @@ $("document").ready(function () {
     mode.style.backgroundImage = "#000000";
     mode.onclick = function () {
         if (!routeMode) {
-            routeMode = 1;
+            routeMode = LINES;
         } else {
-            routeMode = 0;
+            routeMode = HEAT_MAP;
         }
-        displayRoute();
+        setAll(null);
+        drawRoutes(viewMode);
     }
     map.controls[google.maps.ControlPosition.LEFT].push(mode);
-
-    drawRoutes();
+    drawRoutes(viewMode);
 
 });
 
-
-function toggleHeatmap() {
-    heatmap.setMap(heatmap.getMap() ? null : map);
+function routes_to_points(routes){
+    var points = [];
+    for (i = 0; i < routes.length; i++) {
+        for (j = 0; j < routes[i].length; j++) {
+            points.push(routes[i][j]);
+        }
+    }
+    return points;
 }
 
-function changeGradient() {
-    var gradient = [
-        'rgba(0, 255, 255, 0)',
-        'rgba(0, 255, 255, 1)',
-        'rgba(0, 191, 255, 1)',
-        'rgba(0, 127, 255, 1)',
-        'rgba(0, 63, 255, 1)',
-        'rgba(0, 0, 255, 1)',
-        'rgba(0, 0, 223, 1)',
-        'rgba(0, 0, 191, 1)',
-        'rgba(0, 0, 159, 1)',
-        'rgba(0, 0, 127, 1)',
-        'rgba(63, 0, 91, 1)',
-        'rgba(127, 0, 63, 1)',
-        'rgba(191, 0, 31, 1)',
-        'rgba(255, 102, 0, 1)'
-    ];
-    heatmap.setOptions({
-        gradient: heatmap.get('gradient') ? null : gradient
-    });
-}
-
-function changeRadius() {
-    heatmap.setOptions({radius: heatmap.get('radius') ? null : 20});
-}
-
-function changeOpacity() {
-    heatmap.setOptions({opacity: heatmap.get('opacity') ? null : 0.2});
-}
-function createRoute() {
-    $.each(routeArray, function (route, valR) {
-        var flightPath = new google.maps.Polyline({
-            path: valR,
-            strokeColor: "#0000FF",
-            strokeOpacity: 0.5,
-            strokeWeight: 7
+function createRoute(routeArray, routeMode) {
+    var routes = [];
+    if(routeMode == LINES)
+        $.each(routeArray, function (route, valR) {
+            var flightPath = new google.maps.Polyline({
+                path: valR,
+                strokeColor: "#0000FF",
+                strokeOpacity: 0.5,
+                strokeWeight: 20
+            });
+            routes.push(flightPath);
         });
-        line.push(flightPath);
-    });
-
-    var pointArray = new google.maps.MVCArray(taxiData);
-    heatmap = new google.maps.visualization.HeatmapLayer({
-        data: pointArray, opacity: 1.0, radius: 7, gradient: [
-            'rgba(0, 255, 255, 0)',
-            'rgba(0, 255, 255, 1)',
-            'rgba(0, 191, 255, 1)',
-            'rgba(0, 127, 255, 1)',
-            'rgba(0, 63, 255, 1)',
-            'rgba(0, 0, 255, 1)',
-            'rgba(0, 0, 223, 1)',
-            'rgba(0, 0, 191, 1)',
-            'rgba(0, 0, 159, 1)',
-            'rgba(0, 0, 127, 1)',
-            'rgba(63, 0, 91, 1)',
-            'rgba(127, 0, 63, 1)',
-            'rgba(191, 0, 31, 1)',
-            'rgba(255, 0, 0, 1)'
-        ]
-    });
+    else {
+        var pointArray = new google.maps.MVCArray(routes_to_points(routeArray));
+        routes = new google.maps.visualization.HeatmapLayer({
+            data: pointArray, opacity: 1.0, radius: 7, gradient: [
+                'rgba(0, 255, 255, 0)',
+                'rgba(0, 255, 255, 1)',
+                'rgba(0, 191, 255, 1)',
+                'rgba(0, 127, 255, 1)',
+                'rgba(0, 63, 255, 1)',
+                'rgba(0, 0, 255, 1)',
+                'rgba(0, 0, 223, 1)',
+                'rgba(0, 0, 191, 1)',
+                'rgba(0, 0, 159, 1)',
+                'rgba(0, 0, 127, 1)',
+                'rgba(63, 0, 91, 1)',
+                'rgba(127, 0, 63, 1)',
+                'rgba(191, 0, 31, 1)',
+                'rgba(255, 0, 0, 1)'
+            ]
+        });
+    }
+    return routes;
 }
+
 function displayRoute() {
-    var mode = null;
-    if(routeMode){
-        heatmap.setMap(null);
-        mode = map;
-    }
-    for (i = 0; i < line.length; i++) {
-        line[i].setMap(mode);
-    }
-    if (!routeMode)
-        heatmap.setMap(map);
+    setAll(map);
 }
 
 function routeToStaticMapURL(route) {
