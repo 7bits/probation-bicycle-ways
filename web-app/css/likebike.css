@@ -12,12 +12,19 @@
     position: relative;
 }
 
+.carousel-indicators .active {
+    width: 12px;
+    height: 12px;
+    margin: 0;
+    background-color: #f15a24;
+}
+
 .title {
     z-index: 2;
     margin-bottom: -250px;
-    position: relative;
-    /*margin: 0 auto;*/
-    margin-left: 40px;
+    position: absolute;
+    left: 40px;
+    top: 100px;
 }
 
 body {

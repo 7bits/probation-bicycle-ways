@@ -2,13 +2,7 @@
 <html>
 <head>
     <title>Velo-Sity</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    %{--<script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>--}%
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'likebike.css')}"/>
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <g:javascript src="carousel.js"/>
+    <g:render template="/home/main"/>
 </head>
 
 <body>

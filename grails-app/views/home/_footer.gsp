@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Velo-Sity</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'footer.css')}"/>
-    <script type="text/javascript" src="http://vk.com/js/api/share.js?86" charset="windows-1251"></script>
-</head>
 
-<body>
 <footer>
     <div id="on_footer">
         <g:img id="logo_footer" dir="images" file="icon.png"/>
@@ -25,5 +16,3 @@
         <div id="vk_like"></div>
     </div>
 </footer>
-</body>
-</html>

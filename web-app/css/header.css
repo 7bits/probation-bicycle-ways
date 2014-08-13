@@ -8,11 +8,6 @@
     font-style: normal;
 }
 
-/*@font-face {*/
-/*font-family: "OpenSans";*/
-/*src: local("OpenSansBold"), url(resource:resource:/fonts/opensans-bold.ttf);*/
-/*}*/
-
 body {
     width: 1020px;
     margin: 0 auto !important;
@@ -139,13 +134,18 @@ menu {
     padding-bottom: 25px;
 }
 
+.mobile_a:hover {
+    /*color: #000000;*/
+    text-decoration: none;
+    color: #ffffff;
+}
+
 .if_login {
     height: 36px;
     width: auto;
 }
 
 .login_text {
-    /*float: left;*/
     height: 36px;
     width: auto;
     position: relative;
