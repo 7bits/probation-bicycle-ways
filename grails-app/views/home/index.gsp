@@ -23,16 +23,17 @@
         <!-- Carousel items -->
         <div class="carousel-inner">
             <div class="item active">
-                <g:img dir="images" file="s1.png"/>
+                %{--<g:img dir="images" file="1s.png"/>--}%
+                <div class="carousel_item1"></div>
             </div>
             <div class="item">
-                <g:img dir="images" file="s2.png"/>
+                <div class="carousel_item2"></div>
             </div>
             <div class="item">
-                <g:img dir="images" file="s3.png"/>
+                <div class="carousel_item3"></div>
             </div>
             <div class="item">
-                <g:img dir="images" file="s4.png"/>
+                <div class="carousel_item4"></div>
             </div>
         </div>
         <!-- Carousel nav -->
@@ -75,7 +76,7 @@
                 <g:img id="cartoon_third_img" class="cartoon_img" dir="images" file="notebook.png"/>
             </li>
             <li class="cartoon_li_image4">
-                <g:img id="cartoon_fourth_img" class="cartoon_img" dir="images" file="building.png"/>
+                <g:img id="cartoon_fourth_img" class="cartoon_img" dir="images" file="maps.png"/>
             </li>
         </ul>
 
