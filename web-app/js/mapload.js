@@ -112,15 +112,15 @@ function prepareViewMode(mapVar) {
         view.style.marginTop = "75px";
         view.style.marginRight = "auto";
         view.style.marginLeft = "auto";
-        view.style.fontSize = "20px"
-        view.id = "viewMode"
+        view.style.fontSize = "20px";
+        view.id = "viewMode";
         mapVar.controls[google.maps.ControlPosition.TOP].push(view);
     }
     if(viewMode == USERS_TRACKS){
-        view.innerText = "Ваши треки"
+        view.innerText = "Ваши треки";
     }
     else{
-       view.innerText = "Все треки"
+       view.innerText = "Все треки";
     }
 }
 
@@ -166,6 +166,15 @@ $("document").ready(function () {
             viewMode = ALL_TRACKS;
             drawRoutes(viewMode);
         }
+    }
+    
+    if ($("#userfile") != null) {
+        $("#userfile").change(function () {
+            var path = this.value;
+            var fileName = path.replace(/^.*[\\\/]/, '')
+            var file_name = $("#file_name")[0];
+            file_name.innerText = fileName;
+        });
     }
 
     var mapOptions = {

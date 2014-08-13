@@ -1,40 +1,77 @@
-@font-face {
-    font-family: "Tahoma";
-    src: local("Tahoma"), url(../fonts/Tahoma.ttf);
+/*@font-face {*/
+    /*font-family: "Tahoma";*/
+    /*src: local("Tahoma"), url(resource:resource:resource:resource:resource:resource:resource:resource:resource:resource:resource:resource:resource:/fonts/Tahoma.ttf);*/
+    /*color: #000000;*/
+/*}*/
+
+.carousel_body {
+    width: 100%;
+    background-color: #f9e8f9;
+}
+
+#myCarousel {
+    margin: 0 auto;
+}
+
+.carousel {
+    width: 1020px;
+    height: 288px;
+    padding: 0;
+    z-index: 1;
+    position: relative;
+}
+
+.carousel-indicators .active {
+    width: 12px;
+    height: 12px;
+    margin: 0;
+    background-color: #f15a24;
+}
+
+.title {
+    z-index: 2;
+    margin-bottom: -250px;
+    position: absolute;
+    left: 40px;
+    top: 100px;
 }
 
 body {
     position: relative;
-    background-image: url(../images/BG.png);
-    margin: 0 auto;
+    background: #ffffff;
+    margin: 0;
     height: auto;
+    /*width: 1020px;*/
+    width: 100%;
     z-index: -2;
 }
 
-#routes {
-    position: relative;
+.info {
+    /*width: 1020px;*/
+    background-color: #f9e8f9;
+    width: 100%;
+}
+
+.info_text {
+    width: 1020px;
     margin: 0 auto;
-    width: 1300px;
-    height: auto;
-    margin-top: -78px;
-    z-index: -1;
 }
 
-#load_route_h {
-    position: relative;
-    /*top: -380px;*/
-    font: 15px "Tahoma";
-    color: #8BAEB8;
-}
-#load_file {
-    position: relative;
-    /*top: -380px;*/
-    height: 35px;
+#h_text {
+    /*margin-left: 115px;*/
+    text-align: center;
+    font: 28px "Open Sans";
 }
 
-#file_input {
-    font: 12px "Tahoma";
-    color: #FFFFFF;
+#main_text {
+    margin-left: 150px;
+    font: 18px "Open Sans";
+}
+
+#idea {
+    margin-left: 150px;
+    font: 18px "Open Sans";
+    color: #f15a24;
 }
 
 #import_p {
@@ -43,27 +80,9 @@ body {
     margin-left: 2px;
     width: 142px;
     float: left;
-    font: 12px "Tahoma";
+    font: 12px "Open Sans";
     color: #000000;
     font-size: 100%;
-}
-
-#userfile {
-    width: 131px;
-    height: 28px;
-    opacity: 0;
-    position: relative;
-    top: -6px;
-    cursor: pointer;
-}
-
-#upload {
-    width: 131px;
-    height: 29px;
-    opacity: 0;
-    position: relative;
-    top: -6px;
-    cursor: pointer;
 }
 
 .btn_p {
@@ -74,7 +93,7 @@ body {
 }
 
 .text {
-    font: 15px "Tahoma";
+    font: 15px "Open Sans";
     color: #000000;
 }
 
@@ -82,7 +101,7 @@ body {
     float: left;
     width: 131px;
     height: 28px;
-    font: 15px "Tahoma";
+    font: 15px "Open Sans";
     background: #8BAEB8;
     color: #000000;
     border: 0px;
@@ -90,8 +109,9 @@ body {
     box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.2), inset -2px -2px 5px rgba(0, 0, 0, 0.5);
 }
 
-#map-canvas {
-    width: 1300px;
+.map {
+    width: 1020px;
+    /*width: auto;*/
     height: 776px;
 }
 
@@ -104,98 +124,363 @@ body {
     /*top: -380px;*/
 }
 
-#cartoon {
-    margin: 0px auto;
-    width: 1300px;
-    height: 400px;
+.cartoon {
+    /*margin: 0px auto;*/
+    width: 100%;
+    height: 415px;
 }
 
-#cartoon_ul {
+.cartoon_info {
+    width: 1020px;
+    margin: 0 auto;
+}
+
+#cartoon_ul_image {
     position: relative;
     width: auto;
     height: auto;
-    list-style: none;
     margin: 0px auto;
     padding: 0;
     float: left;
-    left: 301px;
+    left: 60px;
     top: 25px;
 }
 
-li.cartoon_li {
+#cartoon_ul_text {
+    position: relative;
+    width: 1020px;
+    height: auto;
+    /*margin: 0px auto;*/
+    padding: 0;
+    float: left;
+    left: 40px;
+    top: 25px;
+}
+
+
+li.cartoon_li_image1 {
     position: relative;
     list-style: none;
-    margin: 0;
-    margin-right: 83px;
+    margin-right: 0px;
+    padding: 0;
+    float: left;
+    width: 200px;
+    height: 108px;
+}
+
+li.cartoon_li_image2 {
+    position: relative;
+    list-style: none;
+    margin-right: 50px;
+    padding: 0;
+    float: left;
+    width: 200px;
+    height: 108px;
+}
+
+li.cartoon_li_image3 {
+    position: relative;
+    list-style: none;
+    margin-right: 50px;
+    padding: 0;
+    float: left;
+    width: 200px;
+    height: 108px;
+}
+
+li.cartoon_li_image4 {
+    position: relative;
+    list-style: none;
+    margin-right: 0px;
+    padding: 0;
+    float: left;
+    width: 200px;
+    height: 108px;
+}
+
+li.cartoon_li_text1 {
+    position: relative;
+    list-style: none;
+    margin-right: 88px;
+    padding: 0;
+    float: left;
+}
+
+li.cartoon_li_text2 {
+    position: relative;
+    list-style: none;
+    margin-right: 108px;
+    padding: 0;
+    float: left;
+}
+
+li.cartoon_li_text3 {
+    position: relative;
+    list-style: none;
+    margin-right: 90px;
+    padding: 0;
+    float: left;
+}
+
+li.cartoon_li_text4 {
+    position: relative;
+    list-style: none;
+    margin-right: 98px;
     padding: 0;
     float: left;
 }
 
 .cartoon_img {
     position: relative;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
 }
 
 .cartoon_p {
     position: relative;
-    font: 16px "Tahoma";
-    color: #ffffff;
+    font: 16px "Open Sans";
+    color: #000000;
     text-align: center;
 }
 
 #cartoon_third_p {
-    margin-left: -22px;
+    /*margin-left: -22px;*/
 }
 
-#info {
-    width: 808px;
-    padding: 0 246px;
+#line {
+    margin:42px 0 0 100px
+}
+
+#this_work {
+    text-align: center;
+    font: 28px "Open Sans";
+}
+
+.bs-docs-example-submenus .dropdown > .dropdown-menu {
+    display: block;
+    position: static;
+    margin-bottom: 5px;
+}
+
+.routes{
+    position: relative;
     margin: 0 auto;
+    width: 1020px;
+    height: auto;
+    /*margin-top: -78px;*/
+    /*z-index: -1;*/
 }
 
-#h_text {
-    margin-left: 115px;
-    font: 28px "Tahoma";
-    color: #ffffff;
+.controls li label{
+   margin-left: 3px;
 }
 
-#main_text {
-    margin-left: 115px;
-    font: 18px "Tahoma";
-    color: #ffffff;
+.controls li{
+   list-style: none; 
 }
 
-.info_div {
-    height: 125px;
+.controls ul{
+   padding: 0;
 }
 
-.do_text {
-    font: 18px "Tahoma";
-    color: #ffffff;
-    margin-left: 115px;
-}
-
-.line {
-    width: 690px;
+.controls{
+    font: 14px "Open Sans";
+    font-weight: 700;
+    display: block;
     float: right;
-    margin-bottom: 35px;
-    color: #8aacb7;
+    /*margin-top: 78px;*/
 }
 
-.info_img {
+.controls a:link {
+    color: #000000;
+}
+
+.controls a:visited {
+    color: #000000;
+}
+
+.controls a:hover {
+    color: #000000;
+}
+
+.controls a:active {
+    color: #000000;
+}
+
+.radio_text{
+    font: 14px "Open Sans";
+    font-weight: 600;
+}
+
+.dropdown{
     float: left;
 }
 
-#get_in_img {
-    margin-left: 22px;
+.control_button {
+    width: 200px;
+    padding: 9px !important;
 }
 
-@media (min-width: 1300px) {
+.button_text {
 
-    #map-canvas {
-        width: 100%;
-    }
-    #routes {
-        width: 100%;
-    }
+    margin: 0px;
+    font-size: 14px;
 }
+
+.icon{
+    margin-right: 8px;
+    margin-left: 8px;
+    float: left;
+}
+
+.dropdown-menu{
+    padding: 15px !important;
+}
+
+.file_button{
+    position: absolute;
+    height: 22px;
+    font-weight: normal;
+    font-style: normal;
+    font-weight: light;
+    border: 1px solid #999;
+    padding: 0px 5px;
+    color: #FFFFFF;
+    font-size: 15px;
+    background-color: #666666;
+    float: left;
+    font-weight: 600;
+}
+
+.file_button:hover{
+    background-color: #660000;
+}
+
+
+.file_name{
+    display: block;
+    position: absolute;
+    margin-left: 125px;
+    width: 145px;
+    height: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    padding-top: 2px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.file_load{
+    font-weight: 600;
+    border: 2px solid #E6E6E6;
+    padding: 2px;
+    outline: none;
+    height: 100%;
+    right: 0;
+    top: 0;
+}
+
+.userfile {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.userfile input {
+    
+}
+
+.userfile::-webkit-file-upload-button{
+    visibility: hidden;
+    padding-right: 40px;
+}
+
+.userfile::before {
+    height: 21px;
+    font-weight: normal;
+    font-style: normal;
+    font-weight: light;
+    content: 'Выбрать файл';
+    border: 1px solid #999;
+    padding: 0px 5px;
+    margin: 0px;
+    outline: none;
+    color: #FFFFFF;
+    font-size: 15px;
+    background-color: #666666;
+    float: left;
+}
+
+.userfile:hover::before {
+    border-color: black;
+    background-color: #666666;
+}
+.userfile:active::before {
+    background-color: #666666;
+}
+
+.load_input {
+    float: left;
+    margin: 0px;
+    font-weight: 700;
+    border: 2px solid #F15A24;
+    color: #F15A24;
+    padding: 4px 6px;
+    outline: none;
+    background-color: #FFFFFF;
+    margin-top: 17px;
+}
+
+.load_input:hover {
+    background-color: #F15A24;
+    color: #FFFFFF !important;
+}
+
+.load_input:active {
+    background-color: #D03700;
+}
+
+.upload {
+    font-weight: 700;
+    padding-top: 2px;
+    margin: 0px;
+    border: 0px;
+    outline: none;
+    background-color: inherit;
+    font-size: 15px;
+}
+
+.upload::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+input[type='radio']{
+    /* Hide the input, but have it still be clickable */
+    width: 0;
+    height: 0;
+    opacity: 0;
+    float: left;
+    cursor: pointer;
+}
+
+input[type='radio'] + label{
+    margin: 0;
+    clear: none;
+
+    /* Left padding makes room for image */
+    padding: 2px 0 4px 19px;
+
+    /* Make look clickable because they are */
+    cursor: pointer;
+
+    background: url("../img/radio_inactive.png") left center no-repeat;
+}
+
+/*
+    Change from unchecked to checked graphic
+*/
+
+input[type='radio']:checked + label{
+    background-image: url("../img/radio_active.png");
+}
+
+
