@@ -1,7 +1,7 @@
 /*@font-face {*/
-    /*font-family: "Tahoma";*/
-    /*src: local("Tahoma"), url(resource:resource:/fonts/Tahoma.ttf);*/
-    /*color: #000000;*/
+/*font-family: "Tahoma";*/
+/*src: local("Tahoma"), url(resource:resource:resource:resource:resource:resource:resource:resource:resource:resource:resource:resource:resource:/fonts/Tahoma.ttf);*/
+/*color: #000000;*/
 /*}*/
 
 .carousel_body {
@@ -271,15 +271,15 @@ li.cartoon_li_text4 {
 }
 
 .controls li label{
-   margin-left: 3px;
+    margin-left: 3px;
 }
 
 .controls li{
-   list-style: none; 
+    list-style: none;
 }
 
 .controls ul{
-   padding: 0;
+    padding: 0;
 }
 
 .controls{
@@ -336,22 +336,57 @@ li.cartoon_li_text4 {
     padding: 15px !important;
 }
 
-.file_load{
+.file_button{
+    position: absolute;
+    height: 22px;
+    font-weight: normal;
+    font-style: normal;
+    font-weight: light;
+    border: 1px solid #999;
+    padding: 0px 5px;
+    color: #FFFFFF;
+    font-size: 15px;
+    background-color: #666666;
+    float: left;
+    font-weight: 600;
 }
 
-.userfile {
+.file_button:hover{
+    background-color: #660000;
+}
+
+
+.file_name{
+    display: block;
+    position: absolute;
+    margin-left: 125px;
+    width: 145px;
+    height: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    padding-top: 2px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.file_load{
     font-weight: 600;
     border: 2px solid #E6E6E6;
     padding: 2px;
     outline: none;
+    height: 100%;
+    right: 0;
+    top: 0;
+}
+
+.userfile {
+    opacity: 0;
+    cursor: pointer;
 }
 
 .userfile input {
-    cursor: pointer;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
+
 }
 
 .userfile::-webkit-file-upload-button{
@@ -447,5 +482,3 @@ input[type='radio'] + label{
 input[type='radio']:checked + label{
     background-image: url("../img/radio_active.png");
 }
-
-

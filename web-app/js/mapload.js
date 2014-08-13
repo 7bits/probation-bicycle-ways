@@ -167,6 +167,15 @@ $("document").ready(function () {
             drawRoutes(viewMode);
         }
     }
+    
+    if ($("#userfile") != null) {
+        $("#userfile").change(function () {
+            var path = this.value;
+            var fileName = path.replace(/^.*[\\\/]/, '')
+            var file_name = $("#file_name")[0];
+            file_name.innerText = fileName;
+        });
+    }
 
     var mapOptions = {
         zoom: 10,
