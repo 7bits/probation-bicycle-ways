@@ -14,9 +14,11 @@
             <li class="menu_list_item">
                 <p class="menu_text"><a class="menu_a" href="map">Карта маршрутов</a></p>
             </li>
-            <li class="menu_list_item">
-                <p style="cursor: pointer;" id="p_log" class="menu_text">Войти</p>
-            </li>
+            <sec:ifNotLoggedIn>
+                <li class="menu_list_item">
+                    <p style="cursor: pointer;" id="p_log" class="menu_text">Войти</p>
+                </li>
+            </sec:ifNotLoggedIn>
             <li class="menu_list_item">
                 <div id="mobile">
                     <p class="mobile_menu_text"><a class="mobile_a" href="/">Мобильное<br>приложение</a></p>

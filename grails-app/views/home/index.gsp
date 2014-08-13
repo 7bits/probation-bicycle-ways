@@ -23,16 +23,16 @@
         <!-- Carousel items -->
         <div class="carousel-inner">
             <div class="item active">
-                <g:img dir="images" file="s1.png"/>
+                <g:img dir="images" file="1s.png"/>
             </div>
             <div class="item">
-                <g:img dir="images" file="s2.png"/>
+                <g:img dir="images" file="2s.png"/>
             </div>
             <div class="item">
-                <g:img dir="images" file="s3.png"/>
+                <g:img dir="images" file="3s.png"/>
             </div>
             <div class="item">
-                <g:img dir="images" file="s4.png"/>
+                <g:img dir="images" file="4s.png"/>
             </div>
         </div>
         <!-- Carousel nav -->
@@ -66,7 +66,8 @@
         <p id="this_work"><br>КАК ЭТО РАБОТАЕТ</p><br>
         <ul id="cartoon_ul_image">
             <li class="cartoon_li_image1">
-                <g:img id="cartoon_one_img" class="cartoon_img" dir="images" file="mobile.png"/>
+                %{--<g:img id="cartoon_one_img" class="cartoon_img" dir="images" file="mobile.png"/>--}%
+                <div id="cartoon_one_img"></div>
             </li>
             <li class="cartoon_li_image2">
                 <g:img id="cartoon_second_img" class="cartoon_img" dir="images" file="bike.png"/>
@@ -75,7 +76,7 @@
                 <g:img id="cartoon_third_img" class="cartoon_img" dir="images" file="notebook.png"/>
             </li>
             <li class="cartoon_li_image4">
-                <g:img id="cartoon_fourth_img" class="cartoon_img" dir="images" file="building.png"/>
+                <g:img id="cartoon_fourth_img" class="cartoon_img" dir="images" file="maps.png"/>
             </li>
         </ul>
 

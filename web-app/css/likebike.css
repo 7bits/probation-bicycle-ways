@@ -14,7 +14,8 @@
 }
 
 .carousel {
-    width: 1020px;
+    /*width: 1920px;*/
+    width: 100%;
     height: 288px;
     padding: 0;
     z-index: 1;
@@ -26,6 +27,12 @@
     height: 12px;
     margin: 0;
     background-color: #f15a24;
+}
+
+.cartoon_one_img {
+    background-image: url("../img/mobile.png");
+    overflow:hidden;
+    margin: 0 auto;
 }
 
 .title {
