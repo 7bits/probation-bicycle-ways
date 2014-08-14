@@ -1,5 +1,6 @@
 <header>
-<div class="before_menu">
+    <div id="vk_auth"></div>
+    <div class="before_menu">
     <menu>
         <p id="logo_text">Велогород</p>
         <g:img id="logo" dir="images" file="logo_header.png"/>
@@ -43,9 +44,4 @@
 </header>
 
 <body>
-<script type="text/javascript">
-    VK.init({
-        apiId: ВАШ_API_ID
-    });
-</script>
 </body>
