@@ -1,7 +1,3 @@
-@font-face {
-    font-family: "Tahoma";
-    src: local("Tahoma"), url(../fonts/Tahoma.ttf);
-}
 
 #parent_reg {
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6+ */
@@ -23,7 +19,7 @@
 }
 #p_ok {
     margin: 75px;
-    font: 14px "Tahoma";
+    font: 14px "Open Sans";
 }
 #reg_header {
     margin-top: 0px;/*10px;*/
@@ -42,12 +38,12 @@
     margin-top: 0px;
     /*margin-top: 35px;*/
     margin-left: 40px;/*60px;*/
-    font: 14px "Tahoma"; /*16px "Tahoma";*/
+    font: 14px "Open Sans"; /*16px "Tahoma";*/
     color: #000;
 }
 .reg_text_info {
     margin-left: 40px;/*60px;*/
-    font: 13px "Tahoma";
+    font: 13px "Open Sans";
     color: rgba(151, 138, 138, 1);
 }
 .reg_input {
