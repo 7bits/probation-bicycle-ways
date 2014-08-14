@@ -4,6 +4,7 @@
 
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="//vk.com/js/api/openapi.js?115"></script>
+<script src="http://userapi.com/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
 
 <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">

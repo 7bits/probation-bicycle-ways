@@ -1,7 +1,3 @@
-
-
-        %{--<div id="vk_auth"></div>--}%
-
 <header>
 <div class="before_menu">
     <menu>
@@ -45,3 +41,11 @@
         </div>
     </sec:ifLoggedIn>
 </header>
+
+<body>
+<script type="text/javascript">
+    VK.init({
+        apiId: ВАШ_API_ID
+    });
+</script>
+</body>
