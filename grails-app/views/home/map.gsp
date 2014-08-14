@@ -23,7 +23,7 @@
         <sec:ifLoggedIn>
         <ul class="nav navbar-nav">
             <li class="dropdown">
-                <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="img/icon1.png" class="icon" alt="Показать на карте" height="19" width="19"><p class="button_text">Показать на карте</p></a>
+                <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="../img/icon1.png" class="icon" alt="Показать на карте" height="19" width="19"><p class="button_text">Показать на карте</p></a>
                 <ul class="dropdown-menu">
                     <g:form>
                         <ul>
@@ -34,14 +34,18 @@
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="img/icon2.png" class="icon" alt="Добавить маршрут" height="16" width="16"><p class="button_text">Добавить маршрут</p></a>
+                <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="../img/icon2.png" class="icon" alt="Добавить маршрут" height="16" width="16"><p class="button_text">Добавить маршрут</p></a>
                 <ul class="dropdown-menu pull-right">
                     <li>Загрузить GPS-трек</li>
                     <div id="formCopy">
                         <g:uploadForm id="load_file" url="[action:'loadFile',controller:'route']" method="post" enctype="multipart/form-data" class="file_load">
-                            <input type="file" type="submit" id="userfile" class="userfile" name="userFile"/>
+                            <div class="file_input">
+                                <div class="file_button">Выбрать файл</div>
+                                <p class="file_name" id="file_name">Файл не выбран</p>
+                                <input type="file" type="submit" id="userfile" class="userfile" name="userFile"/>
+                            </div>
                             <div id="load_input" class="load_input">
-                                <img id="upload_icon" src="img/Waypoint.png" class="icon" alt="Добавить маршрут" height="24" width="17">
+                                <img id="upload_icon" src="../img/Waypoint.png" class="icon" alt="Добавить маршрут" height="24" width="17">
                                 <input type="submit" name="upload" id="upload" class="upload" value="Загрузить маршрут"/>
                             </div>
                         </g:uploadForm>

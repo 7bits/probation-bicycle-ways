@@ -13,19 +13,27 @@ class FileProcessingJob {
     def routeService
 
     def execute() {
-        def row = fileService.getNext()
-        if(row != null) {
-            try {
-                String xmlData = new java.io.File("userfiles/" + row['id']+".userfile").text
-                routeService.loadFromFile(xmlData, User.get(row['user_id']))
+        def row = fileService.getNext();
+        if (row != null) {
+            File file = File.get(row['id']);
+            if (file != null) {
+                try {
+                    String xmlData = new java.io.File("userfiles/" + file.id + ".userfile").text
+                    def file_user = file.user;
+                    routeService.loadFromFile(xmlData, User.get(file.user.id))
+                    file.processed = File.PROCESSED_WITH_SUCCESS;
+                }
+                catch (SAXParseException ex) {
+                    file.processed = File.PROCESSED_WITH_ERROR;
+                }
+                catch (Exception ex) {
+                    file.processed = File.PROCESSED_WITH_ERROR;
+                }
+                finally {
+                    file.save(flush: true);
+                }
             }
-            catch(SAXParseException ex){
-            }
-            catch(Exception ex){
-            }
-            finally{
-                fileService.markProcessed()
-            }
+            return
         }
         return
     }
