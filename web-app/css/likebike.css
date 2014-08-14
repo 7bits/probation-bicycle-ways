@@ -1,27 +1,107 @@
 /*@font-face {*/
     /*font-family: "Tahoma";*/
-    /*src: local("Tahoma"), url(../fonts/Tahoma.ttf);*/
+    /*src: local("Tahoma"), url(resource:resource:/fonts/Tahoma.ttf);*/
     /*color: #000000;*/
 /*}*/
 
+.carousel_body {
+    width: 100%;
+    background-color: #f9e8f9;
+}
+
+#myCarousel {
+    margin: 0 auto;
+}
+
 .carousel {
-    width: 1020px;
+    /*width: 1920px;*/
+    width: 100%;
     height: 288px;
     padding: 0;
+    z-index: 1;
+    position: relative;
+}
+
+.carousel-indicators .active {
+    width: 12px;
+    height: 12px;
+    margin: 0;
+    background-color: #f15a24;
+}
+
+.carousel_item1 {
+    background-image: url("../images/1s.png");
+    background-position: center;
+    height: 288px;
+    max-width:1920px;
+    max-height: 288px;
+    min-width: 1020px;
+    overflow:hidden;
+    margin: 0 auto;
+}
+
+.carousel_item2 {
+    background-image: url("../images/2s.png");
+    background-position: center;
+    height: 288px;
+    max-width:1920px;
+    max-height: 288px;
+    min-width: 1020px;
+    overflow:hidden;
+    margin: 0 auto;
+}
+
+.carousel_item3 {
+    background-image: url("../images/3s.png");
+    background-position: center;
+    height: 288px;
+    max-width:1920px;
+    max-height: 288px;
+    min-width: 1020px;
+    overflow:hidden;
+    margin: 0 auto;
+}
+
+.carousel_item4 {
+    background-image: url("../images/4s.png");
+    background-position: center;
+    height: 288px;
+    max-width:1920px;
+    max-height: 288px;
+    min-width: 1020px;
+    overflow:hidden;
+    margin: 0 auto;
+}
+
+.title {
+    z-index: 2;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
 body {
     position: relative;
-    background: #FFE4E1;
+    background: #ffffff;
     margin: 0;
     height: auto;
-    width: 1020px;
+    /*width: 1020px;*/
+    width: 100%;
     z-index: -2;
+    min-width: 960px;
 }
 
-#info {
+.info {
     /*width: 1020px;*/
     background-color: #f9e8f9;
+    width: 100%;
+}
+
+.info_text {
+    width: 1020px;
+    margin: 0 auto;
 }
 
 #h_text {
@@ -78,6 +158,7 @@ body {
 
 .map {
     width: 1020px;
+    /*width: auto;*/
     height: 776px;
 }
 
@@ -90,10 +171,15 @@ body {
     /*top: -380px;*/
 }
 
-#cartoon {
+.cartoon {
     /*margin: 0px auto;*/
-    width: 1020px;
+    width: 100%;
     height: 415px;
+}
+
+.cartoon_info {
+    width: 1020px;
+    margin: 0 auto;
 }
 
 #cartoon_ul_image {
@@ -227,8 +313,8 @@ li.cartoon_li_text4 {
     margin: 0 auto;
     width: 1020px;
     height: auto;
-    margin-top: -78px;
-    z-index: -1;
+    /*margin-top: -78px;*/
+    /*z-index: -1;*/
 }
 
 .controls li label{
@@ -244,10 +330,11 @@ li.cartoon_li_text4 {
 }
 
 .controls{
-    display: block;
+    font: 14px "Open Sans";
     font-weight: 700;
+    display: block;
     float: right;
-    margin-top: 78px;
+    /*margin-top: 78px;*/
 }
 
 .controls a:link {
@@ -264,6 +351,11 @@ li.cartoon_li_text4 {
 
 .controls a:active {
     color: #000000;
+}
+
+.radio_text{
+    font: 14px "Open Sans";
+    font-weight: 600;
 }
 
 .dropdown{
@@ -351,7 +443,12 @@ li.cartoon_li_text4 {
 }
 
 .load_input:hover {
-    background-color: #EFEFEF;
+    background-color: #F15A24;
+    color: #FFFFFF !important;
+}
+
+.load_input:active {
+    background-color: #D03700;
 }
 
 .upload {
@@ -359,7 +456,6 @@ li.cartoon_li_text4 {
     padding-top: 2px;
     margin: 0px;
     border: 0px;
-    color: #F15A24;
     outline: none;
     background-color: inherit;
     font-size: 15px;
@@ -367,6 +463,36 @@ li.cartoon_li_text4 {
 
 .upload::-webkit-file-upload-button {
     visibility: hidden;
+}
+
+input[type='radio']{
+    /* Hide the input, but have it still be clickable */
+    width: 0;
+    height: 0;
+    opacity: 0;
+    float: left;
+    cursor: pointer;
+}
+
+input[type='radio'] + label{
+    margin: 0;
+    clear: none;
+
+    /* Left padding makes room for image */
+    padding: 2px 0 4px 19px;
+
+    /* Make look clickable because they are */
+    cursor: pointer;
+
+    background: url("../img/radio_inactive.png") left center no-repeat;
+}
+
+/*
+    Change from unchecked to checked graphic
+*/
+
+input[type='radio']:checked + label{
+    background-image: url("../img/radio_active.png");
 }
 
 

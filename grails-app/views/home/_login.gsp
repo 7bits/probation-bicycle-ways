@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Velo-Sity</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'login.css')}"/>
-    <g:javascript src="login.js"/>
-</head>
 
-<body>
+
 <div id="parent_log" style="display: none">
     <div id="log">
         <div id="close_log">x</div>
 
         <form id='login_form' method="POST" action="j_spring_security_check">
-            <p class="log_text_title" id="
-            log_header">ВХОД</p>
+            <p class="log_title" id="log_header"><b>Вход</b></p>
 
-            <p id="p_error" class='log_text_info'>Неверное имя или пароль.</p>
-
-            <p class="log_text_title"><b>Логин:</b></p>
+            <p class="log_text_title">Логин</p>
             <input
                     class='log_input'
                     name='j_username'
@@ -26,17 +15,18 @@
             <br/>
 
 
-            <p class="log_text_title"><b>Пароль:</b></p>
+            <p class="log_text_title">Пароль</p>
             <input
                     type='password'
                     class='text_ log_input'
                     name='j_password'
                     id='j_password'/>
 
+            <p id="p_error" class='log_text_info'>Неверно введен логин или пароль</p>
+
             <p>
-                <input type='submit' id="submit" value='ВОЙТИ'/>
+                <input type='submit' id="submit" class="log_button" value='Войти'/>
             </p>
         </form>
     </div>
 </div>
-</body>
