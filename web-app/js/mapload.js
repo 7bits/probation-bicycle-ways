@@ -37,7 +37,20 @@ function pullProcessed() {
             success: function (data) {
                 if(data.length > 0){
                     console.log(data);
-                    $.notify("Обработаны файлы: " + data, "success");
+                    var success = [];
+                    var error = [];
+                    for(i = 0; i < data.length; i++){
+                        if(data[i][1] != 2){
+                            error.push(data[i][0])
+                        }
+                        else{
+                            success.push(data[i][0])
+                        }
+                    }
+                    if(success.length)
+                        $.notify("Обработаны файлы: " + success, "success");
+                    if(error.length)
+                        $.notify("Неправильный формат файла в: " + error, "error");
                 }
             },
             error: function (jqXHR) {

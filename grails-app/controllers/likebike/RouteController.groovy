@@ -41,7 +41,7 @@ class RouteController {
             def rows = fileService.getProcessed(params.id)
             List resultList = []
             rows.each() {
-                resultList << it['file_name']
+                resultList << [it['file_name'], it['processed']]
                 fileService.setAlert(it['id'])
             }
             render resultList as JSON
@@ -59,7 +59,7 @@ class RouteController {
                 file.user = User.find { username == "anonymous" }
                 file.user_alert = true
             }
-            file.processed = false
+            file.processed = File.NOT_PROCESSED
             def params = params
             file.file_name = params.userFile.fileItem.name
             file.save()
