@@ -41,7 +41,7 @@ class RouteController {
             def rows = fileService.getProcessed(params.id)
             List resultList = []
             rows.each() {
-                resultList << it['file_name']
+                resultList << [it['file_name'], it['processed']]
                 fileService.setAlert(it['id'])
             }
             render resultList as JSON
@@ -51,7 +51,7 @@ class RouteController {
     }
 
     def loadFile() {
-        if (params.userFile) {
+        if (params.userFile && params.userFile.size) {
             File file = new likebike.File()
             file.user = SpringSecurityService.getCurrentUser()
             file.user_alert = false
@@ -59,15 +59,18 @@ class RouteController {
                 file.user = User.find { username == "anonymous" }
                 file.user_alert = true
             }
-            file.processed = false
+            file.processed = File.NOT_PROCESSED
             def params = params
             file.file_name = params.userFile.fileItem.name
             file.save()
             String xmlData = new String(params.userFile.bytes)
             java.io.File fileToProcess = new java.io.File("userfiles/" + file.id + ".userfile")
             fileToProcess.write(xmlData)
+            redirect(uri: '/home/map?loaded=true')
+            return
         }
-        redirect(uri: '/map?loaded=')
+        redirect(uri: '/home/map?loaded=false')
+        return
     }
 
     def getRoute() {

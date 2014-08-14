@@ -9,10 +9,10 @@
         <g:img id="logo" dir="images" file="logo_header.png"/>
         <ul id="menu_list">
             <li class="menu_list_item">
-                <p class="menu_text"><a class="menu_a" href="/">О проекте</a></p>
+                <p class="menu_text"><g:link controller="home" class="menu_a" action="index">О проекте</g:link></p>
             </li>
             <li class="menu_list_item">
-                <p class="menu_text"><a class="menu_a" href="map">Карта маршрутов</a></p>
+                <p class="menu_text"><g:link controller="home" class="menu_a" action="map">Карта маршрутов</g:link></p>
             </li>
             <sec:ifNotLoggedIn>
                 <li class="menu_list_item">
