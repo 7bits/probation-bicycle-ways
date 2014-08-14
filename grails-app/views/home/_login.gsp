@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Velo-Sity</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'login.css')}"/>
-    <g:javascript src="login.js"/>
-</head>
 
-<body>
+
 <div id="parent_log" style="display: none">
     <div id="log">
         <div id="close_log">x</div>
 
-        <form id='login_form' method="POST" action="j_spring_security_check">
-            <p class="log_text_title" id="log_header">ВХОД</p>
+        <form id='login_form' method="POST" action="${createLink(uri: '/j_spring_security_check')}">
+            <p class="log_text_title" id="
+            log_header">ВХОД</p>
 
             <p id="p_error" class='log_text_info'>Неверное имя или пароль.</p>
 
@@ -38,4 +31,3 @@
         </form>
     </div>
 </div>
-</body>

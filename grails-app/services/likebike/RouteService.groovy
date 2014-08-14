@@ -50,11 +50,16 @@ class RouteService {
     def convertRouteListToArray(def routes) {
         def routeArray = [];
         def i = 0;
+        def indexPoint = 0;
+        final int removeCount = 10;
         routes.each {
             //def routeName = it.name;
             def Points = [];
             it.point.each {
-                Points[it.routeIndex] = [it.latitude, it.longitude];
+                if (it.routeIndex % removeCount == 0) {
+                    indexPoint = (int)it.routeIndex / removeCount
+                    Points[indexPoint] = [it.latitude, it.longitude];
+                }
             }
             routeArray[i] = Points;
             i = i + 1;
