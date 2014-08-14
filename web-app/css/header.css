@@ -109,12 +109,11 @@ menu {
     margin: 22px 0 0 0;
 }
 
-#mobile {
+.mobile {
     height: 108px;
     width: 115px;
     background: #f15a24;
     float: left;
-    /*padding-top: 35px;*/
     position: absolute;
     z-index: 500;
     margin: -35px 0 0 0;
