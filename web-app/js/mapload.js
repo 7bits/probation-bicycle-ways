@@ -11,7 +11,7 @@ function getLoader(){
     var loader = document.createElement("div");
     loader.style.width = "126px";
     loader.style.height = "22px";
-    loader.style.backgroundImage = "url(images/loader.gif)";
+    loader.style.backgroundImage = "url(../images/loader.gif)";
     loader.id = "loader";
     return loader;
 }
@@ -26,7 +26,7 @@ urlParam = function(name){
 }
 
 function pullProcessed() {
-    path = "route/getProcessed";
+    path = "../route/getProcessed";
     var id = document.getElementById('user_id').value
     if(id){
         $.ajax({
@@ -37,7 +37,20 @@ function pullProcessed() {
             success: function (data) {
                 if(data.length > 0){
                     console.log(data);
-                    $.notify("Обработаны файлы: " + data, "success");
+                    var success = [];
+                    var error = [];
+                    for(i = 0; i < data.length; i++){
+                        if(data[i][1] != 2){
+                            error.push(data[i][0])
+                        }
+                        else{
+                            success.push(data[i][0])
+                        }
+                    }
+                    if(success.length)
+                        $.notify("Обработаны файлы: " + success, "success");
+                    if(error.length)
+                        $.notify("Неправильный формат файла в: " + error, "error");
                 }
             },
             error: function (jqXHR) {
@@ -51,10 +64,10 @@ function pullProcessed() {
 
 function drawRoutes(viewMode) {
     if(viewMode == ALL_TRACKS) {
-        path = "route/getRoute";
+        path = "../route/getRoute";
     }
     else{
-        path = "route/getUsersRoute";
+        path = "../route/getUsersRoute";
     }
     loader = document.getElementById("loader")
     if(loader == null){
@@ -129,10 +142,10 @@ $("document").ready(function () {
         var load = $("#load_input");
         load.hover(
             function () {
-                $("#upload_icon")[0].src = "http://localhost:8080/LikeBike/img/icon_active.png";
+                $("#upload_icon")[0].src = "../img/icon_active.png";
             },
             function () {
-                $("#upload_icon")[0].src = "http://localhost:8080/LikeBike/img/Waypoint.png";
+                $("#upload_icon")[0].src = "../img/Waypoint.png";
             }
         );
     }

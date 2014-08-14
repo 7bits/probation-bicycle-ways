@@ -12,5 +12,6 @@ class UrlMappings {
         "/map"(view: "/home/map")
         "500"(view: '/error')
         "/bla"(view: "/home/_header")
+        "/loginPage"(view: "/loginPage")
     }
 }

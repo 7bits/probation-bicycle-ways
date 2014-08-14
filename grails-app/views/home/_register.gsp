@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Velo-Sity</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'register.css')}"/>
-    <g:javascript src="registration.js"/>
-    <g:javascript src="spin.js"/>
-</head>
 
-<body>
 <div id="parent_reg" style="display: none">
     <div id="reg">
         <div id="close_reg">x</div>
@@ -71,4 +61,3 @@
         </g:form>
     </div>
 </div>
-</body>
