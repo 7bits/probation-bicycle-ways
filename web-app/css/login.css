@@ -36,6 +36,7 @@
     background-color: #F2F2F2;
     width: 20px;
     cursor: pointer;
+    float: left;
 }
 
 #close_log:hover {
@@ -46,16 +47,12 @@
     background-color: #F2F2F2;
 }
 
-#log_header {
-    /*margin-top: 10px;*/
-    margin-bottom: 20px;/*35px;*/
-}
-
 .log_title {
     margin-left: 20px;
-    font: 14px "Open Sans";
+    font: 15px "Open Sans";
     color: #F15A24;
-    margin-top: 0px;
+    /*margin-top: 15px;*/
+    padding-top: 10px;
 }
 
 .log_text_title {
@@ -77,6 +74,7 @@
     height: 30px;
     padding-left: 10px;
     border: 0px;
+    margin-bottom: 10px;
 }
 
 #submit {
@@ -85,10 +83,15 @@
     width: 70px;
     height: 36px;
     margin-right: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
+    /*padding-top: 20px;*/
     float: right;
-    font: 14px "Open Sans Bold";
+    font: 14px "Open Sans";
     color: #ffffff;
+    font-weight: bold;
+}
+
+.log_button {
 }
 
 #div {

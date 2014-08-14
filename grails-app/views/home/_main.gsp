@@ -32,4 +32,4 @@
 <g:javascript src="registration.js"/>
 <g:javascript src="spin.js"/>
 <g:javascript src="login.js"/>
-<g:javascript src="dialog.js"/>
+<g:javascript src="notify.js"/>

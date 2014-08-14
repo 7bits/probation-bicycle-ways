@@ -5,7 +5,7 @@
         <div id="close_log">x</div>
 
         <form id='login_form' method="POST" action="j_spring_security_check">
-            <p class="log_title" id="log_header">Вход</p>
+            <p class="log_title" id="log_header"><b>Вход</b></p>
 
             <p class="log_text_title">Логин</p>
             <input
@@ -15,7 +15,7 @@
             <br/>
 
 
-            <p class="log_text_title"><b>Пароль</b></p>
+            <p class="log_text_title">Пароль</p>
             <input
                     type='password'
                     class='text_ log_input'
@@ -25,7 +25,7 @@
             <p id="p_error" class='log_text_info'>Неверно введен логин или пароль</p>
 
             <p>
-                <input type='submit' id="submit" value='Войти'/>
+                <input type='submit' id="submit" class="log_button" value='Войти'/>
             </p>
         </form>
     </div>
