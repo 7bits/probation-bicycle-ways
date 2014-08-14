@@ -4,7 +4,7 @@
     <div id="log">
         <div id="close_log">x</div>
 
-        <form id='login_form' method="POST" action="j_spring_security_check">
+        <form id='login_form' method="POST" action="${createLink(uri: '/j_spring_security_check')}">
             <p class="log_text_title" id="
             log_header">ВХОД</p>
 
