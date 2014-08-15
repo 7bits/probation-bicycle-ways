@@ -16,8 +16,6 @@
                     name='j_username'
                     id='j_username'/>
             <br/>
-
-
             <p class="log_text_title"><b>Пароль:</b></p>
             <input
                     type='password'
