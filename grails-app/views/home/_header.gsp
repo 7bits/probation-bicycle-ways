@@ -1,5 +1,4 @@
 <header>
-    <div id="vk_auth"></div>
     <div class="before_menu">
     <menu>
         <p id="logo_text">Велогород</p>

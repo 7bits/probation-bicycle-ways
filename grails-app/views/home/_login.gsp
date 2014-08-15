@@ -27,5 +27,6 @@
                 <input type='submit' id="submit" value='ВОЙТИ'/>
             </p>
         </form>
+        <div id="vk_auth"></div>
     </div>
 </div>

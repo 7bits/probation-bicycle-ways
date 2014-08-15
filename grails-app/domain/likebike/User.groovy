@@ -15,7 +15,7 @@ class User {
 
     static constraints = {
         username blank: false, unique: true
-        uid unique: true
+        uid unique: true, blank: true
     }
 
     static mapping = {
