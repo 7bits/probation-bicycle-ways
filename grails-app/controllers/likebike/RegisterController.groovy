@@ -80,7 +80,8 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
                 username: command.username,
                 password: password,
                 accountLocked: true,
-                enabled: true
+                enabled: true,
+                uid: ""
         )
         if (!user.validate() || !user.save(flash: true)) {
             // TODO
