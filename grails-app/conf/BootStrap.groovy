@@ -12,10 +12,20 @@ class BootStrap {
                 def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
                 def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
 
-                def testUser = new User(username: 'me', enabled: true, password: 'password', uid: "")
-                testUser.save(flush: true)
+                def admin = new User(username: 'me', enabled: true, password: 'password', uid: "")
+                admin.save(flush: true)
 
-                UserRole.create testUser, adminRole, true
+                UserRole.create admin, adminRole, true
+
+                def user1 = new User(username: 'OtherUser', enabled: true, password: '87654321', uid: "")
+                user1.save(flush: true)
+
+                UserRole.create user1, userRole, true
+
+                def user2 = new User(username: 'User', enabled: true, password: '12345678', uid: "")
+                user2.save(flush: true)
+
+                UserRole.create user2, adminRole, true
             }
             test {
                 // test initialization
@@ -28,15 +38,23 @@ class BootStrap {
                 UserRole.create testUser, adminRole, true
             }
             development {
-                // dev initialization
                 def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
                 def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
 
-                def testUser = new User(username: 'me', enabled: true, password: 'password', uid: "")
-                testUser.save(flush: true)
+                def admin = new User(username: 'me', enabled: true, password: 'password', uid: "")
+                admin.save(flush: true)
 
-                UserRole.create testUser, adminRole, true
-                // do custom init for dev here
+                UserRole.create admin, adminRole, true
+
+                def user1 = new User(username: 'OtherUser', enabled: true, password: '87654321', uid: "")
+                user1.save(flush: true)
+
+                UserRole.create user1, userRole, true
+
+                def user2 = new User(username: 'User', enabled: true, password: '12345678', uid: "")
+                user2.save(flush: true)
+
+                UserRole.create user2, adminRole, true
             }
 
         }
