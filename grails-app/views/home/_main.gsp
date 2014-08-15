@@ -33,3 +33,4 @@
 <g:javascript src="spin.js"/>
 <g:javascript src="login.js"/>
 <g:javascript src="notify.js"/>
+%{--<g:javascript src="loader.js"/>--}%
