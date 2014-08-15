@@ -71,7 +71,8 @@ function drawRoutes(viewMode) {
     }
     loader = document.getElementById("loader")
     if(loader == null){
-        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(getLoader());
+//        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(getLoader());
+        document.getElementById('loader_background').style.display = 'block';
     }
     prepareViewMode(map);
     $.ajax({
@@ -101,7 +102,8 @@ function drawRoutes(viewMode) {
             data = jQuery.parseJSON(jqXHR.responseText);
         },
         complete:function () {
-            map.controls[google.maps.ControlPosition.BOTTOM].clear();
+//            map.controls[google.maps.ControlPosition.BOTTOM].clear();
+            document.getElementById('loader_background').style.display = 'none';
         }
     });
 }
