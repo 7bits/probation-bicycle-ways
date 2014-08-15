@@ -17,6 +17,12 @@
 <g:render template="/home/login"/>
 <g:render template="/home/info"/>
 <g:hiddenField id="user_id" name="user_id" value="${sec.loggedInUserInfo(field:'id')}" />
+
+<div id="loader_background" style="display: none">
+    <div class="spinner">
+    </div>
+</div>
+
 <div id="routes" class="routes">
 <sec:ifLoggedIn>
     <div class="controls">
@@ -58,6 +64,7 @@
     </sec:ifLoggedIn>
     <div id="map-canvas" class="map"></div>
 </div>
+
 <g:render template="/home/footer"/>
 %{--</br>--}%
 %{--</br>--}%
