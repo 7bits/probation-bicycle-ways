@@ -180,9 +180,13 @@ body {
 }
 
 .map {
-    width: 1020px;
-    /*width: auto;*/
+    /*width: 1020px;*/
+    width: 100%;
     height: 776px;
+}
+
+.gm-style {
+    width: auto;
 }
 
 #get_all_routes {
@@ -333,10 +337,12 @@ li.cartoon_li_text4 {
 
 .routes{
     position: relative;
-    margin: 0 auto;
-    width: 1020px;
-    height: auto;
+    /*margin: 0 auto;*/
+    /*width: 1020px;*/
+    width: 100%;
+    /*height: auto;*/
     /*z-index: -1;*/
+    overflow: hidden;
 }
 
 .controls li label{
@@ -356,6 +362,7 @@ li.cartoon_li_text4 {
     font-weight: 700;
     display: block;
     float: right;
+    overflow: hidden;
     /*margin-top: 78px;*/
 }
 
