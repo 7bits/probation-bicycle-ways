@@ -29,7 +29,9 @@
         <sec:ifLoggedIn>
         <ul class="nav navbar-nav">
             <li class="dropdown">
-                <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="../img/icon1.png" class="icon" alt="Показать на карте" height="19" width="19"><p class="button_text">Показать на карте</p></a>
+                <span class="" style="font-weight: normal"><img src="../img/icon1.png" class="icon" alt="Показать на карте" height="19" width="19" style="margin-top: 9px; margin-right: 4px">Показать на карте</span>
+                <a href="#" id="rout" data-toggle="dropdown" class="control_button dropdown-toggle" style="display:inline-block;border-bottom:dashed;
+                border-bottom-width: 1px;"> <p class="button_text">все маршруты</p> </a>
                 <ul class="dropdown-menu">
                     <g:form>
                         <ul>
@@ -39,7 +41,7 @@
                     </g:form>
                 </ul>
             </li>
-            <li class="dropdown">
+            <li class="dropdown" style="width: 185px">
                 <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="../img/icon2.png" class="icon" alt="Добавить маршрут" height="16" width="16"><p class="button_text">Добавить маршрут</p></a>
                 <ul class="dropdown-menu pull-right">
                     <li>Загрузить GPS-трек</li>
@@ -72,7 +74,7 @@
 %{--</br>--}%
 %{--</br>--}%
 %{--</br>--}%
-<button id="screen">screen</button>
-<img id="route_img">
+%{--<button id="screen">screen</button>--}%
+%{--<img id="route_img">--}%
 </body>
 </html>
