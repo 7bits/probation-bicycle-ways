@@ -19,8 +19,8 @@
 }
 
 .spinner {
-    width: 126px;
-    height: 22px;
+    width: 68px;
+    height: 41px;
     background-image: url("../images/loader.gif");
     position: relative;
     top: 50%;
