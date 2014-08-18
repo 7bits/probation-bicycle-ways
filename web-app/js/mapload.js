@@ -65,9 +65,11 @@ function pullProcessed() {
 function drawRoutes(viewMode) {
     if(viewMode == ALL_TRACKS) {
         path = "../route/getRoute";
+        document.getElementById('rout').textContent = "все маршруты";
     }
     else{
         path = "../route/getUsersRoute";
+        document.getElementById('rout').textContent = "мои маршруты";
     }
     loader = document.getElementById("loader")
     if(loader == null){
@@ -131,12 +133,12 @@ function prepareViewMode(mapVar) {
         view.id = "viewMode";
         mapVar.controls[google.maps.ControlPosition.TOP].push(view);
     }
-    if(viewMode == USERS_TRACKS){
-        view.innerText = "Ваши треки";
-    }
-    else{
-       view.innerText = "Все треки";
-    }
+//    if(viewMode == USERS_TRACKS){
+//        view.innerText = "Ваши треки";
+//    }
+//    else{
+//       view.innerText = "Все треки";
+//    }
 }
 
 $("document").ready(function () {
@@ -163,12 +165,12 @@ $("document").ready(function () {
         window.history.pushState("object or string", "Title", window.location.href.replace(/\?loaded=.*/i, ""));
     }
     window.setInterval(pullProcessed, 5000);
-    document.getElementById('screen').onclick = function () {
-        if(routeArray.length){
-            var urlImg = routeToStaticMapURL(routeArray[routeArray.length - 1]);
-            document.getElementById('route_img').src = urlImg;
-        }
-    }
+//    document.getElementById('screen').onclick = function () {
+//        if(routeArray.length){
+//            var urlImg = routeToStaticMapURL(routeArray[routeArray.length - 1]);
+//            document.getElementById('route_img').src = urlImg;
+//        }
+//    }
     if (document.getElementById('get_users_routes') != null) {
         document.getElementById('get_users_routes').onclick = function () {
             viewMode = USERS_TRACKS;

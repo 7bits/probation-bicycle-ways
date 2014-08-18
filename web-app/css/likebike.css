@@ -382,23 +382,38 @@ li.cartoon_li_text4 {
 
 .dropdown{
     float: left;
+    /*width: auto;*/
+}
+
+.dropdown.title {
+    float: left;
 }
 
 .control_button {
-    width: 200px;
-    padding: 9px !important;
+    /*width: 200px;*/
+    /*padding: 9px !important;*/
+    padding: 9px 0 0 0 !important;
+    /*border-bottom:dashed;*/
+    /*border-bottom-width: 1px;*/
+    width: auto;
+    /*padding-bottom: 0px;*/
+    margin-right: 10px;
 }
 
 .button_text {
-
     margin: 0px;
     font-size: 14px;
+    /*width: auto;*/
+    border-bottom:dashed;
+    border-bottom-width: 1px;
+    display: inline-block;
 }
 
 .icon{
     margin-right: 8px;
     margin-left: 8px;
     float: left;
+    border-bottom-width: 0;
 }
 
 .dropdown-menu{
