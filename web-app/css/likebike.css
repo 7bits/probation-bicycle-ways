@@ -342,7 +342,7 @@ li.cartoon_li_text4 {
     width: 100%;
     /*height: auto;*/
     /*z-index: -1;*/
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .controls li label{
@@ -362,7 +362,7 @@ li.cartoon_li_text4 {
     font-weight: 700;
     display: block;
     float: right;
-    overflow: hidden;
+    /*overflow: hidden;*/
     /*margin-top: 78px;*/
 }
 
