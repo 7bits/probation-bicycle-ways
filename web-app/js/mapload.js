@@ -70,7 +70,7 @@ function theRotator() {
     $('div#rotator ul li:first').css({opacity: 1.0});
 
     // Вызываем функцию rotate для запуска слайдшоу, 5000 = смена картинок происходит раз в 5 секунд
-    setInterval('rotate()',500);
+    setInterval('rotate()',375);
 }
 
 function rotate() {
@@ -88,10 +88,10 @@ function rotate() {
     // Подключаем эффект растворения/затухания для показа картинок, css-класс show имеет больший z-index
     next.css({opacity: 0.0})
         .addClass('show')
-        .animate({opacity: 1.0}, 1000);
+        .animate({opacity: 1.0}, 125);
 
     // Прячем текущую картинку
-    current.animate({opacity: 0.0}, 1000)
+    current.animate({opacity: 0.0}, 125)
         .removeClass('show');
 };
 

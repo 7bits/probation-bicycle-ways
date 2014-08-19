@@ -18,11 +18,11 @@
                     <p style="cursor: pointer;" id="p_reg" class="menu_text">Регистрация</p>
                 </li>
             </sec:ifNotLoggedIn>
-            %{--<li class="menu_list_item">--}%
-                %{--<div class="mobile">--}%
-                    %{--<p class="mobile_menu_text"><a class="mobile_a" href="/">Мобильное<br>приложение</a></p>--}%
-                %{--</div>--}%
-            %{--</li>--}%
+            <li class="menu_list_item">
+                <div class="mobile">
+                    <p class="mobile_menu_text"><a class="mobile_a" href="/">Мобильное<br>приложение</a></p>
+                </div>
+            </li>
         </ul>
     </menu>
 
