@@ -18,6 +18,26 @@
     left: 0;
 }
 
+#rotator {
+    position:relative;
+    /*height:150px;*/
+    width: 68px;
+    height: 41px;
+    /*margin-left: 15px;*/
+    top: 50%;
+    margin: 0 auto;
+}
+
+#rotator ul li {
+    float:left;
+    position:absolute;
+    list-style: none;
+}
+
+#rotator ul li.show {
+    z-index:500;
+}
+
 .spinner {
     width: 68px;
     height: 41px;
@@ -362,8 +382,7 @@ li.cartoon_li_text4 {
     font-weight: 700;
     display: block;
     float: right;
-    /*overflow: hidden;*/
-    /*margin-top: 78px;*/
+    width: auto;
 }
 
 .controls a:link {

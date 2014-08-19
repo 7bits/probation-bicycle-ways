@@ -9,6 +9,7 @@
 <g:render template="/home/header"/>
 <g:render template="/home/register"/>
 <g:render template="/home/login"/>
+%{--<g:render template="/home/auth"/>--}%
 
 <div class="carousel_body">
     <div id="myCarousel" class="carousel slide">

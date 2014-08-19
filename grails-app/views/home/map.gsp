@@ -6,6 +6,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
     <script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <g:javascript src="mapload.js"/>
     <g:javascript src="info.js"/>
     <g:render template="/home/main"/>
@@ -19,9 +20,31 @@
 <g:hiddenField id="user_id" name="user_id" value="${sec.loggedInUserInfo(field:'id')}" />
 
 <div id="loader_background" style="display: none">
-    <div class="spinner">
+    %{--<div class="slider">--}%
+        %{--<g:img id="logo" dir="images/bicycle" file="1.png"/>--}%
+        %{--<g:img id="logo" dir="images/bicycle" file="2.png"/>--}%
+        %{--<g:img id="logo" dir="images/bicycle" file="3.png"/>--}%
+        %{--<g:img id="logo" dir="images/bicycle" file="4.png"/>--}%
+        %{--<g:img id="logo" dir="images/bicycle" file="5.png"/>--}%
+        %{--<g:img id="logo" dir="images/bicycle" file="6.png"/>--}%
+        %{--<g:img id="logo" dir="images/bicycle" file="7.png"/>--}%
+        %{--<g:img id="logo" dir="images/bicycle" file="8.png"/>--}%
+    %{--</div>--}%
+
+    <div id="rotator">
+        <ul>
+            <li class="show"><g:img id="logo" dir="images/bicycle" file="1.png" width="68" height="41" /></li>
+            <li><g:img id="logo" dir="images/bicycle" file="2.png" width="68" height="41" /></li>
+            <li><g:img id="logo" dir="images/bicycle" file="3.png" width="68" height="41" /></li>
+            <li><g:img id="logo" dir="images/bicycle" file="4.png" width="68" height="41" /></li>
+            <li><g:img id="logo" dir="images/bicycle" file="5.png" width="68" height="41" /></li>
+            <li><g:img id="logo" dir="images/bicycle" file="6.png" width="68" height="41" /></li>
+            <li><g:img id="logo" dir="images/bicycle" file="7.png" width="68" height="41" /></li>
+            <li><g:img id="logo" dir="images/bicycle" file="8.png" width="68" height="41" /></li>
+        </ul>
     </div>
 </div>
+
 
 <div id="routes" class="routes">
 <sec:ifLoggedIn>
@@ -41,7 +64,7 @@
                     </g:form>
                 </ul>
             </li>
-            <li class="dropdown" style="width: 185px">
+            <li class="dropdown" style="width: 187px">
                 <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="../img/icon2.png" class="icon" alt="Добавить маршрут" height="16" width="16"><p class="button_text">Добавить маршрут</p></a>
                 <ul class="dropdown-menu pull-right">
                     <li>Загрузить GPS-трек</li>
