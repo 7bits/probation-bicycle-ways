@@ -98,11 +98,15 @@ function rotate() {
 function drawRoutes(viewMode) {
     if(viewMode == ALL_TRACKS) {
         path = "../route/getRoute";
-        document.getElementById('rout').textContent = "все маршруты";
+        if(document.getElementById('rout') != null){
+            document.getElementById('rout').textContent = "все маршруты";
+        }
     }
     else{
         path = "../route/getUsersRoute";
-        document.getElementById('rout').textContent = "мои маршруты";
+        if(document.getElementById('rout') != null){
+            document.getElementById('rout').textContent = "мои маршруты";
+        }
     }
     loader = document.getElementById("loader")
     if(loader == null){
