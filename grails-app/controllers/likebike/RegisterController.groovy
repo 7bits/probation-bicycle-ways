@@ -105,7 +105,7 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
     }
 
     protected String generateLink(String action, linkParams) {
-        createLink(base: "bicycle-ways.7bits.it$request.contextPath",
+        createLink(base: "velo-omsk.org$request.contextPath",
                 controller: 'register', action: action,
                 params: linkParams)
     }
