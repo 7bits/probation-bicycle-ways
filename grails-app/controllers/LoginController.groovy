@@ -38,6 +38,10 @@ class LoginController {
     /**
      * Show the login page.
      */
+    def success = {
+        render([success: springSecurityService.isLoggedIn()] as JSON)
+    }
+
     def auth = {
 
         def config = SpringSecurityUtils.securityConfig

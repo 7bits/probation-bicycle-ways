@@ -7,8 +7,8 @@ class VkController {
     def auth() {
         def params = params
         String uid = params['uid']
-        String secret_key = "S4Cy4PaFEw9X1rZ6nukk";
-        String API_ID = "4479951"
+        String secret_key = "YIe1xEs8vWkImchof0Ll";
+        String API_ID = "4512659"
         def hash = params['hash']
         def ourHash = (API_ID + uid + secret_key).encodeAsMD5()
         if (hash == ourHash) {

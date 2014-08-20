@@ -80,12 +80,10 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
                 username: command.username,
                 password: password,
                 accountLocked: true,
-                enabled: true
+                enabled: true,
+                uid: ""
         )
-        if (!user.validate() || !user.save(flash: true)) {
-            // TODO
-        }
-
+        user.save(flush: true)
         def registrationCode = new RegistrationCode(username: user.username).save()
         String url = generateLink('verifyRegistration', [t: registrationCode.token])
 
@@ -105,7 +103,7 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
     }
 
     protected String generateLink(String action, linkParams) {
-        createLink(base: "bicycle-ways.7bits.it$request.contextPath",
+        createLink(base: "velo-omsk.org",
                 controller: 'register', action: action,
                 params: linkParams)
     }

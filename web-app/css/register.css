@@ -17,15 +17,10 @@
     top: 0;
     left: 0;
 }
-
 #p_ok {
-    /*margin: 75px;*/
-    font: 16px "Open Sans";
-    position: relative;
-    top: 50%;
-    left: 20px;
+    margin: 75px;
+    font: 14px "Open Sans";
 }
-
 #reg_header {
     margin-top: 0px;/*10px;*/
     margin-bottom: 20px;/*35px;*/
@@ -69,10 +64,6 @@
     padding-left: 10px;
     border: 0px;
     /*margin-bottom: 10px;*/
-}
-
-.reg_input:focus {
-    border: 2px solid #f15a24;
 }
 
 #close_reg {

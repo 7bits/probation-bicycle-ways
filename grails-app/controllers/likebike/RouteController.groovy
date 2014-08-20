@@ -3,7 +3,6 @@ package likebike
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.*
 import grails.plugins.springsecurity.Secured
-import org.springframework.web.multipart.MultipartHttpServletRequest
 
 class RouteController {
 
@@ -11,10 +10,10 @@ class RouteController {
 
     def fileService
     def routeService
-    def SpringSecurityService
+    def springSecurityService
 
     def getUsersRoute() {
-        def user = SpringSecurityService.getCurrentUser()
+        def user = springSecurityService.getCurrentUser()
         if(user == null){
             user = User.find { username == "anonymous" }
         }
@@ -50,10 +49,11 @@ class RouteController {
         render error as JSON
     }
 
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def loadFile() {
         if (params.userFile && params.userFile.size) {
             File file = new likebike.File()
-            file.user = SpringSecurityService.getCurrentUser()
+            file.user = springSecurityService.getCurrentUser()
             file.user_alert = false
             if(file.user == null){
                 file.user = User.find { username == "anonymous" }
