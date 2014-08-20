@@ -4,7 +4,7 @@
 
 $("document").ready(function () {
         window.onload = function () {
-        VK.init({apiId: 4479951});
+        VK.init({apiId: 4512659});
         var result = VK.Widgets.Auth('vk_auth', {authUrl: '../vk/auth'});
         var i=0;
     }
