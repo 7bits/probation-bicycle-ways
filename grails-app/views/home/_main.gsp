@@ -3,6 +3,7 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<g:javascript src="vk_auth.js"/>
 <script type="text/javascript" src="//vk.com/js/api/openapi.js?115"></script>
 <script src="http://userapi.com/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
 
@@ -28,8 +29,8 @@
 %{--<script type="text/javascript" src="js/vk_logout.js"></script>--}%
 %{--<g:javascript src="vk_auth.js"/>--}%
 %{--<g:javascript src="vk.js"/>--}%
+
 <g:javascript src="vk_like.js"/>
-<g:javascript src="vk_auth.js"/>
 <g:javascript src="registration.js"/>
 <g:javascript src="spin.js"/>
 <g:javascript src="login.js"/>
