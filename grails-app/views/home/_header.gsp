@@ -1,4 +1,18 @@
+
+
 <header>
+    <div id="panel">
+        <div class="mobile_content">
+            <g:img class="mobile_phone" dir="images" file="mobile2.png"/>
+            <div class="panel_text">
+                <p class="panel_title"><b>Мобильное приложение</b></p>
+                <br>
+                <p class="panel_info">позволит вам загружать свои маршруты,<br>видеть свою статистику, делиться<br>своими маршрутами с друзьями.</p>
+            </div>
+            <g:img class="panel_apple" dir="images" file="logo_app_store.png"/>
+            <button id="panelUp" class="panelUp"><b>Свернуть</b></button>
+        </div>
+    </div>
     <div class="before_menu">
     <menu>
         <p id="logo_text">Велогород</p>
@@ -19,12 +33,13 @@
                 </li>
             </sec:ifNotLoggedIn>
             <li class="menu_list_item">
-                <div class="mobile">
-                    <p class="mobile_menu_text"><a class="mobile_a" href="/">Мобильное<br>приложение</a></p>
+                <div id="mobile">
+                    <p class="mobile_menu_text"><a id="mobile_a" href="">Мобильное<br>приложение</a></p>
                 </div>
             </li>
         </ul>
     </menu>
+    </div>
 
 %{--<span id="after"></span>--}%
     <sec:ifLoggedIn>
@@ -38,6 +53,7 @@
         </div>
     </sec:ifLoggedIn>
 </header>
+
 
 <body>
 </body>
