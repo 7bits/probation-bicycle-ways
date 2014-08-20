@@ -17,10 +17,15 @@
     top: 0;
     left: 0;
 }
+
 #p_ok {
-    margin: 75px;
-    font: 14px "Open Sans";
+    /*margin: 75px;*/
+    font: 16px "Open Sans";
+    position: relative;
+    top: 50%;
+    left: 20px;
 }
+
 #reg_header {
     margin-top: 0px;/*10px;*/
     margin-bottom: 20px;/*35px;*/

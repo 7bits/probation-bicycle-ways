@@ -82,10 +82,15 @@
     margin-bottom: 10px;
 }
 
+.log_input:active {
+    border: 2px;
+    border-color: #f15a24;
+}
+
 #submit {
     border: 0px;
     background-color: #F15A24;
-    width: 70px;
+    width: 210px;
     height: 36px;
     margin-right: 20px;
     margin-top: 10px;
