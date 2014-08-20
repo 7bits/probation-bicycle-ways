@@ -78,7 +78,7 @@
     height: 288px;
     max-width:1920px;
     max-height: 288px;
-    min-width: 1020px;
+    min-width: 960px;
     overflow:hidden;
     margin: 0 auto;
 }
@@ -89,7 +89,7 @@
     height: 288px;
     max-width:1920px;
     max-height: 288px;
-    min-width: 1020px;
+    min-width: 960px;
     overflow:hidden;
     margin: 0 auto;
 }
@@ -100,7 +100,7 @@
     height: 288px;
     max-width:1920px;
     max-height: 288px;
-    min-width: 1020px;
+    min-width: 960px;
     overflow:hidden;
     margin: 0 auto;
 }
@@ -111,7 +111,7 @@
     height: 288px;
     max-width:1920px;
     max-height: 288px;
-    min-width: 1020px;
+    min-width: 960px;
     overflow:hidden;
     margin: 0 auto;
 }
@@ -143,7 +143,7 @@ body {
 }
 
 .info_text {
-    width: 1020px;
+    width: 960px;
     margin: 0 auto;
 }
 
@@ -225,7 +225,7 @@ body {
 }
 
 .cartoon_info {
-    width: 1020px;
+    width: 960px;
     margin: 0 auto;
 }
 
@@ -242,7 +242,7 @@ body {
 
 #cartoon_ul_text {
     position: relative;
-    width: 1020px;
+    width: 960px;
     height: auto;
     /*margin: 0px auto;*/
     padding: 0;
@@ -311,7 +311,7 @@ li.cartoon_li_text2 {
 li.cartoon_li_text3 {
     position: relative;
     list-style: none;
-    margin-right: 90px;
+    margin-right: 74px;
     padding: 0;
     float: left;
 }
@@ -319,7 +319,7 @@ li.cartoon_li_text3 {
 li.cartoon_li_text4 {
     position: relative;
     list-style: none;
-    margin-right: 98px;
+    /*margin-right: 98px;*/
     padding: 0;
     float: left;
 }
@@ -340,8 +340,8 @@ li.cartoon_li_text4 {
     /*margin-left: -22px;*/
 }
 
-#line {
-    margin:42px 0 0 100px
+.line_img {
+    margin: 42px 0 0 75px;
 }
 
 #this_work {
