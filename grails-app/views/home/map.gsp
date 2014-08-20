@@ -53,8 +53,8 @@
         <ul class="nav navbar-nav">
             <li class="dropdown">
                 <span class="" style="font-weight: normal"><img src="../img/icon1.png" class="icon" alt="Показать на карте" height="19" width="19" style="margin-top: 9px; margin-right: 4px">Показать на карте</span>
-                <a href="#" id="rout" data-toggle="dropdown" class="control_button dropdown-toggle" style="display:inline-block;border-bottom:dashed;
-                border-bottom-width: 1px;"> <p class="button_text">все маршруты</p> </a>
+                <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle" style="display:inline-block;border-bottom:dashed;
+                border-bottom-width: 1px;"> <p id="route" class="button_text">все маршруты</p> </a>
                 <ul class="dropdown-menu">
                     <g:form>
                         <ul>
