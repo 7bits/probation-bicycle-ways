@@ -18,11 +18,8 @@
     left: 0;
 }
 #p_ok {
-    /*margin: 75px;*/
+    margin: 75px;
     font: 14px "Open Sans";
-    position: relative;
-    top: 50%;
-    left: 20px;
 }
 #reg_header {
     margin-top: 0px;/*10px;*/

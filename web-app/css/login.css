@@ -82,6 +82,10 @@
     margin-bottom: 10px;
 }
 
+.log_input:focus {
+    border: 2px solid #f15a24;
+}
+
 #submit {
     border: 0px;
     background-color: #F15A24;
