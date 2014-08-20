@@ -1,7 +1,7 @@
 
 <footer>
     <div class="on_footer">
-        <g:img id="logo_footer" dir="images" file="icon.png"/>
+        <g:img id="logo_footer" dir="images" file="icon_main-01.png"/>
         %{--<menu_footer>--}%
             <ul id="menu_list_footer">
                 <li class="menu_list_item_footer">
