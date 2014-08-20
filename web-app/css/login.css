@@ -82,9 +82,8 @@
     margin-bottom: 10px;
 }
 
-.log_input:active {
-    border: 2px;
-    border-color: #f15a24;
+.log_input:focus {
+    border: 2px solid #f15a24;
 }
 
 #submit {
