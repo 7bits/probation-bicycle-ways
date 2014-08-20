@@ -71,6 +71,10 @@
     /*margin-bottom: 10px;*/
 }
 
+.reg_input:focus {
+    border: 2px solid #f15a24;
+}
+
 #close_reg {
     position: relative;
     text-align: center;
