@@ -96,16 +96,17 @@ function rotate() {
 };
 
 function drawRoutes(viewMode) {
+    var mode =  $('#route');
     if(viewMode == ALL_TRACKS) {
         path = "../route/getRoute";
-        if(document.getElementById('rout') != null){
-            document.getElementById('rout').textContent = "все маршруты";
+        if(mode != null){
+            mode[0].textContent = "все маршруты";
         }
     }
     else{
         path = "../route/getUsersRoute";
-        if(document.getElementById('rout') != null){
-            document.getElementById('rout').textContent = "мои маршруты";
+        if(mode != null){
+            mode[0].textContent = "мои маршруты";
         }
     }
     loader = document.getElementById("loader")

@@ -4,7 +4,7 @@
         <div id="close_reg">x</div>
 
         <p id="p_ok">Вы зарегистрированы. Проверьте свой email.</p>
-        <g:form url="../[action: 'register', controller: 'register']" name='register_form' id='register_form'>
+        <g:form url="[action: 'register', controller: 'register']" name='register_form' id='register_form'>
             <p class="reg_title" id="reg_header"><b>Регистрация</b></p>
 
             <p class="reg_text_title">Логин</p>
