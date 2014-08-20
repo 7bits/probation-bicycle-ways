@@ -7,6 +7,6 @@ $("document").ready(function () {
     VK.Widgets.Like("vk_like", {type: "mini",
                                 pageTitle:"Велодорожки нашего города!",
                                 pageDescription:"Омску нужны велодорожки!",
-                                pageUrl:"http://bicycle-ways.7bits.it/"
+                                pageUrl:"http://velo-omsk.org/"
     });
 });
