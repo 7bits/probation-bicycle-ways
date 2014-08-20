@@ -1,25 +1,9 @@
 package likebike
 
 import org.xml.sax.SAXParseException
+import grails.plugin.cache.Cacheable
 
 class RouteService {
-
-    void loadFromFile(String xml, def currentUser) throws SAXParseException {
-        def data = new XmlParser().parseText(xml)
-
-        Route route = new Route()
-        route.user = currentUser
-        route.name = data.trk.name.text()
-        route.save()
-        for (int i = 0; data.trk.trkseg.trkpt[i] != null; i++) {
-            Point point = new Point()
-            point.latitude = data.trk.trkseg.trkpt[i].attributes().lat.toDouble()
-            point.longitude = data.trk.trkseg.trkpt[i].attributes().lon.toDouble()
-            point.routeIndex = i
-            point.route = route
-            point.save(flush: true)
-        }
-    }
 
     void genRoute(ArrayList<Double> listPoints) {
         Route route = new Route()
@@ -39,10 +23,11 @@ class RouteService {
         }
     }
 
-    def getUsersRoute(def currentUser) {
+    def getUsersRoute(currentUser) {
         return convertRouteListToArray(currentUser.route)
     }
 
+    @Cacheable('routes')
     def getRoute() {
         return convertRouteListToArray(Route.list())
     }
