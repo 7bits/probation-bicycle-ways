@@ -26,7 +26,6 @@
 
 <g:javascript src="carousel.js"/>
 %{--<script type="text/javascript" src="js/vk_logout.js"></script>--}%
-<script type="text/javascript"> VK.init({apiId: 4479951, onlyWidgets: true});</script>
 %{--<g:javascript src="vk_auth.js"/>--}%
 %{--<g:javascript src="vk.js"/>--}%
 <g:javascript src="vk_like.js"/>

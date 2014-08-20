@@ -32,29 +32,6 @@ class LoginController {
         render([success: springSecurityService.isLoggedIn()] as JSON)
     }
 
-    def index = {
-        if (springSecurityService.isLoggedIn()) {
-            redirect uri: SpringSecurityUtils.securityConfig.successHandler.defaultTargetUrl
-        } else {
-            redirect action: 'auth', params: params
-        }
-    }
-
-    def auth = {
-
-        def config = SpringSecurityUtils.securityConfig
-
-        if (springSecurityService.isLoggedIn()) {
-            redirect uri: config.successHandler.defaultTargetUrl
-            return
-        }
-
-        String view = 'auth'
-        String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
-        render view: view, model: [postUrl: postUrl,
-                rememberMeParameter: config.rememberMe.parameter]
-    }
-
     /**
      * The redirect action for Ajax requests.
      */
