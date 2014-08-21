@@ -21,13 +21,8 @@
     margin: 75px;
     font: 14px "Open Sans";
 }
-#reg_header {
-    margin-top: 0px;/*10px;*/
-    margin-bottom: 20px;/*35px;*/
-}
 
 .reg_title {
-    margin-left: 20px;
     font: 15px "Open Sans";
     color: #F15A24;
     /*margin-top: 15px;*/

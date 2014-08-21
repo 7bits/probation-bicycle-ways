@@ -7,7 +7,7 @@ $('document').ready(function () {
         document.getElementById('p_error').style.display = 'block';
     }
 
-    document.getElementById('close_log').onclick = function () {
+    $('body').onclick = function () {
         document.getElementById('parent_log').style.display = 'none';
     }
     if( document.getElementById('p_log') != null){
