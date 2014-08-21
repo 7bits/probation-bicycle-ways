@@ -8,6 +8,9 @@ import org.codehaus.groovy.grails.commons.ApplicationHolder as AH
 import grails.converters.*
 
 class RegisterController extends grails.plugins.springsecurity.ui.RegisterController {
+    def index = {
+        redirect( [controller: "home", action: "index"])
+    }
 
     def register = {
 
