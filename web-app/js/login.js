@@ -1,3 +1,19 @@
+function theRotator() {
+    $('div#rotator ul li').css({opacity: 0.0});
+    $('div#rotator ul li:first').css({opacity: 1.0});
+    setInterval('rotate()',375);
+}
+function rotate() {
+    var current = ($('div#rotator ul li.show')? $('div#rotator ul li.show') : $('div#rotator ul li:first'));
+    var next = ((current.next().length) ? ((current.next().hasClass('show')) ? $('div#rotator ul li:first') :current.next()) : $('div#rotator ul li:first'));
+    next.css({opacity: 0.0})
+        .addClass('show')
+        .animate({opacity: 1.0}, 125);
+    current.animate({opacity: 0.0}, 125)
+        .removeClass('show');
+};
+
+
 $( document ).ready(function () {
     document.getElementById('p_error').style.display = 'none';
     document.getElementById('p_error').style.display = 'none';
@@ -23,6 +39,8 @@ $( document ).ready(function () {
         document.getElementById('register_form').style.display = 'block';
     }
     $('#register_form').submit(function (e) {
+        document.getElementById('loader_background').style.display = 'block';
+        theRotator();
         e.preventDefault();
         var command = {
             username: $('#username').val(),
@@ -39,6 +57,7 @@ $( document ).ready(function () {
             datatype: JSON,
             data: command,
             success: function (data) {
+                document.getElementById('loader_background').style.display = 'none';
                 if (data.hasError) {
                     document.getElementById('password').value = '';
                     document.getElementById('password2').value = '';
