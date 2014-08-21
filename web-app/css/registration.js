@@ -1,4 +1,4 @@
-$('document').ready(function () {
+$('document').onchange(function () {
     document.getElementById('p_ok').style.display = 'none'
 
     document.getElementById('close_reg').onclick = function () {
