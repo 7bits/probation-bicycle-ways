@@ -1,9 +1,10 @@
 package likebike
 
+import grails.plugin.cache.CacheEvict
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.*
 import grails.plugins.springsecurity.Secured
-import org.springframework.web.multipart.MultipartHttpServletRequest
+import grails.plugin.cache.CacheEvict
 
 class RouteController {
 
@@ -11,10 +12,10 @@ class RouteController {
 
     def fileService
     def routeService
-    def SpringSecurityService
+    def springSecurityService
 
     def getUsersRoute() {
-        def user = SpringSecurityService.getCurrentUser()
+        def user = springSecurityService.getCurrentUser()
         if(user == null){
             user = User.find { username == "anonymous" }
         }
@@ -41,7 +42,7 @@ class RouteController {
             def rows = fileService.getProcessed(params.id)
             List resultList = []
             rows.each() {
-                resultList << it['file_name']
+                resultList << [it['file_name'], it['processed']]
                 fileService.setAlert(it['id'])
             }
             render resultList as JSON
@@ -50,26 +51,27 @@ class RouteController {
         render error as JSON
     }
 
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def loadFile() {
         if (params.userFile && params.userFile.size) {
             File file = new likebike.File()
-            file.user = SpringSecurityService.getCurrentUser()
+            file.user = springSecurityService.getCurrentUser()
             file.user_alert = false
             if(file.user == null){
                 file.user = User.find { username == "anonymous" }
                 file.user_alert = true
             }
-            file.processed = false
+            file.processed = File.NOT_PROCESSED
             def params = params
             file.file_name = params.userFile.fileItem.name
             file.save()
             String xmlData = new String(params.userFile.bytes)
             java.io.File fileToProcess = new java.io.File("userfiles/" + file.id + ".userfile")
             fileToProcess.write(xmlData)
-            redirect(uri: '/map?loaded=true')
+            redirect(uri: '/home/map?loaded=true')
             return
         }
-        redirect(uri: '/map?loaded=false')
+        redirect(uri: '/home/map?loaded=false')
         return
     }
 

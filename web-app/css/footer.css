@@ -1,24 +1,16 @@
-@font-face {
-    font-family: "OpenSans";
-    src: local("OpenSansLight"), url(../fonts/opensans-light.ttf);
-}
-
 footer {
-    position: absolute;
-    width: 1020px;
+    /*position: absolute;*/
+    width: 100%;
     height: 72px;
     margin: 0 auto;
     padding: 0;
-    /*background: #313435; *//* Old browsers */
-    /*background: -moz-linear-gradient(top, #313435 0%, #554e50 100%); *//* FF3.6+ */
-    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #313435), color-stop(100%, #554e50)); *//* Chrome,Safari4+ */
-    /*background: -webkit-linear-gradient(top, #313435 0%, #554e50 100%); *//* Chrome10+,Safari5.1+ */
-    /*background: -o-linear-gradient(top, #313435 0%, #554e50 100%); *//* Opera 11.10+ */
-    /*background: -ms-linear-gradient(top, #313435 0%, #554e50 100%); *//* IE10+ */
-    /*background: linear-gradient(to bottom, #313435 0%, #554e50 100%); *//* W3C */
-    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#313435', endColorstr='#554e50', GradientType=0); *//* IE6-9 */
-    /*text-align: center;*/
     background: #ff6633;
+}
+
+.on_footer {
+    width: 1020px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 /*#menu_footer {*/
@@ -36,12 +28,13 @@ footer {
     float: left;
     display: block;
     margin-right: 30px;
-    /*position: relative;*/
     left: 327px;
     padding: 0px 0px 0px 0px;
 }
 
 #menu_list_footer {
+    font:16px "Open Sans";
+    font-weight: 300;
     list-style: none;
     display: compact;
     width: auto;
@@ -56,8 +49,6 @@ footer {
 /*}*/
 
 .menu_a_footer {
-    font: 18px "Open Sans";
-    text-decoration: none;
     color: #ffffff;
 }
 

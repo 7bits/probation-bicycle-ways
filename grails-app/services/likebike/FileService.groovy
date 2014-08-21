@@ -13,7 +13,7 @@ class FileService {
 
     def getProcessed(id) {
         Sql sql = new groovy.sql.Sql(dataSource)
-        String query = 'select * from file where user_alert=false and file.processed = true and user_id ='+ id +';'
+        String query = 'select * from file where user_alert=false and not file.processed = ' + File.NOT_PROCESSED + ' and user_id ='+ id +';'
         return sql.rows(query)
     }
 
