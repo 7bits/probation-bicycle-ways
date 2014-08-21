@@ -18,6 +18,16 @@
     left: 0;
 }
 
+@font-face {
+    font-family: 'comfortaa';
+    src: url(../fonts/comfortaa-light.eot);
+    src: url(../fonts/comfortaa-light.eot?#iefix) format('embedded-opentype'),
+    url(../fonts/comfortaa-light.woff) format('woff'),
+    url(../fonts/comfortaa-light.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 #rotator {
     position:relative;
     /*height:150px;*/
@@ -78,7 +88,7 @@
     height: 288px;
     max-width:1920px;
     max-height: 288px;
-    min-width: 1020px;
+    min-width: 960px;
     overflow:hidden;
     margin: 0 auto;
 }
@@ -89,7 +99,7 @@
     height: 288px;
     max-width:1920px;
     max-height: 288px;
-    min-width: 1020px;
+    min-width: 960px;
     overflow:hidden;
     margin: 0 auto;
 }
@@ -100,7 +110,7 @@
     height: 288px;
     max-width:1920px;
     max-height: 288px;
-    min-width: 1020px;
+    min-width: 960px;
     overflow:hidden;
     margin: 0 auto;
 }
@@ -111,7 +121,7 @@
     height: 288px;
     max-width:1920px;
     max-height: 288px;
-    min-width: 1020px;
+    min-width: 960px;
     overflow:hidden;
     margin: 0 auto;
 }
@@ -143,14 +153,14 @@ body {
 }
 
 .info_text {
-    width: 1020px;
+    width: 960px;
     margin: 0 auto;
 }
 
 #h_text {
     /*margin-left: 115px;*/
     text-align: center;
-    font: 28px "Open Sans";
+    font: 28px "comfortaa";
 }
 
 #main_text {
@@ -160,7 +170,7 @@ body {
 
 #idea {
     margin-left: 150px;
-    font: 18px "Open Sans";
+    font: 19px "Open Sans";
     color: #f15a24;
 }
 
@@ -225,7 +235,7 @@ body {
 }
 
 .cartoon_info {
-    width: 1020px;
+    width: 960px;
     margin: 0 auto;
 }
 
@@ -242,7 +252,7 @@ body {
 
 #cartoon_ul_text {
     position: relative;
-    width: 1020px;
+    width: 960px;
     height: auto;
     /*margin: 0px auto;*/
     padding: 0;
@@ -311,7 +321,7 @@ li.cartoon_li_text2 {
 li.cartoon_li_text3 {
     position: relative;
     list-style: none;
-    margin-right: 90px;
+    margin-right: 74px;
     padding: 0;
     float: left;
 }
@@ -319,7 +329,7 @@ li.cartoon_li_text3 {
 li.cartoon_li_text4 {
     position: relative;
     list-style: none;
-    margin-right: 98px;
+    /*margin-right: 98px;*/
     padding: 0;
     float: left;
 }
@@ -340,13 +350,13 @@ li.cartoon_li_text4 {
     /*margin-left: -22px;*/
 }
 
-#line {
-    margin:42px 0 0 100px
+.line_img {
+    margin: 42px 0 0 75px;
 }
 
 #this_work {
     text-align: center;
-    font: 28px "Open Sans";
+    font: 28px "comfortaa";
 }
 
 .bs-docs-example-submenus .dropdown > .dropdown-menu {
