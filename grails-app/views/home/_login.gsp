@@ -20,7 +20,7 @@
                     name='j_password'
                     id='j_password'/>
 
-            <p id="p_error" class='log_text_info'>Неверно введен логин или пароль.</p>
+            <p id="p_error" class='log_text_info'>Неверно введен логин или пароль</p>
 
             <p>
                 <input type='submit' id="submit" class="log_button" value='Войти'/>
