@@ -11,6 +11,7 @@ class FileProcessingJob {
     def concurrent = false
     def fileService
     def grailsCacheManager
+    def routeService
 
     def execute() {
         def row = fileService.getNext();
@@ -33,7 +34,9 @@ class FileProcessingJob {
                     file.save(flush: true);
                 }
             }
-            return
+        }
+        if(!grailsCacheManager.cacheExists('routes') && (fileService.getNext() == null)) {
+            routeService.getRoute()
         }
         return
     }

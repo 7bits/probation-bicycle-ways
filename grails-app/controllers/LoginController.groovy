@@ -50,17 +50,6 @@ class LoginController {
             redirect action: 'full', params: params
         }
     }
-
-    /**
-     * Login page for users with a remember-me cookie but accessing a IS_AUTHENTICATED_FULLY page.
-     */
-    def full = {
-        def config = SpringSecurityUtils.securityConfig
-        render view: 'auth', params: params,
-                model: [hasCookie: authenticationTrustResolver.isRememberMe(SCH.context?.authentication),
-                        postUrl: "${request.contextPath}${config.apf.filterProcessesUrl}"]
-    }
-
     /**
      * Callback after a failed login. Redirects to the auth page with a warning message.
      */

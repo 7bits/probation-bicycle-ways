@@ -1,5 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
+<g:external dir="/img/favicon.ico"/>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -16,9 +16,7 @@
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'footer.css')}"/>
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'register.css')}"/>
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'login.css')}"/>
-
 <link href="http://getbootstrap.com/2.3.2/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-
 
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 %{--<script src="js/bootstrap.min.js"></script>--}%
