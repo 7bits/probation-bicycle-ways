@@ -398,7 +398,11 @@ li.cartoon_li_text4 {
     font-weight: 700;
     display: block;
     float: right;
-    width: auto;
+}
+
+.controls_body {
+    width: 960px;
+    margin: 0 auto;
 }
 
 .controls a:link {
@@ -460,8 +464,8 @@ li.cartoon_li_text4 {
 
 .dropdown-menu{
     padding: 15px !important;
-    left: 160px;
-    width: 180px;
+    /*left: 160px;*/
+    /*width: 180px;*/
 }
 
 .file_button{

@@ -37,6 +37,7 @@
 
 <div id="routes" class="routes">
 <sec:ifLoggedIn>
+    <div class="controls_body">
     <div class="controls">
         <sec:ifLoggedIn>
         <ul class="nav navbar-nav">
@@ -44,7 +45,7 @@
                 <span class="" style="font-weight: normal"><img src="../img/icon1.png" class="icon" alt="Показать на карте" height="19" width="19" style="margin-top: 9px; margin-right: 4px">Показать на карте</span>
                 <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle" style="display:inline-block;border-bottom:dashed;
                 border-bottom-width: 1px;"> <p id="route" class="button_text">все маршруты</p> </a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu pull-right">
                     <g:form>
                         <ul>
                             <li><input type="radio" name="myGroup" checked="checked" value="All" id="get_all_routes"><label for="get_all_routes"><div class = "radio_text">Все маршруты</div></label></li>
@@ -55,7 +56,7 @@
             </li>
             <li class="dropdown" style="width: 187px">
                 <a href="#" data-toggle="dropdown" class="control_button dropdown-toggle"><img src="../img/icon2.png" class="icon" alt="Добавить маршрут" height="16" width="16"><p class="button_text">Добавить маршрут</p></a>
-                <ul class="dropdown-menu pull-right">
+                <ul class="dropdown-menu pull-left">
                     <li>Загрузить GPS-трек</li>
                     <div id="formCopy">
                         <g:uploadForm id="load_file" url="[action:'loadFile',controller:'route']" method="post" enctype="multipart/form-data" class="file_load">
@@ -74,6 +75,7 @@
             </li>
         </ul>
         </sec:ifLoggedIn>
+    </div>
     </div>
     </sec:ifLoggedIn>
     <div id="map-canvas" class="map"></div>
