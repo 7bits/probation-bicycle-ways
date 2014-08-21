@@ -7,14 +7,13 @@
 
 <body>
 <g:render template="/home/header"/>
-<g:render template="/home/register"/>
 <g:render template="/home/login"/>
 %{--<g:render template="/home/auth"/>--}%
 
 <div class="carousel_body">
     <div id="myCarousel" class="carousel slide">
         <!-- Carousel indicators -->
-        <g:img class="title" dir="images" file="title.png"/>
+        <g:img class="title" dir="images" file="1-01.png"/>
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>

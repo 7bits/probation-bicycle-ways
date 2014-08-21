@@ -18,7 +18,7 @@
     left: 0;
 }
 
-#log {
+.log {
     background-color: #F2F2F2;
     margin: 200px auto;
     color: #000;
@@ -26,6 +26,13 @@
     height: 400px;
 }
 
+.nav-tabs>li.active>a{
+    background-color: #F2F2F2;
+}
+
+.nav-tabs>li.active>a:hover{
+    background-color: #F2F2F2;
+}
 
 #vk_auth {
     margin: 70px auto;
@@ -52,12 +59,26 @@
     background-color: #F2F2F2;
 }
 
-.log_title {
-    margin-left: 20px;
+.nav{
+    border-width:0px;
+    width: 100%;
+    background-color: #fff;
+}
+
+.tab_title {
     font: 15px "Open Sans";
     color: #F15A24;
-    /*margin-top: 15px;*/
-    padding-top: 10px;
+    font-weight: 700;
+    border-width: 0px !important;
+    margin: 0px  !important;
+    padding-left:  25px !important;
+    padding-right:  25px !important;
+}
+
+
+.tab_title:hover{
+    color: #F15A24;
+    background-color: #F2F2F2;
 }
 
 .log_text_title {
@@ -67,6 +88,7 @@
     font: 14px "Open Sans";
     color: #000;
 }
+
 .log_text_info {
     margin-left: 20px;
     font: 12px "Open Sans";
@@ -108,9 +130,6 @@
 #submit:active {
     background-color: #d03700;
     color: #ffffff;
-}
-
-.log_button {
 }
 
 #div {

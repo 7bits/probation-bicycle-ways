@@ -18,16 +18,11 @@
     left: 0;
 }
 #p_ok {
-    margin: 75px;
-    font: 14px "Open Sans";
-}
-#reg_header {
-    margin-top: 0px;/*10px;*/
-    margin-bottom: 20px;/*35px;*/
+    font: 14px "Open Sans" ;
+    margin: 100px 45px;
 }
 
 .reg_title {
-    margin-left: 20px;
     font: 15px "Open Sans";
     color: #F15A24;
     /*margin-top: 15px;*/
@@ -82,13 +77,6 @@
     float: left;
 }
 
-#close_reg:hover {
-    background-color: #9B9AA0;
-}
-
-#close_reg:active {
-    background-color: #D5D7D8;
-}
 #reg_submit {
     border: 0px;
     background-color: #F15A24;
@@ -101,6 +89,7 @@
     font: 14px "Open Sans";
     color: #ffffff;
     font-weight: bold;
+    margin-top: 0px;
 }
 #parent_log {
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6+ */
