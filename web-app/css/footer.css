@@ -53,8 +53,8 @@ footer {
 }
 
 .menu_a_footer:hover {
-    color: #000000;
-    text-decoration: none;
+    color: #ffffff;
+    text-decoration: underline;
 }
 
 #vk_like {
