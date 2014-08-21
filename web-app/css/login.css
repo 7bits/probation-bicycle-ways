@@ -123,13 +123,13 @@
 }
 
 #submit:hover {
-    background-color: #ffffff;
-    color: #f24120;
+    background-color: #d03700;
+    color: #ffffff;
 }
 
 #submit:active {
-    background-color: #d03700;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #f24120;
 }
 
 #div {
