@@ -15,8 +15,8 @@
     </div>
     <div class="before_menu">
     <menu>
-        <p id="logo_text">Велогород</p>
-        <g:img id="logo" dir="images" file="logo_header.png"/>
+        %{--<p id="logo_text">Велогород</p>--}%
+        <g:img id="logo" dir="images" file="logo_main.png"/>
         <ul id="menu_list">
             <li class="menu_list_item">
                 <p class="menu_text"><g:link controller="home" class="menu_a" action="index">О проекте</g:link></p>
