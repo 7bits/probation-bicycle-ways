@@ -182,6 +182,7 @@ function prepareViewMode(mapVar) {
 
 $("document").ready(function () {
     if($("#load_input") !=null){
+        document.getElementById('loader_background').style.display = 'block';
         var load = $("#load_input");
         load.hover(
             function () {
@@ -195,6 +196,7 @@ $("document").ready(function () {
 
     var loaded = urlParam('loaded');
     if(loaded !=null){
+        document.getElementById('loader_background').style.display = 'none';
         if(loaded == "true"){
             $.notify("Ваш файл был загружен", "success");
         }
