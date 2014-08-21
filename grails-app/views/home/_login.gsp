@@ -48,7 +48,16 @@
                 <div id="vk_auth"></div>
             </div>
             <div class="tab-pane" id="register">
-                <p id="p_ok" style="display: none">Вы зарегистрированы. Проверьте свой email.</p>
+                %{--<div id="p_ok" style="display: none">--}%
+                    %{--<p class="reg_text">--}%
+                        %{--На указанный адрес электронной почты отправлено письмо с подтверждением.<br>--}%
+                        %{--Пройдите по ссылке в письме для завершения регистрации.--}%
+                    %{--</p>--}%
+                    %{--<button id="good">Хорошо</button>--}%
+                %{--</div>--}%
+                <p id="p_ok" style="display: none">На указанный адрес электронной почты отправлено письмо с подтверждением.<br>
+                                                    Пройдите по ссылке в письме для завершения регистрации.
+                </p>
                 <g:form name='register_form' id='register_form'>
                     <p class="reg_text_title">Логин</p>
                     <input
