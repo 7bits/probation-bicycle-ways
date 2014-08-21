@@ -20,17 +20,6 @@
 <g:hiddenField id="user_id" name="user_id" value="${sec.loggedInUserInfo(field:'id')}" />
 
 <div id="loader_background" style="display: none">
-    %{--<div class="slider">--}%
-        %{--<g:img id="logo" dir="images/bicycle" file="1.png"/>--}%
-        %{--<g:img id="logo" dir="images/bicycle" file="2.png"/>--}%
-        %{--<g:img id="logo" dir="images/bicycle" file="3.png"/>--}%
-        %{--<g:img id="logo" dir="images/bicycle" file="4.png"/>--}%
-        %{--<g:img id="logo" dir="images/bicycle" file="5.png"/>--}%
-        %{--<g:img id="logo" dir="images/bicycle" file="6.png"/>--}%
-        %{--<g:img id="logo" dir="images/bicycle" file="7.png"/>--}%
-        %{--<g:img id="logo" dir="images/bicycle" file="8.png"/>--}%
-    %{--</div>--}%
-
     <div id="rotator">
         <ul>
             <li class="show"><g:img id="logo" dir="images/bicycle" file="1.png" width="68" height="41" /></li>
