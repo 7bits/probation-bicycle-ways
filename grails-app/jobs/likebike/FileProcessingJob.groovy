@@ -4,14 +4,17 @@ import groovy.sql.Sql
 import org.xml.sax.SAXParseException
 
 class FileProcessingJob {
+
+    def fileService
+    def grailsCacheManager
+    def routeService
+
     static triggers = {
         simple repeatInterval: 3000l // execute job once in 5 seconds
     }
 
     def concurrent = false
-    def fileService
-    def grailsCacheManager
-    def routeService
+
 
     def execute() {
         def row = fileService.getNext();
