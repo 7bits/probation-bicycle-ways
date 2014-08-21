@@ -29,7 +29,7 @@
 }
 
 #rotator {
-    position:relative;
+    position:absolute;
     /*height:150px;*/
     width: 68px;
     height: 41px;
@@ -41,9 +41,13 @@
 }
 
 #rotator ul li {
-    float:left;
+    /*float:left;*/
     position:absolute;
     list-style: none;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
 #rotator ul li.show {
