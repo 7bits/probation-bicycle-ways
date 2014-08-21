@@ -13,7 +13,7 @@
     opacity: 1;
     position: fixed;
     width: 100%;
-    z-index: 100;
+    z-index: 101;
     top: 0;
     left: 0;
 }
@@ -29,19 +29,25 @@
 }
 
 #rotator {
-    position:relative;
+    position:absolute;
     /*height:150px;*/
     width: 68px;
     height: 41px;
     /*margin-left: 15px;*/
     top: 50%;
+    left: 0;
+    right: 0;
     margin: 0 auto;
 }
 
 #rotator ul li {
-    float:left;
+    /*float:left;*/
     position:absolute;
     list-style: none;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
 #rotator ul li.show {
@@ -392,7 +398,11 @@ li.cartoon_li_text4 {
     font-weight: 700;
     display: block;
     float: right;
-    width: auto;
+}
+
+.controls_body {
+    width: 960px;
+    margin: 0 auto;
 }
 
 .controls a:link {
@@ -454,8 +464,8 @@ li.cartoon_li_text4 {
 
 .dropdown-menu{
     padding: 15px !important;
-    left: 160px;
-    width: 180px;
+    /*left: 160px;*/
+    /*width: 180px;*/
 }
 
 .file_button{
