@@ -91,6 +91,17 @@
     font-weight: bold;
     margin-top: 0px;
 }
+
+#reg_submit:hover {
+    background-color: #d03700;
+    color: #ffffff;
+}
+
+#reg_submit:active {
+    background-color: #ffffff;
+    color: #f24120;
+}
+
 #parent_log {
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.65)), color-stop(100%, rgba(0, 0, 0, 0))); /* Chrome,Safari4+ */
