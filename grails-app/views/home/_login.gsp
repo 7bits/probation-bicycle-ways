@@ -1,5 +1,5 @@
 <div id="parent_log">
-    <div class="log">
+    <div id="log" class="log">
         <ul class="nav nav-tabs" role="tablist">
             <li class="active"><a href="#login" class="tab_title" role="tab" data-toggle="tab">Логин</a></li>
             <li><a href="#register" class="tab_title" role="tab" data-toggle="tab">Регистрация</a></li>
@@ -33,7 +33,7 @@
             </div>
             <div class="tab-pane" id="register">
                 <p id="p_ok" style="display: none">Вы зарегистрированы. Проверьте свой email.</p>
-                <g:form url="[action: 'register', controller: 'register']" name='register_form' id='register_form'>
+                <g:form name='register_form' id='register_form'>
                     <p class="reg_text_title">Логин</p>
                     <input
                             class="reg_input"
@@ -83,7 +83,7 @@
                     <br/>
                     <span id="password2_error" class="reg_text_info"></span>
                     <br/>
-                    <g:submitButton id="reg_submit" name="update" value="Зарегистрироваться"/>
+                    <button id="reg_submit">Зарегистрироваться</button>
                     <span id="spiner"></span>
                 </g:form>
             </div>

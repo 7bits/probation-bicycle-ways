@@ -1,27 +1,29 @@
-$( document ).ready(function () {
-    document.getElementById('p_error').style.display = 'none';
-    document.getElementById('p_error').style.display = 'none';
-    if( getParameterByName('login_error') == 1 ){
-        document.getElementById('parent_log').style.display = 'block';
-        document.getElementById('p_error').style.display = 'block';
+$('document').onchange(function () {
+    document.getElementById('p_ok').style.display = 'none'
+
+    document.getElementById('close_reg').onclick = function () {
+        //document.getElementById('reg').style.hight = '660px';
+        document.getElementById('parent_reg').style.display = 'none';
     }
-    if( document.getElementById('p_log') != null){
-        document.getElementById('p_log').onclick = function () {
-            document.getElementById('parent_log').style.display = 'block';
-            document.getElementById("parent_log").onclick = function (data) {
-                if(data.srcElement == document.getElementById("parent_log")){
-                    document.getElementById("parent_log").style.display = 'none';
-                }
-            };
+    if (document.getElementById('p_reg') != null) {
+        document.getElementById('p_reg').onclick = function () {
+            /*var spinner = new Spinner({
+                lines: 7, // количество линий для отрисовки
+                length: 6, // длина каждой линии
+                width: 3, // толщина линий
+                radius: 4, // радиус внутреннего круга
+                color: '#000', // #rbg или #rrggbb
+                speed: 1, // кругов в секунду
+                trail: 100, // процент послесвечения
+                shadow: true // отрисовка тени
+            }).spin(document.getElementById("reg_submit")); // Положить в нод DOM "ajaxContentHolder"
+            */
+            document.getElementById('p_ok').style.display = 'none';
+            document.getElementById('parent_reg').style.display = 'block';
+            document.getElementById('register_form').style.display = 'block';
         }
     }
-    
-    document.getElementById('p_ok').style.display = 'none'
-    document.getElementById('p_reg').onclick = function () {
-        document.getElementById('p_ok').style.display = 'none';
-        document.getElementById('parent_reg').style.display = 'block';
-        document.getElementById('register_form').style.display = 'block';
-    }
+
     $('#register_form').submit(function (e) {
         e.preventDefault();
         var command = {
@@ -93,11 +95,3 @@ $( document ).ready(function () {
         });
     });
 });
-
-function getParameterByName(name) {
-
-    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}

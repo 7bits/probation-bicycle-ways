@@ -29,7 +29,6 @@
 %{--<g:javascript src="vk.js"/>--}%
 
 <g:javascript src="vk_like.js"/>
-<g:javascript src="registration.js"/>
 <g:javascript src="spin.js"/>
 <g:javascript src="login.js"/>
 <g:javascript src="notify.js"/>
