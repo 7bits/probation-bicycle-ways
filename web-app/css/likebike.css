@@ -454,6 +454,8 @@ li.cartoon_li_text4 {
 
 .dropdown-menu{
     padding: 15px !important;
+    left: 160px;
+    width: 180px;
 }
 
 .file_button{
