@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Velo-Sity</title>
+    <title>Velo-Omsk</title>
     <g:render template="/home/main"/>
 </head>
 
