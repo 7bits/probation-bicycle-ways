@@ -39,6 +39,11 @@ class FileProcessingJob {
             }
             return
         }
+        else{
+            if(!grailsCacheManager.cacheExists('routes')) {
+                routeService.getRoute()
+            }
+        }
         return
     }
 }
