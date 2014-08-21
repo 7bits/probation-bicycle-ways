@@ -4,14 +4,17 @@ import groovy.sql.Sql
 import org.xml.sax.SAXParseException
 
 class FileProcessingJob {
+
+    def fileService
+    def grailsCacheManager
+    def routeService
+
     static triggers = {
         simple repeatInterval: 3000l // execute job once in 5 seconds
     }
 
     def concurrent = false
-    def fileService
-    def grailsCacheManager
-    def routeService
+
 
     def execute() {
         def row = fileService.getNext();
@@ -21,6 +24,7 @@ class FileProcessingJob {
                 try {
                     String xmlData = new java.io.File("userfiles/" + file.id + ".userfile").text
                     def file_user = file.user;
+                    routeService.loadFromFile(xmlData, User.get(file.user.id))
                     grailsCacheManager.getCache('routes')?.clear()
                     file.processed = File.PROCESSED_WITH_SUCCESS;
                 }
@@ -35,7 +39,7 @@ class FileProcessingJob {
                 }
             }
         }
-        if(!grailsCacheManager.cacheExists('routes') && (fileService.getNext() == null)) {
+        if(!grailsCacheManager.cacheExists('routes') && (row == null)) {
             routeService.getRoute()
         }
         return
