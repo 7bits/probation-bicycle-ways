@@ -10,7 +10,7 @@ class FileProcessingJob {
 
     def concurrent = false
     def fileService
-    def routeService
+    def grailsCacheManager
 
     def execute() {
         def row = fileService.getNext();
@@ -20,7 +20,7 @@ class FileProcessingJob {
                 try {
                     String xmlData = new java.io.File("userfiles/" + file.id + ".userfile").text
                     def file_user = file.user;
-                    routeService.loadFromFile(xmlData, User.get(file.user.id))
+                    grailsCacheManager.getCache('routes')?.clear()
                     file.processed = File.PROCESSED_WITH_SUCCESS;
                 }
                 catch (SAXParseException ex) {

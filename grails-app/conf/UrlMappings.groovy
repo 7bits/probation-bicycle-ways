@@ -1,5 +1,3 @@
-import likebike.RegisterCommand
-
 class UrlMappings {
 
     static mappings = {

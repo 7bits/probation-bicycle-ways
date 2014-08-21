@@ -89,6 +89,12 @@ log4j = {
             'net.sf.ehcache.hibernate'
 }
 
+grails.cache.config = {
+    cache {
+        name 'users_routes'
+    }
+}
+
 grails {
     mail {
         host = "smtp.gmail.com"
