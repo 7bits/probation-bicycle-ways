@@ -18,6 +18,16 @@
     left: 0;
 }
 
+@font-face {
+    font-family: 'comfortaa';
+    src: url(../fonts/comfortaa-light.eot);
+    src: url(../fonts/comfortaa-light.eot?#iefix) format('embedded-opentype'),
+    url(../fonts/comfortaa-light.woff) format('woff'),
+    url(../fonts/comfortaa-light.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 #rotator {
     position:relative;
     /*height:150px;*/
@@ -150,7 +160,7 @@ body {
 #h_text {
     /*margin-left: 115px;*/
     text-align: center;
-    font: 28px "Open Sans";
+    font: 28px "comfortaa";
 }
 
 #main_text {
@@ -160,7 +170,7 @@ body {
 
 #idea {
     margin-left: 150px;
-    font: 18px "Open Sans";
+    font: 19px "Open Sans";
     color: #f15a24;
 }
 
@@ -346,7 +356,7 @@ li.cartoon_li_text4 {
 
 #this_work {
     text-align: center;
-    font: 28px "Open Sans";
+    font: 28px "comfortaa";
 }
 
 .bs-docs-example-submenus .dropdown > .dropdown-menu {

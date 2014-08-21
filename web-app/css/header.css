@@ -226,7 +226,7 @@ menu {
 }
 
 .name {
-    font: 16px "Open Sans";
+    font: 14px "Open Sans";
     color: #f15a24;
     padding: 0;
     margin: 0;
@@ -234,7 +234,7 @@ menu {
 }
 
 .logout {
-    font: 16px "Open Sans";
+    font: 14px "Open Sans";
     color: #000000;
 }
 
@@ -243,7 +243,7 @@ menu {
 }
 
 .login_menu_text {
-    font: 16px "Open Sans";
+    font: 14px "Open Sans";
     text-decoration: none;
     color: #000000;
     float: left;
