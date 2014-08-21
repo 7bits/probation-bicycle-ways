@@ -31,6 +31,11 @@ $( document ).ready(function () {
             };
         }
     }
+    document.getElementById("parent_log").onclick = function (data) {
+        if(data.srcElement == document.getElementById("parent_log")){
+            document.getElementById("parent_log").style.display = 'none';
+        }
+    };
     
     document.getElementById('p_ok').style.display = 'none'
     $('#register_form').submit(function (e) {

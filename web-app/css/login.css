@@ -38,6 +38,11 @@
     margin: 70px auto;
 }
 
+#vkwidget2{
+    height: 104px !important;
+    background-color: #F2F2F2;
+}
+
 #close_log {
     position: relative;
     text-align: center;
@@ -52,7 +57,7 @@
 }
 
 #close_log:hover {
-    background-color: #9B9AA0;
+    
 }
 
 #close_log:active {

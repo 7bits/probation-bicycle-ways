@@ -267,7 +267,6 @@ $("document").ready(function () {
     mode.style.backgroundImage = "#000000";
     mode.type = "button";
     mode.value = "hm\\fp";
-    mode.style.backgroundImage = "#000000";
     mode.onclick = function () {
         if (!routeMode) {
             routeMode = LINES;
