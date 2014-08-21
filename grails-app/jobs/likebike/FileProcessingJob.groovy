@@ -21,6 +21,7 @@ class FileProcessingJob {
                 try {
                     String xmlData = new java.io.File("userfiles/" + file.id + ".userfile").text
                     def file_user = file.user;
+                    routeService.loadFromFile(xmlData, User.get(file.user.id))
                     grailsCacheManager.getCache('routes')?.clear()
                     file.processed = File.PROCESSED_WITH_SUCCESS;
                 }
@@ -35,7 +36,7 @@ class FileProcessingJob {
                 }
             }
         }
-        if(!grailsCacheManager.cacheExists('routes') && (fileService.getNext() == null)) {
+        if(!grailsCacheManager.cacheExists('routes') && (row == null)) {
             routeService.getRoute()
         }
         return
