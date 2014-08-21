@@ -30,7 +30,7 @@
                 </li>
             </sec:ifNotLoggedIn>
             <li class="menu_list_item">
-                <div id="mobile">
+                <div id="mobile" class="mobile">
                     <p class="mobile_menu_text"><a id="mobile_a" href="">Мобильное<br>приложение</a></p>
                 </div>
             </li>

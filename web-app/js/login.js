@@ -56,8 +56,10 @@ $( document ).ready(function () {
             url: 'register/register',
             datatype: JSON,
             data: command,
-            success: function (data) {
+            complete: function (data) {
                 document.getElementById('loader_background').style.display = 'none';
+            },
+            success: function (data) {
                 if (data.hasError) {
                     document.getElementById('password').value = '';
                     document.getElementById('password2').value = '';
