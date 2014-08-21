@@ -33,11 +33,6 @@ $( document ).ready(function () {
     }
     
     document.getElementById('p_ok').style.display = 'none'
-    document.getElementById('p_reg').onclick = function () {
-        document.getElementById('p_ok').style.display = 'none';
-        document.getElementById('parent_reg').style.display = 'block';
-        document.getElementById('register_form').style.display = 'block';
-    }
     $('#register_form').submit(function (e) {
         document.getElementById('loader_background').style.display = 'block';
         theRotator();
@@ -53,7 +48,7 @@ $( document ).ready(function () {
         }
         $.ajax({
             type: 'POST',
-            url: 'register/register',
+            url: '../register/register',
             datatype: JSON,
             data: command,
             complete: function (data) {
