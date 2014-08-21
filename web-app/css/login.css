@@ -78,7 +78,7 @@
     width: 210px;
     height: 30px;
     padding-left: 10px;
-    border: 0px;
+    border-width: 0px;
     margin-bottom: 10px;
 }
 
@@ -98,6 +98,16 @@
     font: 14px "Open Sans";
     color: #ffffff;
     font-weight: bold;
+}
+
+#submit:hover {
+    background-color: #ffffff;
+    color: #f24120;
+}
+
+#submit:active {
+    background-color: #d03700;
+    color: #ffffff;
 }
 
 .log_button {
