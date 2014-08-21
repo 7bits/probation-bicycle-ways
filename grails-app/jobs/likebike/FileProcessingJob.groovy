@@ -33,16 +33,10 @@ class FileProcessingJob {
                 finally {
                     file.save(flush: true);
                 }
-                if(file.processed == File.PROCESSED_WITH_SUCCESS && (fileService.getNext() == null)){
-                    routeService.getRoute()
-                }
             }
-            return
         }
-        else{
-            if(!grailsCacheManager.cacheExists('routes')) {
-                routeService.getRoute()
-            }
+        if(!grailsCacheManager.cacheExists('routes') && (fileService.getNext() == null)) {
+            routeService.getRoute()
         }
         return
     }
