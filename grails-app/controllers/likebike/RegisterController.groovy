@@ -4,8 +4,9 @@ import org.apache.commons.validator.EmailValidator
 import org.codehaus.groovy.grails.plugins.springsecurity.NullSaltSource
 import org.codehaus.groovy.grails.plugins.springsecurity.ui.RegistrationCode
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
-import org.codehaus.groovy.grails.commons.ApplicationHolder as AH
 import grails.converters.*
+import grails.util.Holders
+
 
 class RegisterController extends grails.plugins.springsecurity.ui.RegisterController {
     def index = {
@@ -88,17 +89,16 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
         )
         user.save(flush: true)
         def registrationCode = new RegistrationCode(username: user.username).save()
-        String url = generateLink('verifyRegistration', [t: registrationCode.token])
-
-        def conf = SpringSecurityUtils.securityConfig
-        def body = conf.ui.register.emailBody
+        String url = "http://" + generateLink('verifyRegistration', [t: registrationCode.token])
+        def conf = Holders.config
+        def body = conf.emailBody
         if (body.contains('$')) {
             body = evaluate(body, [user: user, url: url])
         }
         mailService.sendMail {
             to command.email
-            from conf.ui.register.emailFrom
-            subject conf.ui.register.emailSubject
+            from conf.emailFrom
+            subject conf.emailSubject
             html body.toString()
         }
 
