@@ -12,7 +12,7 @@
             <div class='login_message'>${flash.message}</div>
         </g:if>
 
-        <form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
+        <g:form url="[action:'auth',controller:'login']" method='POST' id='loginForm' class='cssform' autocomplete='off'>
             <p>
                 <label for='username'><g:message code="springSecurity.login.username.label"/>:</label>
                 <input type='text' class='text_' name='j_username' id='username'/>
@@ -32,7 +32,7 @@
             <p>
                 <input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
             </p>
-        </form>
+        </g:form>
     </div>
 </div>
 <script type='text/javascript'>

@@ -1,7 +1,3 @@
-@font-face {
-    font-family: "Tahoma";
-    src: local("Tahoma"), url(../fonts/Tahoma.ttf);
-}
 
 #parent_reg {
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6+ */
@@ -21,68 +17,122 @@
     top: 0;
     left: 0;
 }
+
 #p_ok {
-    margin: 75px;
-    font: 14px "Tahoma";
+    font: 14px "Open Sans" ;
+    /*margin: 100px 45px;*/
+    margin-top: 70px;
+    margin-right: 15px;
+    margin-left: 15px;
+    color:#F15A24;
+    text-align: center;
+    /*height: 160px;*/
+    /*width: 700px;*/
+    /*margin: 0 auto;*/
+    /*background-color: #ffffff;*/
+    /*position: absolute;*/
 }
-#reg_header {
-    margin-top: 0px;/*10px;*/
-    margin-bottom: 20px;/*35px;*/
+
+.reg_text {
+    font: 14px "Open Sans";
+    color: #F15A24;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    position: relative;
 }
+
+#good {
+    border: 0px;
+    background-color: #F15A24;
+    width: 120px;
+    height: 36px;
+    margin-top: 10px;
+    /*padding-top: 20px;*/
+    font: 14px "Open Sans";
+    color: #ffffff;
+}
+
+.reg_title {
+    font: 15px "Open Sans";
+    color: #F15A24;
+    /*margin-top: 15px;*/
+    padding-top: 10px;
+}
+
 #reg {
-    border-radius: 4px;
-    background-color: #D5D7D8;
-    margin: 100px auto;
+    background-color: #F2F2F2;
+    margin: 200px auto;
     color: #000;
-    width: 440px; /*680px;*/
-    height: 350px; /*660px;*/
+    width: 250px;
+    height: 450px;
 }
+
 .reg_text_title {
-    margin-bottom: 0px;
-    margin-top: 0px;
-    /*margin-top: 35px;*/
-    margin-left: 40px;/*60px;*/
-    font: 14px "Tahoma"; /*16px "Tahoma";*/
+    /*margin-bottom: 10px;*/
+    /*margin-top: 20px;*/
+    margin-left: 20px;
+    font: 14px "Open Sans";
     color: #000;
+    margin-bottom: 5px;
 }
+
 .reg_text_info {
-    margin-left: 40px;/*60px;*/
-    font: 13px "Tahoma";
-    color: rgba(151, 138, 138, 1);
+    margin-left: 20px;
+    font: 12px "Open Sans";
+    color: #f15a24;
 }
+
 .reg_input {
-    margin-left: 40px;/*60px;*/
-    width: 350px; /*550px;*/
-    height: 15px; /*30px;*/
+    margin-left: 20px;
+    width: 210px;
+    height: 30px;
+    padding-left: 10px;
+    border: 0px;
+    /*margin-bottom: 10px;*/
 }
+
+.reg_input:focus {
+    outline: 2px solid #f15a24;
+}
+
 #close_reg {
     position: relative;
     text-align: center;
-    left: 420px;
-    border-radius: 4px;
+    left: 230px;
+    border: 0;
     height: 20px;
-    background-color: #D5D7D8;
+    background-color: #F2F2F2;
     width: 20px;
     cursor: pointer;
+    float: left;
 }
 
-#close_reg:hover {
-    background-color: #9B9AA0;
-}
-
-#close_reg:active {
-    background-color: #D5D7D8;
-}
 #reg_submit {
     border: 0px;
-    border-radius: 5px;
-    box-shadow: inset -2px 2px 5px rgba(255, 255, 255, 0.2), inset 2px -2px 5px rgba(0, 0, 0, 0.5);
-    background-color: #5899B6;
-    width: 82px;/*90px;*/
-    height: 28px;/*37px;*/
-    margin-right: 45px;/*60px;*/
+    background-color: #F15A24;
+    width: 210px;
+    height: 36px;
+    margin-right: 20px;
+    margin-top: 10px;
+    /*padding-top: 20px;*/
     float: right;
+    font: 14px "Open Sans";
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 0px;
 }
+
+#reg_submit:hover {
+    background-color: #d03700;
+    color: #ffffff;
+}
+
+#reg_submit:active {
+    background-color: #ffffff;
+    color: #f24120;
+}
+
 #parent_log {
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.65)), color-stop(100%, rgba(0, 0, 0, 0))); /* Chrome,Safari4+ */

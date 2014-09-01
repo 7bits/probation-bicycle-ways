@@ -1,22 +1,25 @@
 package likebike
 
+import grails.plugin.cache.CacheEvict
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.*
-import org.apache.commons.io.FileUtils
 import grails.plugins.springsecurity.Secured
-import grails.plugins.springsecurity.*
-import org.xml.sax.SAXParseException
+import grails.plugin.cache.CacheEvict
 
 class RouteController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET"]
 
-
+    def fileService
     def routeService
-    def SpringSecurityService
+    def springSecurityService
 
     def getUsersRoute() {
-        def route = routeService.getUsersRoute(SpringSecurityService.getCurrentUser())
+        def user = springSecurityService.getCurrentUser()
+        if(user == null){
+            user = User.find { username == "anonymous" }
+        }
+        def route = routeService.getUsersRoute(user)
         render route as JSON
     }
 
@@ -31,26 +34,44 @@ class RouteController {
         render out as JSON
     }
 
-    @Secured(['ROLE_ADMIN'])
     def generateRoute() {
     }
 
-    def loadFile() {
-        String xmlData = new String(params.userFile.bytes)
+    def getProcessed(){
+        if(params.id) {
+            def rows = fileService.getProcessed(params.id)
+            List resultList = []
+            rows.each() {
+                resultList << [it['file_name'], it['processed']]
+                fileService.setAlert(it['id'])
+            }
+            render resultList as JSON
+        }
+        def error = ['error':'no user']
+        render error as JSON
+    }
 
-        if(xmlData.value.length == 0){
-            redirect(uri: "/map?file_error=2")
+    @Secured(['ROLE_USER', 'ROLE_ADMIN'])
+    def loadFile() {
+        if (params.userFile && params.userFile.size) {
+            File file = new likebike.File()
+            file.user = springSecurityService.getCurrentUser()
+            file.user_alert = false
+            if(file.user == null){
+                file.user = User.find { username == "anonymous" }
+                file.user_alert = true
+            }
+            file.processed = File.NOT_PROCESSED
+            def params = params
+            file.file_name = params.userFile.fileItem.name
+            file.save()
+            String xmlData = new String(params.userFile.bytes)
+            java.io.File fileToProcess = new java.io.File("userfiles/" + file.id + ".userfile")
+            fileToProcess.write(xmlData)
+            redirect(uri: '/home/map?loaded=true')
             return
         }
-        try {
-            routeService.loadFromFile(xmlData, SpringSecurityService.getCurrentUser())
-        }
-        catch(SAXParseException ex){
-            redirect(uri: "/map?file_error=1")
-            return
-        }
-        def out = [params.userFile.name]
-        redirect(uri: "/map")
+        redirect(uri: '/home/map?loaded=false')
         return
     }
 

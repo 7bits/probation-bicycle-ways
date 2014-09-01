@@ -1,87 +1,76 @@
-@font-face {
-    font-family: "Tahoma";
-    src: local("Tahoma"), url(../fonts/Tahoma.ttf);
-}
-
 footer {
-    position: absolute;
-    width: 1300px;
+    /*position: absolute;*/
+    width: 100%;
     height: 72px;
     margin: 0 auto;
     padding: 0;
-    background: #313435; /* Old browsers */
-    background: -moz-linear-gradient(top, #313435 0%, #554e50 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #313435), color-stop(100%, #554e50)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #313435 0%, #554e50 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #313435 0%, #554e50 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #313435 0%, #554e50 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #313435 0%, #554e50 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#313435', endColorstr='#554e50', GradientType=0); /* IE6-9 */
+    background: #ff6633;
+}
+
+.on_footer {
+    width: 960px;
+    margin: 0 auto;
     text-align: center;
 }
 
-#on_footer {
-    width: 1300px;
-    margin: 0 auto;
-}
-#footer_menu {
-    position: absolute;
-    margin: 0px auto;
-    padding: 0;
-    top: 5px;
-    padding-left: 382px;
+/*#menu_footer {*/
+    /*position: relative;*/
+    /*width: 1020px;*/
+    /*height: 72px;*/
+    /*margin: 0 auto;*/
+    /*padding: 0;*/
+    /*text-align: center;*/
+    /*background: #ff6633;*/
+    /*margin: 18px 0 0 0;*/
+/*}*/
+
+.menu_list_item_footer {
+    float: left;
+    display: block;
+    margin-right: 30px;
+    left: 327px;
+    padding: 0px 0px 0px 0px;
 }
 
-li.footer_button {
+#menu_list_footer {
+    font:16px "Open Sans";
+    font-weight: 300;
     list-style: none;
-    margin: 0;
-    margin-top: 14px;
-    margin-right: 80px;
+    display: compact;
+    width: auto;
     padding: 0;
+    margin: 23px 0 0 25px;
     float: left;
 }
 
-#mini_logo {
-    position: absolute;
-    float: right;
-    margin-top: 4px;
-    margin-left: 351px;
+/*.menu_text_footer {*/
+    /*text-decoration: none;*/
+    /*color: #ffffff;*/
+/*}*/
+
+.menu_a_footer {
+    color: #ffffff;
 }
 
-#vk {
-    position: absolute;
-    float: right;
-    margin-top: 16px;
-    /*margin-left: 420px;
-    width: 30px;*/
-    margin-left: 1080px;
-    width: 140px;
-}
-
-#android_logo {
-    position: absolute;
-    float: right;
-    margin-top: 9px;
-    margin-left: -7px;
-}
-
-#apple_logo {
-    position: absolute;
-    float: right;
-    margin-top: 7px;
-    margin-left: 39px;
-}
-
-.footer_button a {
-    font: 14px "Tahoma";
+.menu_a_footer:hover {
+    color: #ffffff;
     text-decoration: underline;
-    color: #FFF;
 }
 
-@media (min-width: 1300px) {
+#vk_like {
+    float: right;
+    /*padding: 0 0 50px 0;*/
+    /*margin: 0 0 40px 0;*/
+    clear: none !important;
+    margin-top: 18px;
+}
 
-    footer {
-        width: 100%;
-    }
+#logo_footer {
+    float: left;
+    margin: 10px 0 0 10px;
+}
 
+#on_footer {
+    overflow: hidden;
+    height: 72px;
 }
