@@ -192,7 +192,13 @@ $("document").ready(function () {
                 $("#upload_icon")[0].src = "../img/Waypoint.png";
             }
         );
+         $('#load_input').click( function() {
+            document.getElementById('load_file').submit();
+            return false;
+        });
     }
+    
+   
 
     var loaded = urlParam('loaded');
     if(loaded !=null){
