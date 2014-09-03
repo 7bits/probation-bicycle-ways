@@ -15,27 +15,22 @@ function rotate() {
 
 
 $( document ).ready(function () {
-    document.getElementById('p_error').style.display = 'none';
-    document.getElementById('p_error').style.display = 'none';
+    $('#p_error').css("display","none");
     if( getParameterByName('login_error') == 1 ){
-        document.getElementById('parent_log').style.display = 'block';
-        document.getElementById('p_error').style.display = 'block';
+        $("#parent_log").css("display",'block');
+        $('#p_error').css("display", 'block');
     }
-    if( document.getElementById('p_log') != null){
-        document.getElementById('p_log').onclick = function () {
-            document.getElementById('parent_log').style.display = 'block';
-            document.getElementById("parent_log").onclick = function (data) {
-                if(data.srcElement == document.getElementById("parent_log")){
-                    document.getElementById("parent_log").style.display = 'none';
-                }
-            };
-        }
+    if( $('#p_log') != null){
+        $('#p_log').click ( function () {
+            $("#parent_log").css("display", 'block');
+        });
     }
-    document.getElementById("parent_log").onclick = function (data) {
-        if(data.srcElement == document.getElementById("parent_log")){
-            document.getElementById("parent_log").style.display = 'none';
+    $("#parent_log").click(function (data) {
+        var clicked = data.target || data.srcElement;
+        if(clicked == $("#parent_log")[0]){
+            $("#parent_log")[0].style.display="none";
         }
-    };
+    });
     
     document.getElementById('p_ok').style.display = 'none'
     $('#register_form').submit(function (e) {
