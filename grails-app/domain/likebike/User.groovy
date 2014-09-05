@@ -16,6 +16,7 @@ class User {
     static constraints = {
         username blank: false, unique: true
         uid blank: true
+        password maxSize: 64, minSize: 8
     }
 
     static mapping = {
