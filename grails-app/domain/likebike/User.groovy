@@ -19,7 +19,6 @@ class User {
         username blank: false, unique: true
         uid blank: true
         password maxSize: 64, minSize: 8
-        email blank: false, validator: {email -> !EmailValidator.getInstance().isValid(email)}
     }
 
     static mapping = {
