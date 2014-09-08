@@ -6,6 +6,7 @@ var map;//google карта
 var routeMode = HEAT_MAP;
 var viewMode = ALL_TRACKS;
 var lines = [];
+var rotator = new Rotator();
 
 urlParam = function(name){
     var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
@@ -68,7 +69,7 @@ function drawRoutes(viewMode) {
         }
     }
     document.getElementById('loader_background').style.display = 'block';
-    startRotator();
+    rotator.start();
     prepareViewMode(map);
     $.ajax({
         url: path,
@@ -98,7 +99,7 @@ function drawRoutes(viewMode) {
         },
         complete:function () {
             document.getElementById('loader_background').style.display = 'none';
-            stopRotator();
+            rotator.stop();
         }
     });
 }

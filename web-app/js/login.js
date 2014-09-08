@@ -1,3 +1,5 @@
+var rotator = new Rotator();
+
 $( document ).ready(function () {
     document.getElementById('p_error').style.display = 'none';
     document.getElementById('p_error').style.display = 'none';
@@ -24,7 +26,7 @@ $( document ).ready(function () {
     document.getElementById('p_ok').style.display = 'none'
     $('#register_form').submit(function (e) {
         document.getElementById('loader_background').style.display = 'block';
-        startRotator();
+        rotator.start();
         e.preventDefault();
         var command = {
             username: $('#username').val(),
@@ -42,6 +44,7 @@ $( document ).ready(function () {
             data: command,
             complete: function (data) {
                 document.getElementById('loader_background').style.display = 'none';
+                rotator.stop();
             },
             success: function (data) {
                 if (data.hasError) {
@@ -95,9 +98,6 @@ $( document ).ready(function () {
                 data = jQuery.parseJSON(jqXHR.responseText);
                 alert("ERROR");
             },
-            complete: function (){
-                stopRotator();
-            }
         });
     });
 });

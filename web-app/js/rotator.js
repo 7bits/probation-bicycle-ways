@@ -1,11 +1,28 @@
-function startRotator() {
-    $('div#rotator ul li').css({opacity: 0.0});
-    $('div#rotator ul li:first').css({opacity: 1.0});
-    setInterval('rotate()',375);
+function Rotator(type) {
+    this.id = 0;
+    this.start = start;
+    this.stop = stop;
+    }
+    
+function start() {
+    if(this.id == 0){
+        $('div#rotator ul li').css({opacity: 0.0});
+        $('div#rotator ul li:first').css({opacity: 1.0});
+        this.id = setInterval('rotate()', 375);
+    }
+    else{
+        throw "Rotator already started.";
+    }
 }
 
-function stopRotator() {
-    setInterval('rotate()',0);
+function stop() {
+    if(this.id != 0){
+        clearInterval(this.id);
+        this.id = 0;
+    }
+    else{
+        throw "Rotator wasn't started.";
+    }
 }
 
 function rotate() {
