@@ -33,7 +33,7 @@
     float: right;
 }
 
-.controls_body {
+.controlsBody {
     width: 960px;
     margin: 0 auto;
 }
@@ -54,7 +54,7 @@
     color: #000000;
 }
 
-.radio_text{
+.radioText{
     font: 14px "Open Sans";
     font-weight: 600;
 }
@@ -68,7 +68,7 @@
     float: left;
 }
 
-.control_button {
+.controlButton {
     /*width: 200px;*/
     /*padding: 9px !important;*/
     padding: 9px 0 0 0 !important;
@@ -79,7 +79,7 @@
     margin-right: 10px;
 }
 
-.button_text {
+.buttonText {
     margin: 0px;
     font-size: 14px;
     /*width: auto;*/
@@ -103,7 +103,7 @@
     /*width: 180px;*/
 }
 
-.file_button{
+.fileButton{
     position: absolute;
     height: 22px;
     font-weight: normal;
@@ -118,12 +118,12 @@
     font-weight: 600;
 }
 
-.file_button:hover{
+.fileButton:hover{
     background-color: #660000;
 }
 
 
-.file_name{
+.fileName{
     display: block;
     position: absolute;
     margin-left: 125px;
@@ -137,7 +137,7 @@
     white-space: nowrap;
 }
 
-.file_load{
+.fileLoad{
     font-weight: 600;
     border: 2px solid #E6E6E6;
     padding: 2px;
@@ -185,7 +185,7 @@
     background-color: #666666;
 }
 
-.load_input {
+.loadInput {
     float: left;
     margin: 0px;
     font-weight: 700;
@@ -197,13 +197,13 @@
     margin-top: 17px;
 }
 
-.load_input:hover {
+.loadInput:hover {
     background-color: #F15A24;
     color: #FFFFFF !important;
     cursor: pointer;
 }
 
-.load_input:active {
+.loadInput:active {
     background-color: #D03700;
 }
 
@@ -251,7 +251,7 @@ input[type='radio']:checked + label{
     background-image: url("../img/radio_active.png");
 }
 
-#change_map{
+#changeMap{
     width:50px;
     height:22px;
     marginRight:5px;

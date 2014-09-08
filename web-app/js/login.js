@@ -3,7 +3,7 @@ var rotator = new Rotator();
 $( document ).ready(function () {
     document.getElementById('pError').style.display = 'none';
     document.getElementById('pError').style.display = 'none';
-    if( getParameterByName('loginError') == 1 ){
+    if( getParameterByName('login_error') == 1 ){
         document.getElementById('parentLog').style.display = 'block';
         document.getElementById('pError').style.display = 'block';
     }

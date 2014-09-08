@@ -71,6 +71,14 @@
 #myCarousel {
     margin: 0 auto;
 }
+.carousel_body {
+    width: 100%;
+    background-color: #f4ecff;
+}
+
+#myCarousel {
+    margin: 0 auto;
+}
 
 .carousel {
     /*width: 1920px;*/
@@ -88,7 +96,7 @@
     background-color: #f15a24;
 }
 
-.carouselItem1 {
+.carouselItem{
     background-position: center;
     height: 288px;
     max-width:1920px;

@@ -4,7 +4,7 @@
 </head>
 
 <body>
-    <div id="loader_background" style="display: none">
+    <div id="loaderBackground" style="display: none">
         <div id="rotator">
             <ul>
                 <li class="show"><g:img id="logo" dir="images/bicycle" file="1.png" width="68" height="41" /></li>

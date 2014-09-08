@@ -1,42 +1,43 @@
 <g:applyLayout name="main">
     <head>
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'index.css')}"/>
+        <g:javascript src="carousel.js"/>
     </head>
 
     <body>
-        <div class="carouselBody">
-            <div id="myCarousel" class="carouselSlide">
-                <!-- Carousel indicators -->
-                <g:img class="title" dir="images" file="1-01.png"/>
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                    <li data-target="#myCarousel" data-slide-to="3"></li>
-                </ol>
-                <!-- Carousel items -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        %{--<g:img dir="images" file="1s.png"/>--}%
-                        <div class="carouselItem carouselItem1"></div>
-                    </div>
-                    <div class="item">
-                        <div class="carouselItem carouselItem2"></div>
-                    </div>
-                    <div class="item">
-                        <div class="carouselItem carouselItem3"></div>
-                    </div>
-                    <div class="item">
-                        <div class="carouselItem carouselItem4"></div>
-                    </div>
+    <div class="carousel_body">
+        <div id="myCarousel" class="carousel slide">
+            <!-- Carousel indicators -->
+            <g:img class="title" dir="images" file="1-01.png"/>
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    %{--<g:img dir="images" file="1s.png"/>--}%
+                    <div class="carouselItem carouselItem1"></div>
                 </div>
-                <!-- Carousel nav -->
-                %{--<a class="carousel-control left" href="#myCarousel"--}%
-                   %{--data-slide="prev">&lsaquo;</a>--}%
-                %{--<a class="carousel-control right" href="#myCarousel"--}%
-                   %{--data-slide="next">&rsaquo;</a>--}%
+                <div class="item">
+                    <div class="carouselItem carouselItem2"></div>
+                </div>
+                <div class="item">
+                    <div class="carouselItem carouselItem3"></div>
+                </div>
+                <div class="item">
+                    <div class="carouselItem carouselItem4"></div>
+                </div>
             </div>
+            <!-- Carousel nav -->
+            %{--<a class="carousel-control left" href="#myCarousel"--}%
+            %{--data-slide="prev">&lsaquo;</a>--}%
+            %{--<a class="carousel-control right" href="#myCarousel"--}%
+            %{--data-slide="next">&rsaquo;</a>--}%
         </div>
+    </div>
 
         <div class="info"><br><br>
             <div class="infoText">

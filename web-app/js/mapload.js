@@ -19,7 +19,7 @@ urlParam = function(name){
 
 function pullProcessed() {
     path = "../route/getProcessed";
-    var id = document.getElementById('user_id').value
+    var id = document.getElementById('userId').value
     if(id){
         $.ajax({
             url: path,
@@ -68,7 +68,7 @@ function drawRoutes(viewMode) {
             mode.textContent = "мои маршруты";
         }
     }
-    document.getElementById('loader_background').style.display = 'block';
+    document.getElementById('loaderBackground').style.display = 'block';
     rotator.start();
     prepareViewMode(map);
     $.ajax({
@@ -98,7 +98,7 @@ function drawRoutes(viewMode) {
             data = jQuery.parseJSON(jqXHR.responseText);
         },
         complete:function () {
-            document.getElementById('loader_background').style.display = 'none';
+            document.getElementById('loaderBackground').style.display = 'none';
             rotator.stop();
         }
     });
@@ -136,22 +136,22 @@ function prepareViewMode(mapVar) {
 }
 
 $("document").ready(function () {
-    if($("#load_input") !=null){
-        document.getElementById('loader_background').style.display = 'block';
-        var load = $("#load_input");
+    if($("#loadInput") !=null){
+        document.getElementById('loaderBackground').style.display = 'block';
+        var load = $("#loadInput");
         load.hover(
             function () {
-                $("#upload_icon")[0].src = "../img/icon_active.png";
+                $("#uploadIcon")[0].src = "../img/icon_active.png";
             },
             function () {
-                $("#upload_icon")[0].src = "../img/Waypoint.png";
+                $("#uploadIcon")[0].src = "../img/Waypoint.png";
             }
         );
     }
 
     var loaded = urlParam('loaded');
     if(loaded !=null){
-        document.getElementById('loader_background').style.display = 'none';
+        document.getElementById('loaderBackground').style.display = 'none';
         if(loaded == "true"){
             $.notify("Ваш файл был загружен", "success");
         }
@@ -167,15 +167,15 @@ $("document").ready(function () {
 //            document.getElementById('route_img').src = urlImg;
 //        }
 //    }
-    if (document.getElementById('get_users_routes') != null) {
-        document.getElementById('get_users_routes').onclick = function () {
+    if (document.getElementById('getUsersRoutes') != null) {
+        document.getElementById('getUsersRoutes').onclick = function () {
             viewMode = USERS_TRACKS;
             drawRoutes(viewMode);
         }
 
     }
-    if (document.getElementById('get_all_routes') != null) {
-        document.getElementById('get_all_routes').onclick = function () {
+    if (document.getElementById('getAllRoutes') != null) {
+        document.getElementById('getAllRoutes').onclick = function () {
             viewMode = ALL_TRACKS;
             drawRoutes(viewMode);
         }
@@ -185,8 +185,8 @@ $("document").ready(function () {
         $("#userfile").change(function () {
             var path = this.value;
             var fileName = path.replace(/^.*[\\\/]/, '')
-            var file_name = $("#file_name")[0];
-            file_name.innerText = fileName;
+            var fileName = $("#fileName")[0];
+            fileName.innerText = fileName;
         });
     }
 
@@ -196,7 +196,7 @@ $("document").ready(function () {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         scrollwheel: false
     };
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
     map.set('styles', [
         {
             featureType: 'road',
@@ -216,7 +216,7 @@ $("document").ready(function () {
         }
     ]);
     var mode = document.createElement("input");
-    mode.id = "change_map";
+    mode.id = "changeMap";
     mode.type = "button";
     mode.value = "hm\\fp";
     mode.onclick = function () {
@@ -233,7 +233,7 @@ $("document").ready(function () {
 
 });
 
-function routes_to_points(routes){
+function routesToPoints(routes){
     var points = [];
     for (i = 0; i < routes.length; i++) {
         for (j = 0; j < routes[i].length; j++) {
@@ -256,7 +256,7 @@ function createRoute(routeArray, routeMode) {
             routes.push(flightPath);
         });
     else {
-        var pointArray = new google.maps.MVCArray(routes_to_points(routeArray));
+        var pointArray = new google.maps.MVCArray(routesToPoints(routeArray));
         routes = new google.maps.visualization.HeatmapLayer({
             data: pointArray, opacity: 1, radius: 5, gradient: [
                 'rgba(0, 255, 255, 0)',
