@@ -125,14 +125,10 @@ $("document").ready(function () {
                 $("#uploadIcon")[0].src = "../img/Waypoint.png";
             }
         );
-         $('#load_input').click( function() {
-            document.getElementById('load_file').submit();
-            return false;
-        });
     }
 
-    $('#load_input').click( function() {
-        document.getElementById('load_file').submit();
+    $('#loadInput').click( function() {
+        document.getElementById('loadFile').submit();
         return false;
     });
 
