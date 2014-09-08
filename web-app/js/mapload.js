@@ -7,15 +7,6 @@ var routeMode = HEAT_MAP;
 var viewMode = ALL_TRACKS;
 var lines = [];
 
-function getLoader(){
-    var loader = document.createElement("div");
-    loader.style.width = "126px";
-    loader.style.height = "22px";
-    loader.style.backgroundImage = "url(../images/loader.gif)";
-    loader.id = "loader";
-    return loader;
-}
-
 urlParam = function(name){
     var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
     if(results)
@@ -62,39 +53,6 @@ function pullProcessed() {
     }
 }
 
-function theRotator() {
-    // Устанавливаем прозрачность всех картинок в 0
-    $('div#rotator ul li').css({opacity: 0.0});
-
-    // Берем первую картинку и показываем ее (по пути включаем полную видимость)
-    $('div#rotator ul li:first').css({opacity: 1.0});
-
-    // Вызываем функцию rotate для запуска слайдшоу, 5000 = смена картинок происходит раз в 5 секунд
-    setInterval('rotate()',375);
-}
-
-function rotate() {
-    // Берем первую картинку
-    var current = ($('div#rotator ul li.show')?  $('div#rotator ul li.show') : $('div#rotator ul li:first'));
-
-    // Берем следующую картинку, когда дойдем до последней начинаем с начала
-    var next = ((current.next().length) ? ((current.next().hasClass('show')) ? $('div#rotator ul li:first') :current.next()) : $('div#rotator ul li:first'));
-
-    // Расскомментируйте, чтобы показвать картинки в случайном порядке
-    // var sibs = current.siblings();
-    // var rndNum = Math.floor(Math.random() * sibs.length );
-    // var next = $( sibs[ rndNum ] );
-
-    // Подключаем эффект растворения/затухания для показа картинок, css-класс show имеет больший z-index
-    next.css({opacity: 0.0})
-        .addClass('show')
-        .animate({opacity: 1.0}, 125);
-
-    // Прячем текущую картинку
-    current.animate({opacity: 0.0}, 125)
-        .removeClass('show');
-};
-
 function drawRoutes(viewMode) {
     var mode =  $('#route')[0];
     if(viewMode == ALL_TRACKS) {
@@ -109,12 +67,8 @@ function drawRoutes(viewMode) {
             mode.textContent = "мои маршруты";
         }
     }
-    loader = document.getElementById("loader")
-    if(loader == null){
-//        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(getLoader());
-        document.getElementById('loader_background').style.display = 'block';
-        theRotator();
-    }
+    document.getElementById('loader_background').style.display = 'block';
+    startRotator();
     prepareViewMode(map);
     $.ajax({
         url: path,
@@ -143,8 +97,8 @@ function drawRoutes(viewMode) {
             data = jQuery.parseJSON(jqXHR.responseText);
         },
         complete:function () {
-//            map.controls[google.maps.ControlPosition.BOTTOM].clear();
             document.getElementById('loader_background').style.display = 'none';
+            stopRotator();
         }
     });
 }

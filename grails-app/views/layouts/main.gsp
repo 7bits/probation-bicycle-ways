@@ -8,6 +8,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Velo-Omsk</title>
+    <g:external dir="/img/favicon.ico"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <g:javascript src="vk_auth.js"/>
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?115"></script>
+    <script src="http://userapi.com/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <g:javascript src="rotator.js"/>
     <g:layoutHead/>
     <r:layoutResources/>
 </head>
@@ -15,6 +27,7 @@
 <body>
 <g:render template="/home/header"/>
 <g:render template="/home/login"/>
+<g:render template="/home/rotator"/>
 <g:layoutBody/>
 <g:render template="/home/footer"/>
 </body>

@@ -1,7 +1,6 @@
 <html>
     <head>
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'header.css')}"/>
-        
     </head>
     <body>
         <header>
