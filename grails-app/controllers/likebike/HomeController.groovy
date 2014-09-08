@@ -6,12 +6,6 @@ class HomeController {
         render view: 'index'
     }
     def map = {
-        render view: '/home/map'
-    }
-    def header = {
-        render view: 'header'
-    }
-    def footer = {
-        render view: 'footer'
+        render view: 'map'
     }
 }

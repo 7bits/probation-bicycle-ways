@@ -1,18 +1,4 @@
-function theRotator() {
-    $('div#rotator ul li').css({opacity: 0.0});
-    $('div#rotator ul li:first').css({opacity: 1.0});
-    setInterval('rotate()',375);
-}
-function rotate() {
-    var current = ($('div#rotator ul li.show')? $('div#rotator ul li.show') : $('div#rotator ul li:first'));
-    var next = ((current.next().length) ? ((current.next().hasClass('show')) ? $('div#rotator ul li:first') :current.next()) : $('div#rotator ul li:first'));
-    next.css({opacity: 0.0})
-        .addClass('show')
-        .animate({opacity: 1.0}, 125);
-    current.animate({opacity: 0.0}, 125)
-        .removeClass('show');
-};
-
+var rotator = new Rotator();
 
 $( document ).ready(function () {
     $('#p_error').css("display","none");
@@ -35,7 +21,7 @@ $( document ).ready(function () {
     document.getElementById('p_ok').style.display = 'none'
     $('#register_form').submit(function (e) {
         document.getElementById('loader_background').style.display = 'block';
-        theRotator();
+        rotator.start();
         e.preventDefault();
         var command = {
             username: $('#username').val(),
@@ -53,6 +39,7 @@ $( document ).ready(function () {
             data: command,
             complete: function (data) {
                 document.getElementById('loader_background').style.display = 'none';
+                rotator.stop();
             },
             success: function (data) {
                 if (data.hasError) {
@@ -105,7 +92,7 @@ $( document ).ready(function () {
             error: function (jqXHR) {
                 data = jQuery.parseJSON(jqXHR.responseText);
                 alert("ERROR");
-            }
+            },
         });
     });
 });

@@ -1,5 +1,7 @@
 package likebike
 
+import org.apache.commons.validator.EmailValidator
+
 class User {
 
     transient springSecurityService
