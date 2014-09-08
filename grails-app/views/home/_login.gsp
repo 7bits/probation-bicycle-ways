@@ -4,101 +4,94 @@
     <g:javascript src="login.js"/>
 </head>
 <body>
-    <div id="parent_log">
+    <div id="parentLog">
         <div id="log" class="log">
             <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a href="#login" class="tab_title" role="tab" data-toggle="tab">Логин</a></li>
-                <li><a href="#register" class="tab_title" role="tab" data-toggle="tab">Регистрация</a></li>
+                <li class="active"><a href="#login" class="tabTitle" role="tab" data-toggle="tab">Логин</a></li>
+                <li><a href="#register" class="tabTitle" role="tab" data-toggle="tab">Регистрация</a></li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="login">
                     <form id='login_form' method="POST" action="${createLink(uri: '/j_spring_security_check')}">
 
-                        <p class="log_text_title">Логин</p>
+                        <p class="logTextTitle">Логин</p>
                         <input
-                                class='log_input'
+                                class='logInput'
                                 name='j_username'
                                 id='j_username'/>
                         <br/>
 
-                        <p class="log_text_title">Пароль</p>
+                        <p class="logTextTitle">Пароль</p>
 
                         <input
                                 type='password'
-                                class='text_ log_input'
+                                class='logInput'
                                 name='j_password'
                                 id='j_password'/>
 
-                        <p id="p_error" class='log_text_info'>Неверно введен логин или пароль.</p>
+                        <p id="pError" class='logTextInfo'>Неверно введен логин или пароль.</p>
 
                         <p>
-                            <input type='submit' id="submit" class="log_button" value='Войти'/>
+                            <input type='submit' id="submit" class="logButton" value='Войти'/>
                         </p>
                     </form>
                     <div id="vk_auth"></div>
                 </div>
                 <div class="tab-pane" id="register">
-                    %{--<div id="p_ok" style="display: none">--}%
-                        %{--<p class="reg_text">--}%
-                            %{--На указанный адрес электронной почты отправлено письмо с подтверждением.<br>--}%
-                            %{--Пройдите по ссылке в письме для завершения регистрации.--}%
-                        %{--</p>--}%
-                        %{--<button id="good">Хорошо</button>--}%
-                    %{--</div>--}%
-                    <p id="p_ok" style="display: none">На указанный адрес электронной почты отправлено письмо с подтверждением.<br>
+                    <p id="pOk" style="display: none">На указанный адрес электронной почты отправлено письмо с подтверждением.<br>
                                                         Пройдите по ссылке в письме для завершения регистрации.
                     </p>
-                    <g:form name='register_form' id='register_form'>
-                        <p class="reg_text_title">Логин</p>
+                    <g:form name='registerForm' id='registerForm'>
+                        <p class="regTextTitle">Логин</p>
                         <input
-                                class="reg_input"
+                                class="regInput"
                                 id='username'
                                 name='username'
                                 labelCode='user.username.label'
                                 labelCodeDefault='Username'
                                 value=""/>
                         <br/>
-                        <span id="username_error" class="reg_text_info"></span>
+                        <span id="usernameError" class="regTextInfo"></span>
                         <br/>
 
-                        <p class="reg_text_title">E-mail</p>
+                        <p class="regTextTitle">E-mail</p>
                         <input
-                                class="reg_input"
+                                class="regInput"
                                 id='email'
                                 name='email'
                                 value=""
                                 labelCode='user.email.label'
                                 labelCodeDefault='E-mail'/>
                         <br/>
-                        <span id="email_error" class="reg_text_info"></span>
+                        <span id="emailError" class="regTextInfo"></span>
                         <br/>
 
-                        <p class="reg_text_title">Пароль</p>
+                        <p class="regTextTitle">Пароль</p>
                         <input
                                 type='password'
-                                class="reg_input"
+                                class="regInput"
                                 id='password'
                                 name='password'
                                 labelCode='user.password.label'
                                 labelCodeDefault='Password'
                                 value=""/>
                         <br/>
-                        <span id="password_error" class="reg_text_info"></span>
+                        <span id="passwordError" class="regTextInfo"></span>
                         <br/>
 
-                        <p class="reg_text_title">Еще раз пароль</p>
+                        <p class="regTextTitle">Еще раз пароль</p>
                         <input
                                 type='password'
-                                class="reg_input"
+                                class="regInput"
                                 id='password2'
                                 name='password2'
                                 labelCode='user.password2.label'
                                 labelCodeDefault='Password (again)'
                                 value=""/>
                         <br/>
-                        <span id="password2_error" class="reg_text_info"></span>
+                        <span id="password2Error" class="regTextInfo"></span>
                         <br/>
-                        <button id="reg_submit">Зарегистрироваться</button>
+                        <button id="regSubmit">Зарегистрироваться</button>
                         <span id="spiner"></span>
                     </g:form>
                 </div>

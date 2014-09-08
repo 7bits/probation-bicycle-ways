@@ -3,7 +3,7 @@
     src: local("Tahoma"), url(../fonts/Tahoma.ttf);
 }
 
-#parent_info {
+#parentInfo {
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.65)), color-stop(100%, rgba(0, 0, 0, 0))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* Chrome10+,Safari5.1+ */
@@ -21,7 +21,7 @@
     top: 0;
     left: 0;
 }
-#p_info {
+#pInfo {
     margin: 75px;
     font: 14px "Tahoma";
 }
@@ -34,23 +34,4 @@
     color: #000;
     width: 440px; /*680px;*/
     height: 200px; /*660px;*/
-}
-
-#close_info {
-    position: relative;
-    text-align: center;
-    left: 420px;
-    border-radius: 4px;
-    height: 20px;
-    background-color: #D5D7D8;
-    width: 20px;
-    cursor: pointer;
-}
-
-#close_info:hover {
-    background-color: #9B9AA0;
-}
-
-#close_info:active {
-    background-color: #D5D7D8;
 }

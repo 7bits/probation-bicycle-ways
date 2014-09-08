@@ -22,7 +22,7 @@ menu {
     background: #f4ecff;
 }
 
-#menu_list {
+#menuList {
     overflow: auto;
     list-style: none;
     display: compact;
@@ -31,7 +31,7 @@ menu {
     /*width: auto;*/
 }
 
-.menu_list_item {
+.menuListItem {
     float: left;
     display: block;
     margin-right: 30px;
@@ -41,24 +41,24 @@ menu {
     /*overflow: auto;*/
 }
 
-.menu_list_item:hover {
+.menuListItem:hover {
     border-bottom-color:#f15a24;
 }
 
-.menu_a:hover {
+.menuA:hover {
     color: #000000;
     text-decoration: none;
     /*border-bottom-style: solid;*/
     border-bottom-color: #f15a24;
 }
 
-.menu_a {
+.menuA {
     font: 16px "Open Sans";
     color: #000000;
     padding-bottom: 25px;
 }
 
-.menu_text {
+.menuText {
     font: 16px "Open Sans";
     text-decoration: none;
     color: #000000;
@@ -67,24 +67,12 @@ menu {
     padding-bottom: 29px;
 }
 
-.menu_text:hover {
+.menuText:hover {
     border-bottom-style: solid;
     border-bottom-color: #f15a24;
 }
 
-/*@media (min-width: 1300px) {*/
-
-/*#before_menu {*/
-/*width: 100%;*/
-/*}*/
-
-/*header {*/
-/*width: 100%;*/
-/*}*/
-
-/*}*/
-
-#if_login {
+#ifLogin {
     height: 36px;
     width: 100%;
 }
@@ -96,7 +84,7 @@ menu {
     margin: 80px;
 }
 
-#logo_text {
+#logoText {
     font: 24px "casper_bold";
     float: left;
     height: auto;
@@ -104,7 +92,7 @@ menu {
     margin: 30px 8px 0 40px;
 }
 
-#logo_head {
+#logoHead {
     float: left;
     margin: 18px 0 0 10px;
 }
@@ -120,25 +108,25 @@ menu {
     padding-top: 35px;
 }
 
-.mobile_content {
+.mobileContent {
     width: 960px;
     height: auto;
     background-color: #f15a24;
     margin: 36px auto 0;
 }
 
-.mobile_phone {
+.mobilePhone {
     margin-left: 250px;
     float: left;
     width: 120px;
     height: 234px;
 }
 
-.panel_text {
+.panelText {
     overflow: hidden;
 }
 
-.panel_title {
+.panelTitle {
     font: 16px "Open Sans";
     color: #ffffff;
     margin-left: 40px;
@@ -147,7 +135,7 @@ menu {
     float: left;
 }
 
-.panel_info {
+.panelInfo {
     font: 14px "Open Sans";
     color: #ffffff;
     float: left;
@@ -155,7 +143,7 @@ menu {
     margin-left: 40px;
 }
 
-.panel_apple {
+.panelApple {
     width: 125px;
     height: 36px;
     background-color: #000000;
@@ -164,7 +152,7 @@ menu {
     margin-top: 40px;
 }
 
-.panel_android {
+.panelAndroid {
     width: 125px;
     height: 36px;
     background-color: #000000;
@@ -193,25 +181,25 @@ menu {
     z-index: 1000;
 }
 
-#mobile_a {
+#mobileA {
     font: 16px "Open Sans";
     color: #ffffff;
     padding-bottom: 25px;
 }
 
-#mobile_a:hover {
+#mobileA:hover {
     /*color: #000000;*/
     text-decoration: none;
     color: #ffffff;
 }
 
-.if_login {
+.ifLogin {
     height: 36px;
     width: auto;
     background-color: #ffffff;
 }
 
-.login_text {
+.loginText {
     height: 36px;
     width: auto;
     position: relative;
@@ -220,7 +208,7 @@ menu {
     margin: 0 auto;
 }
 
-.if_login_body {
+.ifLoginBody {
     width: 960px;
     margin: 0 auto;
 }
@@ -242,7 +230,7 @@ menu {
     color: #000000;
 }
 
-.login_menu_text {
+.loginMenuText {
     font: 14px "Open Sans";
     text-decoration: none;
     color: #000000;

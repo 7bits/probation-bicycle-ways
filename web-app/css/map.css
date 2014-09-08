@@ -30,6 +30,7 @@
 .controls{
     font: 14px "Open Sans";
     font-weight: 700;
+    display: block;
     float: right;
 }
 
@@ -249,4 +250,11 @@ input[type='radio'] + label{
 
 input[type='radio']:checked + label{
     background-image: url("../img/radio_active.png");
+}
+
+#changeMap{
+    width:50px;
+    height:22px;
+    marginRight:5px;
+    .backgroundImage:#000000;
 }
