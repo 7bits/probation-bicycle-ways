@@ -150,12 +150,6 @@ $("document").ready(function () {
         window.history.pushState("object or string", "Title", window.location.href.replace(/\?loaded=.*/i, ""));
     }
     window.setInterval(pullProcessed, 5000);
-//    document.getElementById('screen').onclick = function () {
-//        if(routeArray.length){
-//            var urlImg = routeToStaticMapURL(routeArray[routeArray.length - 1]);
-//            document.getElementById('route_img').src = urlImg;
-//        }
-//    }
     if (document.getElementById('getUsersRoutes') != null) {
         document.getElementById('getUsersRoutes').onclick = function () {
             viewMode = USERS_TRACKS;
