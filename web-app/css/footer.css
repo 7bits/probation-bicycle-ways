@@ -5,12 +5,13 @@ footer {
     margin: 0 auto;
     padding: 0;
     background: #ff6633;
+    float: left;
 }
 
-.on_footer {
-    width: 960px;
+.onFooter {
     margin: 0 auto;
     text-align: center;
+    width: 960px;
 }
 
 /*#menu_footer {*/
@@ -24,7 +25,7 @@ footer {
     /*margin: 18px 0 0 0;*/
 /*}*/
 
-.menu_list_item_footer {
+.menuListItemFooter {
     float: left;
     display: block;
     margin-right: 30px;
@@ -32,7 +33,7 @@ footer {
     padding: 0px 0px 0px 0px;
 }
 
-#menu_list_footer {
+#menuListFooter {
     font:16px "Open Sans";
     font-weight: 300;
     list-style: none;
@@ -48,11 +49,11 @@ footer {
     /*color: #ffffff;*/
 /*}*/
 
-.menu_a_footer {
+.menuFooter {
     color: #ffffff;
 }
 
-.menu_a_footer:hover {
+.menuFooter:hover {
     color: #ffffff;
     text-decoration: underline;
 }
@@ -65,12 +66,12 @@ footer {
     margin-top: 18px;
 }
 
-#logo_footer {
+#logoFooter {
     float: left;
     margin: 10px 0 0 10px;
 }
 
-#on_footer {
+#onFooter {
     overflow: hidden;
     height: 72px;
 }

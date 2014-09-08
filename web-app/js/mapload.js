@@ -216,10 +216,7 @@ $("document").ready(function () {
         }
     ]);
     var mode = document.createElement("input");
-    mode.style.width = "50px";
-    mode.style.height = "22px";
-    mode.style.marginRight = "5px";
-    mode.style.backgroundImage = "#000000";
+    mode.id = "change_map";
     mode.type = "button";
     mode.value = "hm\\fp";
     mode.onclick = function () {
