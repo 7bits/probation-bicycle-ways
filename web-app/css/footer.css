@@ -14,16 +14,6 @@ footer {
     width: 960px;
 }
 
-/*#menu_footer {*/
-/*position: relative;*/
-/*width: 1020px;*/
-/*height: 72px;*/
-/*margin: 0 auto;*/
-/*padding: 0;*/
-/*text-align: center;*/
-/*background: #ff6633;*/
-/*margin: 18px 0 0 0;*/
-/*}*/
 
 .menuListItemFooter {
     float: left;
@@ -43,11 +33,6 @@ footer {
     margin: 23px 0 0 25px;
     float: left;
 }
-
-/*.menu_text_footer {*/
-/*text-decoration: none;*/
-/*color: #ffffff;*/
-/*}*/
 
 .menuFooter {
     color: #ffffff;

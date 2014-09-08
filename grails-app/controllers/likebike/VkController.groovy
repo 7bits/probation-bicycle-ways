@@ -7,7 +7,6 @@ class VkController {
     def springSecurityService
 
     def auth() {
-        def params = params
         String uid = params['uid']
         String secret_key = "YIe1xEs8vWkImchof0Ll";
         String API_ID = "4512659"

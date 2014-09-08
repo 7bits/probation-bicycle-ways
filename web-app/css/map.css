@@ -30,6 +30,7 @@
 .controls{
     font: 14px "Open Sans";
     font-weight: 700;
+    display: block;
     float: right;
 }
 
