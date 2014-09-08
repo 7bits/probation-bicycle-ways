@@ -7,6 +7,4 @@ $("document").ready(function () {
         window.onload = function () {
         var result = VK.Widgets.Auth('vk_auth', {width: "200", authUrl: '../vk/auth'});
     }
-
-
 });

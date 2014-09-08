@@ -95,6 +95,7 @@ grails.cache.config = {
     }
 }
 
+
 grails {
     mail {
         host = "smtp.gmail.com"
@@ -118,3 +119,9 @@ grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/?login_error=
 grails.plugins.springsecurity.ui.register.defaultRoleNames = ['ROLE_USER']
 grails.plugins.springsecurity.ui.encodePassword = false
 grails.plugins.springsecurity.ui.register.postRegisterUrl = '/'
+
+emailBody = '<td>Доброго времени суток, $user.username,<br> ' +
+        '<br> Вы (или кто-то, притворяющийся вами) использовали этот адрес чтобы создать аккаунт.<br>' +
+        '<br>Если это вы, то кликните &nbsp;<a href="$url">здесь</a>, чтобы закончить регистрацию.</td>'
+emailFrom = 'Velo-Omsk'
+emailSubject = 'Регистрация на Velo-Omsk'
