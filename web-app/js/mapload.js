@@ -171,8 +171,8 @@ $("document").ready(function () {
         $("#userfile").change(function () {
             var path = this.value;
             var fileName = path.replace(/^.*[\\\/]/, '')
-            var fileName = $("#fileName")[0];
-            fileName.innerText = fileName;
+            var file = $("#fileName")[0];
+            file.innerText = fileName;
         });
     }
 
