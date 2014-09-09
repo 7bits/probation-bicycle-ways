@@ -173,6 +173,7 @@ $("document").ready(function () {
             var fileName = path.replace(/^.*[\\\/]/, '')
             var file = $("#fileName")[0];
             file.innerText = fileName;
+            file.textContent = fileName;
         });
     }
 
