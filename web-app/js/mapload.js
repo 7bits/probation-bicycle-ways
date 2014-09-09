@@ -146,7 +146,7 @@ $("document").ready(function () {
     if(loadedCode != null){
         var loadedMessage = $("#loadedMessage")[0].value;
         document.getElementById('loaderBackground').style.display = 'none';
-        if(loadedCode.value == true){
+        if(loadedCode.value == "true"){
             $.notify(loadedMessage, "success");
         }
         else{
