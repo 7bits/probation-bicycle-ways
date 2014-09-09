@@ -8,9 +8,13 @@
     </head>
 
     <body>
-        <g:hiddenField id="userId" name="userId" value="${sec.loggedInUserInfo(field:'id')}" />
+        <g:hiddenField id="userId" name="userId" value="${sec.loggedInUserInfo(field:'id')}"/>
         <div id="routes" class="routes">
         <sec:ifLoggedIn>
+            <g:if test="${loadedCode != null}">
+                <g:hiddenField id="loadedMessage" name="loadedMessage" value="${loadedMessage}"/>
+                <g:hiddenField id="loadedCode" name="loadedCode" value="${loadedCode}"/>
+            </g:if>
             <div class="controlsBody">
                 <div class="controls">
                     <sec:ifLoggedIn>

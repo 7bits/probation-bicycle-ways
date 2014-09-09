@@ -40,11 +40,12 @@ class RouteController {
     def getProcessed(){
         if(params.id) {
             def rows = fileService.getProcessed(params.id)
-            List resultList = []
+            List filesList = []
             rows.each() {
-                resultList << [it['file_name'], it['processed']]
+                filesList << [it['file_name'], it['processed']]
                 fileService.setAlert(it['id'])
             }
+            def resultList = [successMessage: "Обработаны файлы: ", errorMessage: "Неправильный формат файла в: ", list: filesList]
             render resultList as JSON
         }
         def error = ['error':'no user']

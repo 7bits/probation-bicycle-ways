@@ -32,6 +32,10 @@ $( document ).ready(function () {
         data = {
             command: command
         }
+        document.getElementById('usernameError').innerHTML = '';
+        document.getElementById('emailError').innerHTML = '';
+        document.getElementById('passwordError').innerHTML = '';
+        document.getElementById('password2Error').innerHTML = '';
         $.ajax({
             type: 'POST',
             url: getUrl() + '/register/register',
@@ -46,37 +50,17 @@ $( document ).ready(function () {
                     document.getElementById('password').value = '';
                     document.getElementById('password2').value = '';
 
-                    if (data.username == 'right') {
-                        document.getElementById('usernameError').innerHTML = '';
+                    if (data.username != null) {
+                        document.getElementById('usernameError').innerHTML = data.username;
                     }
-                    if (data.email == 'right') {
-                        document.getElementById('emailError').innerHTML = '';
+                    if (data.email != null) {
+                        document.getElementById('emailError').innerHTML = data.email;
                     }
-                    if (data.password == 'right') {
-                        document.getElementById('passwordError').innerHTML = '';
+                    if (data.password != null) {
+                        document.getElementById('passwordError').innerHTML = data.password;
                     }
-                    if (data.password2 == 'right') {
-                        document.getElementById('password2Error').innerHTML = '';
-                    }
-
-
-                    if (data.username == 'userNameHold') {
-                        document.getElementById('usernameError').innerHTML = 'Данное имя уже ипользуется.';
-                    }
-                    if (data.username == 'empty') {
-                        document.getElementById('usernameError').innerHTML = 'Имя не должно быть пустым';
-                    }
-                    if (data.email == 'empty') {
-                        document.getElementById('emailError').innerHTML = 'email не должен быть пустым';
-                    }
-                    if (data.email == 'emailNotValide') {
-                        document.getElementById('emailError').innerHTML = 'Неверный email.';
-                    }
-                    if (data.password != 'right') {
-                        document.getElementById('passwordError').innerHTML = 'Неверный пароль. Пароль не должен быть короче 8 символов.';
-                    }
-                    if (data.password2 == 'passwordNotMatch') {
-                        document.getElementById('password2Error').innerHTML = 'Пароли не совпадают.';
+                    if (data.password2 != null) {
+                        document.getElementById('password2Error').innerHTML = data.password2;
                     }
                 }
                 if (!data.hasError) {
@@ -84,7 +68,7 @@ $( document ).ready(function () {
                     document.getElementById('email').value = '';
                     document.getElementById('password').value = '';
                     document.getElementById('password2').value = '';
-                    document.getElementById('register_form').style.display = 'none';
+                    document.getElementById('registerForm').style.display = 'none';
                     document.getElementById('pOk').style.display = 'block';
                 }
 

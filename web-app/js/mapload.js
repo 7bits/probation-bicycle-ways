@@ -27,22 +27,25 @@ function pullProcessed() {
             dataType: "json",
             data: {id:id},
             success: function (data) {
-                if(data.length > 0){
-                    console.log(data);
+                var successMessage = data.successMessage;
+                var errorMessage = data.errorMessage;
+                var list = data.list;
+                if(list.length > 0){
+                    console.log(list);
                     var success = [];
                     var error = [];
-                    for(i = 0; i < data.length; i++){
-                        if(data[i][1] != 2){
-                            error.push(data[i][0])
+                    for(i = 0; i < list.length; i++){
+                        if(list[i][1] != 2){
+                            error.push(list[i][0])
                         }
                         else{
-                            success.push(data[i][0])
+                            success.push(list[i][0])
                         }
                     }
                     if(success.length)
-                        $.notify("Обработаны файлы: " + success, "success");
+                        $.notify(successMessage + success, "success");
                     if(error.length)
-                        $.notify("Неправильный формат файла в: " + error, "error");
+                        $.notify(errorMessage + error, "error");
                 }
             },
             error: function (jqXHR) {
@@ -139,18 +142,16 @@ $("document").ready(function () {
         return false;
     });
 
-
-
-    var loaded = urlParam('loaded');
-    if(loaded !=null){
+    var loadedCode = $("#loadedCode")[0];
+    if(loadedCode != null){
+        var loadedMessage = $("#loadedMessage")[0].value;
         document.getElementById('loaderBackground').style.display = 'none';
-        if(loaded == "true"){
-            $.notify("Ваш файл был загружен", "success");
+        if(loadedCode.value == true){
+            $.notify(loadedMessage, "success");
         }
         else{
-            $.notify("Ваш файл не был загружен");
+            $.notify(loadedMessage);
         }
-        window.history.pushState("object or string", "Title", window.location.href.replace(/\?loaded=.*/i, ""));
     }
     window.setInterval(pullProcessed, 5000);
     if (document.getElementById('getUsersRoutes') != null) {
