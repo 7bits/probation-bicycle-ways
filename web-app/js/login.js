@@ -1,27 +1,22 @@
 var rotator = new Rotator();
 
 $( document ).ready(function () {
-    document.getElementById('pError').style.display = 'none';
-    document.getElementById('pError').style.display = 'none';
-    if( getParameterByName('login_error') == 1 ){
-        document.getElementById('parentLog').style.display = 'block';
-        document.getElementById('pError').style.display = 'block';
+    $('#pError').css("display","none");
+    if( getParameterByName('loginError') == 1 ){
+        $("#parentLog").css("display",'block');
+        $('#pError').css("display", 'block');
     }
-    if( document.getElementById('pLog') != null){
-        document.getElementById('pLog').onclick = function () {
-            document.getElementById('parentLog').style.display = 'block';
-            document.getElementById("parentLog").onclick = function (data) {
-                if(data.srcElement == document.getElementById("parentLog")){
-                    document.getElementById("parentLog").style.display = 'none';
-                }
-            };
-        }
+    if( $('#pLog') != null){
+        $('#pLog').click ( function () {
+            $("#parentLog").css("display", 'block');
+        });
     }
-    document.getElementById("parentLog").onclick = function (data) {
-        if(data.srcElement == document.getElementById("parentLog")){
-            document.getElementById("parentLog").style.display = 'none';
+    $("#parentLog").click(function (data) {
+        var clicked = data.target || data.srcElement;
+        if(clicked == $("#parentLog")[0]){
+            $("#parentLog")[0].style.display="none";
         }
-    };
+    });
     
     document.getElementById('pOk').style.display = 'none'
     $('#registerForm').submit(function (e) {
