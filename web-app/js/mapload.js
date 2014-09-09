@@ -18,7 +18,7 @@ urlParam = function(name){
 }
 
 function pullProcessed() {
-    path = "../route/getProcessed";
+    path = getUrl() + "/route/getProcessed";
     var id = document.getElementById('userId').value
     if(id){
         $.ajax({
@@ -56,14 +56,15 @@ function pullProcessed() {
 
 function drawRoutes(viewMode) {
     var mode =  $('#route')[0];
+    path = getUrl() + "/route/";
     if(viewMode == ALL_TRACKS) {
-        path = "../route/getRoute";
+        path += "getRoute";
         if(mode != null){
             mode.textContent = "все маршруты";
         }
     }
     else{
-        path = "../route/getUsersRoute";
+        path += "getUsersRoute";
         if(mode != null){
             mode.textContent = "мои маршруты";
         }
@@ -119,16 +120,22 @@ $("document").ready(function () {
         var load = $("#loadInput");
         load.hover(
             function () {
-                $("#uploadIcon")[0].src = "../img/icon_active.png";
+                $("#uploadIcon")[0].src = getUrl() + "/img/icon_active.png";
             },
             function () {
-                $("#uploadIcon")[0].src = "../img/Waypoint.png";
+                $("#uploadIcon")[0].src = getUrl() + "/img/Waypoint.png";
             }
         );
     }
 
     $('#loadInput').click( function() {
-        document.getElementById('loadFile').submit();
+        var userfile = $("#userfile")[0];
+        if(userfile.value != ""){
+            document.getElementById('loadFile').submit();
+        }
+        else{
+            $.notify("Файл не выбран");
+        }
         return false;
     });
 

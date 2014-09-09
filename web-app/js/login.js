@@ -2,7 +2,7 @@ var rotator = new Rotator();
 
 $( document ).ready(function () {
     $('#pError').css("display","none");
-    if( getParameterByName('loginError') == 1 ){
+    if( getParameterByName('login_error') == 1 ){
         $("#parentLog").css("display",'block');
         $('#pError').css("display", 'block');
     }
@@ -34,7 +34,7 @@ $( document ).ready(function () {
         }
         $.ajax({
             type: 'POST',
-            url: '../register/register',
+            url: getUrl() + '/register/register',
             datatype: JSON,
             data: command,
             complete: function (data) {
@@ -96,11 +96,3 @@ $( document ).ready(function () {
         });
     });
 });
-
-function getParameterByName(name) {
-
-    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
