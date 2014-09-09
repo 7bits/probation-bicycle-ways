@@ -71,7 +71,6 @@ function drawRoutes(viewMode) {
     }
     document.getElementById('loaderBackground').style.display = 'block';
     rotator.start();
-    prepareViewMode(map);
     $.ajax({
         url: path,
         type: "post",
@@ -115,27 +114,6 @@ function setAll(mode){
     }
 }
 
-function prepareViewMode(mapVar) {
-    var view = $("#viewMode")[0];
-    if(view == null){
-        view = document.createElement("div");
-        view.style.width = "200px";
-        view.style.height = "50px";
-        view.style.marginTop = "75px";
-        view.style.marginRight = "auto";
-        view.style.marginLeft = "auto";
-        view.style.fontSize = "20px";
-        view.id = "viewMode";
-        mapVar.controls[google.maps.ControlPosition.TOP].push(view);
-    }
-//    if(viewMode == USERS_TRACKS){
-//        view.innerText = "Ваши треки";
-//    }
-//    else{
-//       view.innerText = "Все треки";
-//    }
-}
-
 $("document").ready(function () {
     if($("#loadInput") !=null){
         document.getElementById('loaderBackground').style.display = 'block';
@@ -158,13 +136,6 @@ $("document").ready(function () {
         else{
             $.notify("Файл не выбран");
         }
-        return false;
-    });
-
-   
-
-    $('#loadInput').click( function() {
-        document.getElementById('loadFile').submit();
         return false;
     });
 
