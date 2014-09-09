@@ -16,36 +16,32 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
     def register = {
 
         def outErrors = [
-                hasError: false,
-                username: 'right',
-                email: 'right',
-                password: 'right',
-                password2: 'right'
+                hasError: false
         ]
 
         if (params['username'] == '') {
-            outErrors.username = 'empty'
+            outErrors.username = 'Имя не может быть пустым '
         } else {
             if (lookupUserClass().findByUsername(params['username'])) {
-                outErrors.username = 'userNameHold'
+                outErrors.username = 'Это имя уже используется'
             }
         }
 
         if (!EmailValidator.getInstance().isValid(params['email'])) {
-            outErrors.email = 'emailNotValide'
+            outErrors.email = 'Неправильный E-mail'
         }
         if (params['email'] == '') {
-            outErrors.email = 'empty'
+            outErrors.email = 'E-mail не может быть пустым'
         }
         if (params['password'] == '') {
-            outErrors.password = 'empty'
+            outErrors.password = 'Неверный пароль. Пароль не должен быть короче 8 символов. '
         }
         if (params['password2'] == '') {
-            outErrors.password2 = 'empty'
+            outErrors.password2 = 'Введите пароль повторно'
         }
 
         if (params['password2'] != params['password']) {
-            outErrors.password2 = 'passwordNotMatch'
+            outErrors.password2 = 'Пароли не совпадают'
         }
 
         String passwordVal = params['password'];
@@ -54,12 +50,12 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
                 && passwordVal.length() >= 8
                 && passwordVal.length() <= 64
         )) {
-            outErrors.password = 'passwordNotValid'
+            outErrors.password = 'Пароль не должен быть короче 8-ми и длиннее 64-х символов'
         }
 
 
 
-        if ((outErrors.username != 'right') || (outErrors.email != 'right') || (outErrors.password != 'right') || (outErrors.password2 != 'right')) {
+        if ((outErrors.username != null) || (outErrors.email != null) || (outErrors.password != null) || (outErrors.password2 != null)) {
             outErrors.hasError = true
             render outErrors as JSON
             return
