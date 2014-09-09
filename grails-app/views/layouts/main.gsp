@@ -19,16 +19,17 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <g:javascript src="commonJS.js"/>
     <g:javascript src="rotator.js"/>
     <g:layoutHead/>
     <r:layoutResources/>
 </head>
 
-<body>
-<g:render template="/home/header"/>
-<g:render template="/home/login"/>
-<g:render template="/home/rotator"/>
-<g:layoutBody/>
-<g:render template="/home/footer"/>
+<body data-url="${createLink(uri: '')}">
+    <g:render template="/home/header"/>
+    <g:render template="/home/login"/>
+    <g:render template="/home/rotator"/>
+    <g:layoutBody/>
+    <g:render template="/home/footer"/>
 </body>
 </html>
