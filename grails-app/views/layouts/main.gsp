@@ -21,14 +21,14 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <g:javascript src="commonJS.js"/>
     <g:javascript src="rotator.js"/>
-    <g:layoutHead/>
     <r:layoutResources/>
+    <g:layoutHead/>
 </head>
 
 <body data-url="${createLink(uri: '')}">
+    <g:render template="/home/rotator"/>
     <g:render template="/home/header"/>
     <g:render template="/home/login"/>
-    <g:render template="/home/rotator"/>
     <g:layoutBody/>
     <g:render template="/home/footer"/>
 </body>

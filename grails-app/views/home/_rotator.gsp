@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'rotator.css')}"/>
-    <g:javascript src="rotator.js"/>
+
 </head>
 
 <body>

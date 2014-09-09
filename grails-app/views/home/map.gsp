@@ -3,7 +3,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'map.css')}"/>
-        <g:javascript src="notify.js"/>
+        <g:javascript src="lib/notify.js"/>
         <g:javascript src="mapload.js"/>
     </head>
 
