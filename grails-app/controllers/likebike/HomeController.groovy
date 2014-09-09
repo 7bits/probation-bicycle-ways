@@ -8,7 +8,8 @@ class HomeController {
 
     def map = {
         if(params.loaded) {
-            if (params.loaded == true) {
+            def params = params
+            if (params.loaded == "true") {
                 render view: 'map', model: [loadedCode: true, loadedMessage: "Ваш файл был загружен"]
                 return
             } else {
