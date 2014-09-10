@@ -35,7 +35,7 @@ environments {
             dbCreate = "update"
             url = "jdbc:mysql://localhost:3306/likeBike?useUnicode=yes&characterEncoding=UTF-8"
             username = "likebike"
-            password = "likebike"
+            password = "MSsZYR7dMJwYRAC5"
         }
     }
 }

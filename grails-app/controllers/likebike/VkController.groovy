@@ -1,5 +1,7 @@
 package likebike
 
+import grails.util.Holders
+
 class VkController {
 
     static final int MAX_NUMBER_OF_IVANS = 100;
@@ -8,10 +10,10 @@ class VkController {
 
     def auth() {
         String uid = params['uid']
-        String secret_key = "YIe1xEs8vWkImchof0Ll";
-        String API_ID = "4512659"
+        String secretKey = Holders.config.vkSecretKey
+        String API_ID = Holders.config.apiId
         def hash = params['hash']
-        def ourHash = (API_ID + uid + secret_key).encodeAsMD5()
+        def ourHash = (API_ID + uid + secretKey).encodeAsMD5()
         if (hash == ourHash) {
             def user = likebike.User.findByUid(uid)
             if (!user) {

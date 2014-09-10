@@ -125,3 +125,5 @@ emailBody = '<td>Доброго времени суток, $user.username,<br> '
         '<br>Если это вы, то кликните &nbsp;<a href="$url">здесь</a>, чтобы закончить регистрацию.</td>'
 emailFrom = 'Velo-Omsk'
 emailSubject = 'Регистрация на Velo-Omsk'
+vkSecretKey = "YIe1xEs8vWkImchof0Ll"
+apiId = "4512659"
