@@ -8,13 +8,12 @@ class FileService {
 
     def getNext() {
         Sql sql = new groovy.sql.Sql(dataSource)
-        return sql.firstRow('select * from file where file.processed = false limit 1;')
+        return sql.firstRow('select * from file where file.processed = ? limit 1;', [File.NOT_PROCESSED])
     }
 
     def getProcessed(id) {
         Sql sql = new groovy.sql.Sql(dataSource)
-        String query = 'select * from file where user_alert=false and not file.processed = ' + File.NOT_PROCESSED + ' and user_id ='+ id +';'
-        return sql.rows(query)
+        return sql.rows('select * from file where user_alert=false and not file.processed = ? and user_id = ?;', [File.NOT_PROCESSED, id])
     }
 
     void markProcessed() {
@@ -24,7 +23,6 @@ class FileService {
 
     void setAlert(id) {
         Sql sql = new groovy.sql.Sql(dataSource)
-        String query = 'update file set user_alert = true where id ='+ id +';';
-        sql.executeUpdate(query)
+        sql.executeUpdate('update file set user_alert = true where id = ?;', [id])
     }
 }
