@@ -52,30 +52,14 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
         )) {
             outErrors.password = 'Пароль не должен быть короче 8-ми и длиннее 64-х символов'
         }
-
-
-
-        if ((outErrors.username != null) || (outErrors.email != null) || (outErrors.password != null) || (outErrors.password2 != null)) {
-            outErrors.hasError = true
-            render outErrors as JSON
-            return
-        }
-
         def command = new RegisterCommand()
         command.setUsername(params['username'])
         command.setEmail(params['email'])
         command.setPassword(params['password'])
         command.setPassword2(params['password2'])
 
-        //if (command.hasErrors()) {
-        //    //redirect(controller: "home", action: "index", model: [command: command])
-        //    render command as JSON
-        //}
-
-        String salt = saltSource instanceof NullSaltSource ? null : command.username
-        //not encode password
         String password = command.password //springSecurityService.encodePassword(command.password)
-        def user = lookupUserClass().newInstance(
+        User user = lookupUserClass().newInstance(
                 email: command.email,
                 username: command.username,
                 password: password,
@@ -84,6 +68,14 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
                 uid: ""
         )
         user.save(flush: true)
+
+        if (!user.validate()) {
+            outErrors = user.getErrors()
+            render outErrors as JSON
+            return
+        }
+
+        String salt = saltSource instanceof NullSaltSource ? null : command.username
         def registrationCode = new RegistrationCode(username: user.username).save()
         String url = "http://" + generateLink('verifyRegistration', [t: registrationCode.token])
         def conf = Holders.config
