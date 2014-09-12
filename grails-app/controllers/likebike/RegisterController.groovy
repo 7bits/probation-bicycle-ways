@@ -176,6 +176,14 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
         String postResetUrl = conf.ui.register.postResetUrl ?: conf.successHandler.defaultTargetUrl
         redirect uri: postResetUrl
     }
+
+    def static usernameValidator = { value ->
+        if (value) {
+            if (User.findByUsername(value)) {
+                return 'registerCommand.username.unique'
+            }
+        }
+    }
 }
 
 @Validateable
@@ -187,14 +195,7 @@ class RegisterCommand  {
     String password2
 
     static constraints = {
-        username blank: false, validator: { value, command ->
-            if (value) {
-                User User = new User(username: value)
-                if (User.findByUsername(value)) {
-                    return 'registerCommand.username.unique'
-                }
-            }
-        }
+        username blank: false, validator: RegisterController.usernameValidator
         email blank: false, email: true
         password blank: false, validator: grails.plugins.springsecurity.ui.RegisterController.passwordValidator
         password2 validator: grails.plugins.springsecurity.ui.RegisterController.password2Validator
