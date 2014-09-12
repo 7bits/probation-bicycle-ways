@@ -1,6 +1,7 @@
 package likebike
 
-import org.apache.commons.validator.EmailValidator
+import grails.validation.Validateable
+import org.springframework.context.i18n.LocaleContextHolder as LCH
 import org.codehaus.groovy.grails.plugins.springsecurity.NullSaltSource
 import org.codehaus.groovy.grails.plugins.springsecurity.ui.RegistrationCode
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
@@ -15,65 +16,65 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
 
     def register = {
 
-        def outErrors = [
-                hasError: false
-        ]
+        def outErrors = []
+//
+//        if (params['username'] == '') {
+//            outErrors.username = 'Имя не может быть пустым '
+//        } else {
+//            if (lookupUserClass().findByUsername(params['username'])) {
+//                outErrors.username = 'Это имя уже используется'
+//            }
+//        }
+//
+//        if (!EmailValidator.getInstance().isValid(params['email'])) {
+//            outErrors.email = 'Неправильный E-mail'
+//        }
+//        if (params['email'] == '') {
+//            outErrors.email = 'E-mail не может быть пустым'
+//        }
+//        if (params['password'] == '') {
+//            outErrors.password = 'Неверный пароль. Пароль не должен быть короче 8 символов. '
+//        }
+//        if (params['password2'] == '') {
+//            outErrors.password2 = 'Введите пароль повторно'
+//        }
+//
+//        if (params['password2'] != params['password']) {
+//            outErrors.password2 = 'Пароли не совпадают'
+//        }
+//
+//        String passwordVal = params['password'];
+//        if (!(
+//        passwordVal
+//                && passwordVal.length() >= 8
+//                && passwordVal.length() <= 64
+//        )) {
+//            outErrors.password = 'Пароль не должен быть короче 8-ми и длиннее 64-х символов'
+//        }
+        RegisterCommand command = new RegisterCommand()
+        command.username = (params['username'])
+        command.email = (params['email'])
+        command.password = (params['password'])
+        command.password2 = (params['password2'])
+        command.validate()
 
-        if (params['username'] == '') {
-            outErrors.username = 'Имя не может быть пустым '
-        } else {
-            if (lookupUserClass().findByUsername(params['username'])) {
-                outErrors.username = 'Это имя уже используется'
+        if (!command.validate()) {
+            def jsonErrors = [:]
+            command.getErrors().allErrors.each {
+                jsonErrors.put(it.field, messageSource.getMessage(it, LCH.getLocale()))
             }
-        }
-
-        if (!EmailValidator.getInstance().isValid(params['email'])) {
-            outErrors.email = 'Неправильный E-mail'
-        }
-        if (params['email'] == '') {
-            outErrors.email = 'E-mail не может быть пустым'
-        }
-        if (params['password'] == '') {
-            outErrors.password = 'Неверный пароль. Пароль не должен быть короче 8 символов. '
-        }
-        if (params['password2'] == '') {
-            outErrors.password2 = 'Введите пароль повторно'
-        }
-
-        if (params['password2'] != params['password']) {
-            outErrors.password2 = 'Пароли не совпадают'
-        }
-
-        String passwordVal = params['password'];
-        if (!(
-        passwordVal
-                && passwordVal.length() >= 8
-                && passwordVal.length() <= 64
-        )) {
-            outErrors.password = 'Пароль не должен быть короче 8-ми и длиннее 64-х символов'
-        }
-        def command = new RegisterCommand()
-        command.setUsername(params['username'])
-        command.setEmail(params['email'])
-        command.setPassword(params['password'])
-        command.setPassword2(params['password2'])
-
-        String password = command.password //springSecurityService.encodePassword(command.password)
-        User user = lookupUserClass().newInstance(
-                email: command.email,
-                username: command.username,
-                password: password,
-                accountLocked: true,
-                enabled: true,
-                uid: ""
-        )
-        user.save(flush: true)
-
-        if (!user.validate()) {
-            outErrors = user.getErrors()
-            render outErrors as JSON
+            render jsonErrors as JSON
             return
         }
+
+        String password = command.password //springSecurityService.encodePassword(command.password)
+        User user = new User(command)
+        if (!user.validate()) {
+            def a =
+            render user.getErrors() as JSON
+            return
+        }
+        user.save(flush: true)
 
         String salt = saltSource instanceof NullSaltSource ? null : command.username
         def registrationCode = new RegistrationCode(username: user.username).save()
@@ -177,7 +178,8 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
     }
 }
 
-class RegisterCommand {
+@Validateable
+class RegisterCommand  {
 
     String username
     String email
@@ -187,35 +189,15 @@ class RegisterCommand {
     static constraints = {
         username blank: false, validator: { value, command ->
             if (value) {
-                def User = AH.application.getDomainClass(
-                        SpringSecurityUtils.securityConfig.userLookup.userDomainClassName).clazz
+                User User = new User(username: value)
                 if (User.findByUsername(value)) {
                     return 'registerCommand.username.unique'
                 }
             }
         }
         email blank: false, email: true
-        password blank: false, minSize: 8, maxSize: 64, validator: passwordValidator
-        password2 validator: RegisterController.password2Validator
-    }
-
-    static final passwordValidator = { String password, command ->
-
-        if (command.username && command.username.equals(password)) {
-            return 'command.password.error.username'
-        }
-
-        if (
-                password
-                        && password.length() >= 8
-                        && password.length() <= 64
-                        && (
-                !password.matches('^.*\\p{Alpha}.*$')
-                        || !password.matches('^.*\\p{Digit}.*$')
-                )
-        ) {
-            return 'command.password.error.strength'
-        }
+        password blank: false, validator: grails.plugins.springsecurity.ui.RegisterController.passwordValidator
+        password2 validator: grails.plugins.springsecurity.ui.RegisterController.password2Validator
     }
 }
 
