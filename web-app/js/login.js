@@ -46,7 +46,7 @@ $( document ).ready(function () {
                 rotator.stop();
             },
             success: function (data) {
-                if (data.hasError) {
+                if (data.status!=true) {
                     document.getElementById('password').value = '';
                     document.getElementById('password2').value = '';
 
@@ -63,7 +63,7 @@ $( document ).ready(function () {
                         document.getElementById('password2Error').innerHTML = data.password2;
                     }
                 }
-                if (!data.hasError) {
+                else{
                     document.getElementById('username').value = '';
                     document.getElementById('email').value = '';
                     document.getElementById('password').value = '';

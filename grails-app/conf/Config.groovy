@@ -64,7 +64,7 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
+        grails.serverURL = "http://www.velo-omsk.org"
     }
 }
 
@@ -109,7 +109,6 @@ grails {
     }
 }
 
-// Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'likebike.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'likebike.UserRole'
 grails.plugins.springsecurity.authority.className = 'likebike.Role'
@@ -127,3 +126,4 @@ emailFrom = 'Velo-Omsk'
 emailSubject = 'Регистрация на Velo-Omsk'
 vkSecretKey = "YIe1xEs8vWkImchof0Ll"
 apiId = "4512659"
+

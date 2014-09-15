@@ -15,25 +15,24 @@ class VkController {
         def hash = params['hash']
         def ourHash = (API_ID + uid + secretKey).encodeAsMD5()
         if (hash == ourHash) {
-            def user = likebike.User.findByUid(uid)
+            def user = User.findByUid(uid)
             if (!user) {
                 def username = params['first_name'] + " " + params['last_name']
-                if(likebike.User.findByUsername(username)) {
+                if(User.findByUsername(username)) {
                     int i;
                     for (i = 1; i < MAX_NUMBER_OF_IVANS; i++) {
-                        if (!likebike.User.findByUsername(username + i)) {
+                        if (!User.findByUsername(username + i)) {
                             username += i
                             break
                         }
                     }
                     if(i == MAX_NUMBER_OF_IVANS){
-                        render "У нас и так хватает людей с именем, таким же, как ваше. Убирайтесь или, либо смените имя."
+                        render "У нас и так хватает людей с именем, таким же, как ваше. Убирайтесь, либо смените имя."
                     }
                 }
-                user = new likebike.User(username: username,
+                user = new User(username: username,
                         uid: uid,
                         enabled: true,
-                        password: hash
                 )
                 user.save(flush: true)
                 def roleUser = Role.findByAuthority('ROLE_USER')
