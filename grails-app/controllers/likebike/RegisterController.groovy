@@ -57,41 +57,42 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
         command.password = (params['password'])
         command.password2 = (params['password2'])
         command.validate()
-
+        def json = [:]
         if (!command.validate()) {
-            def jsonErrors = [:]
             command.getErrors().allErrors.each {
-                jsonErrors.put(it.field, messageSource.getMessage(it, LCH.getLocale()))
+                json.put(it.field, messageSource.getMessage(it, LCH.getLocale()))
             }
-            render jsonErrors as JSON
-            return
+            json.put("status", false)
         }
+        else {
+            String password = command.password //springSecurityService.encodePassword(command.password)
+            User user = lookupUserClass().newInstance(
+                    email: command.email,
+                    username: command.username,
+                    password: password,
+                    accountLocked: true,
+                    enabled: true
+            )
+            user.save(flush: true)
 
-        String password = command.password //springSecurityService.encodePassword(command.password)
-        User user = new User(command)
-        if (!user.validate()) {
-            def a =
-            render user.getErrors() as JSON
-            return
+            String salt = saltSource instanceof NullSaltSource ? null : command.username
+            def registrationCode = new RegistrationCode(username: user.username).save()
+            String url = "http://" + generateLink('verifyRegistration', [t: registrationCode.token])
+            def conf = Holders.config
+            def body = conf.emailBody
+            if (body.contains('$')) {
+                body = evaluate(body, [user: user, url: url])
+            }
+            mailService.sendMail {
+                to command.email
+                from conf.emailFrom
+                subject conf.emailSubject
+                html body.toString()
+            }
+            json.put('status', true)
         }
-        user.save(flush: true)
-
-        String salt = saltSource instanceof NullSaltSource ? null : command.username
-        def registrationCode = new RegistrationCode(username: user.username).save()
-        String url = "http://" + generateLink('verifyRegistration', [t: registrationCode.token])
-        def conf = Holders.config
-        def body = conf.emailBody
-        if (body.contains('$')) {
-            body = evaluate(body, [user: user, url: url])
-        }
-        mailService.sendMail {
-            to command.email
-            from conf.emailFrom
-            subject conf.emailSubject
-            html body.toString()
-        }
-
-        render command as JSON
+        render json as JSON
+        return
     }
 
     protected String generateLink(String action, linkParams) {
@@ -197,7 +198,14 @@ class RegisterCommand  {
     static constraints = {
         username blank: false, validator: RegisterController.usernameValidator
         email blank: false, email: true
-        password blank: false, validator: grails.plugins.springsecurity.ui.RegisterController.passwordValidator
+        password blank: false, validator: { val, obj ->
+            if(!(grails.plugins.springsecurity.ui.RegisterController.checkPasswordMinLength(val, obj))){
+                return 'registerCommand.password.minSize'
+            }
+            if(!(grails.plugins.springsecurity.ui.RegisterController.checkPasswordMaxLength(val, obj))){
+                return 'registerCommand.password.maxSize'
+            }
+        }
         password2 validator: grails.plugins.springsecurity.ui.RegisterController.password2Validator
     }
 }

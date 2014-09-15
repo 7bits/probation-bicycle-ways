@@ -46,7 +46,7 @@ $( document ).ready(function () {
                 rotator.stop();
             },
             success: function (data) {
-                if (data!=null) {
+                if (data.status!=true) {
                     document.getElementById('password').value = '';
                     document.getElementById('password2').value = '';
 
