@@ -10,7 +10,7 @@ class VKService {
         String secretKey = Holders.config.vkSecretKey
         String API_ID = Holders.config.apiId
         def ourHash = (API_ID + uid + secretKey).encodeAsMD5()
-        if (usersHash == ourHash) {
+        if (usersHash == ourHash){
             def user = User.findByUid(uid)
             if (!user) {
                 def username = firstName + " " + lastName
@@ -31,9 +31,9 @@ class VKService {
                         enabled: true,
                         email: ""
                 )
+                user.save(flush: true)
                 def roleUser = Role.findByAuthority('ROLE_USER')
                 UserRole.create(user, roleUser, true)
-                user.save(flush: true)
             }
             springSecurityService.reauthenticate(user.username)
         }
