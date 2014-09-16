@@ -1,4 +1,5 @@
 package likebike
+
 class RegisterController {
     def registerService
     def registerPresenter
