@@ -31,6 +31,8 @@ class VKService {
                         enabled: true,
                         email: ""
                 )
+                def roleUser = Role.findByAuthority('ROLE_USER')
+                UserRole.create(user, roleUser, true)
                 user.save(flush: true)
             }
             springSecurityService.reauthenticate(user.username)
