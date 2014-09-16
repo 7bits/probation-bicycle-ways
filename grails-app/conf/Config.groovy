@@ -64,7 +64,7 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        grails.serverURL = "http://www.velo-omsk.org"
+        grails.serverURL = "http://velo-omsk.org"
     }
 }
 
