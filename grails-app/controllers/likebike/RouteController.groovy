@@ -9,177 +9,26 @@ import grails.plugin.cache.CacheEvict
 class RouteController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET"]
-
-    def fileService
     def routeService
-    def springSecurityService
+    def routePresenter
 
     def getUsersRoute() {
-        def user = springSecurityService.getCurrentUser()
-        if(user == null){
-            user = User.find { username == "anonymous" }
-        }
-        def route = routeService.getUsersRoute(user)
-        render route as JSON
-    }
-
-    @Secured(['ROLE_ADMIN'])
-    def genRoute() {
-
-        ArrayList<Double> searchFields = request.getParameterValues('array[]')
-        routeService.genRoute(searchFields)
-
-        def out = ["route is imported"]
-
-        render out as JSON
-    }
-
-    def generateRoute() {
+        render routePresenter.getUsersRoute(routeService.getUsersRoute())
     }
 
     def getProcessed(){
-        if(params.id) {
-            def rows = fileService.getProcessed(params.id)
-            List filesList = []
-            rows.each() {
-                filesList << [it['file_name'], it['processed']]
-                fileService.setAlert(it['id'])
-            }
-            def resultList = [successMessage: "Обработаны файлы: ", errorMessage: "Неправильный формат файла в: ", list: filesList]
-            render resultList as JSON
-        }
-        def error = ['error':'no user']
-        render error as JSON
+        def id = params.id
+        render routePresenter.getProcessed(routeService.getProcessed(id))
     }
 
     @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def loadFile() {
-        if (params.userFile && params.userFile.size) {
-            File file = new likebike.File()
-            file.user = springSecurityService.getCurrentUser()
-            file.user_alert = false
-            if(file.user == null){
-                file.user = User.find { username == "anonymous" }
-                file.user_alert = true
-            }
-            file.processed = File.NOT_PROCESSED
-            def params = params
-            file.file_name = params.userFile.fileItem.name
-            file.save()
-            String xmlData = new String(params.userFile.bytes)
-            java.io.File fileToProcess = new java.io.File("userfiles/" + file.id + ".userfile")
-            fileToProcess.write(xmlData)
-            redirect(uri: '/home/map?loaded=true')
-            return
-        }
-        redirect(uri: '/home/map?loaded=false')
+        def file = params.userFile
+        redirect routePresenter.loadFile(routeService.loadFile(file))
         return
     }
 
     def getRoute() {
-        def route = routeService.getRoute()
-        render route as JSON
-    }
-
-    @Secured(['ROLE_ADMIN'])
-    def index() {
-        redirect(action: "list", params: params)
-    }
-
-    @Secured(['ROLE_ADMIN'])
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [routeInstanceList: Route.list(params), routeInstanceTotal: Route.count()]
-    }
-
-    @Secured(['ROLE_ADMIN'])
-    def create() {
-        [routeInstance: new Route(params)]
-    }
-
-    @Secured(['ROLE_ADMIN'])
-    def save() {
-        def routeInstance = new Route(params)
-        if (!routeInstance.save(flush: true)) {
-            render(view: "create", model: [routeInstance: routeInstance])
-            return
-        }
-
-        flash.message = message(code: 'default.created.message', args: [message(code: 'route.label', default: 'Route'), routeInstance.id])
-        redirect(action: "show", id: routeInstance.id)
-    }
-
-    @Secured(['ROLE_ADMIN'])
-    def show(Long id) {
-        def routeInstance = Route.get(id)
-        if (!routeInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'route.label', default: 'Route'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [routeInstance: routeInstance]
-    }
-
-    @Secured(['ROLE_ADMIN'])
-    def edit(Long id) {
-        def routeInstance = Route.get(id)
-        if (!routeInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'route.label', default: 'Route'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [routeInstance: routeInstance]
-    }
-
-    @Secured(['ROLE_ADMIN'])
-    def update(Long id, Long version) {
-        def routeInstance = Route.get(id)
-        if (!routeInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'route.label', default: 'Route'), id])
-            redirect(action: "list")
-            return
-        }
-
-        if (version != null) {
-            if (routeInstance.version > version) {
-                routeInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                        [message(code: 'route.label', default: 'Route')] as Object[],
-                        "Another user has updated this Route while you were editing")
-                render(view: "edit", model: [routeInstance: routeInstance])
-                return
-            }
-        }
-
-        routeInstance.properties = params
-
-        if (!routeInstance.save(flush: true)) {
-            render(view: "edit", model: [routeInstance: routeInstance])
-            return
-        }
-
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'route.label', default: 'Route'), routeInstance.id])
-        redirect(action: "show", id: routeInstance.id)
-    }
-
-    @Secured(['ROLE_ADMIN'])
-    def delete(Long id) {
-        def routeInstance = Route.get(id)
-        if (!routeInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'route.label', default: 'Route'), id])
-            redirect(action: "list")
-            return
-        }
-
-        try {
-            routeInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'route.label', default: 'Route'), id])
-            redirect(action: "list")
-        }
-        catch (DataIntegrityViolationException e) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'route.label', default: 'Route'), id])
-            redirect(action: "show", id: id)
-        }
+        render routePresenter.getRoute(routeService.getRoute())
     }
 }
