@@ -11,7 +11,6 @@ class RouteController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET"]
     def routeService
     def routePresenter
-    def fileService
 
     def getUsersRoute() {
         render routePresenter.getUsersRoute(routeService.getUsersRoute())

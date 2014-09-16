@@ -1,6 +1,7 @@
 import likebike.presenters.RegisterPresenter
 import likebike.presenters.HomePresenter
 import likebike.presenters.RoutePresenter
+import likebike.presenters.VKPresenter
 
 beans = {
     registerPresenter(RegisterPresenter) {
@@ -8,5 +9,7 @@ beans = {
     homePresenter(HomePresenter) {
     }
     routePresenter(RoutePresenter) {
+    }
+    vKPresenter(VKPresenter) {
     }
 }
