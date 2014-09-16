@@ -1,4 +1,4 @@
-package likelike
+package likebike
 
 
 
@@ -8,8 +8,8 @@ import org.junit.*
 /**
  * See the API for {@link grails.test.mixin.services.ServiceUnitTestMixin} for usage instructions
  */
-@TestFor(RouteService)
-class RouteServiceTests {
+@TestFor(RegisterService)
+class RegisterServiceTests {
 
     void testSomething() {
         fail "Implement me"

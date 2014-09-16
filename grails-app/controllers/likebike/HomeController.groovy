@@ -1,9 +1,7 @@
 package likebike
 
-import likebike.presenters.HomePresenter
-
 class HomeController {
-    static final HomePresenter homePresenter = new HomePresenter()
+    def homePresenter
 
     def index = {
         render homePresenter.index()
