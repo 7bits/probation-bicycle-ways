@@ -19,57 +19,96 @@ $( document ).ready(function () {
     });
     
     document.getElementById('pOk').style.display = 'none'
-    $('#registerForm').submit(function (e) {
-        document.getElementById('loaderBackground').style.display = 'block';
+    $('#loginForm').submit(function (e) {
+        $('#loaderBackground')[0].style.display = 'block';
         rotator.start();
         e.preventDefault();
         var command = {
-            username: $('#username').val(),
-            email: $('#email').val(),
-            password: $('#password').val(),
-            password2: $('#password2').val()
+            j_username: $('#j_username').val(),
+            j_password: $('#j_password').val(),
+        }
+        $('#usernameError')[0].innerHTML = '';
+        $('#passwordError')[0].innerHTML = '';
+        $.ajax({
+            type: 'POST',
+            url: $('#loginForm')[0].action,
+            datatype: JSON,
+            data: command,
+            complete: function (data) {
+                $('#loaderBackground')[0].style.display = 'none';
+                rotator.stop();
+            },
+            success: function (data) {
+                if (data.error) {
+                    $('#password')[0].value = '';
+                    $('#pError')[0].innerHTML = data.error;
+                    $('#pError').css("display", 'block');
+                }
+                else{
+                    $('#username')[0].value = '';
+                    $('#password')[0].value = '';
+                    window.location.replace(getUrl());
+                }
+
+            },
+            error: function (jqXHR) {
+                data = jQuery.parseJSON(jqXHR.responseText);
+                alert("ERROR");
+            }
+        });
+    });
+    
+    $('#registerForm').submit(function (e) {
+        $("#loaderBackground")[0].style.display = 'block';
+        rotator.start();
+        e.preventDefault();
+        var command = {
+            username: $('#username')[0].val(),
+            email: $('#email')[0].val(),
+            password: $('#password')[0].val(),
+            password2: $('#password2')[0].val()
         }
         data = {
             command: command
         }
-        document.getElementById('usernameError').innerHTML = '';
-        document.getElementById('emailError').innerHTML = '';
-        document.getElementById('passwordError').innerHTML = '';
-        document.getElementById('password2Error').innerHTML = '';
+        $('#usernameError')[0].innerHTML = '';
+        $('#emailError')[0].innerHTML = '';
+        $('#passwordError')[0].innerHTML = '';
+        $('#password2Error')[0].innerHTML = '';
         $.ajax({
             type: 'POST',
             url: getUrl() + '/register/register',
             datatype: JSON,
             data: command,
             complete: function (data) {
-                document.getElementById('loaderBackground').style.display = 'none';
+                $('#loaderBackground')[0].style.display = 'none';
                 rotator.stop();
             },
             success: function (data) {
                 if (data.status!=true) {
-                    document.getElementById('password').value = '';
-                    document.getElementById('password2').value = '';
+                    $('#password')[0].value = '';
+                    $('#password2')[0].value = '';
 
                     if (data.username != null) {
-                        document.getElementById('usernameError').innerHTML = data.username;
+                        $('#usernameError')[0].innerHTML = data.username;
                     }
                     if (data.email != null) {
-                        document.getElementById('emailError').innerHTML = data.email;
+                        $('#emailError')[0].innerHTML = data.email;
                     }
                     if (data.password != null) {
-                        document.getElementById('passwordError').innerHTML = data.password;
+                        $('#passwordError')[0].innerHTML = data.password;
                     }
                     if (data.password2 != null) {
-                        document.getElementById('password2Error').innerHTML = data.password2;
+                        $('#password2Error')[0].innerHTML = data.password2;
                     }
                 }
                 else{
-                    document.getElementById('username').value = '';
-                    document.getElementById('email').value = '';
-                    document.getElementById('password').value = '';
-                    document.getElementById('password2').value = '';
-                    document.getElementById('registerForm').style.display = 'none';
-                    document.getElementById('pOk').style.display = 'block';
+                    $('#username')[0].value = '';
+                    $('#email')[0].value = '';
+                    $('#password')[0].value = '';
+                    $('#password2')[0].value = '';
+                    $('#registerForm')[0].style.display = 'none';
+                    $('#pOk')[0].style.display = 'block';
                 }
 
             },

@@ -12,7 +12,7 @@
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="login">
-                    <form id='login_form' method="POST" action="${createLink(uri: '/j_spring_security_check')}">
+                    <form id='loginForm' method="POST" action="${createLink(uri: '/j_spring_security_check')}">
 
                         <p class="logTextTitle">Логин</p>
                         <input
@@ -29,11 +29,8 @@
                                 name='j_password'
                                 id='j_password'/>
 
-                        <p id="pError" class='logTextInfo'>Неверно введен логин или пароль.</p>
-
-                        <p>
-                            <input type='submit' id="submit" class="logButton" value='Войти'/>
-                        </p>
+                        <p id="pError" class='logTextInfo'></p>
+                        <input type='submit' id="submit" class="logButton" value='Войти'/>
                     </form>
                     <div id="vk_auth"></div>
                 </div>

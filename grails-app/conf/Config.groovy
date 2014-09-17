@@ -64,7 +64,7 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        grails.serverURL = "http://velo-omsk.org"
+        // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }
 
@@ -95,7 +95,6 @@ grails.cache.config = {
     }
 }
 
-
 grails {
     mail {
         host = "smtp.gmail.com"
@@ -103,12 +102,13 @@ grails {
         username = "velo.sity.omsk@gmail.com"
         password = "likebike"
         props = ["mail.smtp.auth": "true",
-                "mail.smtp.socketFactory.port": "465",
-                "mail.smtp.socketFactory.class": "javax.net.ssl.SSLSocketFactory",
-                "mail.smtp.socketFactory.fallback": "false"]
+                 "mail.smtp.socketFactory.port": "465",
+                 "mail.smtp.socketFactory.class": "javax.net.ssl.SSLSocketFactory",
+                 "mail.smtp.socketFactory.fallback": "false"]
     }
 }
 
+// Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'likebike.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'likebike.UserRole'
 grails.plugins.springsecurity.authority.className = 'likebike.Role'
@@ -118,12 +118,3 @@ grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/?login_error=
 grails.plugins.springsecurity.ui.register.defaultRoleNames = ['ROLE_USER']
 grails.plugins.springsecurity.ui.encodePassword = false
 grails.plugins.springsecurity.ui.register.postRegisterUrl = '/'
-
-emailBody = '<td>Доброго времени суток, $user.username,<br> ' +
-        '<br> Вы (или кто-то, притворяющийся вами) использовали этот адрес чтобы создать аккаунт.<br>' +
-        '<br>Если это вы, то кликните &nbsp;<a href="$url">здесь</a>, чтобы закончить регистрацию.</td>'
-emailFrom = 'Velo-Omsk'
-emailSubject = 'Регистрация на Velo-Omsk'
-vkSecretKey = "YIe1xEs8vWkImchof0Ll"
-apiId = "4512659"
-
