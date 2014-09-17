@@ -45,9 +45,7 @@ $( document ).ready(function () {
                     $('#pError').css("display", 'block');
                 }
                 else{
-                    $('#username')[0].value = '';
-                    $('#password')[0].value = '';
-                    window.location.replace(getUrl());
+                    location.reload();
                 }
 
             },

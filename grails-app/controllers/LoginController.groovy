@@ -19,15 +19,6 @@ class LoginController {
      * Dependency injection for the springSecurityService.
      */
     def springSecurityService
-
-    /**
-     * Default action; redirects to 'defaultTargetUrl' if logged in, /login/auth otherwise.
-     */
-
-    def success = {
-        render([success: springSecurityService.isLoggedIn()] as JSON)
-    }
-
     /**
      * The redirect action for Ajax requests.
      */
@@ -37,16 +28,6 @@ class LoginController {
         response.sendError HttpServletResponse.SC_UNAUTHORIZED
     }
 
-    /**
-     * Show denied page.
-     */
-    def denied = {
-        if (springSecurityService.isLoggedIn() &&
-                authenticationTrustResolver.isRememberMe(SCH.context?.authentication)) {
-            // have cookie but the page is guarded with IS_AUTHENTICATED_FULLY
-            redirect action: 'full', params: params
-        }
-    }
     /**
      * Callback after a failed login. Redirects to the auth page with a warning message.
      */
@@ -63,12 +44,5 @@ class LoginController {
      */
     def ajaxSuccess = {
         render([success: true, username: springSecurityService.authentication.name] as JSON)
-    }
-
-    /**
-     * The Ajax denied redirect url.
-     */
-    def ajaxDenied = {
-        render([error: 'access denied'] as JSON)
     }
 }
