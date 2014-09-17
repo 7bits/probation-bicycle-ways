@@ -2,7 +2,6 @@ package likebike
 
 import grails.validation.Validateable
 import org.codehaus.groovy.grails.web.servlet.mvc.GrailsParameterMap
-import sad.RegisterService
 
 @Validateable
 class RegisterForm  {

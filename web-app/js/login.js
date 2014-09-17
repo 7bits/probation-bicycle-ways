@@ -61,10 +61,10 @@ $( document ).ready(function () {
         rotator.start();
         e.preventDefault();
         var command = {
-            username: $('#username')[0].val(),
-            email: $('#email')[0].val(),
-            password: $('#password')[0].val(),
-            password2: $('#password2')[0].val()
+            username: $('#username').val(),
+            email: $('#email').val(),
+            password: $('#password').val(),
+            password2: $('#password2').val()
         }
         data = {
             command: command
