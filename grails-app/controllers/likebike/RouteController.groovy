@@ -19,19 +19,25 @@ class RouteController {
     }
 
     /**
-     *  Returns processed files. Two lists, contains succesfully processed and processed with error routes.
-     *  params should contain
+     *  Returns processed files. Two lists, contains successfully processed and processed with error routes.
      */
     def getProcessed(){
         render routePresenter.getProcessed(routeService.getProcessed())
     }
 
+    /**
+     *  Handles file loading
+     *  params should contain userFile - file with route
+     */
     @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def loadFile() {
         def file = params.userFile
         redirect routePresenter.loadFile(routeService.loadFile(file))
     }
 
+    /**
+     * Returns all routes
+     */
     def getRoute() {
         render routePresenter.getRoute(routeService.getRoute())
     }

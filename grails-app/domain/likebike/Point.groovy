@@ -1,5 +1,8 @@
 package likebike
 
+/**
+ * Route point
+ */
 class Point {
     double latitude
     double longitude
