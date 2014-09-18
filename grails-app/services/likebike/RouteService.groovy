@@ -20,7 +20,9 @@ class RouteService {
         return route
     }
 
-    def getProcessed(def id){
+    def getProcessed(){
+        def user = springSecurityService.getCurrentUser()
+        def id = user.id
         if(id) {
             def rows = fileService.getProcessed(id)
             List filesList = []

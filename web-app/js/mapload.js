@@ -19,42 +19,38 @@ urlParam = function(name){
 
 function pullProcessed() {
     path = getUrl() + "/route/getProcessed";
-    var id = document.getElementById('userId').value
-    if(id){
-        $.ajax({
-            url: path,
-            type: "post",
-            dataType: "json",
-            data: {id:id},
-            success: function (data) {
-                var successMessage = data.successMessage;
-                var errorMessage = data.errorMessage;
-                var list = data.list;
-                if(list.length > 0){
-                    console.log(list);
-                    var success = [];
-                    var error = [];
-                    for(i = 0; i < list.length; i++){
-                        if(list[i][1] != 2){
-                            error.push(list[i][0])
-                        }
-                        else{
-                            success.push(list[i][0])
-                        }
+    $.ajax({
+        url: path,
+        type: "post",
+        dataType: "json",
+        success: function (data) {
+            var successMessage = data.successMessage;
+            var errorMessage = data.errorMessage;
+            var list = data.list;
+            if(list.length > 0){
+                console.log(list);
+                var success = [];
+                var error = [];
+                for(i = 0; i < list.length; i++){
+                    if(list[i][1] != 2){
+                        error.push(list[i][0])
                     }
-                    if(success.length)
-                        $.notify(successMessage + success, "success");
-                    if(error.length)
-                        $.notify(errorMessage + error, "error");
+                    else{
+                        success.push(list[i][0])
+                    }
                 }
-            },
-            error: function (jqXHR) {
-                data = jQuery.parseJSON(jqXHR.responseText);
-            },
-            complete:function () {
+                if(success.length)
+                    $.notify(successMessage + success, "success");
+                if(error.length)
+                    $.notify(errorMessage + error, "error");
             }
-        });
-    }
+        },
+        error: function (jqXHR) {
+            data = jQuery.parseJSON(jqXHR.responseText);
+        },
+        complete:function () {
+        }
+    });
 }
 
 function drawRoutes(viewMode) {

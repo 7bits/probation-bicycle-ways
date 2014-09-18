@@ -8,7 +8,6 @@
     </head>
 
     <body>
-        <g:hiddenField id="userId" name="userId" value="${sec.loggedInUserInfo(field:'id')}"/>
         <div id="routes" class="routes">
         <sec:ifLoggedIn>
             <g:if test="${loadedCode != null}">

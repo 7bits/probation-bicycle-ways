@@ -1,31 +1,35 @@
 package likebike
 
-import grails.plugin.cache.CacheEvict
-import org.springframework.dao.DataIntegrityViolationException
-import grails.converters.*
 import grails.plugins.springsecurity.Secured
-import grails.plugin.cache.CacheEvict
 
+/**
+ * Class responsible for handling everything related to routes
+ */
 class RouteController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST", load_file: "GET"]
     def routeService
     def routePresenter
 
-    def getUsersRoute() {
+    /**
+     *  Returns all routes of current user
+     */
+    def getUsersRoute(){
         render routePresenter.getUsersRoute(routeService.getUsersRoute())
     }
 
+    /**
+     *  Returns processed files. Two lists, contains succesfully processed and processed with error routes.
+     *  params should contain
+     */
     def getProcessed(){
-        def id = params.id
-        render routePresenter.getProcessed(routeService.getProcessed(id))
+        render routePresenter.getProcessed(routeService.getProcessed())
     }
 
     @Secured(['ROLE_USER', 'ROLE_ADMIN'])
     def loadFile() {
         def file = params.userFile
         redirect routePresenter.loadFile(routeService.loadFile(file))
-        return
     }
 
     def getRoute() {
