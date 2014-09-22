@@ -19,8 +19,7 @@ class RegisterService {
                 json.put(it.field, messageSource.getMessage(it, LocaleContextHolder.getLocale()))
             }
             json.put("status", false)
-        }
-        else {
+        } else {
             String password = form.password
             User user = new User(
                     email: form.email,
@@ -31,7 +30,7 @@ class RegisterService {
             )
             user.save(flush: true)
             def registrationCode = new RegistrationCode(username: user.username).save()
-            String url = grailsLinkGenerator.link( action: 'verifyRegistration', params: [t: registrationCode.token])
+            String url = grailsLinkGenerator.link(action: 'verifyRegistration', params: [t: registrationCode.token])
             def conf = Holders.config
             def body = conf.emailBody
             if (body.contains('$')) {

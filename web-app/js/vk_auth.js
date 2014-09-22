@@ -3,7 +3,7 @@
  */
 
 $("document").ready(function () {
-    VK.init({apiId: 4512659});
+    VK.init({apiId: 1});
         window.onload = function () {
         var result = VK.Widgets.Auth('vk_auth', {width: "200", authUrl: getUrl() + '/vk/auth'});
     }

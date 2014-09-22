@@ -1,7 +1,6 @@
 package likebike
 
 
-
 import grails.test.mixin.*
 import org.junit.*
 
