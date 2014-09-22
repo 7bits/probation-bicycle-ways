@@ -7,6 +7,7 @@ class VKService {
     def springSecurityService
 
     def auth(String uid, String usersHash, String firstName, String lastName) {
+        def params = params
         String secretKey = Holders.config.vkSecretKey
         String API_ID = Holders.config.apiId
         def ourHash = (API_ID + uid + secretKey).encodeAsMD5()
