@@ -1,5 +1,10 @@
 package likebike
 
+import org.apache.commons.validator.EmailValidator
+
+/**
+ * User
+ */
 class User {
 
     transient springSecurityService
@@ -7,19 +12,25 @@ class User {
 
     String username
     String password
+    String email
+    String uid
     boolean enabled
     boolean accountExpired
     boolean accountLocked
     boolean passwordExpired
-    String uid
+
 
     static constraints = {
         username blank: false, unique: true
         uid blank: true
+        password maxSize: 64, minSize: 8, nullable: true
+        email blank: true
     }
 
     static mapping = {
-        password column: '`password`'
+        password column: '`password`', defaultValue: ''
+        email defaultValue: ''
+        uid defaultValue: ''
     }
 
     Set<Role> getAuthorities() {

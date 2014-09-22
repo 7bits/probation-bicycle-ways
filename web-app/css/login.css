@@ -43,7 +43,7 @@
     background-color: #F2F2F2;
 }
 
-#close_log {
+#closeLog {
     position: relative;
     text-align: center;
     left: 230px;
@@ -56,11 +56,11 @@
     float: left;
 }
 
-#close_log:hover {
+#closeLog:hover {
     
 }
 
-#close_log:active {
+#closeLog:active {
     background-color: #F2F2F2;
 }
 
@@ -70,7 +70,7 @@
     background-color: #fff;
 }
 
-.tab_title {
+.tabTitle {
     font: 15px "Open Sans";
     color: #F15A24;
     font-weight: 700;
@@ -81,12 +81,12 @@
 }
 
 
-.tab_title:hover{
+.tabTitle:hover{
     color: #F15A24;
     background-color: #F2F2F2;
 }
 
-.log_text_title {
+.logTextTitle {
     margin-bottom: 10px;
     margin-top: 20px;
     margin-left: 20px;
@@ -94,13 +94,13 @@
     color: #000;
 }
 
-.log_text_info {
+.logTextInfo {
     margin-left: 20px;
     font: 12px "Open Sans";
     color: #f15a24;
 }
 
-.log_input {
+.logInput {
     margin-left: 20px;
     width: 210px;
     height: 30px;
@@ -109,7 +109,7 @@
     margin-bottom: 10px;
 }
 
-.log_input:focus {
+.logInput:focus {
     outline: 2px solid #f15a24;
 }
 

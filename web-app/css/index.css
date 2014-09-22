@@ -88,48 +88,30 @@
     background-color: #f15a24;
 }
 
-.carousel_item1 {
+.carouselItem{
+    background-position: center;
+    height: 288px;
+    max-width:1920px;
+    max-height: 288px;
+    min-width: 960px;
+    overflow:hidden;
+    margin: 0 auto;
+}
+
+.carouselItem1 {
     background-image: url("../images/1s.png");
-    background-position: center;
-    height: 288px;
-    max-width:1920px;
-    max-height: 288px;
-    min-width: 960px;
-    overflow:hidden;
-    margin: 0 auto;
 }
 
-.carousel_item2 {
+.carouselItem2 {
     background-image: url("../images/2s.png");
-    background-position: center;
-    height: 288px;
-    max-width:1920px;
-    max-height: 288px;
-    min-width: 960px;
-    overflow:hidden;
-    margin: 0 auto;
 }
 
-.carousel_item3 {
+.carouselItem3 {
     background-image: url("../images/3s.png");
-    background-position: center;
-    height: 288px;
-    max-width:1920px;
-    max-height: 288px;
-    min-width: 960px;
-    overflow:hidden;
-    margin: 0 auto;
 }
 
-.carousel_item4 {
+.carouselItem4 {
     background-image: url("../images/4s.png");
-    background-position: center;
-    height: 288px;
-    max-width:1920px;
-    max-height: 288px;
-    min-width: 960px;
-    overflow:hidden;
-    margin: 0 auto;
 }
 
 .title {
@@ -158,18 +140,18 @@ body {
     width: 100%;
 }
 
-.info_text {
+.infoText {
     width: 960px;
     margin: 0 auto;
 }
 
-#h_text {
+#hText {
     /*margin-left: 115px;*/
     text-align: center;
     font: 28px "comfortaa";
 }
 
-#main_text {
+#mainText {
     margin-left: 150px;
     font: 18px "Open Sans";
 }
@@ -180,7 +162,7 @@ body {
     color: #f15a24;
 }
 
-#import_p {
+#importP {
     position: relative;
     top: -12px;
     margin-left: 2px;
@@ -191,7 +173,7 @@ body {
     font-size: 100%;
 }
 
-.btn_p {
+.btnP {
     width: 113px;
     height: 0px;
     margin: 3px 10px;
@@ -203,7 +185,7 @@ body {
     color: #000000;
 }
 
-.import_btn {
+.importBtn {
     float: left;
     width: 131px;
     height: 28px;
@@ -219,19 +201,11 @@ body {
     /*width: 1020px;*/
     width: 100%;
     height: 776px;
+    float: left;
 }
 
 .gm-style {
     width: auto;
-}
-
-#get_all_routes {
-    position: relative;
-    /*top: -380px;*/
-}
-#get_users_routes {
-    position: relative;
-    /*top: -380px;*/
 }
 
 .cartoon {
@@ -240,12 +214,12 @@ body {
     height: 415px;
 }
 
-.cartoon_info {
+.cartoonInfo {
     width: 960px;
     margin: 0 auto;
 }
 
-#cartoon_ul_image {
+#cartoonUlImage {
     position: relative;
     width: auto;
     height: auto;
@@ -256,7 +230,7 @@ body {
     top: 25px;
 }
 
-#cartoon_ul_text {
+#cartoonUlText {
     position: relative;
     width: 960px;
     height: auto;
@@ -268,7 +242,7 @@ body {
 }
 
 
-li.cartoon_li_image1 {
+li.cartoonLiImage1 {
     position: relative;
     list-style: none;
     margin-right: 0px;
@@ -278,7 +252,7 @@ li.cartoon_li_image1 {
     height: 108px;
 }
 
-li.cartoon_li_image2 {
+li.cartoonLiImage2 {
     position: relative;
     list-style: none;
     margin-right: 50px;
@@ -288,7 +262,7 @@ li.cartoon_li_image2 {
     height: 108px;
 }
 
-li.cartoon_li_image3 {
+li.cartoonLiImage3 {
     position: relative;
     list-style: none;
     margin-right: 50px;
@@ -298,7 +272,7 @@ li.cartoon_li_image3 {
     height: 108px;
 }
 
-li.cartoon_li_image4 {
+li.cartoonLiImage4 {
     position: relative;
     list-style: none;
     margin-right: 0px;
@@ -308,7 +282,7 @@ li.cartoon_li_image4 {
     height: 108px;
 }
 
-li.cartoon_li_text1 {
+li.cartoonLiText1 {
     position: relative;
     list-style: none;
     margin-right: 88px;
@@ -316,7 +290,7 @@ li.cartoon_li_text1 {
     float: left;
 }
 
-li.cartoon_li_text2 {
+li.cartoonLiText2 {
     position: relative;
     list-style: none;
     margin-right: 108px;
@@ -324,7 +298,7 @@ li.cartoon_li_text2 {
     float: left;
 }
 
-li.cartoon_li_text3 {
+li.cartoonLiText3 {
     position: relative;
     list-style: none;
     margin-right: 74px;
@@ -332,7 +306,7 @@ li.cartoon_li_text3 {
     float: left;
 }
 
-li.cartoon_li_text4 {
+li.cartoonLiText4 {
     position: relative;
     list-style: none;
     /*margin-right: 98px;*/
@@ -340,27 +314,27 @@ li.cartoon_li_text4 {
     float: left;
 }
 
-.cartoon_img {
+.cartoonImg {
     position: relative;
     /*margin: 0 auto;*/
 }
 
-.cartoon_p {
+.cartoonP {
     position: relative;
     font: 16px "Open Sans";
     color: #000000;
     text-align: center;
 }
 
-#cartoon_third_p {
+#cartoonThirdP {
     /*margin-left: -22px;*/
 }
 
-.line_img {
+.lineImg {
     margin: 42px 0 0 75px;
 }
 
-#this_work {
+#thisWork {
     text-align: center;
     font: 28px "comfortaa";
 }
@@ -369,248 +343,4 @@ li.cartoon_li_text4 {
     display: block;
     position: static;
     margin-bottom: 5px;
-}
-
-.routes{
-    position: relative;
-    /*margin: 0 auto;*/
-    /*width: 1020px;*/
-    width: 100%;
-    /*height: auto;*/
-    /*z-index: -1;*/
-    /*overflow: hidden;*/
-}
-
-.controls li label{
-    margin-left: 3px;
-}
-
-.controls li{
-    list-style: none;
-}
-
-.controls ul{
-    padding: 0;
-}
-
-.controls{
-    font: 14px "Open Sans";
-    font-weight: 700;
-    display: block;
-    float: right;
-}
-
-.controls_body {
-    width: 960px;
-    margin: 0 auto;
-}
-
-.controls a:link {
-    color: #000000;
-}
-
-.controls a:visited {
-    color: #000000;
-}
-
-.controls a:hover {
-    color: #000000;
-}
-
-.controls a:active {
-    color: #000000;
-}
-
-.radio_text{
-    font: 14px "Open Sans";
-    font-weight: 600;
-}
-
-.dropdown{
-    float: left;
-    /*width: auto;*/
-}
-
-.dropdown.title {
-    float: left;
-}
-
-.control_button {
-    /*width: 200px;*/
-    /*padding: 9px !important;*/
-    padding: 9px 0 0 0 !important;
-    /*border-bottom:dashed;*/
-    /*border-bottom-width: 1px;*/
-    width: auto;
-    /*padding-bottom: 0px;*/
-    margin-right: 10px;
-}
-
-.button_text {
-    margin: 0px;
-    font-size: 14px;
-    /*width: auto;*/
-    border-bottom:dashed;
-    border-bottom-width: 1px;
-    display: inline-block;
-}
-
-.icon{
-    margin-right: 8px;
-    margin-left: 8px;
-    float: left;
-    border-bottom-width: 0;
-}
-
-.dropdown-menu{
-    padding: 15px !important;
-    /*left: 160px;*/
-    /*width: 180px;*/
-}
-
-.file_button{
-    position: absolute;
-    height: 22px;
-    font-weight: normal;
-    font-style: normal;
-    font-weight: light;
-    border: 1px solid #999;
-    padding: 0px 5px;
-    color: #FFFFFF;
-    font-size: 15px;
-    background-color: #666666;
-    float: left;
-    font-weight: 600;
-}
-
-.file_button:hover{
-    background-color: #660000;
-}
-
-
-.file_name{
-    display: block;
-    position: absolute;
-    margin-left: 125px;
-    width: 145px;
-    height: 20px;
-    font-size: 14px;
-    font-weight: 400;
-    padding-top: 2px;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    white-space: nowrap;
-}
-
-.file_load{
-    font-weight: 600;
-    border: 2px solid #E6E6E6;
-    padding: 2px;
-    outline: none;
-    height: 100%;
-    right: 0;
-    top: 0;
-}
-
-.userfile {
-    opacity: 0;
-    cursor: pointer;
-}
-
-.userfile input {
-
-}
-
-.userfile::-webkit-file-upload-button{
-    visibility: hidden;
-    padding-right: 40px;
-}
-
-.userfile::before {
-    height: 21px;
-    font-weight: normal;
-    font-style: normal;
-    font-weight: light;
-    content: 'Выбрать файл';
-    border: 1px solid #999;
-    padding: 0px 5px;
-    margin: 0px;
-    outline: none;
-    color: #FFFFFF;
-    font-size: 15px;
-    background-color: #666666;
-    float: left;
-}
-
-.userfile:hover::before {
-    border-color: black;
-    background-color: #666666;
-}
-.userfile:active::before {
-    background-color: #666666;
-}
-
-.load_input {
-    float: left;
-    margin: 0px;
-    font-weight: 700;
-    border: 2px solid #F15A24;
-    color: #F15A24;
-    padding: 4px 6px;
-    outline: none;
-    background-color: #FFFFFF;
-    margin-top: 17px;
-}
-
-.load_input:hover {
-    background-color: #F15A24;
-    color: #FFFFFF !important;
-}
-
-.load_input:active {
-    background-color: #D03700;
-}
-
-.upload {
-    font-weight: 700;
-    padding-top: 2px;
-    margin: 0px;
-    border: 0px;
-    outline: none;
-    background-color: inherit;
-    font-size: 15px;
-}
-
-.upload::-webkit-file-upload-button {
-    visibility: hidden;
-}
-
-input[type='radio']{
-    /* Hide the input, but have it still be clickable */
-    width: 0;
-    height: 0;
-    opacity: 0;
-    float: left;
-    cursor: pointer;
-}
-
-input[type='radio'] + label{
-    margin: 0;
-    clear: none;
-
-    /* Left padding makes room for image */
-    padding: 2px 0 4px 19px;
-
-    /* Make look clickable because they are */
-    cursor: pointer;
-
-    background: url("../img/radio_inactive.png") left center no-repeat;
-}
-
-/*
-    Change from unchecked to checked graphic
-*/
-
-input[type='radio']:checked + label{
-    background-image: url("../img/radio_active.png");
 }

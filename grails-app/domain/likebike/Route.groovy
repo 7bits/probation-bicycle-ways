@@ -1,5 +1,8 @@
 package likebike
 
+/**
+ * Named route
+ */
 class Route {
 
     static hasMany = [point: Point]

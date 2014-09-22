@@ -6,15 +6,7 @@ var map;//google карта
 var routeMode = HEAT_MAP;
 var viewMode = ALL_TRACKS;
 var lines = [];
-
-function getLoader(){
-    var loader = document.createElement("div");
-    loader.style.width = "126px";
-    loader.style.height = "22px";
-    loader.style.backgroundImage = "url(../images/loader.gif)";
-    loader.id = "loader";
-    return loader;
-}
+var rotator = new Rotator();
 
 urlParam = function(name){
     var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
@@ -26,96 +18,58 @@ urlParam = function(name){
 }
 
 function pullProcessed() {
-    path = "../route/getProcessed";
-    var id = document.getElementById('user_id').value
-    if(id){
-        $.ajax({
-            url: path,
-            type: "post",
-            dataType: "json",
-            data: {id:id},
-            success: function (data) {
-                if(data.length > 0){
-                    console.log(data);
-                    var success = [];
-                    var error = [];
-                    for(i = 0; i < data.length; i++){
-                        if(data[i][1] != 2){
-                            error.push(data[i][0])
-                        }
-                        else{
-                            success.push(data[i][0])
-                        }
+    path = getUrl() + "/route/getProcessed";
+    $.ajax({
+        url: path,
+        type: "post",
+        dataType: "json",
+        success: function (data) {
+            var successMessage = data.successMessage;
+            var errorMessage = data.errorMessage;
+            var list = data.list;
+            if(list.length > 0){
+                console.log(list);
+                var success = [];
+                var error = [];
+                for(i = 0; i < list.length; i++){
+                    if(list[i][1] != 2){
+                        error.push(list[i][0])
                     }
-                    if(success.length)
-                        $.notify("Обработаны файлы: " + success, "success");
-                    if(error.length)
-                        $.notify("Неправильный формат файла в: " + error, "error");
+                    else{
+                        success.push(list[i][0])
+                    }
                 }
-            },
-            error: function (jqXHR) {
-                data = jQuery.parseJSON(jqXHR.responseText);
-            },
-            complete:function () {
+                if(success.length)
+                    $.notify(successMessage + success, "success");
+                if(error.length)
+                    $.notify(errorMessage + error, "error");
             }
-        });
-    }
+        },
+        error: function (jqXHR) {
+            data = jQuery.parseJSON(jqXHR.responseText);
+        },
+        complete:function () {
+        }
+    });
 }
-
-function theRotator() {
-    // Устанавливаем прозрачность всех картинок в 0
-    $('div#rotator ul li').css({opacity: 0.0});
-
-    // Берем первую картинку и показываем ее (по пути включаем полную видимость)
-    $('div#rotator ul li:first').css({opacity: 1.0});
-
-    // Вызываем функцию rotate для запуска слайдшоу, 5000 = смена картинок происходит раз в 5 секунд
-    setInterval('rotate()',375);
-}
-
-function rotate() {
-    // Берем первую картинку
-    var current = ($('div#rotator ul li.show')?  $('div#rotator ul li.show') : $('div#rotator ul li:first'));
-
-    // Берем следующую картинку, когда дойдем до последней начинаем с начала
-    var next = ((current.next().length) ? ((current.next().hasClass('show')) ? $('div#rotator ul li:first') :current.next()) : $('div#rotator ul li:first'));
-
-    // Расскомментируйте, чтобы показвать картинки в случайном порядке
-    // var sibs = current.siblings();
-    // var rndNum = Math.floor(Math.random() * sibs.length );
-    // var next = $( sibs[ rndNum ] );
-
-    // Подключаем эффект растворения/затухания для показа картинок, css-класс show имеет больший z-index
-    next.css({opacity: 0.0})
-        .addClass('show')
-        .animate({opacity: 1.0}, 125);
-
-    // Прячем текущую картинку
-    current.animate({opacity: 0.0}, 125)
-        .removeClass('show');
-};
 
 function drawRoutes(viewMode) {
     var mode =  $('#route')[0];
+    path = getUrl() + "/route/";
     if(viewMode == ALL_TRACKS) {
-        path = "../route/getRoute";
+        path += "getRoute";
         if(mode != null){
             mode.textContent = "все маршруты";
         }
     }
     else{
-        path = "../route/getUsersRoute";
+        path += "getUsersRoute";
         if(mode != null){
             mode.textContent = "мои маршруты";
         }
     }
-    loader = document.getElementById("loader")
-    if(loader == null){
-//        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(getLoader());
-        document.getElementById('loader_background').style.display = 'block';
-        theRotator();
-    }
-    prepareViewMode(map);
+    document.getElementById('loaderBackground').style.display = 'block';
+    rotator.start();
     $.ajax({
         url: path,
         type: "post",
@@ -143,8 +97,8 @@ function drawRoutes(viewMode) {
             data = jQuery.parseJSON(jqXHR.responseText);
         },
         complete:function () {
-//            map.controls[google.maps.ControlPosition.BOTTOM].clear();
-            document.getElementById('loader_background').style.display = 'none';
+            document.getElementById('loaderBackground').style.display = 'none';
+            rotator.stop();
         }
     });
 }
@@ -159,68 +113,52 @@ function setAll(mode){
     }
 }
 
-function prepareViewMode(mapVar) {
-    var view = $("#viewMode")[0];
-    if(view == null){
-        view = document.createElement("div");
-        view.style.width = "200px";
-        view.style.height = "50px";
-        view.style.marginTop = "75px";
-        view.style.marginRight = "auto";
-        view.style.marginLeft = "auto";
-        view.style.fontSize = "20px";
-        view.id = "viewMode";
-        mapVar.controls[google.maps.ControlPosition.TOP].push(view);
-    }
-//    if(viewMode == USERS_TRACKS){
-//        view.innerText = "Ваши треки";
-//    }
-//    else{
-//       view.innerText = "Все треки";
-//    }
-}
-
 $("document").ready(function () {
-    if($("#load_input") !=null){
-        document.getElementById('loader_background').style.display = 'block';
-        var load = $("#load_input");
+    if($("#loadInput") !=null){
+        document.getElementById('loaderBackground').style.display = 'block';
+        var load = $("#loadInput");
         load.hover(
             function () {
-                $("#upload_icon")[0].src = "../img/icon_active.png";
+                $("#uploadIcon")[0].src = getUrl() + "/img/icon_active.png";
             },
             function () {
-                $("#upload_icon")[0].src = "../img/Waypoint.png";
+                $("#uploadIcon")[0].src = getUrl() + "/img/Waypoint.png";
             }
         );
     }
 
-    var loaded = urlParam('loaded');
-    if(loaded !=null){
-        document.getElementById('loader_background').style.display = 'none';
-        if(loaded == "true"){
-            $.notify("Ваш файл был загружен", "success");
+    $('#loadInput').click( function() {
+        var userfile = $("#userfile")[0];
+        if(userfile.value != ""){
+            document.getElementById('loadFile').submit();
         }
         else{
-            $.notify("Ваш файл не был загружен");
+            $.notify("Файл не выбран");
         }
-        window.history.pushState("object or string", "Title", window.location.href.replace(/\?loaded=.*/i, ""));
+        return false;
+    });
+
+    var loadedCode = $("#loadedCode")[0];
+    if(loadedCode != null){
+        var loadedMessage = $("#loadedMessage")[0].value;
+        document.getElementById('loaderBackground').style.display = 'none';
+        if(loadedCode.value == "true"){
+            $.notify(loadedMessage, "success");
+        }
+        else{
+            $.notify(loadedMessage);
+        }
     }
     window.setInterval(pullProcessed, 5000);
-//    document.getElementById('screen').onclick = function () {
-//        if(routeArray.length){
-//            var urlImg = routeToStaticMapURL(routeArray[routeArray.length - 1]);
-//            document.getElementById('route_img').src = urlImg;
-//        }
-//    }
-    if (document.getElementById('get_users_routes') != null) {
-        document.getElementById('get_users_routes').onclick = function () {
+    if (document.getElementById('getUsersRoutes') != null) {
+        document.getElementById('getUsersRoutes').onclick = function () {
             viewMode = USERS_TRACKS;
             drawRoutes(viewMode);
         }
 
     }
-    if (document.getElementById('get_all_routes') != null) {
-        document.getElementById('get_all_routes').onclick = function () {
+    if (document.getElementById('getAllRoutes') != null) {
+        document.getElementById('getAllRoutes').onclick = function () {
             viewMode = ALL_TRACKS;
             drawRoutes(viewMode);
         }
@@ -230,8 +168,9 @@ $("document").ready(function () {
         $("#userfile").change(function () {
             var path = this.value;
             var fileName = path.replace(/^.*[\\\/]/, '')
-            var file_name = $("#file_name")[0];
-            file_name.innerText = fileName;
+            var file = $("#fileName")[0];
+            file.innerText = fileName;
+            file.textContent = fileName;
         });
     }
 
@@ -241,7 +180,7 @@ $("document").ready(function () {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         scrollwheel: false
     };
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
     map.set('styles', [
         {
             featureType: 'road',
@@ -261,10 +200,7 @@ $("document").ready(function () {
         }
     ]);
     var mode = document.createElement("input");
-    mode.style.width = "50px";
-    mode.style.height = "22px";
-    mode.style.marginRight = "5px";
-    mode.style.backgroundImage = "#000000";
+    mode.id = "changeMap";
     mode.type = "button";
     mode.value = "hm\\fp";
     mode.onclick = function () {
@@ -281,7 +217,7 @@ $("document").ready(function () {
 
 });
 
-function routes_to_points(routes){
+function routesToPoints(routes){
     var points = [];
     for (i = 0; i < routes.length; i++) {
         for (j = 0; j < routes[i].length; j++) {
@@ -304,7 +240,7 @@ function createRoute(routeArray, routeMode) {
             routes.push(flightPath);
         });
     else {
-        var pointArray = new google.maps.MVCArray(routes_to_points(routeArray));
+        var pointArray = new google.maps.MVCArray(routesToPoints(routeArray));
         routes = new google.maps.visualization.HeatmapLayer({
             data: pointArray, opacity: 1, radius: 5, gradient: [
                 'rgba(0, 255, 255, 0)',

@@ -1,9 +1,64 @@
 package likebike
 
+import grails.converters.JSON
 import grails.plugin.cache.Cacheable
+import grails.plugins.springsecurity.Secured
+import org.springframework.dao.DataIntegrityViolationException
 import org.xml.sax.SAXParseException
 
 class RouteService {
+
+    def fileService
+    def springSecurityService
+
+    def getUsersRoute() {
+        def user = springSecurityService.getCurrentUser()
+        if(user == null){
+            user = User.find { username == "anonymous" }
+        }
+        def route = getUsersRoute(user)
+        return route
+    }
+
+    def getProcessed(){
+        def user = springSecurityService.getCurrentUser()
+        def id = user.id
+        if(id) {
+            def rows = fileService.getProcessed(id)
+            List filesList = []
+            rows.each() {
+                filesList << [it['file_name'], it['processed']]
+                fileService.setAlert(it['id'])
+            }
+            return [successMessage: "Обработаны файлы: ", errorMessage: "Неправильный формат файла в: ", list: filesList]
+        }
+        return ['error':'no user']
+    }
+
+    def loadFile(def formFile) {
+        if (formFile && formFile.size) {
+            File file = new likebike.File()
+            file.user = springSecurityService.getCurrentUser()
+            file.user_alert = false
+            if(file.user == null){
+                file.user = User.find { username == "anonymous" }
+                file.user_alert = true
+            }
+            file.processed = File.NOT_PROCESSED
+            file.file_name = formFile.fileItem.name
+            file.save()
+            String xmlData = new String(formFile.bytes)
+            java.io.File fileToProcess = new java.io.File("userfiles/" + file.id + ".userfile")
+            fileToProcess.write(xmlData)
+            return true
+        }
+        return false
+    }
+
+    @Cacheable('routes')
+    def getRoute() {
+        return convertRouteListToArray(Route.list())
+    }
 
     void loadFromFile(String xml, def currentUser) throws SAXParseException {
         def data = new XmlParser().parseText(xml)
@@ -22,31 +77,8 @@ class RouteService {
         }
     }
 
-    void genRoute(ArrayList<Double> listPoints) {
-        Route route = new Route()
-        route.name = "generationRoute"
-        route.save()
-
-        //log.error(listPoints.size())
-        for (int i = 0; i < listPoints.size(); i += 2) {
-            //log.error(i)
-            //log.error(listPoints.get(i))
-            Point point = new Point()
-            point.latitude = listPoints.get(i).toDouble()
-            point.longitude = listPoints.get(i + 1).toDouble()
-            point.routeIndex = i / 2
-            point.route = route
-            point.save(flush: true)
-        }
-    }
-
     def getUsersRoute(currentUser) {
         return convertRouteListToArray(currentUser.route)
-    }
-
-    @Cacheable('routes')
-    def getRoute() {
-        return convertRouteListToArray(Route.list())
     }
 
     def convertRouteListToArray(def routes) {

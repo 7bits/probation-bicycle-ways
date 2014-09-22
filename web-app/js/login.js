@@ -1,46 +1,64 @@
-function theRotator() {
-    $('div#rotator ul li').css({opacity: 0.0});
-    $('div#rotator ul li:first').css({opacity: 1.0});
-    setInterval('rotate()',375);
-}
-function rotate() {
-    var current = ($('div#rotator ul li.show')? $('div#rotator ul li.show') : $('div#rotator ul li:first'));
-    var next = ((current.next().length) ? ((current.next().hasClass('show')) ? $('div#rotator ul li:first') :current.next()) : $('div#rotator ul li:first'));
-    next.css({opacity: 0.0})
-        .addClass('show')
-        .animate({opacity: 1.0}, 125);
-    current.animate({opacity: 0.0}, 125)
-        .removeClass('show');
-};
-
+var rotator = new Rotator();
 
 $( document ).ready(function () {
-    document.getElementById('p_error').style.display = 'none';
-    document.getElementById('p_error').style.display = 'none';
+    $('#pError').css("display","none");
     if( getParameterByName('login_error') == 1 ){
-        document.getElementById('parent_log').style.display = 'block';
-        document.getElementById('p_error').style.display = 'block';
+        $("#parentLog").css("display",'block');
+        $('#pError').css("display", 'block');
     }
-    if( document.getElementById('p_log') != null){
-        document.getElementById('p_log').onclick = function () {
-            document.getElementById('parent_log').style.display = 'block';
-            document.getElementById("parent_log").onclick = function (data) {
-                if(data.srcElement == document.getElementById("parent_log")){
-                    document.getElementById("parent_log").style.display = 'none';
-                }
-            };
-        }
+    if( $('#pLog') != null){
+        $('#pLog').click ( function () {
+            $("#parentLog").css("display", 'block');
+        });
     }
-    document.getElementById("parent_log").onclick = function (data) {
-        if(data.srcElement == document.getElementById("parent_log")){
-            document.getElementById("parent_log").style.display = 'none';
+    $("#parentLog").click(function (data) {
+        var clicked = data.target || data.srcElement;
+        if(clicked == $("#parentLog")[0]){
+            $("#parentLog")[0].style.display="none";
         }
-    };
+    });
     
-    document.getElementById('p_ok').style.display = 'none'
-    $('#register_form').submit(function (e) {
-        document.getElementById('loader_background').style.display = 'block';
-        theRotator();
+    document.getElementById('pOk').style.display = 'none'
+    $('#loginForm').submit(function (e) {
+        $('#loaderBackground')[0].style.display = 'block';
+        rotator.start();
+        e.preventDefault();
+        var command = {
+            j_username: $('#j_username').val(),
+            j_password: $('#j_password').val(),
+        }
+        $('#usernameError')[0].innerHTML = '';
+        $('#passwordError')[0].innerHTML = '';
+        $.ajax({
+            type: 'POST',
+            url: $('#loginForm')[0].action,
+            datatype: JSON,
+            data: command,
+            complete: function (data) {
+                $('#loaderBackground')[0].style.display = 'none';
+                rotator.stop();
+            },
+            success: function (data) {
+                if (data.error) {
+                    $('#password')[0].value = '';
+                    $('#pError')[0].innerHTML = data.error;
+                    $('#pError').css("display", 'block');
+                }
+                else{
+                    location.reload();
+                }
+
+            },
+            error: function (jqXHR) {
+                data = jQuery.parseJSON(jqXHR.responseText);
+                alert("ERROR");
+            }
+        });
+    });
+    
+    $('#registerForm').submit(function (e) {
+        $("#loaderBackground")[0].style.display = 'block';
+        rotator.start();
         e.preventDefault();
         var command = {
             username: $('#username').val(),
@@ -51,59 +69,44 @@ $( document ).ready(function () {
         data = {
             command: command
         }
+        $('#usernameError')[0].innerHTML = '';
+        $('#emailError')[0].innerHTML = '';
+        $('#passwordError')[0].innerHTML = '';
+        $('#password2Error')[0].innerHTML = '';
         $.ajax({
             type: 'POST',
-            url: '../register/register',
+            url: getUrl() + '/register/register',
             datatype: JSON,
             data: command,
             complete: function (data) {
-                document.getElementById('loader_background').style.display = 'none';
+                $('#loaderBackground')[0].style.display = 'none';
+                rotator.stop();
             },
             success: function (data) {
-                if (data.hasError) {
-                    document.getElementById('password').value = '';
-                    document.getElementById('password2').value = '';
+                if (data.status!=true) {
+                    $('#password')[0].value = '';
+                    $('#password2')[0].value = '';
 
-                    if (data.username == 'right') {
-                        document.getElementById('username_error').innerHTML = '';
+                    if (data.username != null) {
+                        $('#usernameError')[0].innerHTML = data.username;
                     }
-                    if (data.email == 'right') {
-                        document.getElementById('email_error').innerHTML = '';
+                    if (data.email != null) {
+                        $('#emailError')[0].innerHTML = data.email;
                     }
-                    if (data.password == 'right') {
-                        document.getElementById('password_error').innerHTML = '';
+                    if (data.password != null) {
+                        $('#passwordError')[0].innerHTML = data.password;
                     }
-                    if (data.password2 == 'right') {
-                        document.getElementById('password2_error').innerHTML = '';
-                    }
-
-
-                    if (data.username == 'userNameHold') {
-                        document.getElementById('username_error').innerHTML = 'Данное имя уже ипользуется.';
-                    }
-                    if (data.username == 'empty') {
-                        document.getElementById('username_error').innerHTML = 'Имя не должно быть пустым';
-                    }
-                    if (data.email == 'empty') {
-                        document.getElementById('email_error').innerHTML = 'email не должен быть пустым';
-                    }
-                    if (data.email == 'emailNotValide') {
-                        document.getElementById('email_error').innerHTML = 'Неверный email.';
-                    }
-                    if (data.password != 'right') {
-                        document.getElementById('password_error').innerHTML = 'Неверный пароль. Пароль не должен быть короче 8 символов.';
-                    }
-                    if (data.password2 == 'passwordNotMatch') {
-                        document.getElementById('password2_error').innerHTML = 'Пароли не совпадают.';
+                    if (data.password2 != null) {
+                        $('#password2Error')[0].innerHTML = data.password2;
                     }
                 }
-                if (!data.hasError) {
-                    document.getElementById('username').value = '';
-                    document.getElementById('email').value = '';
-                    document.getElementById('password').value = '';
-                    document.getElementById('password2').value = '';
-                    document.getElementById('register_form').style.display = 'none';
-                    document.getElementById('p_ok').style.display = 'block';
+                else{
+                    $('#username')[0].value = '';
+                    $('#email')[0].value = '';
+                    $('#password')[0].value = '';
+                    $('#password2')[0].value = '';
+                    $('#registerForm')[0].style.display = 'none';
+                    $('#pOk')[0].style.display = 'block';
                 }
 
             },
@@ -114,11 +117,3 @@ $( document ).ready(function () {
         });
     });
 });
-
-function getParameterByName(name) {
-
-    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}

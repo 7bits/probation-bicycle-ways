@@ -1,17 +1,23 @@
 package likebike
 
+/**
+ * Responsible for core pages of the app
+ */
 class HomeController {
+    def homePresenter
 
+    /**
+     * Handles main page
+     */
     def index = {
-        render view: 'index'
+        render homePresenter.index()
     }
+
+    /**
+     * Handles map page
+     */
     def map = {
-        render view: '/home/map'
-    }
-    def header = {
-        render view: 'header'
-    }
-    def footer = {
-        render view: 'footer'
+        render homePresenter.map(params.loaded)
+        return
     }
 }

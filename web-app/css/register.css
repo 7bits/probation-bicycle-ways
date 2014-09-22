@@ -1,5 +1,5 @@
 
-#parent_reg {
+#parentReg {
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.65)), color-stop(100%, rgba(0, 0, 0, 0))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* Chrome10+,Safari5.1+ */
@@ -18,7 +18,7 @@
     left: 0;
 }
 
-#p_ok {
+#pOk {
     font: 14px "Open Sans" ;
     /*margin: 100px 45px;*/
     margin-top: 70px;
@@ -33,7 +33,7 @@
     /*position: absolute;*/
 }
 
-.reg_text {
+.regText {
     font: 14px "Open Sans";
     color: #F15A24;
     right: 0;
@@ -53,7 +53,7 @@
     color: #ffffff;
 }
 
-.reg_title {
+.regTitle {
     font: 15px "Open Sans";
     color: #F15A24;
     /*margin-top: 15px;*/
@@ -68,7 +68,7 @@
     height: 450px;
 }
 
-.reg_text_title {
+.regTextTitle {
     /*margin-bottom: 10px;*/
     /*margin-top: 20px;*/
     margin-left: 20px;
@@ -77,13 +77,13 @@
     margin-bottom: 5px;
 }
 
-.reg_text_info {
+.regTextInfo {
     margin-left: 20px;
     font: 12px "Open Sans";
     color: #f15a24;
 }
 
-.reg_input {
+.regInput {
     margin-left: 20px;
     width: 210px;
     height: 30px;
@@ -92,11 +92,11 @@
     /*margin-bottom: 10px;*/
 }
 
-.reg_input:focus {
+.regInput:focus {
     outline: 2px solid #f15a24;
 }
 
-#close_reg {
+#closeReg {
     position: relative;
     text-align: center;
     left: 230px;
@@ -108,7 +108,7 @@
     float: left;
 }
 
-#reg_submit {
+#regSubmit {
     border: 0px;
     background-color: #F15A24;
     width: 210px;
@@ -123,17 +123,17 @@
     margin-top: 0px;
 }
 
-#reg_submit:hover {
+#regSubmit:hover {
     background-color: #d03700;
     color: #ffffff;
 }
 
-#reg_submit:active {
+#regSubmit:active {
     background-color: #ffffff;
     color: #f24120;
 }
 
-#parent_log {
+#parentLog {
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.65)), color-stop(100%, rgba(0, 0, 0, 0))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%); /* Chrome10+,Safari5.1+ */

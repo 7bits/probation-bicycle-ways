@@ -2,6 +2,9 @@ package likebike
 
 import org.apache.commons.lang.builder.HashCodeBuilder
 
+/**
+ * User - Role many to many relation auxiliary table
+ */
 class UserRole implements Serializable {
 
     User user

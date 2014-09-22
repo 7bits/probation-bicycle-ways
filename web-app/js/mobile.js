@@ -3,7 +3,7 @@
  */
 
 $(document).ready(function () {
-    $("#mobile").click(function () {
+    $("#mobileA").click(function () {
         $("#panel").slideDown("slow");
         return false;
     });
