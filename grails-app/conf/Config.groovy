@@ -117,3 +117,11 @@ grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/home/map'
 grails.plugins.springsecurity.ui.register.defaultRoleNames = ['ROLE_USER']
 grails.plugins.springsecurity.ui.encodePassword = false
 grails.plugins.springsecurity.ui.register.postRegisterUrl = '/'
+
+emailBody = '<td>Доброго времени суток, $user.username,<br> ' +
+        '<br> Вы (или кто-то, притворяющийся вами) использовали этот адрес чтобы создать аккаунт.<br>' +
+        '<br>Если это вы, то кликните &nbsp;<a href="$url">здесь</a>, чтобы закончить регистрацию.</td>'
+emailFrom = 'Velo-Omsk'
+emailSubject = 'Регистрация на Velo-Omsk'
+vkSecretKey = "YIe1xEs8vWkImchof0Ll"
+apiId = "4512659"
