@@ -11,41 +11,43 @@ class RouteService {
     def fileService
     def springSecurityService
 
-    def getUsersRoute() {
+    def fetchUsersRoute() {
         def user = springSecurityService.getCurrentUser()
         if(user == null){
             user = User.find { username == "anonymous" }
         }
-        def route = getUsersRoute(user)
+        def route = fetchUsersRoute(user)
         return route
     }
 
-    def getProcessed(){
+    def fetchProcessed(){
         def user = springSecurityService.getCurrentUser()
-        def id = user.id
+        def id = user?.id
         if(id) {
-            def rows = fileService.getProcessed(id)
+            def rows = fileService.fetchProcessed(id)
             List filesList = []
             rows.each() {
-                filesList << [it['file_name'], it['processed']]
-                fileService.setAlert(it['id'])
+                File file = File.findById(it['id'])
+                filesList << [file.fileName, file.processed]
+                file.userAlert = true
+                file.save(flush: true)
             }
-            return [successMessage: "Обработаны файлы: ", errorMessage: "Неправильный формат файла в: ", list: filesList]
+            return filesList
         }
         return ['error':'no user']
     }
 
-    def loadFile(def formFile) {
+    def loadFile(formFile) {
         if (formFile && formFile.size) {
             File file = new likebike.File()
             file.user = springSecurityService.getCurrentUser()
-            file.user_alert = false
+            file.userAlert = false
             if(file.user == null){
                 file.user = User.find { username == "anonymous" }
-                file.user_alert = true
+                file.userAlert = true
             }
             file.processed = File.NOT_PROCESSED
-            file.file_name = formFile.fileItem.name
+            file.fileName = formFile.fileItem.name
             file.save()
             String xmlData = new String(formFile.bytes)
             java.io.File fileToProcess = new java.io.File("userfiles/" + file.id + ".userfile")
@@ -56,11 +58,11 @@ class RouteService {
     }
 
     @Cacheable('routes')
-    def getRoute() {
+    def fetchRoute() {
         return convertRouteListToArray(Route.list())
     }
 
-    void loadFromFile(String xml, def currentUser) throws SAXParseException {
+    void loadFromFile(String xml, currentUser) throws SAXParseException {
         def data = new XmlParser().parseText(xml)
 
         Route route = new Route()
@@ -77,11 +79,11 @@ class RouteService {
         }
     }
 
-    def getUsersRoute(currentUser) {
+    def fetchUsersRoute(currentUser) {
         return convertRouteListToArray(currentUser.route)
     }
 
-    def convertRouteListToArray(def routes) {
+    private def convertRouteListToArray(routes) {
         def routeArray = [];
         def i = 0;
         def indexPoint = 0;

@@ -9,15 +9,6 @@ import org.springframework.security.core.context.SecurityContextHolder as SCH
 import org.springframework.security.web.WebAttributes
 
 class LoginController {
-
-    /**
-     * Dependency injection for the authenticationTrustResolver.
-     */
-    def authenticationTrustResolver
-
-    /**
-     * Dependency injection for the springSecurityService.
-     */
     def springSecurityService
     /**
      * The redirect action for Ajax requests.

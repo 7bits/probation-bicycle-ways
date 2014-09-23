@@ -1,6 +1,5 @@
 package likebike
 
-import groovy.sql.Sql
 import org.xml.sax.SAXParseException
 
 class FileProcessingJob {
@@ -16,8 +15,8 @@ class FileProcessingJob {
     def concurrent = false
 
 
-    def execute() {
-        def row = fileService.getNext();
+    def execute = {
+        def row = fileService.fetchNext();
         if (row != null) {
             File file = File.get(row['id']);
             if (file != null) {
@@ -40,7 +39,7 @@ class FileProcessingJob {
             }
         }
         if(!grailsCacheManager.cacheExists('routes') && (row == null)) {
-            routeService.getRoute()
+            routeService.fetchRoute()
         }
         return
     }
