@@ -6,7 +6,6 @@ import grails.util.Holders
 import org.springframework.context.i18n.LocaleContextHolder
 
 class RoutePresenter {
-    static def messageSource = Holders.applicationContext.getBean("messageSource")
 
     def fetchRoute(result) {
         return result as JSON
@@ -17,6 +16,7 @@ class RoutePresenter {
     }
 
     def fetchProcessed(result){
+        def messageSource = Holders.applicationContext.getBean("messageSource")
         def out = [successMessage: messageSource.getMessage('route.getProcessed.successMessage', null, LocaleContextHolder.getLocale()),
          errorMessage: messageSource.getMessage('route.getProcessed.errorMessage', null, LocaleContextHolder.getLocale()),
          list: result]
