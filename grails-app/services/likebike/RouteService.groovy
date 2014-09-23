@@ -3,6 +3,7 @@ package likebike
 import grails.converters.JSON
 import grails.plugin.cache.Cacheable
 import grails.plugins.springsecurity.Secured
+import grails.util.Holders
 import org.springframework.dao.DataIntegrityViolationException
 import org.xml.sax.SAXParseException
 
@@ -50,7 +51,7 @@ class RouteService {
             file.fileName = formFile.fileItem.name
             file.save()
             String xmlData = new String(formFile.bytes)
-            java.io.File fileToProcess = new java.io.File("userfiles/" + file.id + ".userfile")
+            java.io.File fileToProcess = new java.io.File(Holders.config.pathToUsersFiles + file.id + ".userfile")
             fileToProcess.write(xmlData)
             return true
         }

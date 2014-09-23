@@ -61,6 +61,7 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+        pathToUsersFiles="/home/roman/IdeaProjects/probation-bicycle-ways/userfiles/"
     }
     production {
         grails.logging.jul.usebridge = false

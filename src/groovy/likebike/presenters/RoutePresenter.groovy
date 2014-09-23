@@ -17,8 +17,8 @@ class RoutePresenter {
     }
 
     def fetchProcessed(result){
-        def out = [successMessage: messageSource.getMessage('route.getProcessed.successMessage', null, null, LocaleContextHolder.getLocale()),
-         errorMessage: messageSource.getMessage('route.getProcessed.errorMessage', null, null, LocaleContextHolder.getLocale()),
+        def out = [successMessage: messageSource.getMessage('route.getProcessed.successMessage', null, LocaleContextHolder.getLocale()),
+         errorMessage: messageSource.getMessage('route.getProcessed.errorMessage', null, LocaleContextHolder.getLocale()),
          list: result]
         return out as JSON
     }

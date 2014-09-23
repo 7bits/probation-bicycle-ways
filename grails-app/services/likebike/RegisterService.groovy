@@ -25,8 +25,7 @@ class RegisterService {
             user.save(flush: true)
             def registrationCode = new RegistrationCode(username: user.username).save()
             String url = grailsLinkGenerator.link( action: 'verifyRegistration', params: [t: registrationCode.token])
-            def conf = Holders.config
-            def body = conf.emailBody
+            def body = Holders.config.emailBody
             new SimpleTemplateEngine().createTemplate(body).make([user: user, url: url])
             mailService.sendMail {
                 to form.email
