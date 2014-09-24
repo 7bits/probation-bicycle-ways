@@ -33,7 +33,6 @@ grails.mime.types = [
 
 // What URL patterns should be processed by the resources plugin
 grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
-
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
 grails.views.gsp.encoding = "UTF-8"
@@ -65,7 +64,8 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
+        pathToUsersFiles="/home/velo-user/userfiles/"
+        grails.serverURL = "http://velo-omsk.org"
     }
 }
 
@@ -115,7 +115,7 @@ grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'likebike.User
 grails.plugins.springsecurity.authority.className = 'likebike.Role'
 grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/home/map'
 
-grails.plugins.springsecurity.ui.register.defaultRoleNames = ['ROLE_USER']
+grails.plugins.springsecurity.ui.register.defaultRoleNames = ['ROLE_USER', 'ROLE_ADMIN']
 grails.plugins.springsecurity.ui.encodePassword = false
 grails.plugins.springsecurity.ui.register.postRegisterUrl = '/'
 
