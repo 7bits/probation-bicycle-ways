@@ -31,9 +31,9 @@ list: список пар следующего вида:
 ####Последние загруженные маршруты
 
 url: j_spring_security_check  
-type: post
-form-data: x-www-form-urlencoded
-data: j_username: логин
-      j_password: пароль
+type: post  
+form-data: x-www-form-urlencoded  
+data: j_username: логин  
+      j_password: пароль  
 
 
