@@ -35,6 +35,6 @@ type: post
 form-data: x-www-form-urlencoded  
 data: j_username: логин  
       j_password: пароль  
-Ответ: {success: true/false, "errorMessage": сообщение об ошибке в случае неудачи, username: логин в случае успеха}   
+Ответ: {success: true/false, "errorMessage": сообщение об ошибке в случае неудачи}   
 
 
