@@ -14,9 +14,10 @@ class RegisterPresenter {
         else{
             def out = [:]
             result.each {
+                def a = messageSource.getMessage(it, LocaleContextHolder.getLocale())
                 out.put(it.field, messageSource.getMessage(it, LocaleContextHolder.getLocale()))
-                out.put('status', false)
             }
+            out.put('status', false)
             return out as JSON
         }
 
