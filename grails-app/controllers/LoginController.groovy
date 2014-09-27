@@ -1,9 +1,4 @@
-import grails.converters.JSON
-import org.springframework.security.core.Authentication
-import org.springframework.security.core.context.SecurityContextHolder
-
 import javax.servlet.http.HttpServletResponse
-
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 
 class LoginController {

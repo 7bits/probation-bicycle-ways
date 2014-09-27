@@ -1,10 +1,6 @@
 package likebike
-
-import grails.converters.JSON
 import grails.plugin.cache.Cacheable
-import grails.plugins.springsecurity.Secured
 import grails.util.Holders
-import org.springframework.dao.DataIntegrityViolationException
 import org.xml.sax.SAXParseException
 
 class RouteService {

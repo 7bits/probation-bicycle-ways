@@ -2,13 +2,10 @@ package likebike
 
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 import org.springframework.context.i18n.LocaleContextHolder
-import org.springframework.security.core.Authentication
-import org.springframework.security.core.context.SecurityContextHolder
 
 class LoginService {
     def springSecurityService
     def messageSource
-    def logoutHandlers
 
     /**
      * Callback after a failed login. Redirects to the auth page with a warning message.
