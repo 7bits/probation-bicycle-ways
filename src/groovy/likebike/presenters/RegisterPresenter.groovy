@@ -5,7 +5,6 @@ import grails.util.Holders
 import org.springframework.context.i18n.LocaleContextHolder
 
 class RegisterPresenter {
-    static def messageSource = Holders.applicationContext.getBean("messageSource")
 
     def register(def result) {
         if(result instanceof Map) {
@@ -14,9 +13,8 @@ class RegisterPresenter {
         else{
             def out = [:]
             result.each {
-                def a = messageSource.getMessage(it, LocaleContextHolder.getLocale())
-                out.put(it.field, messageSource.getMessage(it, LocaleContextHolder.getLocale()))
-            }
+                out.put(it.field, Holders.applicationContext.getBean("messageSource").getMessage(it, LocaleContextHolder.getLocale()))
+            }   //Refactor on your own risk
             out.put('status', false)
             return out as JSON
         }
