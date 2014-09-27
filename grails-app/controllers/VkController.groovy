@@ -1,5 +1,3 @@
-package likebike
-
 class VkController {
 
     def VKService

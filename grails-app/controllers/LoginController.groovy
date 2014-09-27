@@ -1,10 +1,14 @@
 import grails.converters.JSON
+import org.springframework.security.core.Authentication
+import org.springframework.security.core.context.SecurityContextHolder
+
 import javax.servlet.http.HttpServletResponse
 
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 
 class LoginController {
-    def springSecurityService
+    def loginPresenter
+    def loginService
     /**
      * The redirect action for Ajax requests.
      */
@@ -17,15 +21,21 @@ class LoginController {
      * Callback after a failed login. Redirects to the auth page with a warning message.
      */
     def authfail() {
-        String msg = g.message(code: "springSecurity.errors.login.fail")
-        render([error: msg] as JSON)
-        return
+        render loginPresenter.authfail(loginService.authfail())
     }
 
     /**
      * The Ajax success redirect url.
      */
     def ajaxSuccess = {
-        render([success: true, username: springSecurityService.authentication.name] as JSON)
+        render loginPresenter.ajaxSuccess(loginService.ajaxSuccess())
+    }
+
+    def checkAuth = {
+        render loginPresenter.checkAuth(loginService.checkAuth())
+    }
+
+    def logout = {
+        redirect loginService.logout()
     }
 }
