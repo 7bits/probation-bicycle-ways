@@ -57,6 +57,7 @@ class RegisterService {
             user.save(flush:true)
             UserRole.create user, Role.findByAuthority('ROLE_USER')
             registrationCode.delete()
+            springSecurityService.reauthenticate user.username
         }
     }
 }
