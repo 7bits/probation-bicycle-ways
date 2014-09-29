@@ -4,6 +4,7 @@ import grails.util.Holders
 import groovy.text.SimpleTemplateEngine
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 import org.codehaus.groovy.grails.plugins.springsecurity.ui.RegistrationCode
+import grails.plugins.springsecurity.ui.RegisterController as spring
 
 class RegisterService {
     def mailService
@@ -46,25 +47,16 @@ class RegisterService {
     }
 
     def verifyRegistration(t) {
-
-        def conf = SpringSecurityUtils.securityConfig
-        String defaultTargetUrl = conf.successHandler.defaultTargetUrl
-
-        String token = t
-
-        def registrationCode = token ? RegistrationCode.findByToken(token) : null
-        User user = new User(username: registrationCode.username)
-        if (!user) {
-            return
+        def registrationCode = t ? RegistrationCode.findByToken(t) : null
+        RegistrationCode.withTransaction { status ->
+            def user = User.findByUsername(registrationCode.username)
+            if (!user) {
+                return
+            }
+            user.accountLocked = false
+            user.save(flush:true)
+            UserRole.create user, Role.findByAuthority('ROLE_USER')
+            registrationCode.delete()
         }
-        user.accountLocked = false
-        user.save(flush:true)
-        def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
-        UserRole.create user, userRole, true
-        registrationCode.delete()
-        if (!user) {
-            return
-        }
-        springSecurityService.reauthenticate user.username
     }
 }

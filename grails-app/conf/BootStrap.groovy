@@ -63,7 +63,6 @@ class BootStrap {
 
                 def user2 = new User(username: 'User', enabled: true, password: '12345678', uid: "", email: '')
                 user2.save(flush: true)
-
                 UserRole.create user2, userRole, true
             }
 

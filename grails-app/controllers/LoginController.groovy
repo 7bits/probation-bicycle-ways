@@ -31,6 +31,6 @@ class LoginController {
     }
 
     def logout = {
-        redirect loginService.logout()
+        redirect url: loginService.logout()
     }
 }

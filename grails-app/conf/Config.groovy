@@ -115,7 +115,7 @@ grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'likebike.User
 grails.plugins.springsecurity.authority.className = 'likebike.Role'
 grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/home/map'
 
-grails.plugins.springsecurity.ui.register.defaultRoleNames = ['ROLE_USER', 'ROLE_ADMIN']
+grails.plugins.springsecurity.ui.register.defaultRoleNames = ['ROLE_USER']
 grails.plugins.springsecurity.ui.encodePassword = false
 grails.plugins.springsecurity.ui.register.postRegisterUrl = '/'
 
