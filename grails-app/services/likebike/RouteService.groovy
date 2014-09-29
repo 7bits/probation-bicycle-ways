@@ -1,4 +1,5 @@
 package likebike
+
 import grails.plugin.cache.Cacheable
 import grails.util.Holders
 import org.xml.sax.SAXParseException
