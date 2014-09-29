@@ -31,8 +31,7 @@ list: список пар следующего вида:
 ####Логин
 
 url: j_spring_security_check  
-type: post  
-form-data: x-www-form-urlencoded  
+type: post 
 data: j_username: логин  
       j_password: пароль  
 Ответ: {success: true/false, "errorMessage": сообщение об ошибке в случае неудачи}   
