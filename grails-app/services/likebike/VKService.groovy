@@ -2,10 +2,20 @@ package likebike
 
 import grails.util.Holders
 
+/**
+ * Responsible for authenticating users with theirs VK account
+ */
 class VKService {
     static final int MAX_NUMBER_OF_IVANS = 100;
     def springSecurityService
 
+    /**
+     * Used to authenticate user with his VK account. Should be correspondent to current VK API
+     * @param uid user's VK id
+     * @param usersHash Hash that VK gives us to confirm this user's session
+     * @param firstName First Name of logging user
+     * @param lastName Last Name of logging user
+     */
     def auth(String uid, String usersHash, String firstName, String lastName) {
         String secretKey = Holders.config.vkSecretKey
         String API_ID = Holders.config.apiId

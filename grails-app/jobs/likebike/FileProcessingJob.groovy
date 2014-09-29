@@ -3,6 +3,9 @@ package likebike
 import grails.util.Holders
 import org.xml.sax.SAXParseException
 
+/**
+ * Handles deferred file processing
+ */
 class FileProcessingJob {
 
     def fileService
@@ -15,7 +18,9 @@ class FileProcessingJob {
 
     def concurrent = false
 
-
+    /**
+     * Takes next loaded non-processed file and tries to process it.
+     */
     def execute() {
         def row = fileService.fetchNext();
         if (row != null) {
