@@ -1,6 +1,6 @@
 package likebike
 
-import groovy.sql.Sql
+import grails.util.Holders
 import org.xml.sax.SAXParseException
 
 class FileProcessingJob {
@@ -17,13 +17,12 @@ class FileProcessingJob {
 
 
     def execute() {
-        def row = fileService.getNext();
+        def row = fileService.fetchNext();
         if (row != null) {
             File file = File.get(row['id']);
             if (file != null) {
                 try {
-                    String xmlData = new java.io.File("userfiles/" + file.id + ".userfile").text
-                    def file_user = file.user;
+                    String xmlData = new java.io.File(Holders.config.pathToUsersFiles + file.id + ".userfile").text
                     routeService.loadFromFile(xmlData, User.get(file.user.id))
                     grailsCacheManager.getCache('routes')?.clear()
                     file.processed = File.PROCESSED_WITH_SUCCESS;
@@ -40,7 +39,7 @@ class FileProcessingJob {
             }
         }
         if(!grailsCacheManager.cacheExists('routes') && (row == null)) {
-            routeService.getRoute()
+            routeService.fetchRoute()
         }
         return
     }

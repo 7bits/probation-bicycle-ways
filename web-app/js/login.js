@@ -39,9 +39,9 @@ $( document ).ready(function () {
                 rotator.stop();
             },
             success: function (data) {
-                if (data.error) {
+                if (!data.success) {
                     $('#password')[0].value = '';
-                    $('#pError')[0].innerHTML = data.error;
+                    $('#pError')[0].innerHTML = data.errorMessage;
                     $('#pError').css("display", 'block');
                 }
                 else{

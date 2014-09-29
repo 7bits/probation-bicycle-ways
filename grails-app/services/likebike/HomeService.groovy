@@ -1,4 +1,0 @@
-package likebike
-
-class HomeService {
-}

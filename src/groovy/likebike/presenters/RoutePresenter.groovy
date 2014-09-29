@@ -1,19 +1,26 @@
 package likebike.presenters
 
+import grails.artefact.Artefact
 import grails.converters.JSON
+import grails.util.Holders
+import org.springframework.context.i18n.LocaleContextHolder
 
 class RoutePresenter {
 
-    def getRoute(result) {
+    def fetchRoute(result) {
         return result as JSON
     }
 
-    def getUsersRoute(result) {
+    def fetchUsersRoute(result) {
         return result as JSON
     }
 
-    def getProcessed(result){
-        return result as JSON
+    def fetchProcessed(result){
+        def messageSource = Holders.applicationContext.getBean("messageSource")
+        def out = [successMessage: messageSource.getMessage('route.getProcessed.successMessage', null, LocaleContextHolder.getLocale()),
+         errorMessage: messageSource.getMessage('route.getProcessed.errorMessage', null, LocaleContextHolder.getLocale()),
+         list: result]
+        return out as JSON
     }
 
     def loadFile(loaded) {

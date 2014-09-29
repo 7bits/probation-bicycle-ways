@@ -33,7 +33,6 @@ grails.mime.types = [
 
 // What URL patterns should be processed by the resources plugin
 grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
-
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
 grails.views.gsp.encoding = "UTF-8"
@@ -61,10 +60,11 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+        pathToUsersFiles="/home/roman/IdeaProjects/probation-bicycle-ways/userfiles/"
     }
     production {
         grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
+        pathToUsersFiles="/home/velo-user/userfiles/"
     }
 }
 
