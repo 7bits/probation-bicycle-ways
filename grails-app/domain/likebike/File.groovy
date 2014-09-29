@@ -8,7 +8,7 @@ class File {
     static final int PROCESSED_WITH_ERROR = 1;
     static final int NOT_PROCESSED = 0;
     User user
-    String file_name
-    boolean user_alert
+    String fileName
+    boolean userAlert
     int processed
 }

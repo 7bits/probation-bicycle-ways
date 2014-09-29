@@ -44,7 +44,7 @@
                 <div class="ifLoginBody">
                     <div class="loginText">
                         <p class="loginMenuText">Вы вошли как&nbsp;</p>
-                        <p class="name"> <sec:username/> &nbsp;&nbsp;&nbsp;<g:link class="logout" controller='logout'>Выйти</g:link></p>
+                        <p class="name"> <sec:username/> &nbsp;&nbsp;&nbsp;<g:link class="logout" controller='login' action="logout">Выйти</g:link></p>
                     </div>
                 </div>
             </div>

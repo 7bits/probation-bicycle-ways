@@ -14,15 +14,15 @@ class RouteController {
     /**
      *  Returns all routes of current user
      */
-    def getUsersRoute(){
-        render routePresenter.getUsersRoute(routeService.getUsersRoute())
+    def fetchUsersRoute = {
+        render routePresenter.fetchUsersRoute(routeService.fetchUsersRoute())
     }
 
     /**
      *  Returns processed files. Two lists, contains successfully processed and processed with error routes.
      */
-    def getProcessed(){
-        render routePresenter.getProcessed(routeService.getProcessed())
+    def fetchProcessed = {
+        render routePresenter.fetchProcessed(routeService.fetchProcessed())
     }
 
     /**
@@ -30,7 +30,7 @@ class RouteController {
      *  params should contain userFile - file with route
      */
     @Secured(['ROLE_USER', 'ROLE_ADMIN'])
-    def loadFile() {
+    def loadFile = {
         def file = params.userFile
         redirect routePresenter.loadFile(routeService.loadFile(file))
     }
@@ -38,7 +38,7 @@ class RouteController {
     /**
      * Returns all routes
      */
-    def getRoute() {
-        render routePresenter.getRoute(routeService.getRoute())
+    def fetchRoute = {
+        render routePresenter.fetchRoute(routeService.fetchRoute())
     }
 }

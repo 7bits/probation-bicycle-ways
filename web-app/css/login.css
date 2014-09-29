@@ -18,6 +18,20 @@
     left: 0;
 }
 
+#vk_auth {
+    margin: 70px auto;
+    height: 150px !important;
+}
+
+#vkwidget1{
+    height: 100px !important;
+    background-color: #F2F2F2 !important;
+}
+
+#vkwidget2{
+    height: 100px !important;
+}
+
 .log {
     background-color: #F2F2F2;
     margin: 200px auto;
@@ -31,15 +45,6 @@
 }
 
 .nav-tabs>li.active>a:hover{
-    background-color: #F2F2F2;
-}
-
-#vk_auth {
-    margin: 70px auto;
-}
-
-#vkwidget2{
-    height: 104px !important;
     background-color: #F2F2F2;
 }
 

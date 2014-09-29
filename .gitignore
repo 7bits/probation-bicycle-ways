@@ -16,9 +16,10 @@ stacktrace.log
 /.link_to_grails_plugins/
 /target-eclipse/
 *.iml
-*.iws
 *.ipr
 prodDb.h2.db
 projectFilesBackup/
 /.idea/
 *.userfile
+/data/*
+/draft/*

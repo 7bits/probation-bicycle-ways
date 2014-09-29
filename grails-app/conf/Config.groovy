@@ -33,7 +33,6 @@ grails.mime.types = [
 
 // What URL patterns should be processed by the resources plugin
 grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
-
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
 grails.views.gsp.encoding = "UTF-8"
@@ -61,10 +60,11 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+        pathToUsersFiles="/home/roman/IdeaProjects/probation-bicycle-ways/userfiles/"
     }
     production {
         grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
+        pathToUsersFiles="/home/velo-user/userfiles/"
     }
 }
 
@@ -117,3 +117,11 @@ grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/home/map'
 grails.plugins.springsecurity.ui.register.defaultRoleNames = ['ROLE_USER']
 grails.plugins.springsecurity.ui.encodePassword = false
 grails.plugins.springsecurity.ui.register.postRegisterUrl = '/'
+
+emailBody = '<td>Доброго времени суток, $user.username,<br> ' +
+        '<br> Вы (или кто-то, притворяющийся вами) использовали этот адрес чтобы создать аккаунт.<br>' +
+        '<br>Если это вы, то кликните &nbsp;<a href="$url">здесь</a>, чтобы закончить регистрацию.</td>'
+emailFrom = 'Velo-Omsk'
+emailSubject = 'Регистрация на Velo-Omsk'
+vkSecretKey = "YIe1xEs8vWkImchof0Ll"
+apiId = "4512659"

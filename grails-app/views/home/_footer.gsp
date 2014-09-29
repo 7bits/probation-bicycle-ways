@@ -15,8 +15,6 @@
                         <p class="menuTextFooter"><g:link controller="home" class="menuFooter" action="map">Карта маршрутов</g:link></p>
                     </li>
                 </ul>
-            %{--</menu_footer>--}%
-            %{--<div id="vk"></div>--}%
             <div id="vkLike"></div>
         </div>
     </footer>

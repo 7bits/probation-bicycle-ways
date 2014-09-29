@@ -18,7 +18,7 @@ urlParam = function(name){
 }
 
 function pullProcessed() {
-    path = getUrl() + "/route/getProcessed";
+    path = getUrl() + "/route/fetchProcessed";
     $.ajax({
         url: path,
         type: "post",
@@ -27,22 +27,23 @@ function pullProcessed() {
             var successMessage = data.successMessage;
             var errorMessage = data.errorMessage;
             var list = data.list;
-            if(list.length > 0){
-                console.log(list);
-                var success = [];
-                var error = [];
-                for(i = 0; i < list.length; i++){
-                    if(list[i][1] != 2){
-                        error.push(list[i][0])
+            if(list){
+                if(list.length > 0){
+                    var success = [];
+                    var error = [];
+                    for(i = 0; i < list.length; i++){
+                        if(list[i][1] != 2){
+                            error.push(list[i][0])
+                        }
+                        else{
+                            success.push(list[i][0])
+                        }
                     }
-                    else{
-                        success.push(list[i][0])
-                    }
+                    if(success.length)
+                        $.notify(successMessage + success, "success");
+                    if(error.length)
+                        $.notify(errorMessage + error, "error");
                 }
-                if(success.length)
-                    $.notify(successMessage + success, "success");
-                if(error.length)
-                    $.notify(errorMessage + error, "error");
             }
         },
         error: function (jqXHR) {
@@ -57,13 +58,13 @@ function drawRoutes(viewMode) {
     var mode =  $('#route')[0];
     path = getUrl() + "/route/";
     if(viewMode == ALL_TRACKS) {
-        path += "getRoute";
+        path += "fetchRoute";
         if(mode != null){
             mode.textContent = "все маршруты";
         }
     }
     else{
-        path += "getUsersRoute";
+        path += "fetchUsersRoute";
         if(mode != null){
             mode.textContent = "мои маршруты";
         }

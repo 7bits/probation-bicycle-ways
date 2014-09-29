@@ -20,5 +20,11 @@ class RegisterController {
         render registerPresenter.register(registerService.register(form))
         return
     }
+
+    def verifyRegistration = {
+        registerService.verifyRegistration(params.t)
+        redirect controller:'home', action:'index'
+        return
+    }
 }
 
