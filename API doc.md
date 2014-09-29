@@ -34,7 +34,7 @@ X-Requested-With: XMLHttpRequest
 
 url: j_spring_security_check  
 type: post 
-datatype: x-www-form-urlencoded
+datatype: x-www-form-urlencoded  
 data: j_username: логин  
       j_password: пароль  
 Ответ: {success: true/false, "errorMessage": сообщение об ошибке в случае неудачи}  
