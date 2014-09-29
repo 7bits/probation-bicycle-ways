@@ -29,9 +29,12 @@ list: список пар следующего вида:
 Пример ответа можно посмотреть здесь: http://myjson.com/4j9vp  
 
 ####Логин
+header:
+X-Requested-With: XMLHttpRequest
 
 url: j_spring_security_check  
 type: post 
+datatype: x-www-form-urlencoded
 data: j_username: логин  
       j_password: пароль  
 Ответ: {success: true/false, "errorMessage": сообщение об ошибке в случае неудачи}  
