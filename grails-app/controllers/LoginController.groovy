@@ -26,11 +26,17 @@ class LoginController {
         render loginPresenter.ajaxSuccess(loginService.ajaxSuccess())
     }
 
+    /**
+     * Check if user is authenticated
+     */
     def checkAuth = {
         render loginPresenter.checkAuth(loginService.checkAuth())
     }
 
+    /**
+     * Logging user out
+     */
     def logout = {
-        redirect url: loginService.logout()
+        redirect url: SpringSecurityUtils.securityConfig.logout.filterProcessesUrl
     }
 }

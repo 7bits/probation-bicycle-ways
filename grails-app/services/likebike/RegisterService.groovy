@@ -11,10 +11,15 @@ class RegisterService {
     def grailsLinkGenerator
     def springSecurityService
 
+    /**
+     * Creates new user if form data is valid and sends him email with confirmation link
+     * @param form - form object with registration data
+     * @return json {success:true} on success and errors object if there is validation errors.
+     */
     def register(form) {
-        def errorsMap = [:]
+        def errors = [:]
         if (!form.validate()) {
-            errorsMap = form.getErrors().allErrors
+            errors = form.getErrors().allErrors
         }
         else {
             String password = form.password
@@ -41,11 +46,13 @@ class RegisterService {
                 subject subj
                 html body.toString()
             }
-            errorsMap.put('status', true)
         }
-        return errorsMap
+        return errors
     }
-
+    /**
+     * Verifies user by confirmation token. Unlocks account and gives role to user.
+     * @param t registration token that is in registration confirmation email
+     */
     def verifyRegistration(t) {
         def registrationCode = t ? RegistrationCode.findByToken(t) : null
         RegistrationCode.withTransaction { status ->

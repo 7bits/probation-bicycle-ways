@@ -13,7 +13,7 @@ class RegisterController {
      *  username
      *  email
      *  password
-     *  password2 - password confirmation
+     *  password2 password confirmation
      */
     def register = {
         RegisterForm form = new RegisterForm(params)
@@ -21,6 +21,10 @@ class RegisterController {
         return
     }
 
+    /**
+     * Handles register confirmation link
+     * @param params.t - registration token from url
+     */
     def verifyRegistration = {
         registerService.verifyRegistration(params.t)
         redirect controller:'home', action:'index'

@@ -1,6 +1,5 @@
 package likebike.presenters
 
-import grails.artefact.Artefact
 import grails.converters.JSON
 import grails.util.Holders
 import org.springframework.context.i18n.LocaleContextHolder
@@ -15,6 +14,11 @@ class RoutePresenter {
         return result as JSON
     }
 
+    /**
+     * Takes messages from messageSource and
+     * @param result
+     * @return
+     */
     def fetchProcessed(result){
         def messageSource = Holders.applicationContext.getBean("messageSource")
         def out = [successMessage: messageSource.getMessage('route.getProcessed.successMessage', null, LocaleContextHolder.getLocale()),
