@@ -1,6 +1,6 @@
 ####Получить все маршруты
 
-url: route/getRoute  
+url: route/fetchRoute  
 Тип запроса: post
 
 Возвращает двумерный массив маршрутов.  
