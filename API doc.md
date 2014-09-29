@@ -33,14 +33,14 @@ header:
 X-Requested-With: XMLHttpRequest
 
 url: j_spring_security_check  
-type: post 
+type: post  
 datatype: x-www-form-urlencoded  
 data: j_username: логин  
       j_password: пароль  
 Ответ: {success: true/false, "errorMessage": сообщение об ошибке в случае неудачи}  
 ####Проверка авторизации
 url: login/checkAuth
-type: post
+type: post  
 Ответ: {
     logged: true/false,
     username: логин
