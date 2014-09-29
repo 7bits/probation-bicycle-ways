@@ -37,7 +37,8 @@ type: post
 datatype: x-www-form-urlencoded  
 data: j_username: логин  
       j_password: пароль  
-Ответ: {success: true/false, "errorMessage": сообщение об ошибке в случае неудачи}  
+Ответ: {success: true/false, "errorMessage": сообщение об ошибке в случае неудачи, "username": "Логин" в случае успеха}  
+
 ####Проверка авторизации
 url: login/checkAuth
 type: post  
