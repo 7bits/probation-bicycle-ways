@@ -3,6 +3,9 @@ package likebike
 import grails.validation.Validateable
 import org.codehaus.groovy.grails.web.servlet.mvc.GrailsParameterMap
 
+/**
+ * Represents registration form and binds fields it to theirs validators and error messages
+ */
 @Validateable
 class RegisterForm  {
 

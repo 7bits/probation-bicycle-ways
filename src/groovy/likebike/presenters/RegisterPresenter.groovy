@@ -6,9 +6,14 @@ import org.springframework.context.i18n.LocaleContextHolder
 
 class RegisterPresenter {
 
+    /**
+     * Returns json with data about registration success
+     * @param result errors object of there is any or empty map if there is not
+     * @return json with [status: false, and list of errors] if there is errors and [status: true] if there is not
+     */
     def register(def result) {
         if(result instanceof Map) {
-            return result as JSON
+            return ['status': true] as JSON
         }
         else{
             def out = [:]
