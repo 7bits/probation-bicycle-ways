@@ -1,7 +1,7 @@
 <g:applyLayout name="main">
     <head>
-        <link rel="stylesheet" href="${resource(dir: 'css', file: 'index.css')}"/>
-        <g:javascript src="carousel.js"/>
+        <asset:stylesheet href="indexPage.css"/>
+        <asset:javascript src="carousel.js"/>
     </head>
 
     <body>

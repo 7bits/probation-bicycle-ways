@@ -1,6 +1,5 @@
 <head>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'rotator.css')}"/>
-
+    <asset:stylesheet href="rotator.css"/>
 </head>
 
 <body>

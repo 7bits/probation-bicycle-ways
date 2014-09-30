@@ -11,7 +11,7 @@
     <g:external dir="/img/favicon.ico"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <g:javascript src="vk_auth.js"/>
+    <asset:javascript src="vk_auth.js"/>
     <script type="text/javascript" src="//vk.com/js/api/openapi.js?115"></script>
     <script src="http://userapi.com/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
 
@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <g:javascript src="commonJS.js"/>
-    <g:javascript src="rotator.js"/>
+    <asset:javascript src="commonJS.js"/>
+    <asset:javascript src="rotator.js"/>
     <r:layoutResources/>
     <g:layoutHead/>
 </head>
