@@ -60,3 +60,7 @@ footer {
     overflow: hidden;
     height: 72px;
 }
+
+.yandexMetrika{
+    display: none;
+}

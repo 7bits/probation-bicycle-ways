@@ -17,7 +17,7 @@
                 </ul>
             <div id="vkLike"></div>
         </div>
-        <div>
+        <div class="yandexMetrika">
             <!-- Yandex.Metrika informer -->
             <a href="https://metrika.yandex.ru/stat/?id=26394696&amp;from=informer"
                target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/26394696/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
