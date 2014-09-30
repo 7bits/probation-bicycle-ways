@@ -1,6 +1,6 @@
 <head>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'header.css')}"/>
-    <g:javascript src="mobile.js"/>
+    <asset:stylesheet href="header.css"/>
+    <asset:javascript src="mobile.js"/>
 </head>
 <body>
     <header>

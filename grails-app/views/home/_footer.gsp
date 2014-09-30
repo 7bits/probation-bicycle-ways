@@ -1,6 +1,6 @@
 <html>
 <head>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'footer.css')}"/>
+    <asset:stylesheet href="footer.css"/>
 </head>
 <body>
     <footer>

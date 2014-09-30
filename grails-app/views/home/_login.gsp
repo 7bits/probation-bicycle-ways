@@ -1,7 +1,7 @@
 <head>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'login.css')}"/>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'register.css')}"/>
-    <g:javascript src="login.js"/>
+    <asset:stylesheet href="login.css"/>
+    <asset:stylesheet href="register.css"/>
+    <asset:javascript src="login.js"/>
 </head>
 <body>
     <div id="parentLog">

@@ -14,7 +14,7 @@ server {
 
    }
 
-   location ~ /static/(.*)$ {
+   location ~ /static/assets/(.*)$ {
 
        alias  /home/velo-user/assets/$1;
 

@@ -1,0 +1,336 @@
+
+#loader_background {
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.65)), color-stop(100%, rgba(0, 0, 0, 0)));
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=0);
+
+    display: none;
+    height: 100%;
+    opacity: 1;
+    position: fixed;
+    width: 100%;
+    z-index: 101;
+    top: 0;
+    left: 0;
+}
+
+#rotator {
+    position:absolute;
+    /*height:150px;*/
+    width: 68px;
+    height: 41px;
+    /*margin-left: 15px;*/
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+#rotator ul li {
+    /*float:left;*/
+    position:absolute;
+    list-style: none;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+#rotator ul li.show {
+    z-index:500;
+}
+
+.spinner {
+    width: 68px;
+    height: 41px;
+    background-image: url("../images/loader.gif");
+    position: relative;
+    top: 50%;
+    margin: 0 auto;
+}
+
+.carousel_body {
+    width: 100%;
+    background-color: #f4ecff;
+}
+
+#myCarousel {
+    margin: 0 auto;
+}
+
+.carousel {
+    /*width: 1920px;*/
+    width: 100%;
+    height: 288px;
+    padding: 0;
+    z-index: 1;
+    position: relative;
+}
+
+.carousel-indicators .active {
+    width: 12px;
+    height: 12px;
+    margin: 0;
+    background-color: #f15a24;
+}
+
+.carouselItem{
+    background-position: center;
+    height: 288px;
+    max-width:1920px;
+    max-height: 288px;
+    min-width: 960px;
+    overflow:hidden;
+    margin: 0 auto;
+}
+
+.carouselItem1 {
+    background-image: url("../images/1s.jpg");
+}
+
+.carouselItem2 {
+    background-image: url("../images/2s.jpg");
+}
+
+.carouselItem3 {
+    background-image: url("../images/3s.jpg");
+}
+
+.carouselItem4 {
+    background-image: url("../images/4s.jpg");
+}
+
+.title {
+    z-index: 2;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+body {
+    position: relative;
+    background: #ffffff;
+    margin: 0;
+    height: auto;
+    /*width: 1020px;*/
+    width: 100%;
+    z-index: -2;
+    min-width: 960px;
+}
+
+.info {
+    /*width: 1020px;*/
+    background-color: #f4ecff;
+    width: 100%;
+}
+
+.infoText {
+    width: 960px;
+    margin: 0 auto;
+}
+
+#hText {
+    /*margin-left: 115px;*/
+    text-align: center;
+    font: 28px "comfortaa";
+}
+
+#mainText {
+    margin-left: 150px;
+    font: 18px "Open Sans";
+}
+
+#idea {
+    margin-left: 150px;
+    font: 19px "Open Sans";
+    color: #f15a24;
+}
+
+#importP {
+    position: relative;
+    top: -12px;
+    margin-left: 2px;
+    width: 142px;
+    float: left;
+    font: 12px "Open Sans";
+    color: #000000;
+    font-size: 100%;
+}
+
+.btnP {
+    width: 113px;
+    height: 0px;
+    margin: 3px 10px;
+    cursor: pointer;
+}
+
+.text {
+    font: 15px "Open Sans";
+    color: #000000;
+}
+
+.importBtn {
+    float: left;
+    width: 131px;
+    height: 28px;
+    font: 15px "Open Sans";
+    background: #8BAEB8;
+    color: #000000;
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.2), inset -2px -2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.map {
+    /*width: 1020px;*/
+    width: 100%;
+    height: 776px;
+    float: left;
+}
+
+.gm-style {
+    width: auto;
+}
+
+.cartoon {
+    /*margin: 0px auto;*/
+    width: 100%;
+    height: 415px;
+}
+
+.cartoonInfo {
+    width: 960px;
+    margin: 0 auto;
+}
+
+#cartoonUlImage {
+    position: relative;
+    width: auto;
+    height: auto;
+    margin: 0px auto;
+    padding: 0;
+    float: left;
+    left: 60px;
+    top: 25px;
+}
+
+#cartoonUlText {
+    position: relative;
+    width: 960px;
+    height: auto;
+    /*margin: 0px auto;*/
+    padding: 0;
+    float: left;
+    left: 40px;
+    top: 25px;
+}
+
+
+li.cartoonLiImage1 {
+    position: relative;
+    list-style: none;
+    margin-right: 0px;
+    padding: 0;
+    float: left;
+    width: 200px;
+    height: 108px;
+}
+
+li.cartoonLiImage2 {
+    position: relative;
+    list-style: none;
+    margin-right: 50px;
+    padding: 0;
+    float: left;
+    width: 200px;
+    height: 108px;
+}
+
+li.cartoonLiImage3 {
+    position: relative;
+    list-style: none;
+    margin-right: 50px;
+    padding: 0;
+    float: left;
+    width: 200px;
+    height: 108px;
+}
+
+li.cartoonLiImage4 {
+    position: relative;
+    list-style: none;
+    margin-right: 0px;
+    padding: 0;
+    float: left;
+    width: 200px;
+    height: 108px;
+}
+
+li.cartoonLiText1 {
+    position: relative;
+    list-style: none;
+    margin-right: 88px;
+    padding: 0;
+    float: left;
+}
+
+li.cartoonLiText2 {
+    position: relative;
+    list-style: none;
+    margin-right: 108px;
+    padding: 0;
+    float: left;
+}
+
+li.cartoonLiText3 {
+    position: relative;
+    list-style: none;
+    margin-right: 74px;
+    padding: 0;
+    float: left;
+}
+
+li.cartoonLiText4 {
+    position: relative;
+    list-style: none;
+    /*margin-right: 98px;*/
+    padding: 0;
+    float: left;
+}
+
+.cartoonImg {
+    position: relative;
+    /*margin: 0 auto;*/
+}
+
+.cartoonP {
+    position: relative;
+    font: 16px "Open Sans";
+    color: #000000;
+    text-align: center;
+}
+
+#cartoonThirdP {
+    /*margin-left: -22px;*/
+}
+
+.lineImg {
+    margin: 42px 0 0 75px;
+}
+
+#thisWork {
+    text-align: center;
+    font: 28px "comfortaa";
+}
+
+.bs-docs-example-submenus .dropdown > .dropdown-menu {
+    display: block;
+    position: static;
+    margin-bottom: 5px;
+}

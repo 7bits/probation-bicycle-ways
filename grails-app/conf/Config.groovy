@@ -65,6 +65,7 @@ environments {
     production {
         grails.logging.jul.usebridge = false
         pathToUsersFiles="/home/velo-user/userfiles/"
+        grails.assets.storagePath="/home/velo-user/assets/"
     }
 }
 
