@@ -81,6 +81,7 @@
     margin-left: 20px;
     font: 12px "Open Sans";
     color: #f15a24;
+    float: left;
 }
 
 .regInput {

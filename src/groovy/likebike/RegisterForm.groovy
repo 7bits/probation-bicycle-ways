@@ -29,9 +29,17 @@ class RegisterForm  {
         }
     }
 
+    def static emailValidator = { value ->
+        if (value) {
+            if (User.findByEmail(value)) {
+                return 'registerForm.email.unique'
+            }
+        }
+    }
+
     static constraints = {
         username blank: false, validator: usernameValidator
-        email blank: false, email: true
+        email blank: false, email: true, validator: emailValidator
         password blank: false, validator: { val, obj ->
             if(!(grails.plugins.springsecurity.ui.RegisterController.checkPasswordMinLength(val, obj))){
                 return 'registerForm.password.minSize'
