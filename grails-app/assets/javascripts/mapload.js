@@ -3,7 +3,7 @@ const USERS_TRACKS = 0;
 const HEAT_MAP = 0;
 const LINES = 1;
 var map;//google карта
-var routeMode = HEAT_MAP;
+var routeMode = LINES;
 var viewMode = ALL_TRACKS;
 var lines = [];
 var rotator = new Rotator();
@@ -202,20 +202,20 @@ $("document").ready(function () {
             ]
         }
     ]);
-    var mode = document.createElement("input");
-    mode.id = "changeMap";
-    mode.type = "button";
-    mode.value = "hm\\fp";
-    mode.onclick = function () {
-        if (!routeMode) {
-            routeMode = LINES;
-        } else {
-            routeMode = HEAT_MAP;
-        }
-        setAll(null);
-        drawRoutes(viewMode);
-    }
-    map.controls[google.maps.ControlPosition.LEFT].push(mode);
+//     var mode = document.createElement("input");
+//     mode.id = "changeMap";
+//     mode.type = "button";
+//     mode.value = "hm\\fp";
+//     mode.onclick = function () {
+//         if (!routeMode) {
+//             routeMode = LINES;
+//         } else {
+//             routeMode = HEAT_MAP;
+//         }
+//         setAll(null);
+//         drawRoutes(viewMode);
+//     }
+//     map.controls[google.maps.ControlPosition.LEFT].push(mode);
     drawRoutes(viewMode);
 
 });
@@ -237,32 +237,32 @@ function createRoute(routeArray, routeMode) {
             var flightPath = new google.maps.Polyline({
                 path: valR,
                 strokeColor: "#0000FF",
-                strokeOpacity: 0.3,
-                strokeWeight: 7
+                strokeOpacity: 0.1,
+                strokeWeight: 4
             });
             routes.push(flightPath);
         });
-    else {
-        var pointArray = new google.maps.MVCArray(routesToPoints(routeArray));
-        routes = new google.maps.visualization.HeatmapLayer({
-            data: pointArray, opacity: 1, radius: 5, gradient: [
-                'rgba(0, 255, 255, 0)',
-                'rgba(0, 255, 255, 0.4)',
-                'rgba(0, 191, 255, 0.4)',
-                'rgba(0, 127, 255, 0.4)',
-                'rgba(0, 63, 255, 0.4)',
-                'rgba(0, 0, 255, 0.42)',
-                'rgba(0, 0, 223, 0.47)',
-                'rgba(0, 0, 191, 0.52)',
-                'rgba(0, 0, 159, 0.57)',
-                'rgba(0, 0, 127, 0.62)',
-                'rgba(63, 0, 91, 0.67)',
-                'rgba(127, 0, 63, 0.72)',
-                'rgba(191, 0, 31, 0.77)',
-                'rgba(255, 0, 0, 0.8)'
-            ]
-        });
-    }
+//     else {
+//         var pointArray = new google.maps.MVCArray(routesToPoints(routeArray));
+//         routes = new google.maps.visualization.HeatmapLayer({
+//             data: pointArray, opacity: 1, radius: 5, gradient: [
+//                 'rgba(0, 255, 255, 0)',
+//                 'rgba(0, 255, 255, 0.4)',
+//                 'rgba(0, 191, 255, 0.4)',
+//                 'rgba(0, 127, 255, 0.4)',
+//                 'rgba(0, 63, 255, 0.4)',
+//                 'rgba(0, 0, 255, 0.42)',
+//                 'rgba(0, 0, 223, 0.47)',
+//                 'rgba(0, 0, 191, 0.52)',
+//                 'rgba(0, 0, 159, 0.57)',
+//                 'rgba(0, 0, 127, 0.62)',
+//                 'rgba(63, 0, 91, 0.67)',
+//                 'rgba(127, 0, 63, 0.72)',
+//                 'rgba(191, 0, 31, 0.77)',
+//                 'rgba(255, 0, 0, 0.8)'
+//             ]
+//         });
+//    }
     return routes;
 }
 
