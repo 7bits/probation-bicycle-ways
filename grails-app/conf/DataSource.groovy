@@ -2,7 +2,11 @@ dataSource {
     pooled = true
     driverClassName = "com.mysql.jdbc.Driver"
     dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
+    properties {
+        maxActive = 100
+    }
 }
+
 hibernate {
     cache.use_second_level_cache = true
     cache.use_query_cache = true

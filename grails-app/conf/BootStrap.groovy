@@ -3,6 +3,7 @@ import likebike.User
 import likebike.UserRole
 
 class BootStrap {
+    def grailsCacheManager
 
     def init = {
         servletContext ->
@@ -26,6 +27,7 @@ class BootStrap {
                 user2.save(flush: true)
 
                 UserRole.create user2, userRole, true
+                grailsCacheManager.getCache('routes')?.clear()
             }
             test {
                 // test initialization
@@ -46,6 +48,7 @@ class BootStrap {
                 user2.save(flush: true)
 
                 UserRole.create user2, userRole, true
+                grailsCacheManager.getCache('routes')?.clear()
             }
             development {
                 def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
@@ -64,6 +67,7 @@ class BootStrap {
                 def user2 = new User(username: 'User', enabled: true, password: '12345678', uid: "", email: '')
                 user2.save(flush: true)
                 UserRole.create user2, userRole, true
+                grailsCacheManager.getCache('routes')?.clear()
             }
 
         }

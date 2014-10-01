@@ -1,5 +1,6 @@
 package likebike
 
+import grails.plugin.cache.Cacheable
 import grails.plugins.springsecurity.Secured
 
 /**
@@ -38,7 +39,9 @@ class RouteController {
     /**
      * Returns all routes
      */
-    def fetchRoute = {
+
+    @Cacheable('routes')
+    def fetchRoute() {
         render routePresenter.fetchRoute(routeService.fetchRoute())
     }
 }
