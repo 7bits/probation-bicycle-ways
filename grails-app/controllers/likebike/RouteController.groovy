@@ -39,8 +39,6 @@ class RouteController {
     /**
      * Returns all routes
      */
-
-    @Cacheable('routes')
     def fetchRoute() {
         render routePresenter.fetchRoute(routeService.fetchRoute())
     }
