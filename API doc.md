@@ -3,11 +3,11 @@ Base URL = ?
 
 ###Получить все маршруты
 
-####Request:
+#####Request:
 
 `POST /route/fetchRoute`
 
-####Response:
+#####Response:
 > Возвращает двумерный массив маршрутов.  
 > Каждый маршрут есть массив точек.
 > Каждая точка есть пара double широта и долгота соответственно.
@@ -21,24 +21,24 @@ Base URL = ?
 
 ###Загрузить маршрут
 
-####Request:
+#####Request:
 
 `POST /route/loadFile`
 
-#####параметры
+######параметры:
 * userFile - содержащий файл пользователя
 
-####Response:
+#####Response:
 > Empty?
 
 ###Последние обработанные маршруты
 > Позволяет проверить последние обработанные маршруты текущего вошедшего пользователя.
 
-####Request:
+#####Request:
 
 `POST route/fetchProcessed`
 
-####Response:
+#####Response:
 * successMessage: сообщение об успехе.  
 * errorMessage: сообщение об ошибке  
 * list: список пар следующего вида: `["название файла", код ошибки]`
@@ -63,19 +63,19 @@ Base URL = ?
 
 ###Логин
 
-####Header:
+#####Header:
 X-Requested-With: XMLHttpRequest
 
-####Request:
+#####Request:
 
 `POST /j_spring_security_check`
 
-#####параметры
+######параметры
 * datatype: x-www-form-urlencoded  
 * data: j_username: логин  
         j_password: пароль  
 
-####Response:
+#####Response:
 ```
 {  
   success: true/false, 
@@ -85,10 +85,10 @@ X-Requested-With: XMLHttpRequest
 
 ###Проверка авторизации
 
-####Request:
+#####Request:
 `POST /login/checkAuth`
 
-####Response:
+#####Response:
 
 ```
 {
