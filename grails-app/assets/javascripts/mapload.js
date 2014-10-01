@@ -92,7 +92,7 @@ function drawRoutes(viewMode) {
             });
             setAll(null);
             lines = [];
-            lines = createRoute(routeArray, routeMode);
+            lines = createRoute(routeArray, routeMode, viewMode==ALL_TRACKS ? true: false);
             displayRoute();
         },
         error: function (jqXHR) {
@@ -230,14 +230,14 @@ function routesToPoints(routes){
     return points;
 }
 
-function createRoute(routeArray, routeMode) {
+function createRoute(routeArray, routeMode, allRoutes) {
     var routes = [];
     if(routeMode == LINES)
         $.each(routeArray, function (route, valR) {
             var flightPath = new google.maps.Polyline({
                 path: valR,
                 strokeColor: "#ff6633",
-                strokeOpacity: 0.1,
+                strokeOpacity: allRoutes ? 0.1: 0.4,
                 strokeWeight: 4
             });
             routes.push(flightPath);
