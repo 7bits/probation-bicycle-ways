@@ -236,7 +236,7 @@ function createRoute(routeArray, routeMode) {
         $.each(routeArray, function (route, valR) {
             var flightPath = new google.maps.Polyline({
                 path: valR,
-                strokeColor: "#0000FF",
+                strokeColor: "#ff6633",
                 strokeOpacity: 0.1,
                 strokeWeight: 4
             });
