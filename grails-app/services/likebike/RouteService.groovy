@@ -75,7 +75,6 @@ class RouteService {
      * Collects all routes from database and caches it if it is not cached already.
      * @return all routes from database if cache is empty
      */
-    @Cacheable('routes')
     def fetchRoute() {
         return convertRouteListToArray(Route.list())
     }
@@ -121,7 +120,7 @@ class RouteService {
         def routeArray = [];
         def i = 0;
         def indexPoint = 0;
-        final int removeCount = 10;
+        final int removeCount = 5;
         routes.each {
             //def routeName = it.name;
             def Points = [];

@@ -41,6 +41,7 @@ function pullProcessed() {
                     }
                     if(success.length)
                         $.notify(successMessage + success, "success");
+                        drawRoutes(viewMode);
                     if(error.length)
                         $.notify(errorMessage + error, "error");
                 }
@@ -149,6 +150,7 @@ $("document").ready(function () {
         else{
             $.notify(loadedMessage);
         }
+        window.history.pushState("object or string", "Title", window.location.href.replace(/\?loaded=.*/i, ""));
     }
     window.setInterval(pullProcessed, 5000);
     if (document.getElementById('getUsersRoutes') != null) {
