@@ -1,4 +1,4 @@
-> Base URL = ?
+> Base URL = velo-omsk.org
 
 
 ##Получить все маршруты
@@ -29,7 +29,7 @@
 * userFile - содержащий файл пользователя
 
 #####Response:
-> Empty?
+> Empty 
 
 ##Последние обработанные маршруты
 > Позволяет проверить последние обработанные маршруты текущего вошедшего пользователя.
@@ -94,5 +94,34 @@ X-Requested-With: XMLHttpRequest
 {
     logged: true/false,
     username: логин
+}
+```
+
+##Регистрация
+> Регистрирует пользователя в системе. Шлет email с ссылкой подтверждения
+
+#####Request:
+
+`POST /register/register`
+
+######параметры:
+* username - логин 
+* email
+* password: пароль
+* password2: повтор пароля
+
+#####Response:
+* status - true - успех false - ошибка
+сообщения об ошибках в соответствующих полях: 
+* username 
+* email
+* password
+* password2
+
+```
+{
+  "status": false,
+  "username": "Пользователь с таким логином уже существует",
+  "password2": "Введенные пароли не совпадают."
 }
 ```
