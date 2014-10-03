@@ -75,6 +75,7 @@ class RouteService {
      * Collects all routes from database and caches it if it is not cached already.
      * @return all routes from database if cache is empty
      */
+    @Cacheable('routes')
     def fetchRoute() {
         return convertRouteListToArray(Route.list())
     }

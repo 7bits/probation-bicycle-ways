@@ -4,6 +4,14 @@ import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 class LoginController {
     def loginPresenter
     def loginService
+
+    /**
+     *  Handles VK authorisation.
+     *  params should be correspondent to vk api
+     */
+    def vk = {
+        redirect(loginPresenter.vk(loginService.vk(params['uid'], params['hash'], params['first_name'], params['last_name'])))
+    }
     /**
      * The redirect action for Ajax requests.
      */

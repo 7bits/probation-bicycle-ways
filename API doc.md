@@ -1,6 +1,6 @@
 ####Получить все маршруты
 
-url: route/getRoute  
+url: route/fetchRoute  
 Тип запроса: post
 
 Возвращает двумерный массив маршрутов.  
@@ -15,10 +15,36 @@ url: route/loadFile
 type: post  
 userFile, содержащий файл пользователя
 
-####Последние загруженные маршруты
+####Последние обработанные маршруты
+Позволяет проверить последние обработанные маршруты текущего вошедшего пользователя.
 
-url: getProcessed  
+url: route/fetchProcessed  
+type: post
+Возвращает:
+successMessage: сообщение об успехе.  
+errorMessage: сообщение об ошибке  
+list: список пар следующего вида:   
+["название файла", код ошибки].  
+код ошибки: 1 - ошибка 2 - успех.   
+Пример ответа можно посмотреть здесь: http://myjson.com/4j9vp  
+
+####Логин
+header:
+X-Requested-With: XMLHttpRequest
+
+url: j_spring_security_check  
 type: post  
-data: [id: 1]  
-где id это id пользователя, последние загруженные маршруты которого нужно получить  
-Возвращает массив строк названий файлов, загруженных пользователем с данным id. 
+datatype: x-www-form-urlencoded  
+data: j_username: логин  
+      j_password: пароль  
+Ответ: {success: true/false, "errorMessage": сообщение об ошибке в случае неудачи, "username": "Логин" в случае успеха}  
+
+####Проверка авторизации
+url: login/checkAuth
+type: post  
+Ответ: {
+    logged: true/false,
+    username: логин
+}
+
+

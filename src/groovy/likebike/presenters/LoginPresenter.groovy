@@ -10,6 +10,15 @@ import javax.servlet.http.HttpServletResponse
  */
 class LoginPresenter {
 
+    def vk(ivans) {
+        if(ivans) {
+            return [uri: '/home/?ivans=' + ivans]
+        }
+        else{
+            return [controller: 'home', action: 'index']
+        }
+    }
+
     /**
      * Callback after a failed login. Redirects to the auth page with a warning message.
      */
