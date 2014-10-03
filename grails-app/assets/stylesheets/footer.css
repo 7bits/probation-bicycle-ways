@@ -48,7 +48,7 @@ footer {
     /*padding: 0 0 50px 0;*/
     /*margin: 0 0 40px 0;*/
     clear: none !important;
-    margin-top: 18px;
+    margin-top:25px;
 }
 
 #logoFooter {
@@ -75,8 +75,4 @@ footer {
     margin: 0px 15px;
     float: right;
     height: 45px;
-}
-
-#vk_like{
-    margin-top:25px;
 }
