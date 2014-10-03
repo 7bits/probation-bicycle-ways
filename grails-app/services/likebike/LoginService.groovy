@@ -46,7 +46,7 @@ class LoginService {
                 user.save(flush: true)
                 def roleUser = Role.findByAuthority('ROLE_USER')
                 UserRole.create(user, roleUser, true)
-            }
+           }
             springSecurityService.reauthenticate(user.username)
         }
     }
