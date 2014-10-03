@@ -10,7 +10,7 @@ $("document").ready(function () {
             ' Постепенно станет понятно, где омичи любят кататься больше всего.' +
             ' В итоге мы предложим готовый проект специалистам из Департамента, и велодорожки появятся в самых нужных и удобных местах Омска.' +
             ' Поддержите нашу идею – построим велодорожки вместе!',
-        image: 'http://velo-omsk.org//static/images/cartoon1.png',
+        image: 'http://velo-omsk.org/static/images/cartoon1.png',
         noparse: true
     },{
         type: 'round',
