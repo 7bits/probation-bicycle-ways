@@ -18,9 +18,9 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop','update'
-            url = "jdbc:mysql://localhost:3306/likeBike?useUnicode=yes&characterEncoding=UTF-8"
-            username = "likebike"
-            password = "likebike"
+            url = "$URL"
+            username = "$USERNAME"
+            password = "$PASSWORD"
         }
         hibernate {
             show_sql = true
@@ -29,17 +29,17 @@ environments {
     test {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop','update'
-            url = "jdbc:mysql://localhost:3306/likeBike?useUnicode=yes&characterEncoding=UTF-8"
-            username = "likebike"
-            password = "likebike"
+            url = "$URL"
+            username = "$USERNAME"
+            password = "$PASSWORD"
         }
     }
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost:3306/likeBike?useUnicode=yes&characterEncoding=UTF-8"
-            username = "likebike"
-            password = "MSsZYR7dMJwYRAC5"
+            url = "$URL"
+            username = "$USERNAME"
+            password = "$PASSWORD"
         }
     }
 }

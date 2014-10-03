@@ -1,3 +1,5 @@
+import org.springframework.context.annotation.PropertySource
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -60,12 +62,12 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        pathToUsersFiles="/home/roman/IdeaProjects/probation-bicycle-ways/userfiles/"
+        pathToUsersFiles="$PATH_TO_USER_FILES"
     }
     production {
         grails.logging.jul.usebridge = false
-        pathToUsersFiles="/home/velo-user/userfiles/"
-        grails.assets.storagePath="/home/velo-user/assets/"
+        pathToUsersFiles="$PATH_TO_USER_FILES"
+        grails.assets.storagePath="$PATH_TO_ASSETS"
     }
 }
 
@@ -101,7 +103,7 @@ grails {
         host = "smtp.gmail.com"
         port = 465
         username = "velo.sity.omsk@gmail.com"
-        password = "likebike"
+        password = "$PASSWORD"
         props = ["mail.smtp.auth": "true",
                  "mail.smtp.socketFactory.port": "465",
                  "mail.smtp.socketFactory.class": "javax.net.ssl.SSLSocketFactory",
@@ -124,5 +126,5 @@ emailBody = '<td>Доброго времени суток, $user.username,<br> '
         '<br>Если это вы, то кликните &nbsp;<a href="$url">здесь</a>, чтобы закончить регистрацию.</td>'
 emailFrom = 'Velo-Omsk'
 emailSubject = 'Регистрация на Velo-Omsk'
-vkSecretKey = "YIe1xEs8vWkImchof0Ll"
-apiId = "4512659"
+vkSecretKey = "$SecretKey"
+apiId = "$APPID"
