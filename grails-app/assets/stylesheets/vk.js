@@ -1,5 +1,5 @@
 $("document").ready(function () {
-    document.getElementById('vk').innerHTML = VK.Share.button({
+    $('#vkLike')[0].innerHTML = VK.Share.button({
         url: 'http://velo-omsk.org/',
         title: 'Велодорожки нашего города!',
         description: 'Омску нужны велодорожки. ' +

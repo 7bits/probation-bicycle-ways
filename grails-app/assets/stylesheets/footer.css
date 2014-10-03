@@ -64,3 +64,15 @@ footer {
 .yandexMetrika{
     display: none;
 }
+
+.developers{
+    display: block;
+    margin: 15px 0px;
+    float: right;
+}
+
+.devLogo{
+    margin: 0px 15px;
+    float: right;
+    height: 45px;
+}
