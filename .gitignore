@@ -23,3 +23,6 @@ projectFilesBackup/
 *.userfile
 /data/*
 /draft/*
+grails-app/conf/DataSource.groovy
+grails-app/conf/Config.groovy
+grails-app/conf/BootStrap.groovy
