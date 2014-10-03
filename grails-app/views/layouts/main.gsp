@@ -11,7 +11,7 @@
     <g:external dir="/img/favicon.ico"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <asset:javascript src="vk_auth.js"/>
+    <asset:javascript src="vkAPI.js"/>
     <script type="text/javascript" src="//vk.com/js/api/openapi.js?115"></script>
     <script src="http://userapi.com/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
 

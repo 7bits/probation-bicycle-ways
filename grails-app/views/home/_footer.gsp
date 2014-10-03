@@ -1,7 +1,6 @@
 <html>
 <head>
     <asset:stylesheet href="footer.css"/>
-    <asset:javascript src="vk_like.js"/>
 </head>
 <body>
     <footer>
@@ -19,7 +18,7 @@
                 <a href="http://7bits.ru"><g:img class="devLogo" dir="images" file="7_bits_logo.png"/></a>
                 <a href="http://aldigit.com"><g:img class="devLogo" dir="images" file="aldigit_logo1.png"/></a>
             </div>
-            <div id="vkLike"></div>
+            <div id="vk_like"></div>
         </div>
         <div class="yandexMetrika">
             <!-- Yandex.Metrika informer -->
