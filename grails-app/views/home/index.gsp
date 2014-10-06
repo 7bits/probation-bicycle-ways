@@ -54,35 +54,29 @@
         <div class="cartoon">
             <div class="cartoonInfo">
                 <p id="thisWork"><br>КАК ЭТО РАБОТАЕТ</p><br>
-                <ul id="cartoonUlImage">
-                    <li class="cartoonLiImage1">
+                <ul class="cartoonUlImage">
+                    <li class="cartoonLiImage">
                         <g:img id="cartoonOneImg" class="cartoonImg" dir="images" file="mobile.png"/>
                     </li>
-                    <li class="cartoonLiImage2">
+                    <li class="cartoonLiImage">
                         <g:img id="cartoonSecondImg" class="cartoonImg" dir="images" file="bike.png"/>
                     </li>
-                    <li class="cartoonLiImage3">
+                    <li class="cartoonLiImage">
                         <g:img id="cartoonThirdImg" class="cartoonImg" dir="images" file="notebook.png"/>
-                    </li>
-                    <li class="cartoonLiImage4">
-                        <g:img id="cartoonFourthImg" class="cartoonImg" dir="images" file="maps.png"/>
                     </li>
                 </ul>
 
                 <g:img id="line" class="lineImg" dir="images" file="line.png"/>
 
                 <ul id="cartoonUlText">
-                    <li class="cartoonLiText1">
+                    <li class="cartoonLiText">
                         <p class="cartoonP">Запусти приложение</p>
                     </li>
-                    <li class="cartoonLiText2">
+                    <li class="cartoonLiText">
                         <p class="cartoonP">Прокатись<br> на велосипеде</p>
                     </li>
-                    <li class="cartoonLiText3">
+                    <li class="cartoonLiText">
                         <p class="cartoonP">Загрузи<br> свои треки на карту</p>
-                    </li>
-                    <li class="cartoonLiText4">
-                        <p id="cartoonFourthP" class="cartoonP">Поддержи наш проект</p>
                     </li>
                 </ul>
             </div>

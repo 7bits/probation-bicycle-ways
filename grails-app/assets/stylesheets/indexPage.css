@@ -47,7 +47,7 @@
 .spinner {
     width: 68px;
     height: 41px;
-    background-image: url("../images/loader.gif");
+    background-image: url('loader.gif');
     position: relative;
     top: 50%;
     margin: 0 auto;
@@ -89,19 +89,19 @@
 }
 
 .carouselItem1 {
-    background-image: url("../images/1s.jpg");
+    background-image: url('1s.jpg');
 }
 
 .carouselItem2 {
-    background-image: url("../images/2s.jpg");
+    background-image: url('2s.jpg');
 }
 
 .carouselItem3 {
-    background-image: url("../images/3s.jpg");
+    background-image: url('3s.jpg');
 }
 
 .carouselItem4 {
-    background-image: url("../images/4s.jpg");
+    background-image: url('4s.jpg');
 }
 
 .title {
@@ -209,104 +209,32 @@ body {
     margin: 0 auto;
 }
 
-#cartoonUlImage {
-    position: relative;
+.cartoonUlImage {
     width: auto;
-    height: auto;
-    margin: 0px auto;
-    padding: 0;
-    float: left;
-    left: 60px;
-    top: 25px;
-}
-
-#cartoonUlText {
-    position: relative;
-    width: 960px;
-    height: auto;
-    /*margin: 0px auto;*/
-    padding: 0;
-    float: left;
-    left: 40px;
-    top: 25px;
-}
-
-
-li.cartoonLiImage1 {
-    position: relative;
+    height: 100px;
+    margin: 0 auto;
+    display:  block;
     list-style: none;
-    margin-right: 0px;
-    padding: 0;
-    float: left;
-    width: 200px;
-    height: 108px;
 }
 
-li.cartoonLiImage2 {
-    position: relative;
-    list-style: none;
-    margin-right: 50px;
-    padding: 0;
-    float: left;
-    width: 200px;
-    height: 108px;
-}
-
-li.cartoonLiImage3 {
-    position: relative;
-    list-style: none;
-    margin-right: 50px;
-    padding: 0;
-    float: left;
-    width: 200px;
-    height: 108px;
-}
-
-li.cartoonLiImage4 {
-    position: relative;
-    list-style: none;
-    margin-right: 0px;
-    padding: 0;
-    float: left;
-    width: 200px;
-    height: 108px;
-}
-
-li.cartoonLiText1 {
-    position: relative;
-    list-style: none;
-    margin-right: 88px;
-    padding: 0;
-    float: left;
-}
-
-li.cartoonLiText2 {
-    position: relative;
-    list-style: none;
-    margin-right: 108px;
-    padding: 0;
-    float: left;
-}
-
-li.cartoonLiText3 {
-    position: relative;
-    list-style: none;
-    margin-right: 74px;
-    padding: 0;
-    float: left;
-}
-
-li.cartoonLiText4 {
-    position: relative;
-    list-style: none;
-    /*margin-right: 98px;*/
-    padding: 0;
+.cartoonLiImage{
+    width: 33.3%;
     float: left;
 }
 
 .cartoonImg {
     position: relative;
-    /*margin: 0 auto;*/
+    margin: 0px auto;
+    /* padding: 0; */
+    display:  block;
+}
+
+li.cartoonLiText {
+    width: 33.3%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+    float: left;
 }
 
 .cartoonP {
@@ -321,7 +249,10 @@ li.cartoonLiText4 {
 }
 
 .lineImg {
-    margin: 42px 0 0 75px;
+    margin: 0 auto;
+    display: block;
+    /* width: 500px; */
+    /* height: 21px; */
 }
 
 #thisWork {
