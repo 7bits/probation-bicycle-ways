@@ -5,6 +5,10 @@ class LoginController {
     def loginPresenter
     def loginService
 
+    def code(String code){
+
+    }
+
     /**
      *  Handles VK authorisation.
      *  params should be correspondent to vk api

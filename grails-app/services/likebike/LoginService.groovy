@@ -2,6 +2,10 @@ package likebike
 
 import grails.util.Holders
 import org.springframework.context.i18n.LocaleContextHolder
+@Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.5.0-RC2' )
+import groovyx.net.http.*
+import static groovyx.net.http.ContentType.*
+import static groovyx.net.http.Method.*
 
 /**
  * Responsible for logging users in and out
@@ -9,8 +13,30 @@ import org.springframework.context.i18n.LocaleContextHolder
 class LoginService {
     def springSecurityService
     def messageSource
+    def grailsLinkGenerator
     static final int MAX_NUMBER_OF_IVANS = 100;
 
+    def code(String code){
+        def http = new HTTPBuilder( 'https://oauth.vk.com' )
+        def String appUrl = grailsLinkGenerator.link( action: 'vk', controller:'login', absolute:true)
+        // perform a GET request, expecting JSON response data
+        def response
+        http.request( POST, JSON ) {
+            uri.path = 'access_token'
+            uri.query = [ client_id:Holders.config.apiId, client_secret: Holders.config.vkSecretKey, code:code, redirect_uri: appUrl]
+
+            // response handler for a success response code:
+            response.success = { resp, json ->
+                response = json
+            }
+
+            // handler for any failure status code:
+            response.failure = { resp ->
+                response = resp
+            }
+        }
+        vk response
+    }
     /**
      * Used to authenticate user with his VK account. Should be correspondent to current VK API
      * @param uid user's VK id
