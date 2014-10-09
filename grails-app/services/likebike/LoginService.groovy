@@ -33,34 +33,23 @@ class LoginService {
                 uid = json['user_id']
             }
         }
-        def checkedUID
-        http.request( Method.POST, ContentType.JSON ) {
-            uri.path = 'secure.checkToken'
-            uri.query = [ token:accessToken, access_token:accessToken, client_secret:Holders.config.vkSecretKey]
+        def firstName
+        def lastName
+        http = new HTTPBuilder( 'https://api.vk.com/method/' )
+        http.request(Method.POST, ContentType.JSON) {
+            uri.path = 'users.get'
+            uri.query = [user_ids: uid, fields: "first_name,last_name"]
             headers.Accept = 'application/json'
             // response handler for a success response code:
             response.success = { resp, json ->
-                checkedUID = json['user_id']
+                firstName = json['response']['first_name'][0]
+                lastName = json['response']['last_name'][0]
             }
             response.failure = { resp ->
                 def a = resp
             }
         }
-        if(uid==checkedUID) {
-            def firstName
-            def lastName
-            http.request(Method.POST, ContentType.JSON) {
-                uri.path = 'users.get'
-                uri.query = [token: uid, fields: "first_name,last_name"]
-                headers.Accept = 'application/json'
-                // response handler for a success response code:
-                response.success = { resp, json ->
-                    firstName = json['first_name']
-                    lastName = json['last_name']
-                }
-            }
-            vk(uid, null, firstName, lastName, true)
-        }
+        vk(uid.toString(), '', firstName, lastName, true)
     }
     /**
      * Used to authenticate user with his VK account. Should be correspondent to current VK API

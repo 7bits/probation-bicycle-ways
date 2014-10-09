@@ -127,3 +127,12 @@ X-Requested-With: XMLHttpRequest
     "status": false
 }
 ```
+
+##VK login redirect URI
+> Позволяет авторизовать пользователя с помощью vk API
+
+#####redirect_uri:
+`GET http://*адрес сервера*/login/code`
+
+######параметры:
+* В соответствии с vk API
