@@ -5,12 +5,17 @@ class LoginController {
     def loginPresenter
     def loginService
 
+    def code = {
+
+        redirect loginPresenter.code(loginService.code(params['code']))
+    }
+
     /**
      *  Handles VK authorisation.
      *  params should be correspondent to vk api
      */
     def vk = {
-        redirect(loginPresenter.vk(loginService.vk(params['uid'], params['hash'], params['first_name'], params['last_name'])))
+        redirect(loginPresenter.vk(loginService.vk(params['uid'], params['hash'], params['first_name'], params['last_name'], false)))
     }
     /**
      * The redirect action for Ajax requests.

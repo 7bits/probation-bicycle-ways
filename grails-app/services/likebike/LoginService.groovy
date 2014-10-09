@@ -1,6 +1,10 @@
 package likebike
 
+import grails.converters.JSON
 import grails.util.Holders
+import groovyx.net.http.HTTPBuilder
+import groovyx.net.http.Method
+import groovyx.net.http.ContentType
 import org.springframework.context.i18n.LocaleContextHolder
 
 /**
@@ -9,8 +13,44 @@ import org.springframework.context.i18n.LocaleContextHolder
 class LoginService {
     def springSecurityService
     def messageSource
+    def grailsLinkGenerator
     static final int MAX_NUMBER_OF_IVANS = 100;
 
+    def code(String code){
+        def http = new HTTPBuilder( 'https://oauth.vk.com' )
+        def String appUrl = grailsLinkGenerator.link( action: 'code', controller:'login', absolute:true)
+        // perform a GET request, expecting JSON response data
+        def accessToken
+        def uid
+        http.request( Method.POST, ContentType.JSON ) {
+
+            uri.path = 'access_token'
+            uri.query = [ client_id:Holders.config.apiId, client_secret: Holders.config.vkSecretKey, code:code, redirect_uri: appUrl]
+            headers.Accept = 'application/json'
+            // response handler for a success response code:
+            response.success = { resp, json ->
+                accessToken = json['access_token']
+                uid = json['user_id']
+            }
+        }
+        def firstName
+        def lastName
+        http = new HTTPBuilder( 'https://api.vk.com/method/' )
+        http.request(Method.POST, ContentType.JSON) {
+            uri.path = 'users.get'
+            uri.query = [user_ids: uid, fields: "first_name,last_name"]
+            headers.Accept = 'application/json'
+            // response handler for a success response code:
+            response.success = { resp, json ->
+                firstName = json['response']['first_name'][0]
+                lastName = json['response']['last_name'][0]
+            }
+            response.failure = { resp ->
+                def a = resp
+            }
+        }
+        vk(uid.toString(), '', firstName, lastName, true)
+    }
     /**
      * Used to authenticate user with his VK account. Should be correspondent to current VK API
      * @param uid user's VK id
@@ -18,11 +58,11 @@ class LoginService {
      * @param firstName First Name of logging user
      * @param lastName Last Name of logging user
      */
-    def vk(String uid, String usersHash, String firstName, String lastName) {
+    def vk(String uid, String usersHash, String firstName, String lastName, boolean checked) {
         String secretKey = Holders.config.vkSecretKey
         String API_ID = Holders.config.apiId
         def ourHash = (API_ID + uid + secretKey).encodeAsMD5()
-        if (usersHash == ourHash) {
+        if ((usersHash!= null && usersHash == ourHash) || (checked!= null && checked==true)) {
             def user = User.findByUid(uid)
             if (!user) {
                 def username = firstName + " " + lastName

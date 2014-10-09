@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletResponse
  */
 class LoginPresenter {
 
+    def code(result) {
+        return [controller: 'home', action: 'index']
+    }
+
     def vk(ivans) {
         if(ivans) {
             return [uri: '/home/?ivans=' + ivans]
