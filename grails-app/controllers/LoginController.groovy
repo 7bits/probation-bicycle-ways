@@ -5,8 +5,9 @@ class LoginController {
     def loginPresenter
     def loginService
 
-    def code(String code){
+    def code = {
 
+        redirect loginPresenter.code(loginService.code(params['code']))
     }
 
     /**
