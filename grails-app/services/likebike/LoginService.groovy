@@ -35,7 +35,7 @@ class LoginService {
                 response = resp
             }
         }
-        vk response
+        vk(response['uid'], response['hash'], response['first_name'], response['last_name'])
     }
     /**
      * Used to authenticate user with his VK account. Should be correspondent to current VK API
