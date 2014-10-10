@@ -102,7 +102,7 @@ X-Requested-With: XMLHttpRequest
 
 #####Request:
 
-`POST /register/register`
+`POST /register/`
 
 ######параметры:
 * username - логин 
@@ -127,3 +127,15 @@ X-Requested-With: XMLHttpRequest
     "status": false
 }
 ```
+
+##VK login redirect URI
+> Позволяет авторизовать пользователя с помощью vk API
+
+#####request
+http://oauth.vk.com/authorize
+
+######параметры:
+* client_id=4512659
+* redirect_uri=*BASE_URL*/login/code
+* display=mobile
+* response_type=code

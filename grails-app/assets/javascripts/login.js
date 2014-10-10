@@ -25,7 +25,7 @@ $( document ).ready(function () {
         e.preventDefault();
         var command = {
             j_username: $('#j_username').val(),
-            j_password: $('#j_password').val(),
+            j_password: $('#j_password').val()
         }
         $('#usernameError')[0].innerHTML = '';
         $('#passwordError')[0].innerHTML = '';
@@ -75,7 +75,7 @@ $( document ).ready(function () {
         $('#password2Error')[0].innerHTML = '';
         $.ajax({
             type: 'POST',
-            url: getUrl() + '/register/register',
+            url: getUrl() + '/register/',
             datatype: JSON,
             data: command,
             complete: function (data) {

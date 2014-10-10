@@ -13,17 +13,17 @@ class BootStrap {
                 def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
                 def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
 
-                def admin = new User(username: 'me', enabled: true, password: 'password', uid: "", email: '')
+                def admin = new User(username: '$ADMIN_USERNAME', enabled: true, password: '$PASSWORD', uid: "", email: '')
                 admin.save(flush: true)
 
                 UserRole.create admin, adminRole, true
 
-                def user1 = new User(username: 'OtherUser', enabled: true, password: '87654321', uid: "", email: '')
+                def user1 = new User(username: '$USERNAME', enabled: true, password: '$PASSWORD', uid: "", email: '')
                 user1.save(flush: true)
 
                 UserRole.create user1, userRole, true
 
-                def user2 = new User(username: 'User', enabled: true, password: '12345678', uid: "", email: '')
+                def user2 = new User(username: '$USERNAME', enabled: true, password: '$PASSWORD', uid: "", email: '')
                 user2.save(flush: true)
 
                 UserRole.create user2, userRole, true
@@ -34,17 +34,17 @@ class BootStrap {
                 def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
                 def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
 
-                def admin = new User(username: 'me', enabled: true, password: 'password', uid: "", email: '')
+                def admin = new User(username: '$ADMIN_USERNAME', enabled: true, password: '$PASSWORD', uid: "", email: '')
                 admin.save(flush: true)
 
                 UserRole.create admin, adminRole, true
 
-                def user1 = new User(username: 'OtherUser', enabled: true, password: '87654321', uid: "", email: '')
+                def user1 = new User(username: '$USERNAME', enabled: true, password: '$PASSWORD', uid: "", email: '')
                 user1.save(flush: true)
 
                 UserRole.create user1, userRole, true
 
-                def user2 = new User(username: 'User', enabled: true, password: '12345678', uid: "", email: '')
+                def user2 = new User(username: '$USERNAME', enabled: true, password: '$PASSWORD', uid: "", email: '')
                 user2.save(flush: true)
 
                 UserRole.create user2, userRole, true
@@ -54,18 +54,19 @@ class BootStrap {
                 def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
                 def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
 
-                def admin = new User(username: 'me', enabled: true, password: 'password', uid: "", email: '')
+                def admin = new User(username: '$ADMIN_USERNAME', enabled: true, password: '$PASSWORD', uid: "", email: '')
                 admin.save(flush: true)
 
                 UserRole.create admin, adminRole, true
 
-                def user1 = new User(username: 'OtherUser', enabled: true, password: '87654321', uid: "", email: '')
+                def user1 = new User(username: '$USERNAME', enabled: true, password: '$PASSWORD', uid: "", email: '')
                 user1.save(flush: true)
 
                 UserRole.create user1, userRole, true
 
-                def user2 = new User(username: 'User', enabled: true, password: '12345678', uid: "", email: '')
+                def user2 = new User(username: '$USERNAME', enabled: true, password: '$PASSWORD', uid: "", email: '')
                 user2.save(flush: true)
+
                 UserRole.create user2, userRole, true
                 grailsCacheManager.getCache('routes')?.clear()
             }

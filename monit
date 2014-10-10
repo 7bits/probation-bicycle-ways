@@ -1,0 +1,8 @@
+set httpd port 2812 and
+use address localhost
+allow localhost
+check host tomcat7 with address localhost
+ stop program = "/etc/init.d/tomcat7 stop"
+ start program = "/etc/init.d/tomcat7 restart"
+ if failed port 8080 and protocol http
+ then start

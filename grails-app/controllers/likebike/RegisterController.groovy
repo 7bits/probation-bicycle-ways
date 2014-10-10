@@ -15,7 +15,7 @@ class RegisterController {
      *  password
      *  password2 password confirmation
      */
-    def register = {
+    def index = {
         RegisterForm form = new RegisterForm(params)
         render registerPresenter.register(registerService.register(form))
         return

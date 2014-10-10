@@ -1,0 +1,1 @@
+0 0 * * * mysqldump -u likebike -pMSsZYR7dMJwYRAC5 likeBike > "/home/velo-user/dumps/likeBBB_$(date).sql"
