@@ -28,10 +28,6 @@
     background-color: #F2F2F2 !important;
 }
 
-#vkwidget2{
-    height: 100px !important;
-}
-
 .log {
     background-color: #F2F2F2;
     margin: 200px auto;
@@ -146,4 +142,8 @@
     width: 500px;
     height: 500px;
     background-color: #ff0000;
+}
+
+.like_body{
+    height:30px;
 }
