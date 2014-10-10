@@ -143,6 +143,7 @@ body {
 
 #mainText {
     margin-left: 150px;
+    text-align-last:;
     font: 18px "Open Sans";
 }
 
@@ -251,8 +252,9 @@ li.cartoonLiText {
 .lineImg {
     margin: 0 auto;
     display: block;
-    /* width: 500px; */
-    /* height: 21px; */
+    width: 670px;
+    padding-left: 30px;
+    height: 27px;
 }
 
 #thisWork {
