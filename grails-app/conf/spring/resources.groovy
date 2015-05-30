@@ -2,7 +2,7 @@ import likebike.presenters.LoginPresenter
 import likebike.presenters.RegisterPresenter
 import likebike.presenters.HomePresenter
 import likebike.presenters.RoutePresenter
-import likebike.presenters.VKPresenter
+import likebike.repository.FileRepository
 
 beans = {
     registerPresenter(RegisterPresenter) {
@@ -11,8 +11,8 @@ beans = {
     }
     routePresenter(RoutePresenter) {
     }
-    vKPresenter(VKPresenter) {
-    }
     loginPresenter(LoginPresenter){
+    }
+    fileRepository(FileRepository){
     }
 }

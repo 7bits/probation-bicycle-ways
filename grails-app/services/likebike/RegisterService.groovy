@@ -2,9 +2,7 @@ package likebike
 
 import grails.util.Holders
 import groovy.text.SimpleTemplateEngine
-import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 import org.codehaus.groovy.grails.plugins.springsecurity.ui.RegistrationCode
-import grails.plugins.springsecurity.ui.RegisterController as spring
 
 class RegisterService {
     def mailService

@@ -8,7 +8,7 @@ import org.xml.sax.SAXParseException
  */
 class FileProcessingJob {
 
-    def fileService
+    def fileRepository
     def grailsCacheManager
     def routeService
 
@@ -22,7 +22,7 @@ class FileProcessingJob {
      * Takes next loaded non-processed file and tries to process it.
      */
     def execute() {
-        def row = fileService.fetchNext();
+        def row = fileRepository.fetchNext();
         if (row != null) {
             File file = File.get(row['id']);
             if (file != null) {

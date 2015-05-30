@@ -39,6 +39,7 @@ grails.project.dependency.resolution = {
         mavenRepo "http://download.java.net/maven/2/"
         mavenRepo "http://repository.jboss.com/maven2/"
         mavenRepo "http://repo.spring.io/milestone/"
+        mavenRepo "https://repo.grails.org/grails/plugins"
     }
 
     dependencies {
@@ -49,7 +50,6 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-
         runtime ":hibernate:$grailsVersion"
         runtime ":jquery:1.8.3"
         runtime ":resources:1.2"

@@ -9,7 +9,7 @@ import org.xml.sax.SAXParseException
  */
 class RouteService {
 
-    def fileService
+    def fileRepository
     def springSecurityService
 
     /**
@@ -31,12 +31,11 @@ class RouteService {
      */
     def fetchProcessed(){
         def user = springSecurityService.getCurrentUser()
-        def id = user?.id
-        if(id) {
-            def rows = fileService.fetchProcessed(id)
+        if(user) {
+            def rows = fileRepository.fetchProcessed(user)
             List filesList = []
             rows.each() {
-                File file = File.findById(it['id'])
+                File file = it
                 filesList << [file.fileName, file.processed]
                 file.userAlert = true
                 file.save(flush: true)

@@ -52,4 +52,8 @@ class LoginController {
     def logout = {
         redirect url: SpringSecurityUtils.securityConfig.logout.filterProcessesUrl
     }
+
+    def denied = {
+        redirect url: SpringSecurityUtils.securityConfig.logout.filterProcessesUrl
+    }
 }

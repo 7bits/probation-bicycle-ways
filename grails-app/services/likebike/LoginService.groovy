@@ -1,6 +1,5 @@
 package likebike
 
-import grails.converters.JSON
 import grails.util.Holders
 import groovyx.net.http.HTTPBuilder
 import groovyx.net.http.Method
@@ -22,16 +21,21 @@ class LoginService {
         // perform a GET request, expecting JSON response data
         def accessToken
         def uid
-        http.request( Method.POST, ContentType.JSON ) {
+        try {
+            http.request(Method.POST, ContentType.JSON) {
 
-            uri.path = 'access_token'
-            uri.query = [ client_id:Holders.config.apiId, client_secret: Holders.config.vkSecretKey, code:code, redirect_uri: appUrl]
-            headers.Accept = 'application/json'
-            // response handler for a success response code:
-            response.success = { resp, json ->
-                accessToken = json['access_token']
-                uid = json['user_id']
+                uri.path = 'access_token'
+                uri.query = [client_id: Holders.config.apiId, client_secret: Holders.config.vkSecretKey, code: code, redirect_uri: appUrl]
+                headers.Accept = 'application/json'
+                // response handler for a success response code:
+                response.success = { resp, json ->
+                    accessToken = json['access_token']
+                    uid = json['user_id']
+                }
             }
+        }
+        catch (Exception e) {
+            a = 1
         }
         def firstName
         def lastName
