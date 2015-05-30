@@ -1,6 +1,5 @@
 package likebike
 
-import grails.plugin.cache.Cacheable
 import grails.plugins.springsecurity.Secured
 
 /**

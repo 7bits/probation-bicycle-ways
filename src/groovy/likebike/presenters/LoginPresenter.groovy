@@ -1,9 +1,6 @@
 package likebike.presenters
 
 import grails.converters.JSON
-import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
-
-import javax.servlet.http.HttpServletResponse
 
 /**
  * Created by roman on 27.09.14.
