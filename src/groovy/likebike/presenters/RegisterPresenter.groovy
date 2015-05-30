@@ -17,8 +17,9 @@ class RegisterPresenter {
         }
         else{
             def out = [:]
+            def messageSource = Holders.applicationContext.getBean("messageSource")
             result.each {
-                out.put(it.field, Holders.applicationContext.getBean("messageSource").getMessage(it, LocaleContextHolder.getLocale()))
+                out.put(it.field, messageSource.getMessage(it, LocaleContextHolder.getLocale()))
             }   //Refactor on your own risk
             out.put('status', false)
             return out as JSON
