@@ -8,6 +8,7 @@ import org.xml.sax.SAXParseException
  * Responsible for all routes activity
  */
 class RouteService {
+    int MAX_FILE_SIZE = 20*1000*1000
 
     def fileRepository
     def springSecurityService
@@ -51,7 +52,7 @@ class RouteService {
      * @return returns false if there is file and it isn't empty and true otherwise
      */
     def loadFile(formFile) {
-        if (formFile && formFile.size) {
+        if (formFile && formFile.size && formFile.size < MAX_FILE_SIZE) {
             File file = new likebike.File()
             file.user = springSecurityService.getCurrentUser()
             file.userAlert = false

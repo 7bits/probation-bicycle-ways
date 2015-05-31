@@ -39,9 +39,10 @@ function pullProcessed() {
                             success.push(list[i][0])
                         }
                     }
-                    if(success.length)
+                    if(success.length) {
                         $.notify(successMessage + success, "success");
                         drawRoutes(viewMode);
+                    }
                     if(error.length)
                         $.notify(errorMessage + error, "error");
                 }
