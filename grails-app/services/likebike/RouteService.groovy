@@ -86,13 +86,14 @@ class RouteService {
      * @param user id of user which is uploader of this file.
      * @throws SAXParseException if there is error in xml structure
      */
-    void loadFromFile(String xml, user) throws SAXParseException {
+    boolean loadFromFile(String xml, user) throws SAXParseException {
         def data = new XmlParser().parseText(xml)
 
         Route route = new Route()
         route.user = user
         route.name = data.trk.name.text()
         route.save()
+        def parsed = false
         for (int i = 0; data.trk.trkseg.trkpt[i] != null; i++) {
             Point point = new Point()
             point.latitude = data.trk.trkseg.trkpt[i].attributes().lat.toDouble()
@@ -100,7 +101,9 @@ class RouteService {
             point.routeIndex = i
             point.route = route
             point.save(flush: true)
+            parsed = true
         }
+        return (parsed)
     }
 
     /**

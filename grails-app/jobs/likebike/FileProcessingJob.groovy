@@ -28,9 +28,14 @@ class FileProcessingJob {
             if (file != null) {
                 try {
                     String xmlData = new java.io.File(Holders.config.pathToUsersFiles + file.id + ".userfile").text
-                    routeService.loadFromFile(xmlData, User.get(file.user.id))
-                    grailsCacheManager.getCache('routes')?.clear()
-                    file.processed = File.PROCESSED_WITH_SUCCESS;
+                    def processed = routeService.loadFromFile(xmlData, User.get(file.user.id))
+                    if(processed) {
+                        grailsCacheManager.getCache('routes')?.clear()
+                        file.processed = File.PROCESSED_WITH_SUCCESS;
+                    }
+                    else{
+                        file.processed = File.PROCESSED_WITH_ERROR;
+                    }
                 }
                 catch (SAXParseException ex) {
                     file.processed = File.PROCESSED_WITH_ERROR;
