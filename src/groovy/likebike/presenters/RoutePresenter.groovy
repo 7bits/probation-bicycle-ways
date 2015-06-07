@@ -21,8 +21,12 @@ class RoutePresenter {
      */
     def fetchProcessed(result){
         def messageSource = Holders.applicationContext.getBean("messageSource")
-        def out = [successMessage: messageSource.getMessage('route.getProcessed.successMessage', null, LocaleContextHolder.getLocale()),
-         errorMessage: messageSource.getMessage('route.getProcessed.errorMessage', null, LocaleContextHolder.getLocale()),
+        def out = [successMessage: messageSource.getMessage('route.getProcessed.successMessage',\
+                                                            null,\
+                                                            LocaleContextHolder.getLocale()),
+         errorMessage: messageSource.getMessage('route.getProcessed.errorMessage',\
+                                                null,\
+                                                LocaleContextHolder.getLocale()),
          list: result]
         return out as JSON
     }
