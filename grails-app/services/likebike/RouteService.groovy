@@ -9,6 +9,7 @@ import org.xml.sax.SAXParseException
  */
 class RouteService {
     int MAX_FILE_SIZE = 20*1000*1000
+    string NO_USER_ERROR = 'no user'
 
     def fileRepository
     def springSecurityService
@@ -43,7 +44,7 @@ class RouteService {
             }
             return filesList
         }
-        return ['error':'no user']
+        return ['error': NO_USER_ERROR]
     }
 
     /**
